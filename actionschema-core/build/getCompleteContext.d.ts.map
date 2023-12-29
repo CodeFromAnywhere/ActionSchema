@@ -1,0 +1,1 @@
+{"version":3,"file":"getCompleteContext.d.ts","sourceRoot":"","sources":["../src/getCompleteContext.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,CAAC,EAAE,MAAM,SAAS,CAAC;AAE5B,eAAO,MAAM,kBAAkB,YAAa;IAC1C,GAAG,EAAE,CAAC,CAAC;IACP,aAAa,EAAE,CAAC,GAAG,SAAS,CAAC;IAC7B,WAAW,EAAE,MAAM,CAAC;IACpB,mBAAmB,EAAE,MAAM,CAAC;CAC7B;;;;;CA0BA,CAAC"}

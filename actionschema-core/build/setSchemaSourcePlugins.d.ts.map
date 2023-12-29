@@ -1,0 +1,1 @@
+{"version":3,"file":"setSchemaSourcePlugins.d.ts","sourceRoot":"","sources":["../src/setSchemaSourcePlugins.ts"],"names":[],"mappings":"AAAA,OAAO,EAEL,uBAAuB,EACxB,MAAM,wBAAwB,CAAC;AAChC,OAAO,EAAE,eAAe,EAA0B,MAAM,gBAAgB,CAAC;AAOzE;;EAEE;AACF,eAAO,MAAM,sBAAsB;cACxB,eAAe,GAAG;QACzB,mBAAmB,EAAE,MAAM,CAAC;QAC5B,OAAO,EAAE,uBAAuB,EAAE,CAAC;KACpC;;;;;;;;;;CAwCF,CAAC"}

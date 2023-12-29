@@ -1,0 +1,50 @@
+{
+  "name": "actionschema-homeserver",
+  "module": "src/index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/node-cron": "^3.0.8",
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@types/showdown": "^2.0.1",
+    "@types/ua-parser-js": "^0.7.36",
+    "@types/web": "^0.0.111",
+    "bun-types": "latest",
+    "react-refresh": "0.10.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "dev": "node --max-old-space-size=1536 build/hono-node.cli.js",
+    "dev2": "node --inspect --max-old-space-size=1536 build/hono-node.cli.js",
+    "start": "NODE_ENV=production node --max-old-space-size=1536 build/hono-node.cli.js",
+    "prod": "NODE_ENV=production pm2 start npm --name 'bun-server' -- start",
+    "build": "tsc",
+    "hot": "WATCHMODE=true bun --hot src/server.cli.ts",
+    "watch": "WATCHMODE=true bun --watch src/runServer.cli.ts",
+    "compile": "bun build ./src/server.cli.ts --compile --outfile server",
+    "restart": "NODE_ENV=production pm2 restart bun-server",
+    "cluster": "NODE_ENV=production pm2 start node -i 0 --name \"bun-server\" -- start"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.1.1",
+    "hono": "^3.5.6",
+    "markdown-to-html": "^0.0.13",
+    "node-cron": "^3.0.2",
+    "node-html-markdown": "^1.3.0",
+    "pkg": "^5.8.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "^0.72.3",
+    "showdown": "^2.1.0",
+    "sirv": "^2.0.3",
+    "web-vitals": "^3.0.3"
+  },
+  "operation": {
+    "lastRebuildAt": 1703778651549,
+    "isBuildSuccessful": true
+  },
+  "main": "build/index.js"
+}

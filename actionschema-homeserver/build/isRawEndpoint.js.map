@@ -1,0 +1,1 @@
+{"version":3,"file":"isRawEndpoint.js","sourceRoot":"","sources":["../src/isRawEndpoint.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,QAAQ,CAAC;AACxC,MAAM,CAAC,MAAM,aAAa,GAAG,CAAC,YAAoB,EAAE,EAAE;IACpD,OAAO,YAAY,CAAC,QAAQ,CAAC,cAAc,CAAC,2BAA2B,CAAC,CAAC;AAC3E,CAAC,CAAC"}

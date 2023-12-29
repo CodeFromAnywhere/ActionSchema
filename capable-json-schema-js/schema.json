@@ -1,0 +1,3486 @@
+[
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "NamedParameters<typeof getIndexFromId>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getIndexFromId%3E",
+      "definitions": {
+        "NamedParameters<typeof getIndexFromId>": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "NamedParameters<typeof addLeadingZeros>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20addLeadingZeros%3E",
+      "definitions": {
+        "NamedParameters<typeof addLeadingZeros>": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "NamedParameters<typeof generateActionSchemaId>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20generateActionSchemaId%3E",
+      "definitions": {
+        "NamedParameters<typeof generateActionSchemaId>": {
+          "type": "object",
+          "properties": {
+            "startIndex": {
+              "type": "number"
+            },
+            "index": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "startIndex",
+            "index"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "ActionSchemaPrivacy",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaPrivacy",
+      "definitions": {
+        "ActionSchemaPrivacy": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "ActionSchemaStatus",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaStatus",
+      "definitions": {
+        "ActionSchemaStatus": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "waiting",
+            "busy",
+            "done"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "GridSpending",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/GridSpending",
+      "definitions": {
+        "GridSpending": {
+          "type": "object",
+          "properties": {
+            "priceCredit": {
+              "type": "number"
+            },
+            "calculationsAmount": {
+              "type": "number"
+            },
+            "priceCreditSinceLastEdit": {
+              "type": "number"
+            },
+            "calculationsAmountSinceLastEdit": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "NB: the priceCredit here has already taken the cost multiplier into account!"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "PublicTable",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/PublicTable",
+      "definitions": {
+        "PublicTable": {
+          "type": "object",
+          "properties": {
+            "isPinned": {
+              "type": "boolean"
+            },
+            "createdAt": {
+              "type": "number"
+            },
+            "category": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "number"
+            },
+            "projectRelativePath": {
+              "type": "string"
+            },
+            "schemaDescription": {
+              "type": "string"
+            },
+            "pluginsAmount": {
+              "type": "number"
+            },
+            "itemsAmount": {
+              "type": "number"
+            },
+            "projectSizeBytes": {
+              "type": "number"
+            },
+            "totalSpending": {
+              "$ref": "#/definitions/GridSpending"
+            },
+            "columnSpending": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/GridSpending"
+              }
+            }
+          },
+          "required": [
+            "isPinned",
+            "createdAt",
+            "projectRelativePath",
+            "pluginsAmount",
+            "itemsAmount"
+          ],
+          "additionalProperties": false
+        },
+        "GridSpending": {
+          "type": "object",
+          "properties": {
+            "priceCredit": {
+              "type": "number"
+            },
+            "calculationsAmount": {
+              "type": "number"
+            },
+            "priceCreditSinceLastEdit": {
+              "type": "number"
+            },
+            "calculationsAmountSinceLastEdit": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "NB: the priceCredit here has already taken the cost multiplier into account!"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "JsonArray",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/JsonArray",
+      "definitions": {
+        "JsonArray": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "privacy": {
+              "$ref": "#/definitions/ActionSchemaPrivacy",
+              "description": "Defaults to \"unlisted\" for new tables and \"private\" for imported tables"
+            },
+            "category": {
+              "type": "string",
+              "description": "can be filled by user"
+            },
+            "rowGenerationStatus": {
+              "$ref": "#/definitions/ActionSchemaStatus",
+              "description": "status indicating whether or not rows are being generated"
+            },
+            "status": {
+              "$ref": "#/definitions/JsonArrayStatus",
+              "description": "State concerning the status of (re)calculation behavior"
+            },
+            "lastOperationAt": {
+              "type": "number"
+            },
+            "lastSizeCalculatedAt": {
+              "type": "number"
+            },
+            "projectSizeBytes": {
+              "type": "number"
+            },
+            "delta": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JsonStatusDelta"
+              }
+            },
+            "columnSpending": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/GridSpending"
+              },
+              "description": "to keep track of spending"
+            },
+            "totalSpending": {
+              "$ref": "#/definitions/GridSpending"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/O"
+              }
+            }
+          },
+          "required": [
+            "$schema",
+            "items"
+          ]
+        },
+        "ActionSchemaPrivacy": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ]
+        },
+        "ActionSchemaStatus": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "waiting",
+            "busy",
+            "done"
+          ]
+        },
+        "JsonArrayStatus": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/ActionSchemaStatus"
+                    },
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "JsonStatusDelta": {
+          "type": "object",
+          "properties": {
+            "rowId": {
+              "type": "string"
+            },
+            "propertyKey": {
+              "type": "string"
+            },
+            "isSourcePluginUpdate": {
+              "type": "boolean",
+              "description": "This indicates the newValue contains an array of items. Should be done and awaited first if this is the case."
+            },
+            "newStatus": {
+              "$ref": "#/definitions/ActionSchemaStatus"
+            },
+            "newValue": {}
+          },
+          "required": [
+            "newStatus"
+          ],
+          "additionalProperties": false,
+          "description": "To be kept in the db\n\nTo be fetched every 1 second if the user is in the file. Is reset every time it is requested, and the delta transforms cell values one by one.\n\nNeeded in order to not require to do any refetches when things are loading, while showing loading indicators right."
+        },
+        "GridSpending": {
+          "type": "object",
+          "properties": {
+            "priceCredit": {
+              "type": "number"
+            },
+            "calculationsAmount": {
+              "type": "number"
+            },
+            "priceCreditSinceLastEdit": {
+              "type": "number"
+            },
+            "calculationsAmountSinceLastEdit": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "NB: the priceCredit here has already taken the cost multiplier into account!"
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "ActionSchemaDb",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaDb",
+      "definitions": {
+        "ActionSchemaDb": {
+          "type": "object",
+          "properties": {
+            "privacy": {
+              "$ref": "#/definitions/ActionSchemaPrivacy",
+              "description": "Defaults to \"unlisted\" for new tables and \"private\" for imported tables"
+            },
+            "category": {
+              "type": "string",
+              "description": "can be filled by user"
+            },
+            "rowGenerationStatus": {
+              "$ref": "#/definitions/ActionSchemaStatus",
+              "description": "status indicating whether or not rows are being generated"
+            },
+            "status": {
+              "$ref": "#/definitions/JsonArrayStatus",
+              "description": "State concerning the status of (re)calculation behavior"
+            },
+            "lastOperationAt": {
+              "type": "number"
+            },
+            "lastSizeCalculatedAt": {
+              "type": "number"
+            },
+            "projectSizeBytes": {
+              "type": "number"
+            },
+            "delta": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JsonStatusDelta"
+              }
+            },
+            "columnSpending": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/GridSpending"
+              },
+              "description": "to keep track of spending"
+            },
+            "totalSpending": {
+              "$ref": "#/definitions/GridSpending"
+            }
+          },
+          "additionalProperties": false,
+          "description": "key values for lmdb"
+        },
+        "ActionSchemaPrivacy": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ]
+        },
+        "ActionSchemaStatus": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "waiting",
+            "busy",
+            "done"
+          ]
+        },
+        "JsonArrayStatus": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/ActionSchemaStatus"
+                    },
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "JsonStatusDelta": {
+          "type": "object",
+          "properties": {
+            "rowId": {
+              "type": "string"
+            },
+            "propertyKey": {
+              "type": "string"
+            },
+            "isSourcePluginUpdate": {
+              "type": "boolean",
+              "description": "This indicates the newValue contains an array of items. Should be done and awaited first if this is the case."
+            },
+            "newStatus": {
+              "$ref": "#/definitions/ActionSchemaStatus"
+            },
+            "newValue": {}
+          },
+          "required": [
+            "newStatus"
+          ],
+          "additionalProperties": false,
+          "description": "To be kept in the db\n\nTo be fetched every 1 second if the user is in the file. Is reset every time it is requested, and the delta transforms cell values one by one.\n\nNeeded in order to not require to do any refetches when things are loading, while showing loading indicators right."
+        },
+        "GridSpending": {
+          "type": "object",
+          "properties": {
+            "priceCredit": {
+              "type": "number"
+            },
+            "calculationsAmount": {
+              "type": "number"
+            },
+            "priceCreditSinceLastEdit": {
+              "type": "number"
+            },
+            "calculationsAmountSinceLastEdit": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "NB: the priceCredit here has already taken the cost multiplier into account!"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "JsonArrayStatus",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/JsonArrayStatus",
+      "definitions": {
+        "JsonArrayStatus": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/ActionSchemaStatus"
+                    },
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "ActionSchemaStatus": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "waiting",
+            "busy",
+            "done"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "name": "JsonStatusDelta",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/JsonArray.ts",
+    "operationRelativePath": "src/JsonArray.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/JsonStatusDelta",
+      "definitions": {
+        "JsonStatusDelta": {
+          "type": "object",
+          "properties": {
+            "rowId": {
+              "type": "string"
+            },
+            "propertyKey": {
+              "type": "string"
+            },
+            "isSourcePluginUpdate": {
+              "type": "boolean",
+              "description": "This indicates the newValue contains an array of items. Should be done and awaited first if this is the case."
+            },
+            "newStatus": {
+              "$ref": "#/definitions/ActionSchemaStatus"
+            },
+            "newValue": {}
+          },
+          "required": [
+            "newStatus"
+          ],
+          "additionalProperties": false,
+          "description": "To be kept in the db\n\nTo be fetched every 1 second if the user is in the file. Is reset every time it is requested, and the delta transforms cell values one by one.\n\nNeeded in order to not require to do any refetches when things are loading, while showing loading indicators right."
+        },
+        "ActionSchemaStatus": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "waiting",
+            "busy",
+            "done"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/findVariables.ts",
+    "name": "NamedParameters<typeof findVariables>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/findVariables.ts",
+    "operationRelativePath": "src/findVariables.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20findVariables%3E",
+      "definitions": {
+        "NamedParameters<typeof findVariables>": {
+          "type": "object",
+          "properties": {
+            "stringLiteral": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stringLiteral"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/replaceVariables.ts",
+    "name": "NamedParameters<typeof replaceVariables>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/replaceVariables.ts",
+    "operationRelativePath": "src/replaceVariables.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20replaceVariables%3E",
+      "definitions": {
+        "NamedParameters<typeof replaceVariables>": {
+          "type": "object",
+          "properties": {
+            "stringLiteral": {
+              "type": "string"
+            },
+            "row": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "stringLiteral",
+            "row"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/isExecuteRequired.ts",
+    "name": "NamedParameters<typeof isExecuteRequired>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/isExecuteRequired.ts",
+    "operationRelativePath": "src/isExecuteRequired.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20isExecuteRequired%3E",
+      "definitions": {
+        "NamedParameters<typeof isExecuteRequired>": {
+          "type": "object",
+          "properties": {
+            "row": {
+              "$ref": "#/definitions/O"
+            },
+            "propertyKey": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "recalculate",
+                "only-empty"
+              ]
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean"
+            },
+            "condition": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "propertyKey",
+            "mode"
+          ],
+          "additionalProperties": false
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/getValidJsonArrayFile.ts",
+    "name": "NamedParameters<typeof getValidJsonArrayFile>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/getValidJsonArrayFile.ts",
+    "operationRelativePath": "src/getValidJsonArrayFile.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getValidJsonArrayFile%3E",
+      "definitions": {
+        "NamedParameters<typeof getValidJsonArrayFile>": {
+          "type": "object",
+          "properties": {
+            "json": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/Json"
+                },
+                {
+                  "$ref": "#/definitions/JsonArray"
+                }
+              ]
+            }
+          },
+          "required": [
+            "json"
+          ],
+          "additionalProperties": false
+        },
+        "Json": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/Json"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Json"
+              }
+            }
+          ]
+        },
+        "JsonArray": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "privacy": {
+              "$ref": "#/definitions/ActionSchemaPrivacy",
+              "description": "Defaults to \"unlisted\" for new tables and \"private\" for imported tables"
+            },
+            "category": {
+              "type": "string",
+              "description": "can be filled by user"
+            },
+            "rowGenerationStatus": {
+              "$ref": "#/definitions/ActionSchemaStatus",
+              "description": "status indicating whether or not rows are being generated"
+            },
+            "status": {
+              "$ref": "#/definitions/JsonArrayStatus",
+              "description": "State concerning the status of (re)calculation behavior"
+            },
+            "lastOperationAt": {
+              "type": "number"
+            },
+            "lastSizeCalculatedAt": {
+              "type": "number"
+            },
+            "projectSizeBytes": {
+              "type": "number"
+            },
+            "delta": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JsonStatusDelta"
+              }
+            },
+            "columnSpending": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/GridSpending"
+              },
+              "description": "to keep track of spending"
+            },
+            "totalSpending": {
+              "$ref": "#/definitions/GridSpending"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/O"
+              }
+            }
+          },
+          "required": [
+            "$schema",
+            "items"
+          ]
+        },
+        "ActionSchemaPrivacy": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ]
+        },
+        "ActionSchemaStatus": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "waiting",
+            "busy",
+            "done"
+          ]
+        },
+        "JsonArrayStatus": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/ActionSchemaStatus"
+                    },
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "JsonStatusDelta": {
+          "type": "object",
+          "properties": {
+            "rowId": {
+              "type": "string"
+            },
+            "propertyKey": {
+              "type": "string"
+            },
+            "isSourcePluginUpdate": {
+              "type": "boolean",
+              "description": "This indicates the newValue contains an array of items. Should be done and awaited first if this is the case."
+            },
+            "newStatus": {
+              "$ref": "#/definitions/ActionSchemaStatus"
+            },
+            "newValue": {}
+          },
+          "required": [
+            "newStatus"
+          ],
+          "additionalProperties": false,
+          "description": "To be kept in the db\n\nTo be fetched every 1 second if the user is in the file. Is reset every time it is requested, and the delta transforms cell values one by one.\n\nNeeded in order to not require to do any refetches when things are loading, while showing loading indicators right."
+        },
+        "GridSpending": {
+          "type": "object",
+          "properties": {
+            "priceCredit": {
+              "type": "number"
+            },
+            "calculationsAmount": {
+              "type": "number"
+            },
+            "priceCreditSinceLastEdit": {
+              "type": "number"
+            },
+            "calculationsAmountSinceLastEdit": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "NB: the priceCredit here has already taken the cost multiplier into account!"
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/getArrayCapableJsonSchema.ts",
+    "name": "NamedParameters<typeof getArrayCapableJsonSchema>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/getArrayCapableJsonSchema.ts",
+    "operationRelativePath": "src/getArrayCapableJsonSchema.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getArrayCapableJsonSchema%3E",
+      "definitions": {
+        "NamedParameters<typeof getArrayCapableJsonSchema>": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "CapableJsonSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "creationPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchemaPlugin"
+              },
+              "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "$ref": {
+              "type": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/JSONSchema7TypeName"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/JSONSchema7TypeName"
+                  }
+                }
+              ]
+            },
+            "enum": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            "const": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "multipleOf": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": "number"
+            },
+            "maxLength": {
+              "type": "number"
+            },
+            "minLength": {
+              "type": "number"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  }
+                }
+              ]
+            },
+            "additionalItems": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxItems": {
+              "type": "number"
+            },
+            "minItems": {
+              "type": "number"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "contains": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxProperties": {
+              "type": "number"
+            },
+            "minProperties": {
+              "type": "number"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "if": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "then": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "else": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "anyOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "oneOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "not": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "default": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "$ref": "#/definitions/ActionSchemaExamples",
+              "description": "examples are customisable"
+            }
+          },
+          "description": "Sideset of `JSONSchema7` that is intended to make a JSONSchema that is aware of how it's data can be generated.\n\nGoal: a lossy deterministic-approaching way to define datastructures that can regenerate all data inside it.\n\n- redefines \"examples\"\n- for arrays and objectparameters, adds creationPlugins\n- for object parameters, adds validationPlugins and visibility"
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        },
+        "JSONSchema7TypeName": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "description": "Primitive type"
+        },
+        "JSONSchema7Type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Primitive type"
+        },
+        "ActionSchemaExamples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {}
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Examples of the value of this property. typed as any, but of course this must be the same type as the value defined in the schema here\n\nNB: overwrites examples of JSONSchema (https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-01#section-10.4)"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "name": "JSONSchema7Type",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "operationRelativePath": "src/CapableJsonSchema.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/JSONSchema7Type",
+      "definitions": {
+        "JSONSchema7Type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Primitive type"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "name": "CapableJsonSchema",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "operationRelativePath": "src/CapableJsonSchema.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/CapableJsonSchema",
+      "definitions": {
+        "CapableJsonSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "creationPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchemaPlugin"
+              },
+              "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "$ref": {
+              "type": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/JSONSchema7TypeName"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/JSONSchema7TypeName"
+                  }
+                }
+              ]
+            },
+            "enum": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            "const": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "multipleOf": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": "number"
+            },
+            "maxLength": {
+              "type": "number"
+            },
+            "minLength": {
+              "type": "number"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  }
+                }
+              ]
+            },
+            "additionalItems": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxItems": {
+              "type": "number"
+            },
+            "minItems": {
+              "type": "number"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "contains": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxProperties": {
+              "type": "number"
+            },
+            "minProperties": {
+              "type": "number"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "if": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "then": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "else": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "anyOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "oneOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "not": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "default": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "$ref": "#/definitions/ActionSchemaExamples",
+              "description": "examples are customisable"
+            }
+          },
+          "description": "Sideset of `JSONSchema7` that is intended to make a JSONSchema that is aware of how it's data can be generated.\n\nGoal: a lossy deterministic-approaching way to define datastructures that can regenerate all data inside it.\n\n- redefines \"examples\"\n- for arrays and objectparameters, adds creationPlugins\n- for object parameters, adds validationPlugins and visibility"
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        },
+        "JSONSchema7TypeName": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "description": "Primitive type"
+        },
+        "JSONSchema7Type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Primitive type"
+        },
+        "ActionSchemaExamples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {}
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Examples of the value of this property. typed as any, but of course this must be the same type as the value defined in the schema here\n\nNB: overwrites examples of JSONSchema (https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-01#section-10.4)"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "name": "MainCapableJsonSchema",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "operationRelativePath": "src/CapableJsonSchema.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/MainCapableJsonSchema",
+      "definitions": {
+        "MainCapableJsonSchema": {
+          "type": "object",
+          "properties": {
+            "$schema": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "$schema": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "creationPlugins": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/CapableJsonSchemaPlugin"
+                      },
+                      "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "properties": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "$ref": "#/definitions/CapableJsonSchema"
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "properties"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "type"
+                  ]
+                }
+              },
+              "required": [
+                "$schema",
+                "items"
+              ],
+              "additionalProperties": false
+            },
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "$schema",
+            "type",
+            "properties"
+          ],
+          "additionalProperties": false,
+          "description": "Properties a capable json schema must certainly have at its root"
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        },
+        "CapableJsonSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "creationPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchemaPlugin"
+              },
+              "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "$ref": {
+              "type": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/JSONSchema7TypeName"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/JSONSchema7TypeName"
+                  }
+                }
+              ]
+            },
+            "enum": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            "const": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "multipleOf": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": "number"
+            },
+            "maxLength": {
+              "type": "number"
+            },
+            "minLength": {
+              "type": "number"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  }
+                }
+              ]
+            },
+            "additionalItems": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxItems": {
+              "type": "number"
+            },
+            "minItems": {
+              "type": "number"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "contains": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxProperties": {
+              "type": "number"
+            },
+            "minProperties": {
+              "type": "number"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "if": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "then": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "else": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "anyOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "oneOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "not": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "default": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "$ref": "#/definitions/ActionSchemaExamples",
+              "description": "examples are customisable"
+            }
+          },
+          "description": "Sideset of `JSONSchema7` that is intended to make a JSONSchema that is aware of how it's data can be generated.\n\nGoal: a lossy deterministic-approaching way to define datastructures that can regenerate all data inside it.\n\n- redefines \"examples\"\n- for arrays and objectparameters, adds creationPlugins\n- for object parameters, adds validationPlugins and visibility"
+        },
+        "JSONSchema7TypeName": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "description": "Primitive type"
+        },
+        "JSONSchema7Type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Primitive type"
+        },
+        "ActionSchemaExamples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {}
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Examples of the value of this property. typed as any, but of course this must be the same type as the value defined in the schema here\n\nNB: overwrites examples of JSONSchema (https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-01#section-10.4)"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "name": "ActionSchemaExamples",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "operationRelativePath": "src/CapableJsonSchema.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaExamples",
+      "definitions": {
+        "ActionSchemaExamples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {}
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Examples of the value of this property. typed as any, but of course this must be the same type as the value defined in the schema here\n\nNB: overwrites examples of JSONSchema (https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-01#section-10.4)"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "name": "CapableJsonSchemaObjectItem",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/CapableJsonSchema.ts",
+    "operationRelativePath": "src/CapableJsonSchema.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/CapableJsonSchemaObjectItem",
+      "definitions": {
+        "CapableJsonSchemaObjectItem": {
+          "type": "object",
+          "properties": {
+            "creationPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchemaPlugin"
+              },
+              "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+            }
+          },
+          "additionalProperties": false
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/CapableJsonSchemaPlugin.ts",
+    "name": "PluginOpenapiDetails",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/CapableJsonSchemaPlugin.ts",
+    "operationRelativePath": "src/CapableJsonSchemaPlugin.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/PluginOpenapiDetails",
+      "definitions": {
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/CapableJsonSchemaPlugin.ts",
+    "name": "CapableJsonSchemaPlugin",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/CapableJsonSchemaPlugin.ts",
+    "operationRelativePath": "src/CapableJsonSchemaPlugin.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/CapableJsonSchemaPlugin",
+      "definitions": {
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/getCapableJsonSchemaProperties.ts",
+    "name": "NamedParameters<typeof getCapableJsonSchemaProperties>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/getCapableJsonSchemaProperties.ts",
+    "operationRelativePath": "src/getCapableJsonSchemaProperties.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getCapableJsonSchemaProperties%3E",
+      "definitions": {
+        "NamedParameters<typeof getCapableJsonSchemaProperties>": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "CapableJsonSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "creationPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchemaPlugin"
+              },
+              "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "$ref": {
+              "type": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/JSONSchema7TypeName"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/JSONSchema7TypeName"
+                  }
+                }
+              ]
+            },
+            "enum": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            "const": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "multipleOf": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": "number"
+            },
+            "maxLength": {
+              "type": "number"
+            },
+            "minLength": {
+              "type": "number"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  }
+                }
+              ]
+            },
+            "additionalItems": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxItems": {
+              "type": "number"
+            },
+            "minItems": {
+              "type": "number"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "contains": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxProperties": {
+              "type": "number"
+            },
+            "minProperties": {
+              "type": "number"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "if": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "then": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "else": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "anyOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "oneOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "not": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "default": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "$ref": "#/definitions/ActionSchemaExamples",
+              "description": "examples are customisable"
+            }
+          },
+          "description": "Sideset of `JSONSchema7` that is intended to make a JSONSchema that is aware of how it's data can be generated.\n\nGoal: a lossy deterministic-approaching way to define datastructures that can regenerate all data inside it.\n\n- redefines \"examples\"\n- for arrays and objectparameters, adds creationPlugins\n- for object parameters, adds validationPlugins and visibility"
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        },
+        "JSONSchema7TypeName": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "description": "Primitive type"
+        },
+        "JSONSchema7Type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Primitive type"
+        },
+        "ActionSchemaExamples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {}
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Examples of the value of this property. typed as any, but of course this must be the same type as the value defined in the schema here\n\nNB: overwrites examples of JSONSchema (https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-01#section-10.4)"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/open-source/capable-json-schema-js/src/getMermaidVisualisationCode.ts",
+    "name": "NamedParameters<typeof getMermaidVisualisationCode>",
+    "absolutePath": "/Users/king/os/packages/open-source/capable-json-schema-js/src/getMermaidVisualisationCode.ts",
+    "operationRelativePath": "src/getMermaidVisualisationCode.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getMermaidVisualisationCode%3E",
+      "definitions": {
+        "NamedParameters<typeof getMermaidVisualisationCode>": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "$ref": "#/definitions/MainCapableJsonSchema"
+            }
+          },
+          "required": [
+            "schema"
+          ],
+          "additionalProperties": false
+        },
+        "MainCapableJsonSchema": {
+          "type": "object",
+          "properties": {
+            "$schema": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "$schema": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "creationPlugins": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/CapableJsonSchemaPlugin"
+                      },
+                      "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "properties": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "$ref": "#/definitions/CapableJsonSchema"
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "properties"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "type"
+                  ]
+                }
+              },
+              "required": [
+                "$schema",
+                "items"
+              ],
+              "additionalProperties": false
+            },
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "$schema",
+            "type",
+            "properties"
+          ],
+          "additionalProperties": false,
+          "description": "Properties a capable json schema must certainly have at its root"
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        },
+        "CapableJsonSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "creationPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchemaPlugin"
+              },
+              "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "$ref": {
+              "type": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/JSONSchema7TypeName"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/JSONSchema7TypeName"
+                  }
+                }
+              ]
+            },
+            "enum": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            "const": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "multipleOf": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": "number"
+            },
+            "maxLength": {
+              "type": "number"
+            },
+            "minLength": {
+              "type": "number"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  }
+                }
+              ]
+            },
+            "additionalItems": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxItems": {
+              "type": "number"
+            },
+            "minItems": {
+              "type": "number"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "contains": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxProperties": {
+              "type": "number"
+            },
+            "minProperties": {
+              "type": "number"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "if": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "then": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "else": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "anyOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "oneOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "not": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "default": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "$ref": "#/definitions/ActionSchemaExamples",
+              "description": "examples are customisable"
+            }
+          },
+          "description": "Sideset of `JSONSchema7` that is intended to make a JSONSchema that is aware of how it's data can be generated.\n\nGoal: a lossy deterministic-approaching way to define datastructures that can regenerate all data inside it.\n\n- redefines \"examples\"\n- for arrays and objectparameters, adds creationPlugins\n- for object parameters, adds validationPlugins and visibility"
+        },
+        "JSONSchema7TypeName": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "description": "Primitive type"
+        },
+        "JSONSchema7Type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Primitive type"
+        },
+        "ActionSchemaExamples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {}
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Examples of the value of this property. typed as any, but of course this must be the same type as the value defined in the schema here\n\nNB: overwrites examples of JSONSchema (https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-01#section-10.4)"
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,1 @@
+{"version":3,"file":"findAdminTables.d.ts","sourceRoot":"","sources":["../src/findAdminTables.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,eAAe,EAAE,MAAM,gBAAgB,CAAC;AAEjD,OAAO,EAEL,WAAW,EAEZ,MAAM,wBAAwB,CAAC;AAChC,OAAO,EAAE,QAAQ,EAAE,MAAM,YAAY,CAAC;AAOtC,eAAO,MAAM,eAAe,YACjB,eAAe,GAAG;IAAE,SAAS,CAAC,EAAE,QAAQ,EAAE,GAAG,SAAS,CAAA;CAAE,uCAoFlE,CAAC"}

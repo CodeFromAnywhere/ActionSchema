@@ -1,0 +1,1 @@
+{"version":3,"file":"getSchema.d.ts","sourceRoot":"","sources":["../src/getSchema.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,wBAAwB,CAAC;AAE3D,OAAO,EACL,eAAe,EAEf,gBAAgB,EACjB,MAAM,gBAAgB,CAAC;AAKxB,eAAO,MAAM,SAAS;cACX,eAAe,GAAG;QAAE,mBAAmB,CAAC,EAAE,MAAM,CAAA;KAAE;;;;;;;CAuC5D,CAAC"}

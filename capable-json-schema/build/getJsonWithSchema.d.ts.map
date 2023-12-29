@@ -1,0 +1,1 @@
+{"version":3,"file":"getJsonWithSchema.d.ts","sourceRoot":"","sources":["../src/getJsonWithSchema.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,SAAS,EAAE,MAAM,wBAAwB,CAAC;AAGtE,OAAO,EACL,eAAe,EAEf,gBAAgB,EACjB,MAAM,gBAAgB,CAAC;AAMxB,eAAO,MAAM,iBAAiB;cACnB,eAAe,GAAG;QAAE,mBAAmB,CAAC,EAAE,MAAM,CAAA;KAAE;;;;;;;;CAuD5D,CAAC"}

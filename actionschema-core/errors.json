@@ -1,0 +1,10 @@
+[
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/moveObjectKeyToIndex.ts",
+    "name": "NamedParameters<typeof moveObjectKeyToIndex>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/moveObjectKeyToIndex.ts",
+    "operationRelativePath": "src/moveObjectKeyToIndex.ts",
+    "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
+  }
+]

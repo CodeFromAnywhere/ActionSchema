@@ -1,0 +1,1 @@
+{"version":3,"file":"removeSchemaColumn.d.ts","sourceRoot":"","sources":["../src/removeSchemaColumn.ts"],"names":[],"mappings":"AAKA,OAAO,EAAE,eAAe,EAA0B,MAAM,gBAAgB,CAAC;AAOzE;;;;GAIG;AACH,eAAO,MAAM,kBAAkB;cACpB,eAAe,GAAG;QAAE,GAAG,EAAE,MAAM,CAAC;QAAC,mBAAmB,EAAE,MAAM,CAAA;KAAE;;;;;;;;;;CA+CxE,CAAC"}

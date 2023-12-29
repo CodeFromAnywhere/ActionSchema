@@ -1,0 +1,1 @@
+{"version":3,"file":"moveSchemaColumn.d.ts","sourceRoot":"","sources":["../src/moveSchemaColumn.ts"],"names":[],"mappings":"AAKA,OAAO,EAAE,eAAe,EAA0B,MAAM,gBAAgB,CAAC;AAQzE,eAAO,MAAM,gBAAgB;cAClB,eAAe,GAAG;QACzB,GAAG,EAAE,MAAM,CAAC;QACZ,mBAAmB,EAAE,MAAM,CAAC;QAC5B,OAAO,EAAE,MAAM,CAAC;KACjB;;;;;;;;;;CA8CF,CAAC"}

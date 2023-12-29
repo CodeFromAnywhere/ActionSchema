@@ -1,0 +1,2950 @@
+[
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/getAbsoluteSchemaPath.ts",
+    "name": "NamedParameters<typeof getAbsoluteSchemaPath>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/getAbsoluteSchemaPath.ts",
+    "operationRelativePath": "src/getAbsoluteSchemaPath.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getAbsoluteSchemaPath%3E",
+      "definitions": {
+        "NamedParameters<typeof getAbsoluteSchemaPath>": {
+          "type": "object",
+          "properties": {
+            "projectRelativePath": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "projectRelativePath"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/exportLmdbToJson.ts",
+    "name": "NamedParameters<typeof exportLmdbToJson>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/exportLmdbToJson.ts",
+    "operationRelativePath": "src/exportLmdbToJson.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20exportLmdbToJson%3E",
+      "definitions": {
+        "NamedParameters<typeof exportLmdbToJson>": {
+          "type": "object",
+          "properties": {
+            "projectRelativePath": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "projectRelativePath"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/migrateActionschema.test.ts",
+    "name": "NamedParameters<typeof migrate>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/migrateActionschema.test.ts",
+    "operationRelativePath": "src/migrateActionschema.test.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20migrate%3E",
+      "definitions": {
+        "NamedParameters<typeof migrate>": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/addSchemaColumns.ts",
+    "name": "NamedParameters<typeof addSchemaColumns>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/addSchemaColumns.ts",
+    "operationRelativePath": "src/addSchemaColumns.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20addSchemaColumns%3E",
+      "definitions": {
+        "NamedParameters<typeof addSchemaColumns>": {
+          "type": "object",
+          "properties": {
+            "firstItem": {
+              "type": "object"
+            },
+            "projectRelativePath": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "firstItem",
+            "projectRelativePath"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/migrateActionSchemaUrls.test.ts",
+    "name": "NamedParameters<typeof updateCreationPlugin>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/migrateActionSchemaUrls.test.ts",
+    "operationRelativePath": "src/migrateActionSchemaUrls.test.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20updateCreationPlugin%3E",
+      "definitions": {
+        "NamedParameters<typeof updateCreationPlugin>": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/migrateActionSchemaUrls.test.ts",
+    "name": "NamedParameters<typeof migrateActionSchemaUrls>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/migrateActionSchemaUrls.test.ts",
+    "operationRelativePath": "src/migrateActionSchemaUrls.test.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20migrateActionSchemaUrls%3E",
+      "definitions": {
+        "NamedParameters<typeof migrateActionSchemaUrls>": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/plugins/conditionalDestination.ts",
+    "name": "NamedParameters<typeof conditionalDestination>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/plugins/conditionalDestination.ts",
+    "operationRelativePath": "src/plugins/conditionalDestination.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20conditionalDestination%3E",
+      "definitions": {
+        "NamedParameters<typeof conditionalDestination>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "destinationTableName": {
+                  "type": "string",
+                  "description": "the (case-senstive) name of the table you want to push this row to if the condition is met"
+                },
+                "row": {
+                  "$ref": "#/definitions/O",
+                  "description": "Automatically provided"
+                },
+                "previousResult": {
+                  "$ref": "#/definitions/ConditionalDestinationResult",
+                  "description": "Automatically provided"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              }
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "O": {
+          "type": "object"
+        },
+        "ConditionalDestinationResult": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/plugins/getKeyFromObject.ts",
+    "name": "NamedParameters<typeof getKeyFromObject>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/plugins/getKeyFromObject.ts",
+    "operationRelativePath": "src/plugins/getKeyFromObject.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getKeyFromObject%3E",
+      "definitions": {
+        "NamedParameters<typeof getKeyFromObject>": {
+          "type": "object",
+          "properties": {
+            "object": {
+              "type": "object"
+            },
+            "location": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "object",
+            "location"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/plugins/getKeyFromObject.ts",
+    "name": "NamedParameters<typeof getKeyFromObjectPlugin>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/plugins/getKeyFromObject.ts",
+    "operationRelativePath": "src/plugins/getKeyFromObject.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getKeyFromObjectPlugin%3E",
+      "definitions": {
+        "NamedParameters<typeof getKeyFromObjectPlugin>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "properties": {
+                "objectString": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "objectString",
+                "location"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/plugins/calculateTemplate.ts",
+    "name": "NamedParameters<typeof calculateTemplate>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/plugins/calculateTemplate.ts",
+    "operationRelativePath": "src/plugins/calculateTemplate.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20calculateTemplate%3E",
+      "definitions": {
+        "NamedParameters<typeof calculateTemplate>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "row": {
+                  "$ref": "#/definitions/O",
+                  "description": "is given automatically"
+                }
+              },
+              "required": [
+                "description",
+                "row"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/plugins/webhookPlugin.ts",
+    "name": "NamedParameters<typeof webhookPlugin>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/plugins/webhookPlugin.ts",
+    "operationRelativePath": "src/plugins/webhookPlugin.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20webhookPlugin%3E",
+      "definitions": {
+        "NamedParameters<typeof webhookPlugin>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "URL that will receive a POST request with the row up until now"
+                },
+                "authorizationHeader": {
+                  "type": "string",
+                  "description": "If needed, provide an authorization header here, e.g. \"Bearer fskjdksljfkdsjfkldsjfjs\""
+                },
+                "row": {
+                  "$ref": "#/definitions/O",
+                  "description": "Automatically provided"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "url"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/getSchema.ts",
+    "name": "NamedParameters<typeof getSchema>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/getSchema.ts",
+    "operationRelativePath": "src/getSchema.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getSchema%3E",
+      "definitions": {
+        "NamedParameters<typeof getSchema>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              }
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/moveObjectKeyToIndex.ts",
+    "name": "NamedParameters<typeof moveObjectKeyToIndex>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/moveObjectKeyToIndex.ts",
+    "operationRelativePath": "src/moveObjectKeyToIndex.ts",
+    "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/getCompleteContext.ts",
+    "name": "NamedParameters<typeof getCompleteContext>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/getCompleteContext.ts",
+    "operationRelativePath": "src/getCompleteContext.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getCompleteContext%3E",
+      "definitions": {
+        "NamedParameters<typeof getCompleteContext>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "properties": {
+                "row": {
+                  "$ref": "#/definitions/O"
+                },
+                "pluginContext": {
+                  "$ref": "#/definitions/O"
+                },
+                "propertyKey": {
+                  "type": "string"
+                },
+                "projectRelativePath": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "row",
+                "propertyKey",
+                "projectRelativePath"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/executeGridPlugin.ts",
+    "name": "NamedParameters<typeof executeGridPlugin>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/executeGridPlugin.ts",
+    "operationRelativePath": "src/executeGridPlugin.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20executeGridPlugin%3E",
+      "definitions": {
+        "NamedParameters<typeof executeGridPlugin>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "rowIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "mode": {
+                  "type": "string",
+                  "enum": [
+                    "recalculate",
+                    "only-empty"
+                  ]
+                },
+                "propertyKey": {
+                  "type": "string",
+                  "description": "a single property calculation is done for the specified key"
+                },
+                "waitForResult": {
+                  "type": "boolean",
+                  "description": "NB: sometimes needed in case we rely on this result"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "mode",
+                "projectRelativePath",
+                "rowIds"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/getActionSchemaDbPath.ts",
+    "name": "NamedParameters<typeof getActionSchemaDbPath>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/getActionSchemaDbPath.ts",
+    "operationRelativePath": "src/getActionSchemaDbPath.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getActionSchemaDbPath%3E",
+      "definitions": {
+        "NamedParameters<typeof getActionSchemaDbPath>": {
+          "type": "object",
+          "properties": {
+            "absoluteFolderPath": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "absoluteFolderPath"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/migrateAdmin.test.ts",
+    "name": "NamedParameters<typeof migrate>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/migrateAdmin.test.ts",
+    "operationRelativePath": "src/migrateAdmin.test.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20migrate%3E",
+      "definitions": {
+        "NamedParameters<typeof migrate>": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/executeGridEntireRowRecursive.ts",
+    "name": "NamedParameters<typeof executeGridEntireRowRecursive>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/executeGridEntireRowRecursive.ts",
+    "operationRelativePath": "src/executeGridEntireRowRecursive.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20executeGridEntireRowRecursive%3E",
+      "definitions": {
+        "NamedParameters<typeof executeGridEntireRowRecursive>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "rowIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "mode": {
+                  "type": "string",
+                  "enum": [
+                    "recalculate",
+                    "only-empty"
+                  ]
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "mode",
+                "projectRelativePath",
+                "rowIds"
+              ]
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "done": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "started": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "context",
+            "properties",
+            "done",
+            "started"
+          ],
+          "additionalProperties": false
+        },
+        "CapableJsonSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "creationPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchemaPlugin"
+              },
+              "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "$ref": {
+              "type": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/JSONSchema7TypeName"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/JSONSchema7TypeName"
+                  }
+                }
+              ]
+            },
+            "enum": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            "const": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "multipleOf": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": "number"
+            },
+            "maxLength": {
+              "type": "number"
+            },
+            "minLength": {
+              "type": "number"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  }
+                }
+              ]
+            },
+            "additionalItems": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxItems": {
+              "type": "number"
+            },
+            "minItems": {
+              "type": "number"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "contains": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxProperties": {
+              "type": "number"
+            },
+            "minProperties": {
+              "type": "number"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "if": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "then": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "else": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "anyOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "oneOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "not": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "default": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "$ref": "#/definitions/ActionSchemaExamples",
+              "description": "examples are customisable"
+            }
+          },
+          "description": "Sideset of `JSONSchema7` that is intended to make a JSONSchema that is aware of how it's data can be generated.\n\nGoal: a lossy deterministic-approaching way to define datastructures that can regenerate all data inside it.\n\n- redefines \"examples\"\n- for arrays and objectparameters, adds creationPlugins\n- for object parameters, adds validationPlugins and visibility"
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        },
+        "JSONSchema7TypeName": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "description": "Primitive type"
+        },
+        "JSONSchema7Type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Primitive type"
+        },
+        "ActionSchemaExamples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {}
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Examples of the value of this property. typed as any, but of course this must be the same type as the value defined in the schema here\n\nNB: overwrites examples of JSONSchema (https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-01#section-10.4)"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/getMdbAuthorization.ts",
+    "name": "NamedParameters<typeof getMdbAuthorization>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/getMdbAuthorization.ts",
+    "operationRelativePath": "src/getMdbAuthorization.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getMdbAuthorization%3E",
+      "definitions": {
+        "NamedParameters<typeof getMdbAuthorization>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "isDebug": {
+                  "type": "boolean"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              }
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/ExecuteGridEntireRowContext.ts",
+    "name": "ExecuteGridEntireRowContext",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/ExecuteGridEntireRowContext.ts",
+    "operationRelativePath": "src/ExecuteGridEntireRowContext.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ExecuteGridEntireRowContext",
+      "definitions": {
+        "ExecuteGridEntireRowContext": {
+          "type": "object",
+          "properties": {
+            "projectRelativePath": {
+              "type": "string"
+            },
+            "rowIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "recalculate",
+                "only-empty"
+              ]
+            }
+          },
+          "required": [
+            "projectRelativePath",
+            "rowIds",
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/getAbsoluteExportedJsonPath.ts",
+    "name": "NamedParameters<typeof getAbsoluteExportedJsonPath>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/getAbsoluteExportedJsonPath.ts",
+    "operationRelativePath": "src/getAbsoluteExportedJsonPath.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getAbsoluteExportedJsonPath%3E",
+      "definitions": {
+        "NamedParameters<typeof getAbsoluteExportedJsonPath>": {
+          "type": "object",
+          "properties": {
+            "projectRelativePath": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "projectRelativePath"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/executeGridSourcePlugin.ts",
+    "name": "NamedParameters<typeof executeGridSourcePlugin>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/executeGridSourcePlugin.ts",
+    "operationRelativePath": "src/executeGridSourcePlugin.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20executeGridSourcePlugin%3E",
+      "definitions": {
+        "NamedParameters<typeof executeGridSourcePlugin>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "plugin": {
+                  "$ref": "#/definitions/CapableJsonSchemaPlugin"
+                },
+                "shouldExecuteGridEntireRow": {
+                  "type": "boolean"
+                },
+                "partitionAmount": {
+                  "type": "number"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "plugin",
+                "projectRelativePath"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/migrateFsorm.test.ts",
+    "name": "NamedParameters<typeof migrate>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/migrateFsorm.test.ts",
+    "operationRelativePath": "src/migrateFsorm.test.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20migrate%3E",
+      "definitions": {
+        "NamedParameters<typeof migrate>": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/moveSchemaColumn.ts",
+    "name": "NamedParameters<typeof moveSchemaColumn>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/moveSchemaColumn.ts",
+    "operationRelativePath": "src/moveSchemaColumn.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20moveSchemaColumn%3E",
+      "definitions": {
+        "NamedParameters<typeof moveSchemaColumn>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "toIndex": {
+                  "type": "number"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "key",
+                "projectRelativePath",
+                "toIndex"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/setSchemaSourcePlugins.ts",
+    "name": "NamedParameters<typeof setSchemaSourcePlugins>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/setSchemaSourcePlugins.ts",
+    "operationRelativePath": "src/setSchemaSourcePlugins.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20setSchemaSourcePlugins%3E",
+      "definitions": {
+        "NamedParameters<typeof setSchemaSourcePlugins>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "plugins": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CapableJsonSchemaPlugin"
+                  }
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "plugins",
+                "projectRelativePath"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/executeGridEntireRow.test.ts",
+    "name": "NamedParameters<typeof generatePropertiesIfPossibleRecursive>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/executeGridEntireRow.test.ts",
+    "operationRelativePath": "src/executeGridEntireRow.test.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20generatePropertiesIfPossibleRecursive%3E",
+      "definitions": {
+        "NamedParameters<typeof generatePropertiesIfPossibleRecursive>": {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "$ref": "#/definitions/RowProto"
+            },
+            "done": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "started": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "properties",
+            "done",
+            "started"
+          ],
+          "additionalProperties": false
+        },
+        "RowProto": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "functionName": {
+                "type": "string"
+              },
+              "requiredProperties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "functionName",
+              "requiredProperties"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/executeGridEntireRow.test.ts",
+    "name": "NamedParameters<typeof entireRowGeneration>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/executeGridEntireRow.test.ts",
+    "operationRelativePath": "src/executeGridEntireRow.test.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20entireRowGeneration%3E",
+      "definitions": {
+        "NamedParameters<typeof entireRowGeneration>": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/executeGridEntireRow.test.ts",
+    "name": "RowProto",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/executeGridEntireRow.test.ts",
+    "operationRelativePath": "src/executeGridEntireRow.test.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/RowProto",
+      "definitions": {
+        "RowProto": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "functionName": {
+                "type": "string"
+              },
+              "requiredProperties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "functionName",
+              "requiredProperties"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaUpdate.ts",
+    "name": "NamedParameters<typeof actionSchemaUpdate>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaUpdate.ts",
+    "operationRelativePath": "src/crude/actionSchemaUpdate.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20actionSchemaUpdate%3E",
+      "definitions": {
+        "NamedParameters<typeof actionSchemaUpdate>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "The id (indexed key) of the item to update"
+                },
+                "partialItem": {
+                  "$ref": "#/definitions/ModelItemPartial",
+                  "description": "New (partial) value of the item. Will update all keys provided here. Please note that it cannot be set to 'undefined', but \"null\" is possible."
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "id",
+                "partialItem",
+                "projectRelativePath"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "ModelItemPartial": {
+          "$ref": "#/definitions/O",
+          "description": "to be replaced"
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaUpdate.ts",
+    "name": "ActionSchemaUpdateResponse",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaUpdate.ts",
+    "operationRelativePath": "src/crude/actionSchemaUpdate.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaUpdateResponse",
+      "definitions": {
+        "ActionSchemaUpdateResponse": {
+          "type": "object",
+          "properties": {
+            "isSuccessful": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "isSuccessful",
+            "message"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaDelete.ts",
+    "name": "NamedParameters<typeof actionSchemaDelete>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaDelete.ts",
+    "operationRelativePath": "src/crude/actionSchemaDelete.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20actionSchemaDelete%3E",
+      "definitions": {
+        "NamedParameters<typeof actionSchemaDelete>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "rowIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "projectRelativePath",
+                "rowIds"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaDelete.ts",
+    "name": "ActionSchemaDeleteResponse",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaDelete.ts",
+    "operationRelativePath": "src/crude/actionSchemaDelete.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaDeleteResponse",
+      "definitions": {
+        "ActionSchemaDeleteResponse": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "removedIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The row ids deleted (if any)"
+            },
+            "isSuccessful": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "If given, overwrites `priceCredit` on the function, to substract from user credit\n\nNB: recently made required to make it easier to accumulate price. NB: Not a good idea! It'd add more boilerplate than it prevents. Way too many functions are free"
+            },
+            "isQueued": {
+              "type": "boolean",
+              "description": "if true, this states the function was successfully added to the queue (and not executed yet). Usually, should be added by a wrapper, not the function itself."
+            }
+          },
+          "required": [
+            "isSuccessful"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaCreate.ts",
+    "name": "NamedParameters<typeof actionSchemaCreate>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaCreate.ts",
+    "operationRelativePath": "src/crude/actionSchemaCreate.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20actionSchemaCreate%3E",
+      "definitions": {
+        "NamedParameters<typeof actionSchemaCreate>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ModelItemPartial"
+                  },
+                  "description": "NB: if items in this array contain `__actionSchemaId` it will be overwriting that id"
+                },
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "shouldExecuteGridEntireRow": {
+                  "type": "boolean"
+                },
+                "totalPriceCredit": {
+                  "type": "number"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "items",
+                "projectRelativePath"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "ModelItemPartial": {
+          "$ref": "#/definitions/O",
+          "description": "to be replaced"
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaCreate.ts",
+    "name": "ActionSchemaCreateResponse",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaCreate.ts",
+    "operationRelativePath": "src/crude/actionSchemaCreate.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaCreateResponse",
+      "definitions": {
+        "ActionSchemaCreateResponse": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The rowIds created"
+            },
+            "isSuccessful": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "If given, overwrites `priceCredit` on the function, to substract from user credit\n\nNB: recently made required to make it easier to accumulate price. NB: Not a good idea! It'd add more boilerplate than it prevents. Way too many functions are free"
+            },
+            "isQueued": {
+              "type": "boolean",
+              "description": "if true, this states the function was successfully added to the queue (and not executed yet). Usually, should be added by a wrapper, not the function itself."
+            }
+          },
+          "required": [
+            "isSuccessful"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaExecute.ts",
+    "name": "NamedParameters<typeof actionSchemaExecute>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaExecute.ts",
+    "operationRelativePath": "src/crude/actionSchemaExecute.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20actionSchemaExecute%3E",
+      "definitions": {
+        "NamedParameters<typeof actionSchemaExecute>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "rowIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "mode": {
+                  "type": "string",
+                  "enum": [
+                    "recalculate",
+                    "only-empty"
+                  ]
+                },
+                "propertyKey": {
+                  "$ref": "#/definitions/ModelKey",
+                  "description": "A single property calculation is done for the specified key"
+                },
+                "waitForResult": {
+                  "type": "boolean",
+                  "description": "NB: sometimes needed in case we rely on this result"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "mode",
+                "projectRelativePath",
+                "rowIds"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "ModelKey": {
+          "type": "string",
+          "description": "to be replaced"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaExecute.ts",
+    "name": "ActionSchemaExecuteResponse",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaExecute.ts",
+    "operationRelativePath": "src/crude/actionSchemaExecute.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaExecuteResponse",
+      "definitions": {
+        "ActionSchemaExecuteResponse": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "canWrite": {
+              "type": "boolean",
+              "description": "Whether or not the schema can be written to"
+            },
+            "isSuccessful": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "If given, overwrites `priceCredit` on the function, to substract from user credit\n\nNB: recently made required to make it easier to accumulate price. NB: Not a good idea! It'd add more boilerplate than it prevents. Way too many functions are free"
+            },
+            "isQueued": {
+              "type": "boolean",
+              "description": "if true, this states the function was successfully added to the queue (and not executed yet). Usually, should be added by a wrapper, not the function itself."
+            }
+          },
+          "required": [
+            "isSuccessful"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/types.ts",
+    "name": "ModelKey",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/types.ts",
+    "operationRelativePath": "src/crude/types.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ModelKey",
+      "definitions": {
+        "ModelKey": {
+          "type": "string",
+          "description": "to be replaced"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/types.ts",
+    "name": "ModelItemPartial",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/types.ts",
+    "operationRelativePath": "src/crude/types.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ModelItemPartial",
+      "definitions": {
+        "ModelItemPartial": {
+          "$ref": "#/definitions/O",
+          "description": "to be replaced"
+        },
+        "O": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaRead.ts",
+    "name": "NamedParameters<typeof actionSchemaRead>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaRead.ts",
+    "operationRelativePath": "src/crude/actionSchemaRead.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20actionSchemaRead%3E",
+      "definitions": {
+        "NamedParameters<typeof actionSchemaRead>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "search": {
+                  "type": "string",
+                  "description": "search for a specific value"
+                },
+                "rowIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Coming soon: provide specific ids here to only select these keys (more efficient)"
+                },
+                "startFromIndex": {
+                  "type": "number",
+                  "description": "Starting index (slices the rest away)"
+                },
+                "maxRows": {
+                  "type": "number",
+                  "description": "If provided, slices the rest away after this amount"
+                },
+                "filter": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "operator": {
+                        "type": "string",
+                        "enum": [
+                          "equal",
+                          "notEqual",
+                          "endsWith",
+                          "startsWith",
+                          "includes",
+                          "includesLetters",
+                          "greaterThan",
+                          "lessThan",
+                          "greaterThanOrEqual",
+                          "lessThanOrEqual"
+                        ]
+                      },
+                      "value": {
+                        "type": "string"
+                      },
+                      "objectParameterKey": {
+                        "$ref": "#/definitions/ModelKey"
+                      }
+                    },
+                    "required": [
+                      "operator",
+                      "value",
+                      "objectParameterKey"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Filters to be applied on the result before sending it back"
+                },
+                "sort": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sortDirection": {
+                        "type": "string",
+                        "enum": [
+                          "ascending",
+                          "descending"
+                        ]
+                      },
+                      "objectParameterKey": {
+                        "$ref": "#/definitions/ModelKey"
+                      }
+                    },
+                    "required": [
+                      "sortDirection",
+                      "objectParameterKey"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Apply sorting (one by one) after data has been fetched"
+                },
+                "objectParameterKeys": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ModelKey"
+                  },
+                  "description": "If provided, only selects these keys from the table"
+                },
+                "ignoreObjectParameterKeys": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ModelKey"
+                  },
+                  "description": "If provided, responds with all keys except these"
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              }
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "ModelKey": {
+          "type": "string",
+          "description": "to be replaced"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/crude/actionSchemaRead.ts",
+    "name": "ActionSchemaReadResponse",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/crude/actionSchemaRead.ts",
+    "operationRelativePath": "src/crude/actionSchemaRead.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/ActionSchemaReadResponse",
+      "definitions": {
+        "ActionSchemaReadResponse": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "json": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "privacy": {
+                  "$ref": "#/definitions/ActionSchemaPrivacy",
+                  "description": "Defaults to \"unlisted\" for new tables and \"private\" for imported tables"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "can be filled by user"
+                },
+                "rowGenerationStatus": {
+                  "$ref": "#/definitions/ActionSchemaStatus",
+                  "description": "status indicating whether or not rows are being generated"
+                },
+                "status": {
+                  "$ref": "#/definitions/JsonArrayStatus",
+                  "description": "State concerning the status of (re)calculation behavior"
+                },
+                "lastOperationAt": {
+                  "type": "number"
+                },
+                "lastSizeCalculatedAt": {
+                  "type": "number"
+                },
+                "projectSizeBytes": {
+                  "type": "number"
+                },
+                "delta": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/JsonStatusDelta"
+                  }
+                },
+                "columnSpending": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/definitions/GridSpending"
+                  },
+                  "description": "to keep track of spending"
+                },
+                "totalSpending": {
+                  "$ref": "#/definitions/GridSpending"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ModelItemPartial"
+                  }
+                }
+              },
+              "required": [
+                "$schema",
+                "items"
+              ],
+              "description": "The data"
+            },
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The ActionSchema that describes the data in JSON"
+            },
+            "canWrite": {
+              "type": "boolean",
+              "description": "Whether or not we can write to the schema"
+            },
+            "hasMore": {
+              "type": "boolean",
+              "description": "Whether or not there are more items to be fetched"
+            },
+            "isSuccessful": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "If given, overwrites `priceCredit` on the function, to substract from user credit\n\nNB: recently made required to make it easier to accumulate price. NB: Not a good idea! It'd add more boilerplate than it prevents. Way too many functions are free"
+            },
+            "isQueued": {
+              "type": "boolean",
+              "description": "if true, this states the function was successfully added to the queue (and not executed yet). Usually, should be added by a wrapper, not the function itself."
+            }
+          },
+          "required": [
+            "isSuccessful"
+          ]
+        },
+        "ActionSchemaPrivacy": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ]
+        },
+        "ActionSchemaStatus": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "waiting",
+            "busy",
+            "done"
+          ]
+        },
+        "JsonArrayStatus": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/ActionSchemaStatus"
+                    },
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "JsonStatusDelta": {
+          "type": "object",
+          "properties": {
+            "rowId": {
+              "type": "string"
+            },
+            "propertyKey": {
+              "type": "string"
+            },
+            "isSourcePluginUpdate": {
+              "type": "boolean",
+              "description": "This indicates the newValue contains an array of items. Should be done and awaited first if this is the case."
+            },
+            "newStatus": {
+              "$ref": "#/definitions/ActionSchemaStatus"
+            },
+            "newValue": {}
+          },
+          "required": [
+            "newStatus"
+          ],
+          "additionalProperties": false,
+          "description": "To be kept in the db\n\nTo be fetched every 1 second if the user is in the file. Is reset every time it is requested, and the delta transforms cell values one by one.\n\nNeeded in order to not require to do any refetches when things are loading, while showing loading indicators right."
+        },
+        "GridSpending": {
+          "type": "object",
+          "properties": {
+            "priceCredit": {
+              "type": "number"
+            },
+            "calculationsAmount": {
+              "type": "number"
+            },
+            "priceCreditSinceLastEdit": {
+              "type": "number"
+            },
+            "calculationsAmountSinceLastEdit": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "NB: the priceCredit here has already taken the cost multiplier into account!"
+        },
+        "ModelItemPartial": {
+          "$ref": "#/definitions/O",
+          "description": "to be replaced"
+        },
+        "O": {
+          "type": "object"
+        },
+        "CapableJsonSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "creationPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchemaPlugin"
+              },
+              "description": "CAPABLE JSON SCHEMA:Only works for arrays and object properties\n\nplugins to create more items. these are the sources\n\nNB: this plugin must always return an object with a \"result\" parameter\n\n- In case of column generations, if it's a string, it can be applied directly\n- In ase of column generations, if it's an object, the right key is chosen using a GPT normalization or GPT mapper\n\n- In case of array item generations, array items will be mapped using some sort of GPT Normalisations to the right column(s)\n- In case of array item generations, objects will be mapped to a single row to the right columns using the same technique"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "$ref": {
+              "type": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/JSONSchema7TypeName"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/JSONSchema7TypeName"
+                  }
+                }
+              ]
+            },
+            "enum": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            "const": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "multipleOf": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": "number"
+            },
+            "maxLength": {
+              "type": "number"
+            },
+            "minLength": {
+              "type": "number"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/CapableJsonSchema"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  }
+                }
+              ]
+            },
+            "additionalItems": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxItems": {
+              "type": "number"
+            },
+            "minItems": {
+              "type": "number"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "contains": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "maxProperties": {
+              "type": "number"
+            },
+            "minProperties": {
+              "type": "number"
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/CapableJsonSchema"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "if": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "then": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "else": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "anyOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "oneOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "not": {
+              "$ref": "#/definitions/CapableJsonSchema"
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/CapableJsonSchema"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "default": {
+              "$ref": "#/definitions/JSONSchema7Type"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "$ref": "#/definitions/ActionSchemaExamples",
+              "description": "examples are customisable"
+            }
+          },
+          "description": "Sideset of `JSONSchema7` that is intended to make a JSONSchema that is aware of how it's data can be generated.\n\nGoal: a lossy deterministic-approaching way to define datastructures that can regenerate all data inside it.\n\n- redefines \"examples\"\n- for arrays and objectparameters, adds creationPlugins\n- for object parameters, adds validationPlugins and visibility"
+        },
+        "CapableJsonSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "creation",
+                "validation",
+                "destination",
+                "upload",
+                "table"
+              ]
+            },
+            "$openapi": {
+              "$ref": "#/definitions/PluginOpenapiDetails",
+              "description": "This can be the information required to access execute the function"
+            },
+            "$ref": {
+              "type": "string",
+              "description": "Should be NamedParameters<functionName>\n\nTo make things deterministic, we can also reference the original uploaded file in a syntax like this: `File<projectRelativePath>`."
+            },
+            "ouptputMapFunction": {
+              "type": "string",
+              "description": "Map function stored as a string:\n\nE.g.:\n\n`response.results[0].title`\n\nThis can be evaluated in javascript, like:\n\n\n`const mapFunction = (response) => response.results[0].title` `const realResponse = mapFunction(response);`\n\nThis way we can always get what we want."
+            },
+            "condition": {
+              "type": "string",
+              "description": "if given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion\n\nThis means, for each row it is ran on, it will copy that row for each item in the resulting array.\n\nNB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "runEveryPeriod": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "hour",
+                "instant"
+              ],
+              "description": "In case of destination plugins it can be useful to run it every so many times"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.\n\nFor row generation functions that have a partition function this needs to be generated on the fly (so it will be empty)"
+            },
+            "partitionContext": {
+              "type": "object",
+              "description": "For row generations with a partition function, this is the config"
+            },
+            "partitionContextsDone": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Keeps track of which partition function results have already been executed."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context.\n\nThis is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.\n\nThe trick is to put actual logic in the functions themselves, not outside, in order to just require variables, not logic.\n\nThis can be inferred from the context as it contains variables that refer to other properties"
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin.\n\nThis is needed to give insight in costs for generations."
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "PluginOpenapiDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "additionalProperties": false
+        },
+        "JSONSchema7TypeName": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "description": "Primitive type"
+        },
+        "JSONSchema7Type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/JSONSchema7Type"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Primitive type"
+        },
+        "ActionSchemaExamples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {}
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Examples of the value of this property. typed as any, but of course this must be the same type as the value defined in the schema here\n\nNB: overwrites examples of JSONSchema (https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-01#section-10.4)"
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema-core/src/executeGridEntireRow.ts",
+    "name": "NamedParameters<typeof executeGridEntireRow>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema-core/src/executeGridEntireRow.ts",
+    "operationRelativePath": "src/executeGridEntireRow.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20executeGridEntireRow%3E",
+      "definitions": {
+        "NamedParameters<typeof executeGridEntireRow>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "projectRelativePath": {
+                  "type": "string"
+                },
+                "rowIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "mode": {
+                  "type": "string",
+                  "enum": [
+                    "recalculate",
+                    "only-empty"
+                  ]
+                },
+                "me_personSlug": {
+                  "type": "string",
+                  "description": "Forced by api"
+                },
+                "isExternalCall": {
+                  "type": "boolean",
+                  "description": "Forced by api. Indicates that this function call is called from outside. If this is the case, it means that some parameters may need to be validated more"
+                },
+                "relation_personSlug": {
+                  "type": "string",
+                  "description": "Defaults to \"root\" by api, but can also be set.\n\nMade optional for compatibility with the api and functions that don't need this, but the function should always receive \"root\" by api (at least)"
+                },
+                "host": {
+                  "type": "string",
+                  "description": "should be set to the domain similar to ManagedDomain.domain"
+                }
+              },
+              "required": [
+                "mode",
+                "projectRelativePath",
+                "rowIds"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+]

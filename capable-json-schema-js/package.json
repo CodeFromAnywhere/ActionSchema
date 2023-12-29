@@ -1,0 +1,26 @@
+{
+  "name": "capable-json-schema-js",
+  "type": "module",
+  "main": "build/index.js",
+  "version": "0.0.1",
+  "scripts": {
+    "css": "tailwindcss -o css.css",
+    "tsc": "tsc",
+    "dev": "npx tsc-watch --noClear --onSuccess 'yarn css'"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "@types/web": "^0.0.111"
+  },
+  "license": "ISC",
+  "description": "",
+  "bin": {},
+  "dependencies": {},
+  "operation": {
+    "lastRebuildAt": 1703782410378,
+    "isBuildSuccessful": true
+  }
+}

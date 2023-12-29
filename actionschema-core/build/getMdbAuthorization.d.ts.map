@@ -1,0 +1,1 @@
+{"version":3,"file":"getMdbAuthorization.d.ts","sourceRoot":"","sources":["../src/getMdbAuthorization.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,eAAe,EAA0B,MAAM,gBAAgB,CAAC;AAIzE,eAAO,MAAM,mBAAmB;cACrB,eAAe,GAAG;QACzB,mBAAmB,CAAC,EAAE,MAAM,CAAC;QAC7B,OAAO,CAAC,EAAE,OAAO,CAAC;KACnB,GACA,QAAQ;QAAE,OAAO,EAAE,OAAO,CAAC;QAAC,QAAQ,EAAE,OAAO,CAAA;KAAE,CAAC;;;;CAwDlD,CAAC"}
