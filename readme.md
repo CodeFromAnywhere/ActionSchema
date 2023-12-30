@@ -1,8 +1,21 @@
-Welcome to the ActionSchema repo!
+Welcome to the ActionSchema repo! This is the home of the ActionSchema codebase. ActionSchema is an ecosystem of many parts, of which some will be open sourced here: **ActionSchema Utils** and **ActionSchema Server**
 
-This is the home of the ActionSchema homeserver. Right now it's not possible yet to run the homeserver locally, but we will make this possible as demand increases.
+**MOTIVATION ActionSchema Utils**:
 
-At least you can find the core functionality of ActionSchema here. We are in the process of setting up the below architecture:
+- Ability to run ActionSchemas serverless (independent of state) e.g. inside of NextJS and also inside any other server with any other way of authorisation, storage, etc.
+- Ability to run ActionSchemas against any NoSQL database, e.g. against supabase.
+- Ability to run ActionSchemas with your own functions or APIs (e.g. stateless functions in a NextJS api)
+
+**MOTIVATION ActionSchema Server**:
+
+- Ability to keep your data where you trust it, indepdendent of any centralised governing power.
+- Ability for power-users to comply with regulations in their country.
+- Ability for power-users to create more complex and/or scalable setups
+- Ability to get technical feedback (Read: NOT Collaborators per se!)
+
+The provided code does not run yet, since it has all kinds of dependencies which can be found in my bigger codebase, but it's still some work to extract it. At least you can find the core functionality of ActionSchema here. Please note, that although this repo has been made public, it won't be a place with many pull requests and collaboration. It's a read-only deployment that has been bundled in a way that makes collaborating on this difficult. Please contact wijnand@actionschema.com if you wish to collaborate.
+
+# ActionSchema Architecture
 
 ![](./architecture.drawio.png)
 
