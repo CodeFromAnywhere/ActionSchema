@@ -232,9 +232,9 @@
         "additionalProperties": false
       },
       "OpenAPIV3_1.ReferenceObject": {
-        "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124%3E"
+        "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124%3E"
       },
-      "Modify<OpenAPIV3.ReferenceObject,structure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124>": {
+      "Modify<OpenAPIV3.ReferenceObject,structure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124>": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -983,9 +983,9 @@
             "additionalProperties": false
           },
           "OpenAPIV3_1.ReferenceObject": {
-            "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124%3E"
+            "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124%3E"
           },
-          "Modify<OpenAPIV3.ReferenceObject,structure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124>": {
+          "Modify<OpenAPIV3.ReferenceObject,structure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124>": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -1758,9 +1758,9 @@
         "additionalProperties": false
       },
       "OpenAPIV3_1.ReferenceObject": {
-        "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124%3E"
+        "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124%3E"
       },
-      "Modify<OpenAPIV3.ReferenceObject,structure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124>": {
+      "Modify<OpenAPIV3.ReferenceObject,structure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124>": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -2509,9 +2509,9 @@
             "additionalProperties": false
           },
           "OpenAPIV3_1.ReferenceObject": {
-            "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124%3E"
+            "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124%3E"
           },
-          "Modify<OpenAPIV3.ReferenceObject,structure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124>": {
+          "Modify<OpenAPIV3.ReferenceObject,structure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124>": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -3278,9 +3278,9 @@
         "additionalProperties": false
       },
       "OpenAPIV3_1.ReferenceObject": {
-        "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124%3E"
+        "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124%3E"
       },
-      "Modify<OpenAPIV3.ReferenceObject,structure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124>": {
+      "Modify<OpenAPIV3.ReferenceObject,structure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124>": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -4019,9 +4019,9 @@
             "additionalProperties": false
           },
           "OpenAPIV3_1.ReferenceObject": {
-            "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124%3E"
+            "$ref": "#/definitions/Modify%3COpenAPIV3.ReferenceObject%2Cstructure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124%3E"
           },
-          "Modify<OpenAPIV3.ReferenceObject,structure-_index.d.ts-5252-5316-_index.d.ts-5218-5317-_index.d.ts-5184-5318-_index.d.ts-829-7649-_index.d.ts-792-7649-_index.d.ts-0-25124>": {
+          "Modify<OpenAPIV3.ReferenceObject,structure-pes_dist_index.d.ts-5252-5316-pes_dist_index.d.ts-5218-5317-pes_dist_index.d.ts-5184-5318-pes_dist_index.d.ts-829-7649-pes_dist_index.d.ts-792-7649-pes_dist_index.d.ts-0-25124>": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -6282,6 +6282,48 @@
     ]
   },
   {
+    "modelName": "SwcVariable",
+    "name": "string",
+    "start": 27,
+    "end": 102,
+    "length": 75,
+    "raw": "const string = fs.readFileSync(\"/Users/king/os/appleAppData.json\", \"utf8\");",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/filter.test.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/filter.test.ts",
+    "isExported": false,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs"
+  },
+  {
+    "modelName": "SwcVariable",
+    "name": "json",
+    "start": 103,
+    "end": 135,
+    "length": 32,
+    "raw": "const json = JSON.parse(string);",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/filter.test.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/filter.test.ts",
+    "isExported": false,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs"
+  },
+  {
+    "modelName": "SwcVariable",
+    "name": "filtered",
+    "start": 137,
+    "end": 196,
+    "length": 59,
+    "raw": "const filtered = json.filter((x: any) => x.Reviews >= 100);",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/filter.test.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/filter.test.ts",
+    "isExported": false,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs"
+  },
+  {
     "modelName": "SwcFunction",
     "name": "generateTypescript",
     "start": 363,
@@ -6784,6 +6826,20 @@
     }
   },
   {
+    "modelName": "SwcVariable",
+    "name": "pluginFunctions",
+    "start": 251,
+    "end": 351,
+    "length": 100,
+    "raw": "const pluginFunctions = tryRequireFunctionsWithConfig(\n  ([name, item]) => !!item.config?.plugin,\n);",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/getCapableJsonSchemaPluginFunctions.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/getCapableJsonSchemaPluginFunctions.ts",
+    "isExported": false,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs"
+  },
+  {
     "modelName": "SwcFunction",
     "name": "getCapableJsonSchemaPluginFunctions",
     "start": 353,
@@ -7246,6 +7302,34 @@
     ]
   },
   {
+    "modelName": "SwcVariable",
+    "name": "maliciousScriptExample",
+    "start": 0,
+    "end": 410,
+    "length": 410,
+    "raw": "const maliciousScriptExample = `\nlet ref_to_global = (function(){\n  return this;\n}).call(null);\n\n// UserContent-scope.\nprint(this);\n\n// Prohibited...\nprint(globalThis);\nprint(window);\nprint(console);\nprint(navigator);\n\n// require(\"fs\")\n\n// Attempt to access the \"fetch\" function from the global scope.\n// This will result in the ERROR you see here ----------------->>>\nprint(ref_to_global?.['fetch']);\n\n\"hi\"\n`;",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/old/evaluateOutputMapFunction.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/old/evaluateOutputMapFunction.ts",
+    "isExported": false,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs"
+  },
+  {
+    "modelName": "SwcVariable",
+    "name": "context",
+    "start": 527,
+    "end": 874,
+    "length": 347,
+    "raw": "const context = {\n  // Prints something to the console, since the user-submitted\n  // script has no access to the \"console\"-object.\n  print: (arg0: any) => console.log(arg0),\n\n  // Overwrite the global scope variables you want to prohibit.\n  globalThis: null,\n  window: null,\n  document: null,\n  fetch: null,\n  console: null,\n  navigator: null,\n};",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/old/evaluateOutputMapFunction.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/old/evaluateOutputMapFunction.ts",
+    "isExported": false,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs"
+  },
+  {
     "modelName": "SwcFunction",
     "name": "makeEvaluator",
     "start": 1007,
@@ -7350,6 +7434,137 @@
         "required": true
       }
     ]
+  },
+  {
+    "modelName": "SwcFunction",
+    "name": "json",
+    "start": 0,
+    "end": 233,
+    "length": 233,
+    "raw": "export const json = (json: any) =>\n  new Response(JSON.stringify(json), {\n    // NB: text/json would return it witout emojis\n    headers: {\n      \"Content-Type\": \"application/json;charset=utf-8\",\n      ...defaultHeaders,\n    },\n  });",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/helpers.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/helpers.ts",
+    "isExported": true,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs",
+    "returnType": {},
+    "otherDefs": {},
+    "namedParameters": {
+      "modelName": "SchemaItem",
+      "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/helpers.ts",
+      "name": "NamedParameters<typeof json>",
+      "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/helpers.ts",
+      "operationRelativePath": "src/server/helpers.ts",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20json%3E",
+        "definitions": {
+          "NamedParameters<typeof json>": {
+            "type": "object",
+            "properties": {
+              "json": {}
+            },
+            "required": [
+              "json"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "json",
+        "schema": {},
+        "simplifiedSchema": {
+          "properties": [],
+          "type": "object"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "modelName": "SwcVariable",
+    "name": "defaultHeaders",
+    "start": 235,
+    "end": 388,
+    "length": 153,
+    "raw": "export const defaultHeaders = {\n  \"Cache-Control\": \"no-store\",\n  \"Access-Control-Allow-Origin\": \"*\",\n  \"Cross-Origin-Resource-Policy\": \"cross-origin\",\n};",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/helpers.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/helpers.ts",
+    "isExported": true,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs",
+    "statement": {
+      "Cache-Control": "no-store",
+      "Access-Control-Allow-Origin": "*",
+      "Cross-Origin-Resource-Policy": "cross-origin"
+    }
+  },
+  {
+    "modelName": "SwcFunction",
+    "name": "postModelAction",
+    "start": 285,
+    "end": 2610,
+    "length": 2325,
+    "raw": "export const postModelAction = async (\n  c: Context<Env, \"/v1/*\", {}>,\n  functionName: string,\n) => {\n  const request = c.req;\n\n  const url = new URL(request.url);\n  const pathname = url.pathname;\n  const hostname = url.hostname;\n\n  // model stuff\n  const [tld, mainDomain, subdomain] = hostname.split(\".\").reverse();\n\n  const hasFiles = subdomain\n    ? fs.existsSync(\n        path.join(projectRoot, \"memory/persons\", subdomain, \"files\"),\n      )\n    : false;\n\n  if (!subdomain || !hasFiles || !subdomain) {\n    return json({\n      isSuccessful: false,\n      message:\n        \"Not found. Please go to [slug].actionschema.localhost/openapi.json or [slug].actionschema.com/openapi.json\",\n    });\n  }\n\n  const [_, version, model] = pathname.split(\"/\");\n\n  const projectRelativePath =\n    subdomain && model\n      ? path.join(\"memory/persons\", subdomain, \"files\", model, `${model}.mdb`)\n      : undefined;\n\n  const absolutePath = projectRelativePath\n    ? path.join(projectRoot, projectRelativePath)\n    : undefined;\n\n  if (!absolutePath || !fs.existsSync(absolutePath) || !functionName) {\n    return json({\n      isSuccessful: false,\n      message: \"Model not found\",\n    });\n  }\n\n  const headerObject = {\n    \"openai-ephemeral-user-id\": request.headers.get(\"openai-ephemeral-user-id\"),\n    \"User-Agent\": request.headers.get(\"User-Agent\"),\n    authorization: request.headers.get(\"authorization\"),\n    Origin: request.headers.get(\"Origin\"),\n    Referer: request.headers.get(\"Referer\"),\n  };\n\n  // 1) upsert device\n  const device = await upsertDevice(headerObject);\n  if (!device) {\n    console.log(\"Couldn't create device\", headerObject);\n    return json({\n      isSuccessful: false,\n      message: \"Couldn't create device\",\n      headers: request.headers,\n    });\n  }\n\n  const providedContext = (await request.json()) as O;\n\n  const inferredContext = {\n    me_personSlug: device.currentPersonSlug,\n    relation_personSlug: \"root\",\n    host: `${mainDomain}.${tld}`,\n    projectRelativePath,\n  };\n\n  const functionItem = await getFunctionItemWithName(functionName);\n\n  if (typeof functionItem?.fn !== \"function\") {\n    return json({\n      isSuccessful: false,\n      message: \"No function found\",\n    });\n  }\n\n  const result = await functionItem.fn({\n    ...providedContext,\n    ...inferredContext,\n  });\n\n  return json(result);\n};",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/postModelAction.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/postModelAction.ts",
+    "isExported": true,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs",
+    "returnType": {},
+    "otherDefs": {},
+    "namedParameters": {
+      "modelName": "SchemaItem",
+      "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/postModelAction.ts",
+      "name": "NamedParameters<typeof postModelAction>",
+      "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/postModelAction.ts",
+      "operationRelativePath": "src/server/postModelAction.ts",
+      "error": "Error: Invalid index \"out\" in type \"structure-1309519425-350-353-1309519425-328-354-1309519425-323-354-1309519425-315-2609-1309519425-297-2609-1309519425-291-2609-1309519425-283-2610-1309519425-0-2611\""
+    }
+  },
+  {
+    "modelName": "SwcFunction",
+    "name": "getOpenapi",
+    "start": 831,
+    "end": 7787,
+    "length": 6956,
+    "raw": "export const getOpenapi = async (c: Context<Env, \"/openapi.json\", {}>) => {\n  const request = c.req;\n\n  const url = new URL(request.url);\n  const hostname = url.hostname;\n  const [tld, mainDomain, subdomain] = hostname.split(\".\").reverse();\n\n  const isApi =\n    hostname === \"api.codefromanywhere.com\" ||\n    hostname === \"api.codefromanywhere.localhost\";\n\n  const isSdk =\n    hostname === \"sdk.codefromanywhere.com\" ||\n    hostname === \"sdk.codefromanywhere.localhost\";\n\n  if (isApi || isSdk) {\n    //api/sdk\n    /*\n- gather all plugins here\n- tag them with prod/beta/alpha and add tag `stateful`\n- put them in readme docs, redirecting from `api.codefromanywhere.com`\n*/\n\n    const fns = isSdk\n      ? await getSdkRequireFunctions()\n      : await tryRequireFunctionsWithConfig(\n          ([name, item]) => !!item.config?.plugin,\n        );\n\n    if (!fns) {\n      return json({ isSuccessful: false, message: \"No functions\" });\n    }\n\n    const executeFunctionResult = (\n      await getIndexedSwcStatement<SwcInterface>(\"ExecuteFunctionResult\")\n    )?.type?.typeDefinition;\n\n    if (!executeFunctionResult) {\n      return json({ isSuccessful: false, message: \"No ExecuteFunctionResult\" });\n    }\n\n    // executeFunctionResult.\n    const statements = await swcGet(\"SwcStatement\");\n\n    const swcFunctions = (\n      await Promise.all(\n        fns.map(async (x) => {\n          if (!x.packageCategory || !x.packageName) {\n            return;\n          }\n\n          const swcFunction = statements?.find(\n            (s) =>\n              s.packageCategory === x.packageCategory &&\n              s.packageName === x.packageName &&\n              s.name === x.name,\n          ) as SwcFunction | undefined;\n\n          return swcFunction;\n        }),\n      )\n    ).filter(notEmpty);\n\n    const modelPaths = swcFunctions.map((swcFunction) => {\n      const kebabName = swcFunction.name;\n\n      // NB: need to copy, otherwise it'll refer to the same object\n      const finalResponseSchema = {\n        ...executeFunctionResult,\n        properties: {\n          ...executeFunctionResult.properties,\n          result: swcFunction.returnType?.schema\n            ? renameRefs(swcFunction.returnType.schema as OpenapiSchemaObject)\n            : { $ref: \"#/components/schemas/StandardResponse\" },\n        },\n      };\n\n      // console.log(swcFunction.name, {\n      //   hasReturnType: !!swcFunction.returnType?.schema,\n      //   returnType: swcFunction.returnType?.schema,\n      //   finalResponseSchema,\n      // });\n\n      const bodySchema = renameRefs(swcFunction.parameters?.[0]?.schema as any);\n\n      const isNotProduction =\n        (swcFunction.config?.productionStatus || \"production\") !== \"production\";\n      const noProductionSuffix = isNotProduction\n        ? ` (${swcFunction.config?.productionStatus})`\n        : \"\";\n\n      const firstCategory = swcFunction.config?.categories?.[0] || \"general\";\n\n      const pathsObjectPart = {\n        [`/function/${kebabName}`]: {\n          post: {\n            tags: [firstCategory],\n            summary: `${humanCase(swcFunction.name)}${noProductionSuffix}`,\n            description:\n              swcFunction.config?.descriptionMarkdown ||\n              swcFunction.config?.shortDescription ||\n              swcFunction.comment,\n\n            operationId: swcFunction.name,\n\n            requestBody: {\n              required: true,\n              content: {\n                \"application/json\": {\n                  schema: bodySchema,\n                } satisfies OpenapiMediaType,\n              },\n            },\n\n            responses: {\n              \"200\": {\n                description: \"Standard response\",\n                content: {\n                  \"application/json\": {\n                    schema: finalResponseSchema,\n                  },\n                },\n              },\n            },\n          },\n        },\n      } as OpenapiDocument[\"paths\"];\n\n      const definitions = swcFunction.otherDefs;\n\n      return { pathsObjectPart, definitions };\n    });\n\n    const paths = mergeObjectsArray(\n      modelPaths.map((x) => x.pathsObjectPart).filter(notEmpty),\n    );\n\n    const otherDefs = mergeObjectsArray(\n      modelPaths.map((x) => x.definitions).filter(notEmpty),\n    );\n\n    const openapi: OpenapiDocument = {\n      openapi: \"3.1.0\",\n      info: {\n        title: \"CodeFromAnywhere API\",\n        version: \"1\",\n        description: `OpenAPI for all AI from Code From Anywhere`,\n        contact: {},\n        // license:{}\n        // termsOfService,\n        summary: \"This contains all schemas!\",\n      },\n\n      servers: [\n        {\n          url: `https://api.codefromanywhere.com`,\n          description: \"Production server\",\n        },\n        // This does not work and would only work with a https url. Localhost cannot be reached through readme.io\n        // {\n        //   url: `http://api.codefromanywhere.localhost:42000`,\n        //   description: \"Local server\",\n        // },\n      ],\n\n      paths,\n\n      // NB: this ensures the bearer security must be applied everywhere\n      //https://docs.readme.com/main/discuss/61ae673d092a3b000f1c0844\n      //https://swagger.io/docs/specification/authentication/\n      security: [{ bearerAuth: [] }],\n      components: {\n        // NB: this is needed to tell the user they need bearer authentication\n        securitySchemes: {\n          bearerAuth: {\n            type: \"http\",\n            scheme: \"bearer\",\n            bearerFormat: \"Bearer\",\n            description: \"Your authToken should be provided\",\n          },\n        },\n\n        schemas: {\n          StandardResponse: {\n            type: \"object\",\n            required: [\"isSuccessful\"],\n            properties: {\n              isSuccessful: { type: \"boolean\" },\n              message: { type: \"string\" },\n              priceCredit: { type: \"number\" },\n            },\n          },\n          ...otherDefs,\n        },\n      },\n    };\n\n    return json(openapi);\n  }\n\n  if (!subdomain) {\n    return json({\n      isSuccessful: false,\n      message:\n        tld === \"localhost\"\n          ? \"Not found. Please go to [slug].actionschema.localhost:3000\"\n          : \"OpenAPI not found\",\n    });\n  }\n  const personFolder = path.join(projectRoot, \"memory/persons\", subdomain);\n\n  if (!fs.existsSync(personFolder)) {\n    return json({\n      isSuccessful: false,\n      message: \"OpenAPI not found\",\n    });\n  }\n\n  const openapiPath = path.join(personFolder, \"openapi.json\");\n\n  // make openapi\n  const makeResult = await makeOpenapi({\n    host: `${mainDomain}.${tld}`,\n    me_personSlug: subdomain,\n  });\n\n  const isSuccessful = await writeJsonToFile(openapiPath, makeResult.openapi);\n\n  if (!fs.existsSync(openapiPath)) {\n    return json({\n      isSuccessful,\n      message: \"OpenAPI not found\",\n    });\n  }\n\n  const openapi = await readJsonFile<OpenapiDocument>(openapiPath);\n\n  if (!openapi) {\n    return json({\n      isSuccessful: false,\n      message: \"OpenAPI not found\",\n    });\n  }\n\n  return json(openapi);\n};",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/getOpenapi.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/getOpenapi.ts",
+    "isExported": true,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs",
+    "returnType": {},
+    "otherDefs": {},
+    "namedParameters": {
+      "modelName": "SchemaItem",
+      "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/getOpenapi.ts",
+      "name": "NamedParameters<typeof getOpenapi>",
+      "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/getOpenapi.ts",
+      "operationRelativePath": "src/server/getOpenapi.ts",
+      "error": "Error: Invalid index \"out\" in type \"structure-407706110-896-899-407706110-866-900-407706110-864-900-407706110-856-7786-407706110-843-7786-407706110-837-7786-407706110-829-7787-407706110-0-7788\""
+    }
+  },
+  {
+    "modelName": "SwcVariable",
+    "name": "res",
+    "start": 49,
+    "end": 1818,
+    "length": 1769,
+    "raw": "const res = replaceRefs(\n  {\n    type: \"object\",\n    additionalProperties: false,\n    properties: {\n      projectRelativePath: {\n        type: \"string\",\n      },\n      search: {\n        type: \"string\",\n      },\n      rowIds: {\n        type: \"array\",\n        items: {\n          type: \"string\",\n        },\n      },\n      startFromIndex: {\n        type: \"number\",\n      },\n      maxRows: {\n        type: \"number\",\n      },\n      filter: {\n        type: \"array\",\n        items: {\n          type: \"object\",\n          properties: {\n            operator: {\n              type: \"string\",\n            },\n            value: {\n              type: \"string\",\n            },\n            objectParameterKey: {\n              $ref: \"#/definitions/ModelKey\",\n            },\n          },\n          required: [\"operator\", \"value\", \"objectParameterKey\"],\n          additionalProperties: false,\n        },\n      },\n      sort: {\n        type: \"array\",\n        items: {\n          type: \"object\",\n          properties: {\n            sortDirection: {\n              type: \"string\",\n              enum: [\"ascending\", \"descending\"],\n            },\n            objectParameterKey: {\n              $ref: \"#/definitions/ModelKey\",\n            },\n          },\n          required: [\"sortDirection\", \"objectParameterKey\"],\n          additionalProperties: false,\n        },\n      },\n      objectParameterKeys: {\n        type: \"array\",\n        items: {\n          $ref: \"#/definitions/ModelKey\",\n        },\n      },\n      ignoreObjectParameterKeys: {\n        type: \"array\",\n        items: {\n          $ref: \"#/definitions/ModelKey\",\n        },\n      },\n    },\n  },\n  {\n    \"#/definitions/ModelKey\": { type: \"string\", enum: [\"a\", \"b\", \"c\"] },\n    \"#/definitions/ModelItemPartial\": { type: \"thing\" },\n  },\n);",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/replaceRefs.test.ts",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/replaceRefs.test.ts",
+    "isExported": false,
+    "packageCategory": "actionschema",
+    "packageName": "capable-json-schema",
+    "operationClassification": "cjs"
   },
   {
     "modelName": "SwcFunction",
@@ -9329,9 +9544,9 @@
         "additionalProperties": false
       },
       "BodyCache": {
-        "$ref": "#/definitions/Partial%3C(def-alias-quest.d.ts-299-427-quest.d.ts-0-2570%26structure-quest.d.ts-467-497-quest.d.ts-461-497-quest.d.ts-452-498-quest.d.ts-427-499-quest.d.ts-0-2570)%3E"
+        "$ref": "#/definitions/Partial%3C(def-alias-types_request.d.ts-299-427-types_request.d.ts-0-2570%26structure-types_request.d.ts-467-497-types_request.d.ts-461-497-types_request.d.ts-452-498-types_request.d.ts-427-499-types_request.d.ts-0-2570)%3E"
       },
-      "Partial<(def-alias-quest.d.ts-299-427-quest.d.ts-0-2570&structure-quest.d.ts-467-497-quest.d.ts-461-497-quest.d.ts-452-498-quest.d.ts-427-499-quest.d.ts-0-2570)>": {
+      "Partial<(def-alias-types_request.d.ts-299-427-types_request.d.ts-0-2570&structure-types_request.d.ts-467-497-types_request.d.ts-461-497-types_request.d.ts-452-498-types_request.d.ts-427-499-types_request.d.ts-0-2570)>": {
         "type": "object",
         "properties": {
           "json": {},
@@ -9956,9 +10171,9 @@
             "additionalProperties": false
           },
           "BodyCache": {
-            "$ref": "#/definitions/Partial%3C(def-alias-quest.d.ts-299-427-quest.d.ts-0-2570%26structure-quest.d.ts-467-497-quest.d.ts-461-497-quest.d.ts-452-498-quest.d.ts-427-499-quest.d.ts-0-2570)%3E"
+            "$ref": "#/definitions/Partial%3C(def-alias-types_request.d.ts-299-427-types_request.d.ts-0-2570%26structure-types_request.d.ts-467-497-types_request.d.ts-461-497-types_request.d.ts-452-498-types_request.d.ts-427-499-types_request.d.ts-0-2570)%3E"
           },
-          "Partial<(def-alias-quest.d.ts-299-427-quest.d.ts-0-2570&structure-quest.d.ts-467-497-quest.d.ts-461-497-quest.d.ts-452-498-quest.d.ts-427-499-quest.d.ts-0-2570)>": {
+          "Partial<(def-alias-types_request.d.ts-299-427-types_request.d.ts-0-2570&structure-types_request.d.ts-467-497-types_request.d.ts-461-497-types_request.d.ts-452-498-types_request.d.ts-427-499-types_request.d.ts-0-2570)>": {
             "type": "object",
             "properties": {
               "json": {},

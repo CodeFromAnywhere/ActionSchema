@@ -1,7 +1,7 @@
 import { Context, Env } from "hono";
 import { fs, path, writeJsonToFile } from "fs-util";
 import { projectRoot } from "get-path";
-import { makeOpenapi, renameRefs, replaceRefs } from "capable-json-schema";
+import { makeOpenapi, renameRefs, replaceRefs } from "../makeOpenapi.js";
 import { readJsonFile } from "read-json-file";
 import {
   OpenapiDocument,
@@ -11,11 +11,19 @@ import {
 // NB: NOT GOOD TO REQUIRE THIS HERE!
 import { getSdkRequireFunctions } from "development";
 import { json } from "./helpers.js";
-import { swcGet, tryRequireFunctionsWithConfig } from "swc-util";
-import { SwcFunction } from "swc-types";
+import {
+  getIndexedSwcStatement,
+  swcGet,
+  tryRequireFunctionsWithConfig,
+} from "swc-util";
+import { SwcFunction, SwcInterface } from "swc-types";
 import { mergeObjectsArray, notEmpty } from "js-util";
-import { CapableJsonSchema } from "capable-json-schema-js";
-import { getIsFunctionExposed } from "function-types";
+import { humanCase } from "convert-case";
+import {
+  CapableJsonSchema,
+  JSONSchema7Type,
+  MainCapableJsonSchema,
+} from "capable-json-schema-js";
 
 export const getOpenapi = async (c: Context<Env, "/openapi.json", {}>) => {
   const request = c.req;
@@ -50,8 +58,15 @@ export const getOpenapi = async (c: Context<Env, "/openapi.json", {}>) => {
       return json({ isSuccessful: false, message: "No functions" });
     }
 
-    //TODO: ensure to get all `#/definitions` refs and provide them (or remove them for now)
+    const executeFunctionResult = (
+      await getIndexedSwcStatement<SwcInterface>("ExecuteFunctionResult")
+    )?.type?.typeDefinition;
 
+    if (!executeFunctionResult) {
+      return json({ isSuccessful: false, message: "No ExecuteFunctionResult" });
+    }
+
+    // executeFunctionResult.
     const statements = await swcGet("SwcStatement");
 
     const swcFunctions = (
@@ -76,30 +91,50 @@ export const getOpenapi = async (c: Context<Env, "/openapi.json", {}>) => {
     const modelPaths = swcFunctions.map((swcFunction) => {
       const kebabName = swcFunction.name;
 
+      // NB: need to copy, otherwise it'll refer to the same object
+      const finalResponseSchema = {
+        ...executeFunctionResult,
+        properties: {
+          ...executeFunctionResult.properties,
+          result: swcFunction.returnType?.schema
+            ? renameRefs(swcFunction.returnType.schema as OpenapiSchemaObject)
+            : { $ref: "#/components/schemas/StandardResponse" },
+        },
+      };
+
+      // console.log(swcFunction.name, {
+      //   hasReturnType: !!swcFunction.returnType?.schema,
+      //   returnType: swcFunction.returnType?.schema,
+      //   finalResponseSchema,
+      // });
+
+      const bodySchema = renameRefs(swcFunction.parameters?.[0]?.schema as any);
+
+      const isNotProduction =
+        (swcFunction.config?.productionStatus || "production") !== "production";
+      const noProductionSuffix = isNotProduction
+        ? ` (${swcFunction.config?.productionStatus})`
+        : "";
+
+      const firstCategory = swcFunction.config?.categories?.[0] || "general";
+
       const pathsObjectPart = {
         [`/function/${kebabName}`]: {
           post: {
-            tags: [
-              swcFunction.config?.productionStatus || "production",
-              ...(swcFunction.config?.categories || []),
-              swcFunction.config?.usesDatabase ? "stateful" : undefined,
-            ].filter(notEmpty),
-
-            summary: `${
-              swcFunction.config?.emoji ? `${swcFunction.config.emoji} ` : ""
-            }${swcFunction.config?.shortDescription || swcFunction.name}`,
+            tags: [firstCategory],
+            summary: `${humanCase(swcFunction.name)}${noProductionSuffix}`,
             description:
-              swcFunction.config?.descriptionMarkdown || swcFunction.comment,
+              swcFunction.config?.descriptionMarkdown ||
+              swcFunction.config?.shortDescription ||
+              swcFunction.comment,
 
             operationId: swcFunction.name,
-            // Not sure how this below part works!!!
+
             requestBody: {
               required: true,
               content: {
                 "application/json": {
-                  schema: renameRefs(
-                    swcFunction.parameters?.[0]?.schema as any,
-                  ),
+                  schema: bodySchema,
                 } satisfies OpenapiMediaType,
               },
             },
@@ -109,13 +144,7 @@ export const getOpenapi = async (c: Context<Env, "/openapi.json", {}>) => {
                 description: "Standard response",
                 content: {
                   "application/json": {
-                    schema: swcFunction.returnType?.schema
-                      ? renameRefs(
-                          swcFunction.returnType.schema as OpenapiSchemaObject,
-                        )
-                      : {
-                          $ref: "#/components/schemas/StandardResponse",
-                        },
+                    schema: finalResponseSchema,
                   },
                 },
               },
@@ -154,10 +183,11 @@ export const getOpenapi = async (c: Context<Env, "/openapi.json", {}>) => {
           url: `https://api.codefromanywhere.com`,
           description: "Production server",
         },
-        {
-          url: `http://api.codefromanywhere.localhost:42000`,
-          description: "Local server",
-        },
+        // This does not work and would only work with a https url. Localhost cannot be reached through readme.io
+        // {
+        //   url: `http://api.codefromanywhere.localhost:42000`,
+        //   description: "Local server",
+        // },
       ],
 
       paths,

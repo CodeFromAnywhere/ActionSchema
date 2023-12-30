@@ -1,12 +1,13 @@
 import { fs, path, writeJsonToFile } from "fs-util";
 import { projectRoot } from "get-path";
-import { makeOpenapi, renameRefs } from "capable-json-schema";
+import { makeOpenapi, renameRefs } from "../makeOpenapi.js";
 import { readJsonFile } from "read-json-file";
 // NB: NOT GOOD TO REQUIRE THIS HERE!
 import { getSdkRequireFunctions } from "development";
 import { json } from "./helpers.js";
-import { swcGet, tryRequireFunctionsWithConfig } from "swc-util";
+import { getIndexedSwcStatement, swcGet, tryRequireFunctionsWithConfig, } from "swc-util";
 import { mergeObjectsArray, notEmpty } from "js-util";
+import { humanCase } from "convert-case";
 export const getOpenapi = async (c) => {
     const request = c.req;
     const url = new URL(request.url);
@@ -29,7 +30,11 @@ export const getOpenapi = async (c) => {
         if (!fns) {
             return json({ isSuccessful: false, message: "No functions" });
         }
-        //TODO: ensure to get all `#/definitions` refs and provide them (or remove them for now)
+        const executeFunctionResult = (await getIndexedSwcStatement("ExecuteFunctionResult"))?.type?.typeDefinition;
+        if (!executeFunctionResult) {
+            return json({ isSuccessful: false, message: "No ExecuteFunctionResult" });
+        }
+        // executeFunctionResult.
         const statements = await swcGet("SwcStatement");
         const swcFunctions = (await Promise.all(fns.map(async (x) => {
             if (!x.packageCategory || !x.packageName) {
@@ -42,23 +47,41 @@ export const getOpenapi = async (c) => {
         }))).filter(notEmpty);
         const modelPaths = swcFunctions.map((swcFunction) => {
             const kebabName = swcFunction.name;
+            // NB: need to copy, otherwise it'll refer to the same object
+            const finalResponseSchema = {
+                ...executeFunctionResult,
+                properties: {
+                    ...executeFunctionResult.properties,
+                    result: swcFunction.returnType?.schema
+                        ? renameRefs(swcFunction.returnType.schema)
+                        : { $ref: "#/components/schemas/StandardResponse" },
+                },
+            };
+            // console.log(swcFunction.name, {
+            //   hasReturnType: !!swcFunction.returnType?.schema,
+            //   returnType: swcFunction.returnType?.schema,
+            //   finalResponseSchema,
+            // });
+            const bodySchema = renameRefs(swcFunction.parameters?.[0]?.schema);
+            const isNotProduction = (swcFunction.config?.productionStatus || "production") !== "production";
+            const noProductionSuffix = isNotProduction
+                ? ` (${swcFunction.config?.productionStatus})`
+                : "";
+            const firstCategory = swcFunction.config?.categories?.[0] || "general";
             const pathsObjectPart = {
                 [`/function/${kebabName}`]: {
                     post: {
-                        tags: [
-                            swcFunction.config?.productionStatus || "production",
-                            ...(swcFunction.config?.categories || []),
-                            swcFunction.config?.usesDatabase ? "stateful" : undefined,
-                        ].filter(notEmpty),
-                        summary: `${swcFunction.config?.emoji ? `${swcFunction.config.emoji} ` : ""}${swcFunction.config?.shortDescription || swcFunction.name}`,
-                        description: swcFunction.config?.descriptionMarkdown || swcFunction.comment,
+                        tags: [firstCategory],
+                        summary: `${humanCase(swcFunction.name)}${noProductionSuffix}`,
+                        description: swcFunction.config?.descriptionMarkdown ||
+                            swcFunction.config?.shortDescription ||
+                            swcFunction.comment,
                         operationId: swcFunction.name,
-                        // Not sure how this below part works!!!
                         requestBody: {
                             required: true,
                             content: {
                                 "application/json": {
-                                    schema: renameRefs(swcFunction.parameters?.[0]?.schema),
+                                    schema: bodySchema,
                                 },
                             },
                         },
@@ -67,11 +90,7 @@ export const getOpenapi = async (c) => {
                                 description: "Standard response",
                                 content: {
                                     "application/json": {
-                                        schema: swcFunction.returnType?.schema
-                                            ? renameRefs(swcFunction.returnType.schema)
-                                            : {
-                                                $ref: "#/components/schemas/StandardResponse",
-                                            },
+                                        schema: finalResponseSchema,
                                     },
                                 },
                             },

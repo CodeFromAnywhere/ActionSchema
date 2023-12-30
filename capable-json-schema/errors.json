@@ -1,0 +1,18 @@
+[
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/postModelAction.ts",
+    "name": "NamedParameters<typeof postModelAction>",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/postModelAction.ts",
+    "operationRelativePath": "src/server/postModelAction.ts",
+    "error": "Error: Invalid index \"out\" in type \"structure-1309519425-350-353-1309519425-328-354-1309519425-323-354-1309519425-315-2609-1309519425-297-2609-1309519425-291-2609-1309519425-283-2610-1309519425-0-2611\""
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/capable-json-schema/src/server/getOpenapi.ts",
+    "name": "NamedParameters<typeof getOpenapi>",
+    "absolutePath": "/Users/king/os/packages/actionschema/capable-json-schema/src/server/getOpenapi.ts",
+    "operationRelativePath": "src/server/getOpenapi.ts",
+    "error": "Error: Invalid index \"out\" in type \"structure-407706110-896-899-407706110-866-900-407706110-864-900-407706110-856-7786-407706110-843-7786-407706110-837-7786-407706110-829-7787-407706110-0-7788\""
+  }
+]

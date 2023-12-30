@@ -1,5 +1,7 @@
 Welcome to the ActionSchema repo! This is the home of the ActionSchema codebase. ActionSchema is an ecosystem of many parts, of which some will be open sourced here: **ActionSchema Utils** and **ActionSchema Server**
 
+Besides this repo, we have extensive documentation for all ActionSchema plugins, which can also be used independently of ActionSchema itself. Find the documentation [here](https://actionschema.readme.io/)
+
 **MOTIVATION ActionSchema Utils**:
 
 - Ability to run ActionSchemas serverless (independent of state) e.g. inside of NextJS and also inside any other server with any other way of authorisation, storage, etc.

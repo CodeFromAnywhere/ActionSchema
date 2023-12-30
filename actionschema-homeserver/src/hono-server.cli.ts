@@ -12,12 +12,13 @@ import { ports } from "port-conventions";
 import { functionApiKeys } from "sdk-api-keys";
 import { operations } from "sdk-operations";
 import { URL } from "url";
-import { getOpenapi } from "./getOpenapi.js";
-import { postModelAction } from "./postModelAction.js";
-import { json } from "./helpers.js";
 import { isGetEndpoint } from "./isGetEndpoint.js";
 import { isRawEndpoint } from "./isRawEndpoint.js";
 import { tryGetParameters } from "./tryGetParameters.js";
+
+import { getOpenapi } from "capable-json-schema";
+import { postModelAction } from "capable-json-schema";
+import { json } from "capable-json-schema";
 
 const projectRoot = getProjectRoot();
 
