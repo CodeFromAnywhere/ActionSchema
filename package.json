@@ -2,7 +2,7 @@
   "name": "actionschema",
   "type": "module",
   "main": "build/index.js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "tsc": "tsc",
     "dev": "npx tsc-watch --noClear --onSuccess 'npm run css'",
@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "@types/web": "^0.0.111",
-    "bun-types": "latest",
     "json-schema-to-typescript": "^13.1.2"
   },
   "license": "ISC",
