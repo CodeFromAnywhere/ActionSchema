@@ -2,14 +2,14 @@
   "name": "actionschema",
   "type": "module",
   "main": "build/index.js",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "scripts": {
     "tsc": "tsc",
     "dev": "npx tsc-watch --noClear --onSuccess 'npm run css'",
     "types": "json2ts -i schemas/ -o src/types/ --unknownAny=false",
     "css": "tailwindcss -o css.css",
     "up": "npm version patch -f",
-    "pub": "yarn up && npm publish && git add . && git commit -m 'improvements' && git push"
+    "pub": "npm run up && npm publish && git add . && git commit -m 'improvements' && git push"
   },
   "peerDependencies": {
     "typescript": "^5.0.0",
