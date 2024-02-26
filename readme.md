@@ -8,7 +8,7 @@ ActionSchema intends to be a new standard allowing developers to create data-cen
 
 - It's hard and complex to build long chains on top of unreliable functions such as LLM's and other transformer AI, if you can't see what is happening in each part of the chain.
 - It's hard to work with OpenAPIs while the potential is giant.
-- [LoB Principle](https://htmx.org/essays/locality-of-behaviour/) - keep your code where you describe your data.
+- Increased locality of behavior: keep your code where you describe your data and keep a SSOT. (See [LoB Principle](https://htmx.org/essays/locality-of-behaviour/))
 
 # Installation & Usage
 
