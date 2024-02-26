@@ -1,0 +1,215 @@
+{
+  "$schema": "action-schema.schema.json",
+  "$id": "schema-list.schema.json",
+  "title": "Schema List",
+  "description": "Defines metadata about every actionschema collection",
+  "type": "object",
+  "required": ["$schema", "items"],
+
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "URI identifying the schema for JSON data validation."
+    },
+
+    "items": {
+      "type": "array",
+      "description": "An array of items.",
+      "items": { "$ref": "#/definitions/SchemaListItem" }
+    },
+
+    "variables": {
+      "$ref": "#/definitions/StringObject",
+      "description": "Key-value pairs for variables."
+    },
+
+    "destinations": {
+      "$ref": "#/definitions/StringObject",
+      "description": "Key-value pairs for destinations."
+    },
+
+    "privacy": {
+      "$ref": "#/definitions/ActionSchemaPrivacy",
+      "description": "Privacy configurations for actions."
+    },
+
+    "category": {
+      "type": "string",
+      "description": "Category of the action, can be filled by user."
+    },
+
+    "rowGenerationStatus": {
+      "$ref": "#/definitions/ActionSchemaStatus",
+      "description": "Status indicating whether rows are being generated."
+    },
+
+    "status": {
+      "$ref": "#/definitions/JsonArrayStatus",
+      "description": "State concerning the status of (re)calculation behavior."
+    },
+
+    "lastOperationAt": {
+      "type": "number",
+      "description": "Timestamp of the last operation."
+    },
+
+    "lastSizeCalculatedAt": {
+      "type": "number",
+      "description": "Timestamp of the last size calculation."
+    },
+
+    "projectSizeBytes": {
+      "type": "number",
+      "description": "Size of the project in bytes."
+    },
+
+    "delta": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/JsonStatusDelta" },
+      "description": "Delta changes for status updates, avoids refetches by transforming cell values."
+    },
+
+    "columnSpending": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/definitions/GridSpending" },
+      "description": "Track spending by column."
+    },
+
+    "totalSpending": {
+      "$ref": "1/columnSpending",
+      "description": "Total spending for the grid."
+    },
+
+    "isPinned": {
+      "type": "boolean",
+      "description": "Is deemed favorite."
+    },
+
+    "isRootSchema": {
+      "type": "boolean",
+      "description": "Indicates if the table is a root schema."
+    },
+
+    "createdAt": {
+      "type": "number",
+      "description": "Timestamp of creation."
+    },
+
+    "updatedAt": {
+      "type": ["number", "null"],
+      "description": "Timestamp of the last update."
+    },
+
+    "projectRelativePath": {
+      "type": "string",
+      "description": "Relative path of the project."
+    },
+
+    "schemaDescription": {
+      "type": ["string", "null"],
+      "description": "Description of the schema."
+    },
+
+    "pluginsAmount": {
+      "type": "number",
+      "description": "Amount of plugins."
+    },
+
+    "itemsAmount": {
+      "type": "number",
+      "description": "Amount of items."
+    }
+  },
+
+  "definitions": {
+    "SchemaListItem": {
+      "type": "object"
+    },
+
+    "StringObject": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "A simple key-value map where both keys and values are strings."
+    },
+
+    "ActionSchemaPrivacy": {
+      "type": "string",
+      "enum": ["public", "unlisted", "private"],
+      "description": "Defines privacy settings for an action. Detailed structure needs to be defined based on requirements."
+    },
+
+    "ActionSchemaStatus": {
+      "type": "string",
+      "description": "Enumerates possible statuses for actions or processes. Specific enumeration values need to be defined.",
+      "enum": ["queued", "waiting", "busy", "done"]
+    },
+
+    "JsonArrayStatus": {
+      "type": "object",
+
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "oneOf": [
+            { "$ref": "#/definitions/ActionSchemaStatus" },
+            { "type": "null" }
+          ]
+        }
+      },
+      "description": "Maps row IDs to their respective status, allowing for detailed tracking of processing states."
+    },
+
+    "JsonStatusDelta": {
+      "type": "object",
+      "properties": {
+        "rowId": {
+          "type": ["string", "null"],
+          "description": "Identifier for the row, if applicable."
+        },
+        "propertyKey": {
+          "type": ["string", "null"],
+          "description": "Key of the property being updated."
+        },
+        "isSourcePluginUpdate": {
+          "type": "boolean",
+          "description": "Indicates if the newValue contains an array of items, prioritizing source plugin updates."
+        },
+        "newStatus": {
+          "$ref": "#/definitions/ActionSchemaStatus",
+          "description": "The new status after the update."
+        },
+
+        "newValue": {
+          "description": "The new value after the update, could be of any type."
+        }
+      },
+      "required": ["newStatus"],
+      "additionalProperties": false,
+      "description": "Describes changes to be applied to a status, including the new status and value."
+    },
+
+    "GridSpending": {
+      "description": "Defines the structure for tracking spending on grid columns, including pricing and calculations.",
+      "type": "object",
+      "properties": {
+        "priceCredit": {
+          "type": "number",
+          "description": "The price in credits."
+        },
+        "calculationsAmount": {
+          "type": "number",
+          "description": "The amount of calculations."
+        },
+        "priceCreditSinceLastEdit": {
+          "type": "number",
+          "description": "The price in credits since the last edit."
+        },
+        "calculationsAmountSinceLastEdit": {
+          "type": "number",
+          "description": "The amount of calculations since the last edit."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

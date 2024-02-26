@@ -1,0 +1,1619 @@
+{
+  "$comment": "Taken from https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json. 3.1 uses $dynamicRef which isn't supported yet by the validator. Edited to adhere to the ActionSchema standard. Among other things, I added a lot of stuff to the info object. Once I can use plugins from anywhere (possibly from vscode directly) I will be able to infer lots of things from any openapi.",
+  "title": "OpenAPI Document",
+  "$source": "https://spec.openapis.org/oas/3.0/schema/2021-09-28",
+  "$schema": "action-schema.schema.json",
+  "description": "The description of OpenAPI v3.0.x documents, as defined by https://spec.openapis.org/oas/v3.0.3",
+  "type": "object",
+  "required": ["$schema", "openapi", "actionschema", "info", "paths"],
+  "properties": {
+    "$schema": {
+      "$comment": "Added for vscode consistency. Refers to the openapi schema specification (this one)",
+      "type": "string",
+      "format": "uri-reference"
+    },
+
+    "$id": {
+      "$comment": "Should be the unique identifier, can be the URL where it can be found",
+      "type": "string",
+      "format": "uri-reference"
+    },
+
+    "$source": {
+      "type": "string",
+      "format": "uri-reference",
+      "$comment": "TODO",
+      "description": "If given, should be a url linking to the original file, the starting point, if this is not already the one. Used to determine if anything has changed."
+    },
+
+    "openapi": {
+      "description": "Version",
+      "type": "string",
+      "pattern": "^3\\.0\\.\\d(-.+)?$"
+    },
+
+    "actionschema": {
+      "description": "Version of actionschema.",
+      "type": "string",
+      "pattern": "0.0.1",
+      "default": "0.0.1"
+    },
+
+    "info": {
+      "$comment": "Should determine where information about the usage of this API is located first.",
+      "description": "Provides metadata about the API. The metadata MAY be used by tooling as required.",
+      "$ref": "#/definitions/Info"
+    },
+
+    "externalDocs": {
+      "$comment": "Should be documenting just the main capabilities. If not present, can infer this from 'info'",
+      "description": "Additional external documentation.",
+      "$ref": "#/definitions/ExternalDocumentation"
+    },
+
+    "servers": {
+      "description": "An array of Server Objects, which provide connectivity information to a target server. If the servers property is not provided, or is an empty array, the default value would be a Server Object with a url value of /.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Server"
+      }
+    },
+
+    "security": {
+      "description": "A declaration of which security mechanisms can be used across the API. The list of values includes alternative security requirement objects that can be used. Only one of the security requirement objects need to be satisfied to authorize a request. Individual operations can override this definition. To make security optional, an empty security requirement ({}) can be included in the array.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SecurityRequirement"
+      }
+    },
+
+    "tags": {
+      "description": "Used for grouping endpoints together. \n\nA list of tags used by the specification with additional metadata. The order of the tags can be used to reflect on their order by the parsing tools. Not all tags that are used by the Operation Object must be declared. The tags that are not declared MAY be organized randomly or based on the tools' logic. Each tag name in the list MUST be unique.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "uniqueItems": true
+    },
+
+    "paths": {
+      "description": "The available paths and operations for the API.",
+      "$ref": "#/definitions/Paths"
+    },
+
+    "components": {
+      "description": "An element to hold various schemas for the specification.",
+      "$ref": "#/definitions/Components"
+    }
+  },
+  "patternProperties": {
+    "^x-": {}
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "Reference": {
+      "type": "object",
+      "required": ["$ref"],
+      "patternProperties": {
+        "^\\$ref$": {
+          "type": "string",
+          "format": "uri-reference"
+        }
+      }
+    },
+    "Info": {
+      "$comment": "Edited to add ActionSchema standard",
+      "type": "object",
+      "required": ["title", "version"],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+
+        "description": {
+          "type": "string"
+        },
+
+        "termsOfService": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+
+        "contact": {
+          "$ref": "#/definitions/Contact"
+        },
+
+        "license": {
+          "$ref": "#/definitions/License"
+        },
+        "version": {
+          "type": "string"
+        },
+
+        "people": {
+          "description": "Different people in the company and their capabilities and communication channels",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          }
+        },
+
+        "product": {
+          "$comment": "TODO",
+          "description": "Product info."
+        },
+
+        "cost": {
+          "$comment": "TODO",
+          "description": "Pricing info including monthly fees."
+        },
+
+        "reviews": {
+          "$comment": "TODO",
+          "description": "General product reviews, collected."
+        },
+
+        "latency": {
+          "$comment": "TODO",
+          "description": "General latency info."
+        },
+
+        "alternatives": {
+          "$comment": "TODO",
+          "description": "Link to other openapis that could be good alternatives.",
+          "type": "array",
+          "items": { "$schema": "string", "format": "uri-reference" }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "format": "phone",
+          "$comment": "Added for ActionSchema"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "License": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri-reference"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Server": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "variables": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ServerVariable"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "ServerVariable": {
+      "type": "object",
+      "required": ["default"],
+      "properties": {
+        "enum": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "default": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Components": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Schema"
+                },
+                {
+                  "$ref": "#/definitions/Reference"
+                }
+              ]
+            }
+          }
+        },
+        "responses": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Reference"
+                },
+                {
+                  "$ref": "#/definitions/Response"
+                }
+              ]
+            }
+          }
+        },
+        "parameters": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Reference"
+                },
+                {
+                  "$ref": "#/definitions/Parameter"
+                }
+              ]
+            }
+          }
+        },
+        "examples": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Reference"
+                },
+                {
+                  "$ref": "#/definitions/Example"
+                }
+              ]
+            }
+          }
+        },
+        "requestBodies": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Reference"
+                },
+                {
+                  "$ref": "#/definitions/RequestBody"
+                }
+              ]
+            }
+          }
+        },
+        "headers": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Reference"
+                },
+                {
+                  "$ref": "#/definitions/Header"
+                }
+              ]
+            }
+          }
+        },
+        "securitySchemes": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Reference"
+                },
+                {
+                  "$ref": "#/definitions/SecurityScheme"
+                }
+              ]
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Reference"
+                },
+                {
+                  "$ref": "#/definitions/Link"
+                }
+              ]
+            }
+          }
+        },
+        "callbacks": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\.\\-_]+$": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Reference"
+                },
+                {
+                  "$ref": "#/definitions/Callback"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Schema": {
+      "$comment": "This schema defines its own adaptation of JSON Schema. A quick look shows me that it has properties JSONSchema doesn't have: discriminator, example, externalDocs, deprecated, xml. Good idea probably to also add discriminator and externalDocs to JSONSchema.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "multipleOf": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "exclusiveMaximum": {
+          "type": "boolean",
+          "default": false
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "exclusiveMinimum": {
+          "type": "boolean",
+          "default": false
+        },
+        "maxLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minLength": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        },
+        "pattern": {
+          "type": "string",
+          "format": "regex"
+        },
+        "maxItems": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minItems": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        },
+        "uniqueItems": {
+          "type": "boolean",
+          "default": false
+        },
+        "maxProperties": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minProperties": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "enum": {
+          "type": "array",
+          "items": {},
+          "minItems": 1,
+          "uniqueItems": false
+        },
+        "type": {
+          "type": "string",
+          "enum": ["array", "boolean", "integer", "number", "object", "string"]
+        },
+        "not": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schema"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            }
+          ]
+        },
+        "allOf": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Schema"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        },
+        "oneOf": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Schema"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        },
+        "anyOf": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Schema"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        },
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schema"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Schema"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        },
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schema"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "default": true
+        },
+        "description": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "default": {},
+        "nullable": {
+          "type": "boolean",
+          "default": false
+        },
+        "discriminator": {
+          "$ref": "#/definitions/Discriminator"
+        },
+        "readOnly": {
+          "type": "boolean",
+          "default": false
+        },
+        "writeOnly": {
+          "type": "boolean",
+          "default": false
+        },
+        "example": {},
+        "externalDocs": {
+          "$ref": "#/definitions/ExternalDocumentation"
+        },
+        "deprecated": {
+          "type": "boolean",
+          "default": false
+        },
+        "xml": {
+          "$ref": "#/definitions/XML"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Discriminator": {
+      "description": "Used to select a oneOf-value based on a property in the value. See https://swagger.io/specification/v3/#discriminator-object",
+      "type": "object",
+      "required": ["propertyName"],
+      "properties": {
+        "propertyName": {
+          "type": "string"
+        },
+        "mapping": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "XML": {
+      "type": "object",
+      "$comment": "Not implemented",
+      "description": "A metadata object that allows for more fine-tuned XML model definitions",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string",
+          "format": "uri"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "attribute": {
+          "type": "boolean",
+          "default": false
+        },
+        "wrapped": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Response": {
+      "type": "object",
+      "required": ["description"],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Header"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/MediaType"
+          }
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Link"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "MediaType": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schema"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            }
+          ]
+        },
+        "example": {},
+        "examples": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Example"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        },
+        "encoding": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Encoding"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExampleXORExamples"
+        }
+      ]
+    },
+    "Example": {
+      "description": "See https://swagger.io/specification/v3/#example-object",
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "value": {},
+        "externalValue": {
+          "type": "string",
+          "format": "uri-reference"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Header": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean",
+          "default": false
+        },
+        "deprecated": {
+          "type": "boolean",
+          "default": false
+        },
+        "allowEmptyValue": {
+          "type": "boolean",
+          "default": false
+        },
+        "style": {
+          "type": "string",
+          "enum": ["simple"],
+          "default": "simple"
+        },
+        "explode": {
+          "type": "boolean"
+        },
+        "allowReserved": {
+          "type": "boolean",
+          "default": false
+        },
+        "schema": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schema"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            }
+          ]
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/MediaType"
+          },
+          "minProperties": 1,
+          "maxProperties": 1
+        },
+        "example": {},
+        "examples": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Example"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExampleXORExamples"
+        },
+        {
+          "$ref": "#/definitions/SchemaXORContent"
+        }
+      ]
+    },
+    "Paths": {
+      "type": "object",
+      "patternProperties": {
+        "^\\/": {
+          "$ref": "#/definitions/PathItem"
+        },
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "PathItem": {
+      "type": "object",
+      "properties": {
+        "$ref": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "servers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Server"
+          }
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Parameter"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "patternProperties": {
+        "^(get|put|post|delete|options|head|patch|trace)$": {
+          "$ref": "#/definitions/Operation"
+        },
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Operation": {
+      "type": "object",
+      "required": ["responses"],
+      "properties": {
+        "x-unmountOperationId": {
+          "type": "string",
+          "description": "ActionSchema addition: Should refer to an operationId in the same OpenAPI that would undo the side-effect that calling this function caused.\n\nIf this is given into a path.post object it should mean that this function has an external side-effect when executed, for example it will store some data somewhere.\n\nTo undo this side-effect when changing or removing the plugin, we can specify an unmount plugin that is also part of the same openapi.\n\nThe idea is that if specified, the side effect doesn't leavve any residu"
+        },
+
+        "x-rawBodyCode": {
+          "type": "object",
+          "$comment": "TODO",
+          "description": "This could be the code executed upon receiving the requestBody as context. If we can create an editor that has the proper typescript context and shows the function based on the body, we have a single source of truth for the codebase. We code inside the openapi! The beauty is, this is programming language agnostic and we have a much more readable way to get interfaces.",
+          "properties": {
+            "runtime": {
+              "type": "string",
+              "enum": ["browser", "bun", "node", "python3", "rust", "go"]
+            },
+            "host": {
+              "$comment": "Imagine being able to choose here where you want to host this thing. Might be useful in some cases, although, I think, where I'm going, I won't need much but edge.",
+              "type": "string",
+              "enum": ["edge", "server", "serverless", "gpu"]
+            },
+            "code": { "type": "string" }
+          }
+        },
+
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "externalDocs": {
+          "$ref": "#/definitions/ExternalDocumentation"
+        },
+
+        "operationId": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Parameter"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          },
+          "uniqueItems": true
+        },
+        "requestBody": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RequestBody"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            }
+          ]
+        },
+        "responses": {
+          "$ref": "#/definitions/Responses"
+        },
+        "callbacks": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Callback"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        },
+        "deprecated": {
+          "type": "boolean",
+          "default": false
+        },
+        "security": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SecurityRequirement"
+          }
+        },
+        "servers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Server"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Responses": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Response"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            }
+          ]
+        }
+      },
+      "patternProperties": {
+        "^[1-5](?:\\d{2}|XX)$": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Response"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            }
+          ]
+        },
+        "^x-": {}
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "SecurityRequirement": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "externalDocs": {
+          "$ref": "#/definitions/ExternalDocumentation"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "ExternalDocumentation": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "markdown": {
+          "$comment": "Added for ActionSchema. To be implemented.",
+          "description": "Scraped markdown from the url",
+          "x-plugin": {
+            "propertyDependencies": ["url"],
+            "description": "Should use a scraper to get the readable content text in markdown format"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "ExampleXORExamples": {
+      "description": "Example and examples are mutually exclusive",
+      "not": {
+        "required": ["example", "examples"]
+      }
+    },
+    "SchemaXORContent": {
+      "description": "Schema and content are mutually exclusive, at least one is required",
+      "not": {
+        "required": ["schema", "content"]
+      },
+      "oneOf": [
+        {
+          "required": ["schema"]
+        },
+        {
+          "required": ["content"],
+          "description": "Some properties are not allowed if content is present",
+          "allOf": [
+            {
+              "not": {
+                "required": ["style"]
+              }
+            },
+            {
+              "not": {
+                "required": ["explode"]
+              }
+            },
+            {
+              "not": {
+                "required": ["allowReserved"]
+              }
+            },
+            {
+              "not": {
+                "required": ["example"]
+              }
+            },
+            {
+              "not": {
+                "required": ["examples"]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Parameter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "in": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean",
+          "default": false
+        },
+        "deprecated": {
+          "type": "boolean",
+          "default": false
+        },
+        "allowEmptyValue": {
+          "type": "boolean",
+          "default": false
+        },
+        "style": {
+          "type": "string"
+        },
+        "explode": {
+          "type": "boolean"
+        },
+        "allowReserved": {
+          "type": "boolean",
+          "default": false
+        },
+        "schema": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schema"
+            },
+            {
+              "$ref": "#/definitions/Reference"
+            }
+          ]
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/MediaType"
+          },
+          "minProperties": 1,
+          "maxProperties": 1
+        },
+        "example": {},
+        "examples": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Example"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false,
+      "required": ["name", "in"],
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExampleXORExamples"
+        },
+        {
+          "$ref": "#/definitions/SchemaXORContent"
+        },
+        {
+          "$ref": "#/definitions/ParameterLocation"
+        }
+      ]
+    },
+    "ParameterLocation": {
+      "description": "Parameter location",
+      "oneOf": [
+        {
+          "description": "Parameter in path",
+          "required": ["required"],
+          "properties": {
+            "in": {
+              "enum": ["path"]
+            },
+            "style": {
+              "enum": ["matrix", "label", "simple"],
+              "default": "simple"
+            },
+            "required": {
+              "enum": [true]
+            }
+          }
+        },
+        {
+          "description": "Parameter in query",
+          "properties": {
+            "in": {
+              "enum": ["query"]
+            },
+            "style": {
+              "enum": ["form", "spaceDelimited", "pipeDelimited", "deepObject"],
+              "default": "form"
+            }
+          }
+        },
+        {
+          "description": "Parameter in header",
+          "properties": {
+            "in": {
+              "enum": ["header"]
+            },
+            "style": {
+              "enum": ["simple"],
+              "default": "simple"
+            }
+          }
+        },
+        {
+          "description": "Parameter in cookie",
+          "properties": {
+            "in": {
+              "enum": ["cookie"]
+            },
+            "style": {
+              "enum": ["form"],
+              "default": "form"
+            }
+          }
+        }
+      ]
+    },
+    "RequestBody": {
+      "type": "object",
+      "required": ["content"],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/MediaType"
+          }
+        },
+        "required": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "SecurityScheme": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/APIKeySecurityScheme"
+        },
+        {
+          "$ref": "#/definitions/HTTPSecurityScheme"
+        },
+        {
+          "$ref": "#/definitions/OAuth2SecurityScheme"
+        },
+        {
+          "$ref": "#/definitions/OpenIdConnectSecurityScheme"
+        }
+      ]
+    },
+    "APIKeySecurityScheme": {
+      "type": "object",
+      "required": ["type", "name", "in"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["apiKey"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "in": {
+          "type": "string",
+          "enum": ["header", "query", "cookie"]
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "HTTPSecurityScheme": {
+      "type": "object",
+      "required": ["scheme", "type"],
+      "properties": {
+        "scheme": {
+          "type": "string"
+        },
+        "bearerFormat": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["http"]
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "description": "Bearer",
+          "properties": {
+            "scheme": {
+              "type": "string",
+              "pattern": "^[Bb][Ee][Aa][Rr][Ee][Rr]$"
+            }
+          }
+        },
+        {
+          "description": "Non Bearer",
+          "not": {
+            "required": ["bearerFormat"]
+          },
+          "properties": {
+            "scheme": {
+              "not": {
+                "type": "string",
+                "pattern": "^[Bb][Ee][Aa][Rr][Ee][Rr]$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "OAuth2SecurityScheme": {
+      "type": "object",
+      "required": ["type", "flows"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["oauth2"]
+        },
+        "flows": {
+          "$ref": "#/definitions/OAuthFlows"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "OpenIdConnectSecurityScheme": {
+      "type": "object",
+      "required": ["type", "openIdConnectUrl"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["openIdConnect"]
+        },
+        "openIdConnectUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "OAuthFlows": {
+      "type": "object",
+      "properties": {
+        "implicit": {
+          "$ref": "#/definitions/ImplicitOAuthFlow"
+        },
+        "password": {
+          "$ref": "#/definitions/PasswordOAuthFlow"
+        },
+        "clientCredentials": {
+          "$ref": "#/definitions/ClientCredentialsFlow"
+        },
+        "authorizationCode": {
+          "$ref": "#/definitions/AuthorizationCodeOAuthFlow"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "ImplicitOAuthFlow": {
+      "type": "object",
+      "required": ["authorizationUrl", "scopes"],
+      "properties": {
+        "authorizationUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "refreshUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "scopes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "PasswordOAuthFlow": {
+      "type": "object",
+      "required": ["tokenUrl", "scopes"],
+      "properties": {
+        "tokenUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "refreshUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "scopes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "ClientCredentialsFlow": {
+      "type": "object",
+      "required": ["tokenUrl", "scopes"],
+      "properties": {
+        "tokenUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "refreshUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "scopes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "AuthorizationCodeOAuthFlow": {
+      "type": "object",
+      "required": ["authorizationUrl", "tokenUrl", "scopes"],
+      "properties": {
+        "authorizationUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "tokenUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "refreshUrl": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "scopes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string"
+        },
+        "operationRef": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": {}
+        },
+        "requestBody": {},
+        "description": {
+          "type": "string"
+        },
+        "server": {
+          "$ref": "#/definitions/Server"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false,
+      "not": {
+        "description": "Operation Id and Operation Ref are mutually exclusive",
+        "required": ["operationId", "operationRef"]
+      }
+    },
+    "Callback": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/PathItem"
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
+    },
+    "Encoding": {
+      "type": "object",
+      "properties": {
+        "contentType": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Header"
+              },
+              {
+                "$ref": "#/definitions/Reference"
+              }
+            ]
+          }
+        },
+        "style": {
+          "type": "string",
+          "enum": ["form", "spaceDelimited", "pipeDelimited", "deepObject"]
+        },
+        "explode": {
+          "type": "boolean"
+        },
+        "allowReserved": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"executeServerless.d.ts","sourceRoot":"","sources":["../../../src/environments/serverless/executeServerless.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,cAAc,EAAW,MAAM,yBAAyB,CAAC;AAGlE;;GAEG;AACH,eAAO,MAAM,iBAAiB,YACnB,cAAc,KACtB,QAAQ;IACT,YAAY,EAAE,OAAO,CAAC;IACtB,OAAO,EAAE,MAAM,CAAC;CACjB,CAsDA,CAAC"}

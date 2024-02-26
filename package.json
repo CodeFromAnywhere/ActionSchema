@@ -1,0 +1,33 @@
+{
+  "name": "actionschema",
+  "type": "module",
+  "main": "build/index.js",
+  "version": "0.0.1",
+  "scripts": {
+    "tsc": "tsc",
+    "dev": "npx tsc-watch --noClear --onSuccess 'npm run css'",
+    "types": "json2ts -i schemas/ -o src/types/ --unknownAny=false",
+    "css": "tailwindcss -o css.css",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0",
+    "piscina": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/web": "^0.0.111",
+    "bun-types": "latest",
+    "json-schema-to-typescript": "^13.1.2"
+  },
+  "license": "ISC",
+  "description": "",
+  "bin": {},
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "operation": {
+    "lastRebuildAt": 1708812216395,
+    "isBuildSuccessful": false
+  }
+}

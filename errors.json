@@ -1,0 +1,42 @@
+[
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/serverless/vercelKvStore.ts",
+    "name": "NamedParameters<typeof putData>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/serverless/vercelKvStore.ts",
+    "operationRelativePath": "src/environments/serverless/vercelKvStore.ts",
+    "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/component/getFullscreenEditorHtml.tsx",
+    "name": "MonacoOptions",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/component/getFullscreenEditorHtml.tsx",
+    "operationRelativePath": "src/environments/browser/component/getFullscreenEditorHtml.tsx",
+    "error": "TypeError: undefined is not an object (evaluating 'typeSymbol.declarations.filter')"
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "name": "NamedParameters<typeof putData>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
+    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/NamedParameters%3Ctypeof%20putData%3E\". This is a bug."
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "name": "NamedParameters<typeof updateData>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
+    "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/api/cors-proxy.tsx",
+    "name": "NamedParameters<typeof CorsProxy>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/api/cors-proxy.tsx",
+    "operationRelativePath": "src/environments/browser/api/cors-proxy.tsx",
+    "error": "TypeError: WeakMap keys must be objects or non-registered symbols"
+  }
+]

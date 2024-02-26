@@ -1,0 +1,5 @@
+{
+  "$schema": "action-schema-test.schema.json",
+  "items": [{ "__id": "1" }, { "__id": "2" }],
+  "variables": { "a": "", "getStuff": "" }
+}

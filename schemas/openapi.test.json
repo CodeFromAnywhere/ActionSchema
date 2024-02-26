@@ -1,0 +1,12 @@
+{
+  "$schema": "openapi.schema.json",
+  "components": { "schemas": { "x": {} } },
+  "info": {},
+  "actionschema": "0.0.1",
+  "openapi": "3.0.0",
+  "paths": {
+    "/x": {
+      "post": { "responses": { "default": { "content": {} } } }
+    }
+  }
+}

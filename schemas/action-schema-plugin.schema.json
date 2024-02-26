@@ -1,0 +1,43 @@
+{
+  "$schema": "action-schema.schema.json",
+  "x-is-public": true,
+  "type": "object",
+  "title": "ActionSchemaPlugin Collection",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ActionSchemaPlugin"
+      }
+    }
+  },
+  "definitions": {
+    "ActionSchemaPlugin": {
+      "type": "object",
+      "properties": {
+        "__id": {
+          "type": "string",
+          "description": "The entire URL should be here"
+        },
+        "headers": {
+          "type": "string",
+          "description": ""
+        },
+        "localhostOpenapiUrl": {
+          "type": "string",
+          "description": "In case this is given and your IS_DEV is set to \"true\", this URL will be used when executing. However, this URL will never be set into the ActionSchema as this would cause things to not work when pushing to production. This is why it's needed to have this parameter: we want a good development experience at localhost for any openapi we may make, being able to make production-schemas from localhost"
+        },
+        "isInternallyHosted": {
+          "description": "If true, this indicates we should always use localhost, even in production.",
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "description": "🔗 User centric: which openapis does ActionSchema plug into"
+}

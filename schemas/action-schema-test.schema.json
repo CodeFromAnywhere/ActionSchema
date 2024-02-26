@@ -1,0 +1,69 @@
+{
+  "description": "This is a test for the new ActionSchema definition",
+  "$schema": "action-schema.schema.json",
+  "x-grid-items-location": "items",
+  "x-is-public": true,
+  "type": "object",
+  "properties": {
+    "variables": {
+      "description": "Variables that the user can set from the UI. These can also be plugin variables.",
+      "type": "object",
+      "properties": {
+        "getStuff": {
+          "type": "string",
+          "x-plugin": {
+            "$openapi": {
+              "path": "",
+              "method": "post",
+              "operationId": "",
+              "url": ""
+            }
+          }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "description": "Items in your grid.",
+
+      "x-plugin": [
+        {
+          "concatenateArray": true,
+          "$openapi": {
+            "path": "",
+            "method": "post",
+            "operationId": "",
+            "url": ""
+          }
+        },
+        {
+          "concatenateArray": true,
+          "$openapi": {
+            "path": "",
+            "method": "post",
+            "operationId": "",
+            "url": ""
+          }
+        }
+      ],
+      "items": {
+        "type": "object",
+
+        "properties": {
+          "__id": { "type": "string" },
+          "name": { "type": "string" },
+          "age": {
+            "x-plugin": {
+              "$openapi": {
+                "path": "",
+                "method": "post",
+                "operationId": "",
+                "url": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

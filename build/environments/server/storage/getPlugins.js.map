@@ -1,0 +1,1 @@
+{"version":3,"file":"getPlugins.js","sourceRoot":"","sources":["../../../../src/environments/server/storage/getPlugins.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,UAAU,GAAG,GAAG,EAAE;IAC7B,MAAM,mBAAmB,GAAyB;QAChD;YACE,IAAI,EAAE,+CAA+C;YACrD,OAAO,EAAE,gCAAgC;YACzC,mBAAmB,EACjB,uEAAuE;SAC1E;KACF,CAAC;IACF,OAAO,mBAAmB,CAAC;AAC7B,CAAC,CAAC"}

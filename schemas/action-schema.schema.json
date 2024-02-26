@@ -1,0 +1,412 @@
+{
+  "$schema": "action-schema.schema.json",
+
+  "title": "ActionSchema",
+  "description": "Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#definitions",
+
+  "$comment": "Love how VSCode allows me to self-refer this schema for validation! Besides adding all plugins, I also made the type of the root of the schema an object only. This was [object,boolean] before. After this I edited properties such as const, default, items, to also include the possibility for a boolean. I think this will make thet type interface easier to edit.",
+
+  "x-grid-items-location": "properties.items.items.properties",
+
+  "type": "object",
+  "default": {},
+  "properties": {
+    "x-grid-items-location": {
+      "type": "string",
+      "default": "items",
+      "description": "Useful at root. Dot-notation of where to find the items."
+    },
+
+    "x-is-public": {
+      "type": "boolean",
+      "default": true,
+      "description": "Useful at root. If this is true, its a schema that is allowed to be read by anyone regardless of the data privacy."
+    },
+
+    "x-plugin": {
+      "default": {},
+
+      "oneOf": [
+        { "$ref": "#/definitions/plugin" },
+        {
+          "description": "Need multiple plugins",
+          "type": "array",
+          "items": { "$ref": "#/definitions/plugin" }
+        }
+      ]
+    },
+
+    "deprecated": {
+      "$comment": "Same as in the OpenAPI 3.0 spec",
+      "type": "boolean",
+      "default": false
+    },
+
+    "ui:widget": {
+      "type": "string",
+      "description": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/"
+    },
+    "ui:options": {
+      "type": "object",
+      "description": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/",
+
+      "properties": {
+        "refModelName": {
+          "type": "string",
+          "description": "If given, it is assumed the value or values of this property link to this model."
+        }
+      },
+
+      "additionalProperties": true
+    },
+
+    "$id": {
+      "$comment": "Should be the unique identifier, can be the URL where it can be found",
+      "type": "string",
+      "format": "uri-reference"
+    },
+
+    "$source": {
+      "type": "string",
+      "format": "uri-reference",
+      "$comment": "TODO",
+      "description": "If given, should be a url linking to the original file, the starting point, if this is not already the one. Used to determine if anything has changed."
+    },
+
+    "$schema": {
+      "$comment": "Edited. Was 'uri' but this doesn't allow referring to files",
+      "type": "string",
+      "format": "uri-reference"
+    },
+
+    "$ref": {
+      "type": "string",
+      "format": "uri-reference"
+    },
+
+    "$comment": {
+      "type": "string",
+      "description": "Comment for the makers of the schema"
+    },
+
+    "title": {
+      "type": "string",
+      "description": "In the form this shows up as the title for the property. More readable."
+    },
+
+    "description": {
+      "type": "string",
+      "description": "Description for schema at this location"
+    },
+
+    "default": {
+      "$comment": "Edited",
+      "description": "Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.",
+      "anyOf": [
+        { "$ref": "#" },
+        { "type": "boolean" },
+        { "type": "number" },
+        { "type": "array" },
+        { "type": "string" }
+      ]
+    },
+
+    "readOnly": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "writeOnly": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "examples": {
+      "$comment": "We can potentially later augment this one with an x-plugin that auto-generates examples based on all properties.",
+
+      "description": "Sample JSON values associated with a particular schema, for the purpose of illustrating usage.\n\nBesides serving as example values for e.g. forms and other things, with ActionSchema `examples` also serves as a fallback of `x-plugin` and `default`.",
+
+      "type": "array",
+      "items": true
+    },
+
+    "multipleOf": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "maximum": {
+      "type": "number"
+    },
+    "exclusiveMaximum": {
+      "type": "number"
+    },
+    "minimum": {
+      "type": "number"
+    },
+    "exclusiveMinimum": {
+      "$comment": "Edited",
+      "oneOf": [{ "type": "number" }, { "type": "boolean" }]
+    },
+    "maxLength": { "$ref": "#/definitions/nonNegativeInteger" },
+    "minLength": { "$ref": "#/definitions/nonNegativeIntegerDefault0" },
+
+    "pattern": {
+      "type": "string",
+      "format": "regex"
+    },
+
+    "additionalItems": { "$ref": "#" },
+
+    "items": {
+      "$comment": "Edited (without breaking original JSONSchema spec) to allow for easier typescript usage.",
+      "anyOf": [
+        { "$ref": "#" },
+        { "$ref": "#/definitions/schemaArray" },
+        { "type": "boolean" }
+      ],
+      "default": true
+    },
+    "maxItems": { "$ref": "#/definitions/nonNegativeInteger" },
+    "minItems": { "$ref": "#/definitions/nonNegativeIntegerDefault0" },
+    "uniqueItems": {
+      "type": "boolean",
+      "default": false
+    },
+    "contains": { "$ref": "#" },
+    "maxProperties": { "$ref": "#/definitions/nonNegativeInteger" },
+    "minProperties": { "$ref": "#/definitions/nonNegativeIntegerDefault0" },
+    "required": { "$ref": "#/definitions/stringArray" },
+    "additionalProperties": {
+      "$comment": "Edited",
+      "oneOf": [{ "$ref": "#" }, { "type": "boolean" }]
+    },
+    "definitions": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#" },
+      "default": {}
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#" },
+      "default": {}
+    },
+    "patternProperties": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#" },
+      "propertyNames": { "format": "regex" },
+      "default": {}
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [{ "$ref": "#" }, { "$ref": "#/definitions/stringArray" }]
+      }
+    },
+    "propertyNames": { "$ref": "#" },
+    "const": {
+      "$comment": "Edited",
+      "oneOf": [{ "$ref": "#" }, { "type": "boolean" }]
+    },
+    "enum": {
+      "type": "array",
+      "items": true,
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "type": {
+      "anyOf": [
+        { "$ref": "#/definitions/simpleTypes" },
+        {
+          "type": "array",
+          "items": { "$ref": "#/definitions/simpleTypes" },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      ]
+    },
+    "format": { "type": "string" },
+
+    "contentMediaType": { "type": "string" },
+    "contentEncoding": { "type": "string" },
+    "if": { "$ref": "#" },
+    "then": { "$ref": "#" },
+    "else": { "$ref": "#" },
+    "allOf": { "$ref": "#/definitions/schemaArray" },
+    "anyOf": { "$ref": "#/definitions/schemaArray" },
+    "oneOf": { "$ref": "#/definitions/schemaArray" },
+    "not": { "$ref": "#" }
+  },
+  "definitions": {
+    "plugin": {
+      "type": "object",
+      "description": "ActionSchema plugin",
+      "properties": {
+        "summary": {
+          "type": "string",
+          "$comment": "Later, could be used to auto-summarise the usage of this plugin"
+        },
+
+        "description": {
+          "type": "string",
+          "description": "Could be used to auto-describe the usage of this plugin"
+        },
+
+        "arrayReplace": {
+          "type": "boolean",
+          "default": true,
+          "description": "For plugins for an array. If true, will replace items in the array fully.\n\nBy default, ActionSchema will insert into an array with an optional discriminator (see below).",
+          "$comment": "plugin can be plugged anywhere so we don't need much different things."
+        },
+
+        "arrayDiscriminatorPropertyKey": {
+          "type": "string",
+          "default": true,
+          "description": "For plugins for an array. If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is."
+        },
+
+        "objectReplace": {
+          "type": "boolean",
+          "default": true,
+          "description": "If true, will replace the object rather than overwriting it where needed.\n\nBy default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed.",
+          "$comment": "Not entirely sure if this is a single usecase, and where I need it, but I think it's important to think about."
+        },
+
+        "$openapi": {
+          "$comment": "Its still an interesting idea to maybe reduce this to just the operationId, and getting the rest of the information from the OpenAPI itself. However, it's also nice to have all information required to execute inside of the schema itself. But is this even the case (e.g. with authorization, we still need the openapi.json document to get there)",
+          "title": "OpenAPI Details",
+          "type": "object",
+          "description": "The OpenAPI information required to execute the function.",
+          "properties": {
+            "url": { "type": "string" },
+            "path": { "type": "string" },
+            "method": { "type": "string" },
+            "operationId": { "type": "string" },
+            "emoji": { "type": "string" }
+          },
+          "default": {},
+          "required": ["operationId", "method", "path", "url"]
+        },
+
+        "condition": {
+          "type": "string",
+          "description": "If given, must resolve to true in order to run this function"
+        },
+
+        "outputLocation": {
+          "type": "string",
+          "description": "Simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+        },
+
+        "isVerticalExpandEnabled": {
+          "type": "boolean",
+          "description": "If true, this plugin should cause a vertical expansion. This means, for each row it is ran on, it will copy that row for each item in the resulting array. NB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+        },
+
+        "isAutoExecuteDisabled": {
+          "type": "boolean",
+          "description": "If true, will not auto-execute when dependencies are met. Useful for example for scheduled columns"
+        },
+
+        "context": {
+          "type": "object",
+          "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.",
+          "additionalProperties": true
+        },
+
+        "dataDependencies": {
+          "type": "array",
+          "description": "Array of dot locations of datapoints that are required to be non-stale for this plugin to run. Should replace `propertyDependencies`. Might later calculate this in realtime using the `x-plugin.code` property",
+          "items": { "type": "string" }
+        },
+        "priceCredit": {
+          "type": "number",
+          "description": "Cost estimation to run this plugin. This is needed to give insight in costs for generations."
+        },
+
+        "code": {
+          "type": "object",
+          "$comment": "TODO",
+          "description": "This could be the code executed upon receiving any context of the schema as context. If we can create an editor that has the proper typescript context and shows the function based on the body, we have a single source of truth for the codebase. We code inside the actionschemas or openapis! The beauty is, this is programming language agnostic and we have a much more readable way to get interfaces.",
+          "properties": {
+            "host": {
+              "$comment": "Imagine being able to choose here where you want to host this thing. Might be useful in some cases, although, I think, where I'm going, I won't need much but `serverless`. Its crucial because we need to know where the code can be deployed. Also, `browser` can easily be done realtime, if needed.",
+              "type": "string",
+              "enum": ["browser", "serverless", "server", "gpu"]
+            },
+            "code": { "type": "string" }
+          }
+        },
+
+        "isGridDataProvided": {
+          "deprecated": true,
+          "$comment": "Probably not needed if I have better variable support. This can then be inferred.",
+          "type": "boolean",
+          "description": "For grid-plugins: if true, entire grid data will be provided into the plugin"
+        },
+
+        "propertyDependencies": {
+          "deprecated": true,
+          "type": "array",
+          "description": "Property keys in the same object that are required as context. This is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.",
+          "items": { "type": "string" }
+        },
+
+        "onChangeDependantBehavior": {
+          "deprecated": true,
+          "enum": ["ignore", "stale", "reset", "delete"],
+          "description": "What should the dependant values do when this value changes? If 'stale', there needs to be an `isStalePropertyName` given, so we can set it to stale."
+        },
+
+        "stalePropertyName": {
+          "deprecated": true,
+          "type": "string",
+          "description": "If given, this could be a reference to another property that resolves to a boolean that, if true, tells that this value is stale."
+        },
+
+        "validPropertyName": {
+          "deprecated": true,
+          "type": "string",
+          "description": "If given, this could be a reference to another property that resolves to a boolean that, if false, tells that this value is invalid"
+        }
+      }
+    },
+
+    "schemaArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#" }
+    },
+
+    "nonNegativeInteger": {
+      "type": "integer",
+      "minimum": 0
+    },
+
+    "nonNegativeIntegerDefault0": {
+      "allOf": [
+        { "$ref": "#/definitions/nonNegativeInteger" },
+        { "default": 0 }
+      ]
+    },
+
+    "simpleTypes": {
+      "enum": [
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string"
+      ]
+    },
+
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "default": []
+    }
+  },
+  "additionalProperties": false
+}

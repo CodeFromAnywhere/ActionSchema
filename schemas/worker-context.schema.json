@@ -1,0 +1,29 @@
+{
+  "title": "WorkerContext",
+  "$schema": "action-schema.schema.json",
+
+  "type": "object",
+  "properties": {
+    "completeContext": {
+      "type": "object"
+    },
+    "databaseId": {
+      "type": "string"
+    },
+    "dotLocation": {
+      "type": "string"
+    },
+    "schema": {
+      "$ref": "file:///Users/king/os/packages/actionschema/actionschema2/actionschema2/schemas/action-schema.schema.json#"
+    }
+  },
+  "required": [
+    "completeContext",
+    "databaseId",
+    "dotLocation",
+    "schema",
+    "actionSchemaPlugins"
+  ],
+
+  "definitions": {}
+}
