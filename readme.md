@@ -1,3 +1,11 @@
+# ActionSchema
+
+![](schema-interaction.drawio.svg)
+
+ActionSchema intends to be a new standard allowing developers to create data-centric codebases. ActionSchema is a superset of JSON-Schema connecting meaning to how this meaning is obtained through OpenAPIs and code execution.
+
+# Roadmap
+
 ⚠️ Rewrite in progress ⚠️
 
 **Goals of the rewrite**:
