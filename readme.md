@@ -4,6 +4,46 @@
 
 ActionSchema intends to be a new standard allowing developers to create data-centric codebases. ActionSchema is a superset of JSON-Schema connecting meaning to how this meaning is obtained through OpenAPIs and code execution.
 
+# Installation & Usage
+
+Installation differs depending on where you intend to use `actionschema`. ActionSchema can be ran on a server, on serverless, or directly from the browser!
+
+**Browser**
+
+Install: `npm i actionschema`
+
+Usage:
+
+```ts
+import { executeBrowser } from "actionschema/build/environments/browser/executeBrowser";
+executeBrowser();
+// options
+```
+
+**Serverless**
+
+Install: `npm i actionschema`
+
+Usage:
+
+```ts
+import { executeServerless } from "actionschema/build/environments/serverless/executeServerless";
+executeServerless();
+// options
+```
+
+**Server**
+
+Install: `npm i actionschema piscina`
+
+Usage:
+
+```ts
+import { executeServer } from "actionschema/build/environments/serverless/executeServer";
+executeServer();
+// options
+```
+
 # Roadmap
 
 ⚠️ Rewrite in progress ⚠️
