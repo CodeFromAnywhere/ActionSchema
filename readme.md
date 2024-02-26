@@ -58,7 +58,7 @@ executeServer(context);
 - Plugins everywhere (compatible with openapi and jsonschema architecture)
 - Built-in load balancing
 - Built-in staleness detection
-- Built-in trusted code-execution
+- Improved variable evaluation
 
 Compared to ActionSchema v1, this means it...
 
@@ -67,6 +67,7 @@ Compared to ActionSchema v1, this means it...
 
 **Maybe**
 
+- Built-in trusted code-execution
 - Built-in scheduling
 - Built-in migration support (moving data around)
 - Allows you to use it from VSCode
