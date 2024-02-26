@@ -16,8 +16,7 @@ Usage:
 
 ```ts
 import { executeBrowser } from "actionschema/build/environments/browser/executeBrowser";
-executeBrowser();
-// options
+executeBrowser(context);
 ```
 
 **Serverless**
@@ -28,8 +27,7 @@ Usage:
 
 ```ts
 import { executeServerless } from "actionschema/build/environments/serverless/executeServerless";
-executeServerless();
-// options
+executeServerless(context);
 ```
 
 **Server**
@@ -39,9 +37,8 @@ Install: `npm i actionschema piscina`
 Usage:
 
 ```ts
-import { executeServer } from "actionschema/build/environments/serverless/executeServer";
-executeServer();
-// options
+import { executeServer } from "actionschema/build/environments/server/executeServer";
+executeServer(context);
 ```
 
 # Roadmap
