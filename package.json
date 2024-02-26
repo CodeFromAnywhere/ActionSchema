@@ -2,7 +2,7 @@
   "name": "actionschema",
   "type": "module",
   "main": "build/index.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "tsc": "tsc",
     "dev": "npx tsc-watch --noClear --onSuccess 'npm run css'",
