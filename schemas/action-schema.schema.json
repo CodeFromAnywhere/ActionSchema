@@ -25,15 +25,29 @@
 
     "x-plugin": {
       "default": {},
+      "description": "Plug-in an openapi here to say how  this value can be determined.",
+      "$ref": "#/definitions/plugin"
+    },
 
-      "oneOf": [
-        { "$ref": "#/definitions/plugin" },
-        {
-          "description": "Need multiple plugins",
-          "type": "array",
-          "items": { "$ref": "#/definitions/plugin" }
-        }
+    "default": {
+      "$comment": "Edited",
+      "description": "Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.",
+      "anyOf": [
+        { "$ref": "#" },
+        { "type": "boolean" },
+        { "type": "number" },
+        { "type": "array" },
+        { "type": "string" }
       ]
+    },
+
+    "examples": {
+      "$comment": "We can potentially later augment this one with an x-plugin that auto-generates examples based on all properties.",
+
+      "description": "Sample JSON values associated with a particular schema, for the purpose of illustrating usage.\n\nBesides serving as example values for e.g. forms and other things, with ActionSchema `examples` also serves as a fallback of `x-plugin` and `default`.",
+
+      "type": "array",
+      "items": true
     },
 
     "deprecated": {
@@ -99,18 +113,6 @@
       "description": "Description for schema at this location"
     },
 
-    "default": {
-      "$comment": "Edited",
-      "description": "Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.",
-      "anyOf": [
-        { "$ref": "#" },
-        { "type": "boolean" },
-        { "type": "number" },
-        { "type": "array" },
-        { "type": "string" }
-      ]
-    },
-
     "readOnly": {
       "type": "boolean",
       "default": false
@@ -119,15 +121,6 @@
     "writeOnly": {
       "type": "boolean",
       "default": false
-    },
-
-    "examples": {
-      "$comment": "We can potentially later augment this one with an x-plugin that auto-generates examples based on all properties.",
-
-      "description": "Sample JSON values associated with a particular schema, for the purpose of illustrating usage.\n\nBesides serving as example values for e.g. forms and other things, with ActionSchema `examples` also serves as a fallback of `x-plugin` and `default`.",
-
-      "type": "array",
-      "items": true
     },
 
     "multipleOf": {
