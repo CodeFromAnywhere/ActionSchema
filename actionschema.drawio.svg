@@ -1,4 +1,4 @@
-<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="521px" height="147px" viewBox="-0.5 -0.5 521 147" content="&lt;mxfile&gt;&lt;diagram id=&quot;oZ8AchhATyC6bdU5wp35&quot; name=&quot;Page-1&quot;&gt;5ZdLc5swEMc/DdcOD+PH0Y80bWfadIZD06MCa9BUSIwQBvfTdzGSQcF2nGky6ePCaP/Smt3friTsBOu8uZWkyD6LBJjju0njBBvH9ydBiM9W2HcCSp2QSpp0ktcLEf0JWnS1WtEESmuhEoIpWthiLDiHWFkakVLU9rKtYPZbC5LCSIhiwsbqN5qorFPn/qzXPwBNM/Nmb7roZnJiFutMyowkoh5IwY0TrKUQqhvlzRpYy85w6fzen5k9BiaBq2sc/M5hR1ilc/sU3X1BJYozyIkOUu1N5uiNkNFY1RlVEBUkbmdqLDNqmcoZWh4OSVl05Le0AXzZahyZDnYHUkEzkHSktyByUHKPS0zfTDQ13TbeVNt1XwTP9EhmFUCLRBc+Pf52zwYHGs9pVIsxjAS7QptccLAJQEPV/WD8Hcfuu1BbmzYn1xh7Y3AM6n5oDLxas3c7WMbvLNxSVDLW4eo9pohMQa+ad1KbyMUCSGBE0Z3d/r8DczLqu7sC+PLrxz+r44K3bLhwxGgDW8rx4MODBAinPB3RwryUjaVUUvyAtWBC9m26pYw9kgijKUczRlqA+qqlRPHMW+qJnCYJO1cHKSqetNQvt+Nz9npoofdnJ9C7J9AHL0B+eoE8iRUV/B8G7z7JffFK2GcXsGd4Sxr4rR0T3j4lEAX/w37wr9gPr1UXc5j9vVfffHz1+W919c1HXb48dPWZLy6ZifyhKp++/16kyR7fd+F1h+5RfAYYNPvv3MPc4M9CcPML&lt;/diagram&gt;&lt;/mxfile&gt;">
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="521px" height="156px" viewBox="-0.5 -0.5 521 156" content="&lt;mxfile&gt;&lt;diagram id=&quot;oZ8AchhATyC6bdU5wp35&quot; name=&quot;Page-1&quot;&gt;5VdNb9swDP01uRaOnc9jPtpuA7YOyGHdUbUZW5gsGbKSOPv1o2yqtqck3bAMHdYcAvFJjMnHR8oZRKu8utesyD6qBMQgDJJqEK0HYTiZzfHbAscGiEbTBkg1Txpo2AIb/h0IDAjd8QTK3kGjlDC86IOxkhJi08OY1urQP7ZVov/UgqXgAZuYCR/9whOTNegsnLb4O+Bp5p48nFDCOXOHKZMyY4k6dKDodhCttFKmWeXVCoTlzvHS+N2d2X0OTIM0v+IQNg57JnaU24fNwydENnEGOaMgzdFljt5IMhrLQ8YNbAoW250DlhmxzOQCrSEuWVk0zG95BfiwpR8ZBbsHbaDqQBTpPagcjD7iEdodjYg1ks1wQvahLcLQaSTrFYBARoVPn3+75QYXRM9pquY+GQmqgkypJPQZgIqbx876K66DmzFZa5tT4IyjMyQG9dg1Ol7WbN1qy/mhjAobxVZAtbACR2zLhVgpoXQdbHRXfy4VolQ7HVNqI+oqplOgU7MGsklfLJYGwQzf91vlT4gfeRp9KEAuPr//t9QZvaY4xx5Ha9hyiUMShw4wyWXqsYV5mT4tpdHqGzjRkKTP6YgJnkrEYqQMcHNpqeI4JBe0kfMkEeeKodVOJpb6Wr9XGQ7jHv/h9AT/wQn+oyvQP7lAP4sNV/J/Zz94kfz5X+J+eoH7DCehq4C1YybttwZm4M10BlJ081NvTMZ+b7gZ0q3P+Ar1cePtbVycM//iDF/r4px5nbGoO+HMu53OVP60K1++Pa+hSe9V7oQiT03rZ/A3iEGzfaOu9zp/S6LbHw==&lt;/diagram&gt;&lt;/mxfile&gt;">
     <defs/>
     <g>
         <ellipse cx="465" cy="55" rx="55" ry="55" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
@@ -18,8 +18,7 @@
                 </text>
             </switch>
         </g>
-        <path d="M 110 55 L 203.63 55" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
-        <path d="M 208.88 55 L 201.88 58.5 L 203.63 55 L 201.88 51.5 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 110.5 60 L 110.5 50 L 190.5 50 L 190.5 39.5 L 209.5 55 L 190.5 70.5 L 190.5 60 Z" fill="#ffffff" stroke="rgb(0, 0, 0)" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"/>
         <ellipse cx="55" cy="55" rx="55" ry="55" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
         <g transform="translate(-0.5 -0.5)">
             <switch>
@@ -37,7 +36,7 @@
                 </text>
             </switch>
         </g>
-        <rect x="415" y="110" width="100" height="30" fill="none" stroke="none" pointer-events="all"/>
+        <rect x="415" y="110" width="100" height="30" fill="#ffffff" stroke="none" pointer-events="all"/>
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
@@ -54,7 +53,7 @@
                 </text>
             </switch>
         </g>
-        <rect x="10" y="110" width="90" height="30" fill="none" stroke="none" pointer-events="all"/>
+        <rect x="10" y="110" width="90" height="30" fill="#ffffff" stroke="none" pointer-events="all"/>
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
@@ -71,11 +70,11 @@
                 </text>
             </switch>
         </g>
-        <rect x="215" y="110" width="90" height="30" fill="none" stroke="none" pointer-events="all"/>
+        <rect x="197.5" y="105" width="125" height="50" fill="#ffffff" stroke="none" pointer-events="all"/>
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 88px; height: 1px; padding-top: 125px; margin-left: 216px;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 123px; height: 1px; padding-top: 130px; margin-left: 199px;">
                         <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
                             <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
                                 Defines how actions can create meaning
@@ -83,13 +82,12 @@
                         </div>
                     </div>
                 </foreignObject>
-                <text x="260" y="129" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
-                    Defines how act...
+                <text x="260" y="134" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    Defines how actions c...
                 </text>
             </switch>
         </g>
-        <path d="M 310 55 L 403.63 55" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
-        <path d="M 408.88 55 L 401.88 58.5 L 403.63 55 L 401.88 51.5 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 310.5 60 L 310.5 50 L 390.5 50 L 390.5 39.5 L 409.5 55 L 390.5 70.5 L 390.5 60 Z" fill="#ffffff" stroke="rgb(0, 0, 0)" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"/>
         <path d="M 260 5 L 310 55 L 260 105 L 210 55 Z" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
         <g transform="translate(-0.5 -0.5)">
             <switch>
