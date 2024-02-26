@@ -2,7 +2,7 @@
   "name": "actionschema",
   "type": "module",
   "main": "build/index.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "tsc": "tsc",
     "dev": "npx tsc-watch --noClear --onSuccess 'npm run css'",
@@ -27,7 +27,7 @@
     "js-yaml": "^4.1.0"
   },
   "operation": {
-    "lastRebuildAt": 1708812216395,
+    "lastRebuildAt": 1708935717730,
     "isBuildSuccessful": false
   }
 }
