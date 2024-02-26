@@ -2,6 +2,7 @@ import { setPropertyStatusDone } from "./setPropertyStatusDone.js";
 import { getDb } from "./storage/getDb.js";
 import { ActionSchema } from "../../types/action-schema.schema.js";
 import { flatten } from "../../util/dot-wild.js";
+import { ValueOptions } from "../../plugin/execute.js";
 /**
 Sets the value and handles status
 
@@ -32,24 +33,4 @@ export const setValue = async (
   await setPropertyStatusDone(schema, dotLocation, databaseId);
 
   return { isSuccessful: true, message: "Set the value" };
-};
-
-export type ValueOptions = {
-  /**
-   * If true, will replace the object rather than overwriting it where needed.
-   *
-   * By default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed.
-   */
-  objectReplace?: boolean;
-  /**
-    If true, will replace items in the array fully.
-    
-    By default, ActionSchema will insert into an array with an optional discriminator (see below).
-     */
-  arrayReplace?: boolean;
-
-  /**
-   * If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is.
-   */
-  arrayDiscriminatorPropertyKey?: string;
 };

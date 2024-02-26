@@ -37,7 +37,7 @@ export const initDb = async (databaseId: string): Promise<boolean> => {
   return isSuccessful;
 };
 
-export const putData = <T>(
+export const indexedDbPutData = <T>(
   databaseId: string,
   key: string,
   value: T,
@@ -69,7 +69,7 @@ export const putData = <T>(
   });
 };
 
-export const deleteData = (
+export const indexedDbDeleteData = (
   databaseId: string,
   key: string,
 ): Promise<boolean> => {
@@ -95,7 +95,7 @@ export const deleteData = (
 };
 
 /** Probably don't need for now */
-export const updateData = <T>(
+export const indexedDbUpdateData = <T>(
   databaseId: string,
   key: string,
   data: T,
@@ -122,7 +122,7 @@ export const updateData = <T>(
 };
 
 /** Gets all store data */
-export const getStoreData = <T>(
+export const indexedDbGetStoreData = <T>(
   /** E.g. the full JSON object */
   databaseId: string,
 ): Promise<T[]> => {

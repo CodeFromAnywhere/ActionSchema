@@ -1,3 +1,7 @@
+/// <reference types="web" />
+/// <reference types="bun-types" />
+/// <reference types="node" />
+/// <reference types="./types/global" />
 /**
  * Sets timeout to 5 minutes by default
  *

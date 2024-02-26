@@ -30,7 +30,7 @@ export const initDb = async (databaseId) => {
     });
     return isSuccessful;
 };
-export const putData = (databaseId, key, value) => {
+export const indexedDbPutData = (databaseId, key, value) => {
     return new Promise((resolve) => {
         request = indexedDB.open(dbName, version);
         request.onsuccess = () => {
@@ -56,7 +56,7 @@ export const putData = (databaseId, key, value) => {
         };
     });
 };
-export const deleteData = (databaseId, key) => {
+export const indexedDbDeleteData = (databaseId, key) => {
     return new Promise((resolve) => {
         request = indexedDB.open(dbName, version);
         request.onsuccess = () => {
@@ -75,7 +75,7 @@ export const deleteData = (databaseId, key) => {
     });
 };
 /** Probably don't need for now */
-export const updateData = (databaseId, key, data) => {
+export const indexedDbUpdateData = (databaseId, key, data) => {
     return new Promise((resolve) => {
         request = indexedDB.open(dbName, version);
         request.onsuccess = () => {
@@ -96,7 +96,7 @@ export const updateData = (databaseId, key, data) => {
     });
 };
 /** Gets all store data */
-export const getStoreData = (
+export const indexedDbGetStoreData = (
 /** E.g. the full JSON object */
 databaseId) => {
     return new Promise((resolve) => {

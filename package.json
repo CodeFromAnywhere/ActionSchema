@@ -9,7 +9,7 @@
     "types": "json2ts -i schemas/ -o src/types/ --unknownAny=false",
     "css": "tailwindcss -o css.css",
     "up": "npm version patch -f",
-    "pub": "yarn up && npm publish"
+    "pub": "yarn up && npm publish && git add . && git commit -m 'improvements' && git push"
   },
   "peerDependencies": {
     "typescript": "^5.0.0",

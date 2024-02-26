@@ -1,5 +1,5 @@
 import { execute } from "../../plugin/execute.js";
-import { getStoreData, putData } from "./storage/indexedDb.js";
+import { indexedDbGetStoreData, indexedDbPutData, } from "./storage/indexedDb.js";
 /**
 Local offline IndexedDb store wrapper around `execute`
  */
@@ -18,11 +18,11 @@ export const executeBrowser = (context) => {
             return executeBrowser(item);
         },
         setData: async (key, value) => {
-            await putData(databaseId, key, value);
+            await indexedDbPutData(databaseId, key, value);
             return;
         },
         setStatus: async (key, value) => {
-            await putData(`status-${databaseId}`, key, value);
+            await indexedDbPutData(`status-${databaseId}`, key, value);
             return;
         },
         fetchPlugin: async (details, completeContext) => {
@@ -31,12 +31,12 @@ export const executeBrowser = (context) => {
         },
         getData: async (key) => {
             //TODO
-            const data = await getStoreData(databaseId);
+            const data = await indexedDbGetStoreData(databaseId);
             return data;
         },
         getStatus: async (key) => {
             //TODO
-            const data = await getStoreData(`status-${databaseId}`);
+            const data = await indexedDbGetStoreData(`status-${databaseId}`);
             return "busy";
         },
     });

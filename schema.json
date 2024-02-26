@@ -1,9 +1,9 @@
 [
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/util/getDotlocationBase.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/util/getDotlocationBase.ts",
     "name": "NamedParameters<typeof getDotLocationBase>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/util/getDotlocationBase.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/getDotlocationBase.ts",
     "operationRelativePath": "src/util/getDotlocationBase.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -29,9 +29,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/util/getDotLocation.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/util/getDotLocation.ts",
     "name": "NamedParameters<typeof getDotLocation>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/util/getDotLocation.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/getDotLocation.ts",
     "operationRelativePath": "src/util/getDotLocation.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -56,9 +56,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/util/getSchemaAtDotLocation.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/util/getSchemaAtDotLocation.ts",
     "name": "NamedParameters<typeof getSchemaAtDotLocation>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/util/getSchemaAtDotLocation.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/getSchemaAtDotLocation.ts",
     "operationRelativePath": "src/util/getSchemaAtDotLocation.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -489,9 +489,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/serverless/executeServerless.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/executeServerless.ts",
     "name": "NamedParameters<typeof executeServerless>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/serverless/executeServerless.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/executeServerless.ts",
     "operationRelativePath": "src/environments/serverless/executeServerless.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -980,17 +980,17 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/serverless/vercelKvStore.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
     "name": "NamedParameters<typeof putData>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/serverless/vercelKvStore.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
     "operationRelativePath": "src/environments/serverless/vercelKvStore.ts",
     "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/serverless/vercelKvStore.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
     "name": "NamedParameters<typeof getStoreData>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/serverless/vercelKvStore.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
     "operationRelativePath": "src/environments/serverless/vercelKvStore.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1014,9 +1014,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/executeGridPluginWorker.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/executeGridPluginWorker.ts",
     "name": "NamedParameters<typeof executeGridPluginWorker>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/executeGridPluginWorker.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/executeGridPluginWorker.ts",
     "operationRelativePath": "src/environments/server/executeGridPluginWorker.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1481,9 +1481,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/setValue.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/setValue.ts",
     "name": "NamedParameters<typeof setValue>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/setValue.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/setValue.ts",
     "operationRelativePath": "src/environments/server/setValue.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1942,9 +1942,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/setValue.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/setValue.ts",
     "name": "ValueOptions",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/setValue.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/setValue.ts",
     "operationRelativePath": "src/environments/server/setValue.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1973,9 +1973,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/storage/getDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/storage/getDb.ts",
     "name": "NamedParameters<typeof getDb>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/storage/getDb.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/storage/getDb.ts",
     "operationRelativePath": "src/environments/server/storage/getDb.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1998,9 +1998,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/storage/getActionSchema.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/storage/getActionSchema.ts",
     "name": "NamedParameters<typeof getActionSchema>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/storage/getActionSchema.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/storage/getActionSchema.ts",
     "operationRelativePath": "src/environments/server/storage/getActionSchema.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2023,9 +2023,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/storage/getStatusDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/storage/getStatusDb.ts",
     "name": "NamedParameters<typeof getStatusDb>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/storage/getStatusDb.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/storage/getStatusDb.ts",
     "operationRelativePath": "src/environments/server/storage/getStatusDb.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2048,9 +2048,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/storage/getValue.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/storage/getValue.ts",
     "name": "NamedParameters<typeof getValue>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/storage/getValue.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/storage/getValue.ts",
     "operationRelativePath": "src/environments/server/storage/getValue.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2078,9 +2078,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/storage/getPlugins.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/storage/getPlugins.ts",
     "name": "NamedParameters<typeof getPlugins>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/storage/getPlugins.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/storage/getPlugins.ts",
     "operationRelativePath": "src/environments/server/storage/getPlugins.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2095,9 +2095,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/executeGridPlugin.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/executeGridPlugin.ts",
     "name": "NamedParameters<typeof executeGridPlugin>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/executeGridPlugin.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/executeGridPlugin.ts",
     "operationRelativePath": "src/environments/server/executeGridPlugin.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2545,9 +2545,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/setPropertyStatusDone.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/setPropertyStatusDone.ts",
     "name": "NamedParameters<typeof setPropertyStatusDone>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/setPropertyStatusDone.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/setPropertyStatusDone.ts",
     "operationRelativePath": "src/environments/server/setPropertyStatusDone.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2982,9 +2982,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/server/spawner.test.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/spawner.test.ts",
     "name": "NamedParameters<typeof spawner>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/server/spawner.test.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/spawner.test.ts",
     "operationRelativePath": "src/environments/server/spawner.test.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3007,9 +3007,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/executeBrowser.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/executeBrowser.ts",
     "name": "NamedParameters<typeof executeBrowser>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/executeBrowser.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/executeBrowser.ts",
     "operationRelativePath": "src/environments/browser/executeBrowser.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3498,56 +3498,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/component/getFullscreenEditorHtml.tsx",
-    "name": "NamedParameters<typeof getFullscreenEditorHtml>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/component/getFullscreenEditorHtml.tsx",
-    "operationRelativePath": "src/environments/browser/component/getFullscreenEditorHtml.tsx",
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getFullscreenEditorHtml%3E",
-      "definitions": {
-        "NamedParameters<typeof getFullscreenEditorHtml>": {
-          "type": "object",
-          "properties": {
-            "host": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        }
-      }
-    }
-  },
-  {
-    "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/component/getFullscreenEditorHtml.tsx",
-    "name": "MonacoOptions",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/component/getFullscreenEditorHtml.tsx",
-    "operationRelativePath": "src/environments/browser/component/getFullscreenEditorHtml.tsx",
-    "error": "TypeError: undefined is not an object (evaluating 'typeSymbol.declarations.filter')"
-  },
-  {
-    "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/component/IndexPage.tsx",
-    "name": "NamedParameters<typeof IndexPage>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/component/IndexPage.tsx",
-    "operationRelativePath": "src/environments/browser/component/IndexPage.tsx",
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$ref": "#/definitions/NamedParameters%3Ctypeof%20IndexPage%3E",
-      "definitions": {
-        "NamedParameters<typeof IndexPage>": {
-          "type": "object",
-          "additionalProperties": false
-        }
-      }
-    }
-  },
-  {
-    "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "name": "NamedParameters<typeof initDb>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3570,17 +3523,17 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "name": "NamedParameters<typeof putData>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
     "error": "Error: Encountered a reference to a missing definition: \"#/definitions/NamedParameters%3Ctypeof%20putData%3E\". This is a bug."
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "name": "NamedParameters<typeof deleteData>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3607,17 +3560,17 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "name": "NamedParameters<typeof updateData>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
     "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "name": "NamedParameters<typeof getStoreData>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/storage/indexedDb.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3641,17 +3594,17 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/environments/browser/api/cors-proxy.tsx",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/api/cors-proxy.tsx",
     "name": "NamedParameters<typeof CorsProxy>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/environments/browser/api/cors-proxy.tsx",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/api/cors-proxy.tsx",
     "operationRelativePath": "src/environments/browser/api/cors-proxy.tsx",
     "error": "TypeError: WeakMap keys must be objects or non-registered symbols"
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/tryParseYamlToJson.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/tryParseYamlToJson.ts",
     "name": "NamedParameters<typeof tryParseYamlToJson>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/tryParseYamlToJson.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/tryParseYamlToJson.ts",
     "operationRelativePath": "src/plugin/tryParseYamlToJson.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3674,9 +3627,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/fetchPlugin.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/fetchPlugin.ts",
     "name": "NamedParameters<typeof fetchPlugin>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/fetchPlugin.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/fetchPlugin.ts",
     "operationRelativePath": "src/plugin/fetchPlugin.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3716,9 +3669,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/fetchOpenapi.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/fetchOpenapi.ts",
     "name": "NamedParameters<typeof fetchOpenapi>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/fetchOpenapi.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/fetchOpenapi.ts",
     "operationRelativePath": "src/plugin/fetchOpenapi.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3738,9 +3691,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/execute.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/execute.ts",
     "name": "ValueOptions",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/execute.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/execute.ts",
     "operationRelativePath": "src/plugin/execute.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3769,9 +3722,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/execute.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/execute.ts",
     "name": "EnvironmentConfig",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/execute.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/execute.ts",
     "operationRelativePath": "src/plugin/execute.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3855,9 +3808,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/execute.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/execute.ts",
     "name": "ExecuteContext",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/execute.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/execute.ts",
     "operationRelativePath": "src/plugin/execute.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4334,9 +4287,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/execute.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/execute.ts",
     "name": "NamedParameters<typeof execute>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/execute.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/execute.ts",
     "operationRelativePath": "src/plugin/execute.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4886,9 +4839,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/getOpenapiDetails.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/getOpenapiDetails.ts",
     "name": "NamedParameters<typeof getOpenapiDetails>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/getOpenapiDetails.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/getOpenapiDetails.ts",
     "operationRelativePath": "src/plugin/getOpenapiDetails.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4962,9 +4915,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/executeStaleWatcher.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/executeStaleWatcher.ts",
     "name": "NamedParameters<typeof executeStaleWatcher>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/executeStaleWatcher.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/executeStaleWatcher.ts",
     "operationRelativePath": "src/plugin/executeStaleWatcher.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4979,9 +4932,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/tryParseJson.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/tryParseJson.ts",
     "name": "NamedParameters<typeof tryParseJson>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/tryParseJson.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/tryParseJson.ts",
     "operationRelativePath": "src/plugin/tryParseJson.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -5007,9 +4960,9 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/fetchWithTimeout.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/fetchWithTimeout.ts",
     "name": "NamedParameters<typeof fetchWithTimeout>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/fetchWithTimeout.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/fetchWithTimeout.ts",
     "operationRelativePath": "src/plugin/fetchWithTimeout.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -5053,527 +5006,185 @@
         "Request": {
           "type": "object",
           "properties": {
-            "bodyUsed": {
-              "type": "boolean"
+            "body": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ReadableStream%3CUint8Array%3E"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/body)"
             },
-            "constructor": {
-              "$ref": "#/definitions/Function"
+            "bodyUsed": {
+              "type": "boolean",
+              "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/bodyUsed)"
+            },
+            "cache": {
+              "$ref": "#/definitions/RequestCache",
+              "description": "Returns the cache mode associated with request, which is a string indicating how the request will interact with the browser's cache when fetching.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/cache)"
             },
             "credentials": {
-              "$ref": "#/definitions/RequestCredentials_"
+              "$ref": "#/definitions/RequestCredentials",
+              "description": "Returns the credentials mode associated with request, which is a string indicating whether credentials will be sent with the request always, never, or only when sent to a same-origin URL.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/credentials)"
+            },
+            "destination": {
+              "$ref": "#/definitions/RequestDestination",
+              "description": "Returns the kind of resource requested by request, e.g., \"document\" or \"script\".\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/destination)"
             },
             "headers": {
-              "$ref": "#/definitions/Headers"
+              "$ref": "#/definitions/Headers",
+              "description": "Returns a Headers object consisting of the headers associated with request. Note that headers added in the network layer by the user agent will not be accounted for in this object, e.g., the \"Host\" header.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/headers)"
+            },
+            "integrity": {
+              "type": "string",
+              "description": "Returns request's subresource integrity metadata, which is a cryptographic hash of the resource being fetched. Its value consists of multiple hashes separated by whitespace. [SRI]\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/integrity)"
+            },
+            "keepalive": {
+              "type": "boolean",
+              "description": "Returns a boolean indicating whether or not request can outlive the global in which it was created.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/keepalive)"
             },
             "method": {
-              "type": "string"
+              "type": "string",
+              "description": "Returns request's HTTP method, which is \"GET\" by default.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/method)"
             },
             "mode": {
-              "$ref": "#/definitions/RequestMode_"
+              "$ref": "#/definitions/RequestMode",
+              "description": "Returns the mode associated with request, which is a string indicating whether the request will use CORS, or will be restricted to same-origin URLs.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/mode)"
+            },
+            "redirect": {
+              "$ref": "#/definitions/RequestRedirect",
+              "description": "Returns the redirect mode associated with request, which is a string indicating how redirects for the request will be handled during fetching. A request will follow redirects by default.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/redirect)"
             },
             "referrer": {
-              "type": "string"
+              "type": "string",
+              "description": "Returns the referrer of request. Its value can be a same-origin URL if explicitly set in init, the empty string to indicate no referrer, and \"about:client\" when defaulting to the global's default. This is used during fetching to determine the value of the `Referer` header of the request being made.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/referrer)"
+            },
+            "referrerPolicy": {
+              "$ref": "#/definitions/ReferrerPolicy",
+              "description": "Returns the referrer policy associated with request. This is used during fetching to compute the value of the request's referrer.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/referrerPolicy)"
+            },
+            "signal": {
+              "$ref": "#/definitions/AbortSignal",
+              "description": "Returns the signal associated with request, which is an AbortSignal object indicating whether or not request has been aborted, and its abort event handler.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/signal)"
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "description": "Returns the URL of request as a string.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/url)"
             }
           },
           "required": [
+            "body",
             "bodyUsed",
-            "constructor",
+            "cache",
             "credentials",
+            "destination",
             "headers",
+            "integrity",
+            "keepalive",
             "method",
             "mode",
+            "redirect",
             "referrer",
+            "referrerPolicy",
+            "signal",
             "url"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "This Fetch API interface represents a resource request.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request)"
         },
-        "Function": {
+        "ReadableStream<Uint8Array>": {
           "type": "object",
           "properties": {
-            "prototype": {},
-            "length": {
-              "type": "number"
-            },
-            "arguments": {},
-            "caller": {
-              "$ref": "#/definitions/Function"
+            "locked": {
+              "type": "boolean",
+              "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStream/locked)"
             }
           },
           "required": [
-            "prototype",
-            "length",
-            "arguments",
-            "caller"
+            "locked"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "This Streams API interface represents a readable stream of byte data. The Fetch API offers a concrete instance of a ReadableStream through the body property of a Response object.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStream)"
         },
-        "RequestCredentials_": {
+        "RequestCache": {
           "type": "string",
           "enum": [
+            "default",
+            "force-cache",
+            "no-cache",
+            "no-store",
+            "only-if-cached",
+            "reload"
+          ]
+        },
+        "RequestCredentials": {
+          "type": "string",
+          "enum": [
+            "include",
             "omit",
-            "same-origin",
-            "include"
+            "same-origin"
+          ]
+        },
+        "RequestDestination": {
+          "type": "string",
+          "enum": [
+            "",
+            "audio",
+            "audioworklet",
+            "document",
+            "embed",
+            "font",
+            "frame",
+            "iframe",
+            "image",
+            "manifest",
+            "object",
+            "paintworklet",
+            "report",
+            "script",
+            "sharedworker",
+            "style",
+            "track",
+            "video",
+            "worker",
+            "xslt"
           ]
         },
         "Headers": {
           "type": "object",
           "additionalProperties": false
         },
-        "RequestMode_": {
+        "RequestMode": {
           "type": "string",
           "enum": [
+            "cors",
             "navigate",
-            "same-origin",
             "no-cors",
-            "cors"
+            "same-origin"
           ]
         },
-        "RequestInit": {
-          "type": "object",
-          "properties": {
-            "body": {
-              "$ref": "#/definitions/BodyInit_"
-            },
-            "credentials": {
-              "$ref": "#/definitions/RequestCredentials_"
-            },
-            "headers": {
-              "$ref": "#/definitions/HeadersInit_"
-            },
-            "integrity": {
-              "type": "string"
-            },
-            "keepalive": {
-              "type": "boolean"
-            },
-            "method": {
-              "type": "string"
-            },
-            "mode": {
-              "$ref": "#/definitions/RequestMode_"
-            },
-            "referrer": {
-              "type": "string"
-            },
-            "window": {},
-            "signal": {
-              "$ref": "#/definitions/AbortSignal"
-            }
-          },
-          "additionalProperties": false
-        },
-        "BodyInit_": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/_SourceUri"
-            },
-            {
-              "$ref": "#/definitions/Blob"
-            },
-            {
-              "$ref": "#/definitions/Int8Array"
-            },
-            {
-              "$ref": "#/definitions/Int16Array"
-            },
-            {
-              "$ref": "#/definitions/Int32Array"
-            },
-            {
-              "$ref": "#/definitions/Uint8Array"
-            },
-            {
-              "$ref": "#/definitions/Uint16Array"
-            },
-            {
-              "$ref": "#/definitions/Uint32Array"
-            },
-            {
-              "$ref": "#/definitions/Uint8ClampedArray"
-            },
-            {
-              "$ref": "#/definitions/Float32Array"
-            },
-            {
-              "$ref": "#/definitions/Float64Array"
-            },
-            {
-              "$ref": "#/definitions/DataView"
-            },
-            {
-              "$ref": "#/definitions/ArrayBuffer"
-            },
-            {
-              "$ref": "#/definitions/FormData"
-            },
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
+        "RequestRedirect": {
+          "type": "string",
+          "enum": [
+            "error",
+            "follow",
+            "manual"
           ]
         },
-        "_SourceUri": {
-          "type": "object",
-          "properties": {
-            "uri": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "uri"
-          ],
-          "description": "React Native's implementation of fetch allows this syntax for uploading files from local filesystem. See https://github.com/facebook/react-native/blob/master/Libraries/Network/convertRequestBody.js#L22"
-        },
-        "Blob": {
-          "type": "object",
-          "properties": {
-            "size": {
-              "type": "number"
-            },
-            "type": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "size",
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        "Int8Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "ArrayBufferLike": {
-          "$ref": "#/definitions/ArrayBuffer"
-        },
-        "ArrayBuffer": {
-          "type": "object",
-          "properties": {
-            "byteLength": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "byteLength"
-          ],
-          "additionalProperties": false
-        },
-        "Int16Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Int32Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Uint8Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Uint16Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Uint32Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Uint8ClampedArray": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Float32Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Float64Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "DataView": {
-          "type": "object",
-          "properties": {
-            "buffer": {
-              "$ref": "#/definitions/ArrayBuffer"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "buffer",
-            "byteLength",
-            "byteOffset"
-          ],
-          "additionalProperties": false
-        },
-        "FormData": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "HeadersInit_": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/Headers"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
+        "ReferrerPolicy": {
+          "type": "string",
+          "enum": [
+            "",
+            "no-referrer",
+            "no-referrer-when-downgrade",
+            "origin",
+            "origin-when-cross-origin",
+            "same-origin",
+            "strict-origin",
+            "strict-origin-when-cross-origin",
+            "unsafe-url"
           ]
         },
         "AbortSignal": {
@@ -5608,15 +5219,47 @@
           ],
           "additionalProperties": false,
           "description": "A signal object that allows you to communicate with a DOM request (such as a Fetch) and abort it if required via an AbortController object."
+        },
+        "RequestInit": {
+          "type": "object",
+          "properties": {
+            "next": {
+              "$ref": "#/definitions/NextFetchRequestConfig"
+            }
+          },
+          "additionalProperties": false
+        },
+        "NextFetchRequestConfig": {
+          "type": "object",
+          "properties": {
+            "revalidate": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean",
+                  "const": false
+                }
+              ]
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
         }
       }
     }
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema2/src/plugin/fetchWithTimeout.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/fetchWithTimeout.ts",
     "name": "NamedParameters<typeof fetchTextWithTimeout>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema2/src/plugin/fetchWithTimeout.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/fetchWithTimeout.ts",
     "operationRelativePath": "src/plugin/fetchWithTimeout.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -5657,527 +5300,185 @@
         "Request": {
           "type": "object",
           "properties": {
-            "bodyUsed": {
-              "type": "boolean"
+            "body": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ReadableStream%3CUint8Array%3E"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/body)"
             },
-            "constructor": {
-              "$ref": "#/definitions/Function"
+            "bodyUsed": {
+              "type": "boolean",
+              "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/bodyUsed)"
+            },
+            "cache": {
+              "$ref": "#/definitions/RequestCache",
+              "description": "Returns the cache mode associated with request, which is a string indicating how the request will interact with the browser's cache when fetching.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/cache)"
             },
             "credentials": {
-              "$ref": "#/definitions/RequestCredentials_"
+              "$ref": "#/definitions/RequestCredentials",
+              "description": "Returns the credentials mode associated with request, which is a string indicating whether credentials will be sent with the request always, never, or only when sent to a same-origin URL.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/credentials)"
+            },
+            "destination": {
+              "$ref": "#/definitions/RequestDestination",
+              "description": "Returns the kind of resource requested by request, e.g., \"document\" or \"script\".\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/destination)"
             },
             "headers": {
-              "$ref": "#/definitions/Headers"
+              "$ref": "#/definitions/Headers",
+              "description": "Returns a Headers object consisting of the headers associated with request. Note that headers added in the network layer by the user agent will not be accounted for in this object, e.g., the \"Host\" header.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/headers)"
+            },
+            "integrity": {
+              "type": "string",
+              "description": "Returns request's subresource integrity metadata, which is a cryptographic hash of the resource being fetched. Its value consists of multiple hashes separated by whitespace. [SRI]\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/integrity)"
+            },
+            "keepalive": {
+              "type": "boolean",
+              "description": "Returns a boolean indicating whether or not request can outlive the global in which it was created.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/keepalive)"
             },
             "method": {
-              "type": "string"
+              "type": "string",
+              "description": "Returns request's HTTP method, which is \"GET\" by default.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/method)"
             },
             "mode": {
-              "$ref": "#/definitions/RequestMode_"
+              "$ref": "#/definitions/RequestMode",
+              "description": "Returns the mode associated with request, which is a string indicating whether the request will use CORS, or will be restricted to same-origin URLs.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/mode)"
+            },
+            "redirect": {
+              "$ref": "#/definitions/RequestRedirect",
+              "description": "Returns the redirect mode associated with request, which is a string indicating how redirects for the request will be handled during fetching. A request will follow redirects by default.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/redirect)"
             },
             "referrer": {
-              "type": "string"
+              "type": "string",
+              "description": "Returns the referrer of request. Its value can be a same-origin URL if explicitly set in init, the empty string to indicate no referrer, and \"about:client\" when defaulting to the global's default. This is used during fetching to determine the value of the `Referer` header of the request being made.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/referrer)"
+            },
+            "referrerPolicy": {
+              "$ref": "#/definitions/ReferrerPolicy",
+              "description": "Returns the referrer policy associated with request. This is used during fetching to compute the value of the request's referrer.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/referrerPolicy)"
+            },
+            "signal": {
+              "$ref": "#/definitions/AbortSignal",
+              "description": "Returns the signal associated with request, which is an AbortSignal object indicating whether or not request has been aborted, and its abort event handler.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/signal)"
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "description": "Returns the URL of request as a string.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/url)"
             }
           },
           "required": [
+            "body",
             "bodyUsed",
-            "constructor",
+            "cache",
             "credentials",
+            "destination",
             "headers",
+            "integrity",
+            "keepalive",
             "method",
             "mode",
+            "redirect",
             "referrer",
+            "referrerPolicy",
+            "signal",
             "url"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "This Fetch API interface represents a resource request.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/Request)"
         },
-        "Function": {
+        "ReadableStream<Uint8Array>": {
           "type": "object",
           "properties": {
-            "prototype": {},
-            "length": {
-              "type": "number"
-            },
-            "arguments": {},
-            "caller": {
-              "$ref": "#/definitions/Function"
+            "locked": {
+              "type": "boolean",
+              "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStream/locked)"
             }
           },
           "required": [
-            "prototype",
-            "length",
-            "arguments",
-            "caller"
+            "locked"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "This Streams API interface represents a readable stream of byte data. The Fetch API offers a concrete instance of a ReadableStream through the body property of a Response object.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStream)"
         },
-        "RequestCredentials_": {
+        "RequestCache": {
           "type": "string",
           "enum": [
+            "default",
+            "force-cache",
+            "no-cache",
+            "no-store",
+            "only-if-cached",
+            "reload"
+          ]
+        },
+        "RequestCredentials": {
+          "type": "string",
+          "enum": [
+            "include",
             "omit",
-            "same-origin",
-            "include"
+            "same-origin"
+          ]
+        },
+        "RequestDestination": {
+          "type": "string",
+          "enum": [
+            "",
+            "audio",
+            "audioworklet",
+            "document",
+            "embed",
+            "font",
+            "frame",
+            "iframe",
+            "image",
+            "manifest",
+            "object",
+            "paintworklet",
+            "report",
+            "script",
+            "sharedworker",
+            "style",
+            "track",
+            "video",
+            "worker",
+            "xslt"
           ]
         },
         "Headers": {
           "type": "object",
           "additionalProperties": false
         },
-        "RequestMode_": {
+        "RequestMode": {
           "type": "string",
           "enum": [
+            "cors",
             "navigate",
-            "same-origin",
             "no-cors",
-            "cors"
+            "same-origin"
           ]
         },
-        "RequestInit": {
-          "type": "object",
-          "properties": {
-            "body": {
-              "$ref": "#/definitions/BodyInit_"
-            },
-            "credentials": {
-              "$ref": "#/definitions/RequestCredentials_"
-            },
-            "headers": {
-              "$ref": "#/definitions/HeadersInit_"
-            },
-            "integrity": {
-              "type": "string"
-            },
-            "keepalive": {
-              "type": "boolean"
-            },
-            "method": {
-              "type": "string"
-            },
-            "mode": {
-              "$ref": "#/definitions/RequestMode_"
-            },
-            "referrer": {
-              "type": "string"
-            },
-            "window": {},
-            "signal": {
-              "$ref": "#/definitions/AbortSignal"
-            }
-          },
-          "additionalProperties": false
-        },
-        "BodyInit_": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/_SourceUri"
-            },
-            {
-              "$ref": "#/definitions/Blob"
-            },
-            {
-              "$ref": "#/definitions/Int8Array"
-            },
-            {
-              "$ref": "#/definitions/Int16Array"
-            },
-            {
-              "$ref": "#/definitions/Int32Array"
-            },
-            {
-              "$ref": "#/definitions/Uint8Array"
-            },
-            {
-              "$ref": "#/definitions/Uint16Array"
-            },
-            {
-              "$ref": "#/definitions/Uint32Array"
-            },
-            {
-              "$ref": "#/definitions/Uint8ClampedArray"
-            },
-            {
-              "$ref": "#/definitions/Float32Array"
-            },
-            {
-              "$ref": "#/definitions/Float64Array"
-            },
-            {
-              "$ref": "#/definitions/DataView"
-            },
-            {
-              "$ref": "#/definitions/ArrayBuffer"
-            },
-            {
-              "$ref": "#/definitions/FormData"
-            },
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
+        "RequestRedirect": {
+          "type": "string",
+          "enum": [
+            "error",
+            "follow",
+            "manual"
           ]
         },
-        "_SourceUri": {
-          "type": "object",
-          "properties": {
-            "uri": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "uri"
-          ],
-          "description": "React Native's implementation of fetch allows this syntax for uploading files from local filesystem. See https://github.com/facebook/react-native/blob/master/Libraries/Network/convertRequestBody.js#L22"
-        },
-        "Blob": {
-          "type": "object",
-          "properties": {
-            "size": {
-              "type": "number"
-            },
-            "type": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "size",
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        "Int8Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "ArrayBufferLike": {
-          "$ref": "#/definitions/ArrayBuffer"
-        },
-        "ArrayBuffer": {
-          "type": "object",
-          "properties": {
-            "byteLength": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "byteLength"
-          ],
-          "additionalProperties": false
-        },
-        "Int16Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Int32Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Uint8Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Uint16Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Uint32Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Uint8ClampedArray": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Float32Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "Float64Array": {
-          "type": "object",
-          "properties": {
-            "BYTES_PER_ELEMENT": {
-              "type": "number"
-            },
-            "buffer": {
-              "$ref": "#/definitions/ArrayBufferLike"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            },
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "BYTES_PER_ELEMENT",
-            "buffer",
-            "byteLength",
-            "byteOffset",
-            "length"
-          ],
-          "additionalProperties": {
-            "type": "number"
-          }
-        },
-        "DataView": {
-          "type": "object",
-          "properties": {
-            "buffer": {
-              "$ref": "#/definitions/ArrayBuffer"
-            },
-            "byteLength": {
-              "type": "number"
-            },
-            "byteOffset": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "buffer",
-            "byteLength",
-            "byteOffset"
-          ],
-          "additionalProperties": false
-        },
-        "FormData": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "HeadersInit_": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/Headers"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
+        "ReferrerPolicy": {
+          "type": "string",
+          "enum": [
+            "",
+            "no-referrer",
+            "no-referrer-when-downgrade",
+            "origin",
+            "origin-when-cross-origin",
+            "same-origin",
+            "strict-origin",
+            "strict-origin-when-cross-origin",
+            "unsafe-url"
           ]
         },
         "AbortSignal": {
@@ -6212,6 +5513,38 @@
           ],
           "additionalProperties": false,
           "description": "A signal object that allows you to communicate with a DOM request (such as a Fetch) and abort it if required via an AbortController object."
+        },
+        "RequestInit": {
+          "type": "object",
+          "properties": {
+            "next": {
+              "$ref": "#/definitions/NextFetchRequestConfig"
+            }
+          },
+          "additionalProperties": false
+        },
+        "NextFetchRequestConfig": {
+          "type": "object",
+          "properties": {
+            "revalidate": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean",
+                  "const": false
+                }
+              ]
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
         }
       }
     }
