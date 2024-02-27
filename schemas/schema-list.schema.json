@@ -1,5 +1,5 @@
 {
-  "$schema": "action-schema.schema.json",
+  "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
   "$id": "schema-list.schema.json",
   "title": "Schema List",
   "description": "Defines metadata about every actionschema collection",
@@ -76,7 +76,7 @@
     },
 
     "totalSpending": {
-      "$ref": "1/columnSpending",
+      "type": "number",
       "description": "Total spending for the grid."
     },
 

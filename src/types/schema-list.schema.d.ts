@@ -59,7 +59,10 @@ export interface SchemaList {
   columnSpending?: {
     [k: string]: GridSpending;
   };
-  totalSpending?: GridSpending1;
+  /**
+   * Total spending for the grid.
+   */
+  totalSpending?: number;
   /**
    * Is deemed favorite.
    */
@@ -148,27 +151,6 @@ export interface JsonStatusDelta {
  * Defines the structure for tracking spending on grid columns, including pricing and calculations.
  */
 export interface GridSpending {
-  /**
-   * The price in credits.
-   */
-  priceCredit?: number;
-  /**
-   * The amount of calculations.
-   */
-  calculationsAmount?: number;
-  /**
-   * The price in credits since the last edit.
-   */
-  priceCreditSinceLastEdit?: number;
-  /**
-   * The amount of calculations since the last edit.
-   */
-  calculationsAmountSinceLastEdit?: number;
-}
-/**
- * Defines the structure for tracking spending on grid columns, including pricing and calculations.
- */
-export interface GridSpending1 {
   /**
    * The price in credits.
    */

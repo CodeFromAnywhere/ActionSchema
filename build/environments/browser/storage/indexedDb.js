@@ -1,17 +1,16 @@
 /** DB name is always the same. 1 DB */
-const dbName = "schema";
 let version = 1;
 let request;
 let db;
 export const initDb = async (databaseId) => {
     const isSuccessful = await new Promise((resolve) => {
         // open the connection
-        request = indexedDB.open(dbName);
+        request = indexedDB.open(databaseId);
         request.onupgradeneeded = () => {
             db = request.result;
             // if the data object store doesn't exist, create it
             if (!db.objectStoreNames.contains(databaseId)) {
-                console.log("Creating users store");
+                console.log("Creating store", databaseId);
                 db.createObjectStore(databaseId, {
                 // keyPath: "id"
                 });
@@ -21,7 +20,7 @@ export const initDb = async (databaseId) => {
         request.onsuccess = () => {
             db = request.result;
             version = db.version;
-            console.log("request.onsuccess - initDB", version);
+            console.log("request.onsuccess - initDB", version, request.result.objectStoreNames);
             resolve(true);
         };
         request.onerror = () => {
@@ -32,13 +31,19 @@ export const initDb = async (databaseId) => {
 };
 export const indexedDbPutData = (databaseId, key, value) => {
     return new Promise((resolve) => {
-        request = indexedDB.open(dbName, version);
+        request = indexedDB.open(databaseId, version);
         request.onsuccess = () => {
-            console.log("request.onsuccess - putData");
+            console.log("request.onsuccess - putData", databaseId);
             db = request.result;
             const tx = db.transaction(databaseId, "readwrite");
             const store = tx.objectStore(databaseId);
-            store.put(value, key);
+            if (value === null) {
+                // NB: null means delete
+                store.delete(key);
+            }
+            else {
+                store.put(value, key);
+            }
             resolve({ isSuccessful: true, message: `Put ${key}`, result: value });
         };
         request.onerror = () => {
@@ -58,7 +63,7 @@ export const indexedDbPutData = (databaseId, key, value) => {
 };
 export const indexedDbDeleteData = (databaseId, key) => {
     return new Promise((resolve) => {
-        request = indexedDB.open(dbName, version);
+        request = indexedDB.open(databaseId, version);
         request.onsuccess = () => {
             console.log("request.onsuccess - deleteData", key);
             db = request.result;
@@ -77,10 +82,11 @@ export const indexedDbDeleteData = (databaseId, key) => {
 /** Probably don't need for now */
 export const indexedDbUpdateData = (databaseId, key, data) => {
     return new Promise((resolve) => {
-        request = indexedDB.open(dbName, version);
+        request = indexedDB.open(databaseId, version);
         request.onsuccess = () => {
             console.log("request.onsuccess - updateData", key);
             db = request.result;
+            db.createObjectStore;
             const tx = db.transaction(databaseId, "readwrite");
             const store = tx.objectStore(databaseId);
             const res = store.get(key);
@@ -100,7 +106,7 @@ export const indexedDbGetStoreData = (
 /** E.g. the full JSON object */
 databaseId) => {
     return new Promise((resolve) => {
-        request = indexedDB.open(dbName);
+        request = indexedDB.open(databaseId);
         request.onsuccess = () => {
             console.log("request.onsuccess - getAllData");
             db = request.result;
@@ -118,7 +124,7 @@ export const indexedDbGetStoreItem = (
 /** E.g. the full JSON object */
 databaseId, key) => {
     return new Promise((resolve) => {
-        request = indexedDB.open(dbName);
+        request = indexedDB.open(databaseId);
         request.onsuccess = () => {
             console.log("request.onsuccess - getAllData");
             db = request.result;

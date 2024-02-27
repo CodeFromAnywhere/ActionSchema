@@ -1,5 +1,5 @@
 {
-  "$schema": "action-schema.schema.json",
+  "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
   "x-is-public": true,
   "properties": {
     "$schema": {
@@ -50,54 +50,50 @@
               "model": "auto"
             },
             "outputLocation": "result.isRecurring",
-            "propertyDependencies": ["when"]
+            "dataDependencies": ["when"]
           }
         },
         "fireDatetime": {
           "type": "string",
           "description": "When it should be fired. Easy to sort on this",
-          "x-plugin": [
-            {
-              "$openapi": {
-                "operationId": "jsonGptPlugin",
-                "method": "POST",
-                "path": "/function/jsonGptPlugin",
-                "url": "https://api.codefromanywhere.com/openapi.json"
-              },
-              "condition": "",
-              "type": "creation",
-              "context": {
-                "description": "Current date/time: ${system.datetime}\n\nAn event is planned: ${when}\n\nPlease write the when this FUTURE event will take place, in the following format: YYYY-MM-DDTHH:mm:ss",
-                "jsonFormat": "{ \"isoDatetimeString\": string }",
-                "model": "auto"
-              },
-              "outputLocation": "result.isoDatetimeString",
-              "propertyDependencies": ["when"]
-            }
-          ]
+          "x-plugin": {
+            "$openapi": {
+              "operationId": "jsonGptPlugin",
+              "method": "POST",
+              "path": "/function/jsonGptPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json"
+            },
+            "condition": "",
+            "type": "creation",
+            "context": {
+              "description": "Current date/time: ${system.datetime}\n\nAn event is planned: ${when}\n\nPlease write the when this FUTURE event will take place, in the following format: YYYY-MM-DDTHH:mm:ss",
+              "jsonFormat": "{ \"isoDatetimeString\": string }",
+              "model": "auto"
+            },
+            "outputLocation": "result.isoDatetimeString",
+            "dataDependencies": ["when"]
+          }
         },
         "cronRule": {
           "type": "string",
           "description": "See https://crontab.guru",
-          "x-plugin": [
-            {
-              "$openapi": {
-                "operationId": "jsonGptPlugin",
-                "method": "POST",
-                "path": "/function/jsonGptPlugin",
-                "url": "https://api.codefromanywhere.com/openapi.json"
-              },
-              "condition": "",
-              "type": "creation",
-              "context": {
-                "description": "${isRecurring} Turn this recurring event into a crontab string: \" ${when} \"\n\nE.g. every thursday 12:00 should become \"0 12 * * THU\"",
-                "jsonFormat": "{ \"crontabString\": string }",
-                "model": "auto"
-              },
-              "outputLocation": "result.crontabString",
-              "propertyDependencies": ["when", "isRecurring"]
-            }
-          ]
+          "x-plugin": {
+            "$openapi": {
+              "operationId": "jsonGptPlugin",
+              "method": "POST",
+              "path": "/function/jsonGptPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json"
+            },
+            "condition": "",
+            "type": "creation",
+            "context": {
+              "description": "${isRecurring} Turn this recurring event into a crontab string: \" ${when} \"\n\nE.g. every thursday 12:00 should become \"0 12 * * THU\"",
+              "jsonFormat": "{ \"crontabString\": string }",
+              "model": "auto"
+            },
+            "outputLocation": "result.crontabString",
+            "dataDependencies": ["when", "isRecurring"]
+          }
         },
         "scheduleVirtualMeetingDialIn": {
           "type": "string",
@@ -118,7 +114,7 @@
               "fireDatetime": "${fireDatetime}",
               "delayUnit": "s"
             },
-            "propertyDependencies": ["fireDatetime"],
+            "dataDependencies": ["fireDatetime"],
             "isVerticalExpandEnabled": false,
             "outputLocation": "result"
           }
@@ -167,24 +163,22 @@
         "onFire": {
           "type": "string",
           "description": "Event to be re-executed whenever this happens.\n\nTODO: should also make all things after become stale if there are things later.",
-          "x-plugin": [
-            {
-              "$openapi": {
-                "operationId": "sendMailPlugin",
-                "method": "POST",
-                "path": "/function/sendMailPlugin",
-                "url": "https://api.codefromanywhere.com/openapi.json"
-              },
-              "condition": "",
-              "type": "creation",
-              "context": {
-                "subject": "event",
-                "textDescription": "${description}\n\nLETS DO IT!"
-              },
-              "outputLocation": "result",
-              "propertyDependencies": ["description"]
-            }
-          ]
+          "x-plugin": {
+            "$openapi": {
+              "operationId": "sendMailPlugin",
+              "method": "POST",
+              "path": "/function/sendMailPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json"
+            },
+            "condition": "",
+            "type": "creation",
+            "context": {
+              "subject": "event",
+              "textDescription": "${description}\n\nLETS DO IT!"
+            },
+            "outputLocation": "result",
+            "dataDependencies": ["description"]
+          }
         },
         "__id": {
           "type": "string",
@@ -192,18 +186,15 @@
         },
         "virtualMeetingPin": {
           "type": "string",
-          "description": "virtualMeetingPin",
-          "x-plugin": []
+          "description": "virtualMeetingPin"
         },
         "virtualMeetingPhone": {
           "type": "string",
-          "description": "virtualMeetingPhone",
-          "x-plugin": []
+          "description": "virtualMeetingPhone"
         },
         "virtualMeetingLink": {
           "type": "string",
-          "description": "virtualMeetingLink",
-          "x-plugin": []
+          "description": "virtualMeetingLink"
         },
         "virtualMeetingDialIn": {
           "type": "string",
@@ -222,7 +213,7 @@
               "sendDigits": "ww${virtualMeetingPin}#"
             },
             "outputLocation": "result",
-            "propertyDependencies": ["virtualMeetingPin", "virtualMeetingPhone"]
+            "dataDependencies": ["virtualMeetingPin", "virtualMeetingPhone"]
           }
         },
         "phoneNumberDial": {
@@ -262,8 +253,7 @@
               "ignoreObjectParameterKeys": [],
               "search": "${relationName}"
             },
-            "outputLocation": "result.json.items[0].phoneNumber",
-            "propertyDependencies": []
+            "outputLocation": "result.json.items[0].phoneNumber"
           }
         },
         "relationName": {
@@ -283,7 +273,7 @@
               "jsonFormat": "{ \"relationName\": string | null }"
             },
             "outputLocation": "result.relationName",
-            "propertyDependencies": ["description"]
+            "dataDependencies": ["description"]
           }
         }
       }

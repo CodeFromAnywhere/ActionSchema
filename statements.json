@@ -68,8 +68,8 @@
   {
     "modelName": "SwcFunction",
     "name": "getDotLocation",
-    "start": 35,
-    "end": 142,
+    "start": 38,
+    "end": 145,
     "length": 107,
     "raw": "export const getDotLocation = (object: any, dotLocation: string) => {\n  return get(object, dotLocation);\n};",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/getDotLocation.ts",
@@ -1490,10 +1490,10 @@
   {
     "modelName": "SwcFunction",
     "name": "executeServerless",
-    "start": 251,
-    "end": 1562,
-    "length": 1311,
-    "raw": "export const executeServerless = (\n  context: ExecuteContext,\n): Promise<{\n  isSuccessful: boolean;\n  message: string;\n}> => {\n  const {\n    actionSchemaPlugins,\n    databaseId,\n    dotLocation,\n    schema,\n    returnDotLocation,\n    skipPlugin,\n    updateCallbackUrl,\n    value,\n  } = context;\n\n  return execute({\n    actionSchemaPlugins,\n    databaseId,\n    dotLocation,\n    schema,\n    returnDotLocation,\n    skipPlugin,\n    updateCallbackUrl,\n    value,\n    setData: async (key, value) => {\n      await putData(databaseId, key, value);\n      return;\n    },\n\n    setStatus: async (key, value) => {\n      await putData(`status-${databaseId}`, key, value);\n      return;\n    },\n    fetchPlugin: async (details, completeContext) => {\n      //TODO: this one fetches things in the next.js edge environment\n      fetchPlugin;\n    },\n    getData: async (key) => {\n      //TODO\n      const data = await getStoreData(databaseId);\n      return data;\n    },\n\n    getStatus: async (key) => {\n      //TODO\n      const data = await getStoreData(`status-${databaseId}`);\n      return \"busy\";\n    },\n\n    recurseFunction: async (item) => {\n      const result = await fetch(\"https://actionschema.com/api/execute\", {\n        method: \"POST\",\n        body: JSON.stringify(context),\n        headers: {},\n      });\n    },\n  });\n};",
+    "start": 321,
+    "end": 1592,
+    "length": 1271,
+    "raw": "export const executeServerless = (\n  context: ExecuteContext,\n): Promise<{\n  isSuccessful: boolean;\n  message: string;\n}> => {\n  const {\n    actionSchemaPlugins,\n    databaseId,\n    dotLocation,\n    schema,\n    returnDotLocation,\n    skipPlugin,\n    updateCallbackUrl,\n    value,\n  } = context;\n\n  return execute({\n    actionSchemaPlugins,\n    databaseId,\n    dotLocation,\n    schema,\n    returnDotLocation,\n    skipPlugin,\n    updateCallbackUrl,\n    value,\n    setData: async (key, value) => {\n      await putData(databaseId, key, value);\n      return;\n    },\n\n    setStatus: async (key, value) => {\n      await putData(`status-${databaseId}`, key, value);\n      return;\n    },\n    fetchPlugin: async (details, completeContext) => {\n      //TODO: this one fetches things in the next.js edge environment\n      fetchPlugin;\n    },\n    getData: async (key) => {\n      //TODO\n      const data = await getStoreData(databaseId);\n      return data;\n    },\n\n    getStatus: async (key) => {\n      //TODO\n      const data = await getStoreData(`status-${databaseId}`);\n      return \"busy\";\n    },\n\n    recurseFunction: (context) =>\n      fetchExecute({\n        ...context,\n        executeApiPath: \"https://demo.actionschema.com/api/execute\",\n        headers: {},\n      }),\n  });\n};",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/executeServerless.ts",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/executeServerless.ts",
     "isExported": true,
@@ -1515,7 +1515,9 @@
           "databaseId": {
             "type": "string"
           },
-          "value": {},
+          "value": {
+            "description": "Set a new value into the db (Optional, if given)"
+          },
           "skipPlugin": {
             "type": "boolean",
             "description": "If true, skips executing the plugin"
@@ -2004,7 +2006,9 @@
               "databaseId": {
                 "type": "string"
               },
-              "value": {},
+              "value": {
+                "description": "Set a new value into the db (Optional, if given)"
+              },
               "skipPlugin": {
                 "type": "boolean",
                 "description": "If true, skips executing the plugin"
@@ -2977,6 +2981,7 @@
               "name": "value",
               "required": false,
               "schema": {
+                "fullComment": "Set a new value into the db (Optional, if given)",
                 "properties": [],
                 "type": "object"
               }
@@ -3082,8 +3087,62 @@
       "name": "NamedParameters<typeof putData>",
       "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
       "operationRelativePath": "src/environments/serverless/vercelKvStore.ts",
-      "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
-    }
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20putData%3E",
+        "definitions": {
+          "NamedParameters<typeof putData>": {
+            "type": "object",
+            "properties": {
+              "databaseId": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "value": {}
+            },
+            "required": [
+              "databaseId",
+              "key",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "databaseId",
+        "schema": {
+          "type": "string"
+        },
+        "simplifiedSchema": {
+          "type": "string"
+        },
+        "required": true
+      },
+      {
+        "name": "key",
+        "schema": {
+          "type": "string"
+        },
+        "simplifiedSchema": {
+          "type": "string"
+        },
+        "required": true
+      },
+      {
+        "name": "value",
+        "schema": {},
+        "simplifiedSchema": {
+          "properties": [],
+          "type": "object"
+        },
+        "required": true
+      }
+    ]
   },
   {
     "modelName": "SwcFunction",
@@ -3114,8 +3173,7 @@
             "type": "object",
             "properties": {
               "databaseId": {
-                "type": "string",
-                "description": "E.g. the full JSON object"
+                "type": "string"
               }
             },
             "required": [
@@ -3130,16 +3188,38 @@
       {
         "name": "databaseId",
         "schema": {
-          "type": "string",
-          "description": "E.g. the full JSON object"
+          "type": "string"
         },
         "simplifiedSchema": {
-          "fullComment": "E.g. the full JSON object",
           "type": "string"
         },
         "required": true
       }
     ]
+  },
+  {
+    "modelName": "SwcFunction",
+    "name": "executeApi",
+    "start": 146,
+    "end": 323,
+    "length": 177,
+    "raw": "export const executeApi: NextApiHandler = async (req, res) => {\n  const context = req.body;\n  const result = await executeServerless(context);\n  res.status(200).json(result);\n};",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/api/execute.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/api/execute.ts",
+    "isExported": true,
+    "packageCategory": "actionschema",
+    "packageName": "actionschema",
+    "operationClassification": "cjs",
+    "returnType": {},
+    "otherDefs": {},
+    "namedParameters": {
+      "modelName": "SchemaItem",
+      "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/api/execute.ts",
+      "name": "NamedParameters<typeof executeApi>",
+      "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/api/execute.ts",
+      "operationRelativePath": "src/environments/serverless/api/execute.ts",
+      "error": "TypeError: WeakMap keys must be objects or non-registered symbols"
+    }
   },
   {
     "modelName": "SwcFunction",
@@ -4589,8 +4669,8 @@
   {
     "modelName": "SwcFunction",
     "name": "setValue",
-    "start": 497,
-    "end": 1051,
+    "start": 553,
+    "end": 1107,
     "length": 554,
     "raw": "export const setValue = async (\n  databaseId: string,\n  dotLocation: string,\n  schema: ActionSchema,\n  data: any,\n  /** Are to be inferred from the schema */\n  options?: ValueOptions,\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  //1) Set new data\n  // could be a more direct usage of lmdb\n  let db = getDb(databaseId);\n  await db.put(dotLocation, data);\n\n  const values = flatten(data);\n\n  //2) Update statuses\n  await setPropertyStatusDone(schema, dotLocation, databaseId);\n\n  return { isSuccessful: true, message: \"Set the value\" };\n};",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/setValue.ts",
@@ -5021,7 +5101,8 @@
             "description": "If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Should be inferred from x-plugin"
       }
     },
     "namedParameters": {
@@ -5480,7 +5561,8 @@
                 "description": "If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is."
               }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "description": "Should be inferred from x-plugin"
           }
         }
       }
@@ -6014,7 +6096,7 @@
           "description": "Are to be inferred from the schema"
         },
         "simplifiedSchema": {
-          "fullComment": "Are to be inferred from the schema\n\n",
+          "fullComment": "Are to be inferred from the schema\n\nShould be inferred from x-plugin",
           "properties": [
             {
               "name": "objectReplace",
@@ -6046,76 +6128,6 @@
         "required": false
       }
     ]
-  },
-  {
-    "modelName": "SwcInterface",
-    "name": "ValueOptions",
-    "start": 1053,
-    "end": 1779,
-    "raw": "export type ValueOptions = {\n  /**\n   * If true, will replace the object rather than overwriting it where needed.\n   *\n   * By default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed.\n   */\n  objectReplace?: boolean;\n  /**\n    If true, will replace items in the array fully.\n    \n    By default, ActionSchema will insert into an array with an optional discriminator (see below).\n     */\n  arrayReplace?: boolean;\n\n  /**\n   * If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is.\n   */\n  arrayDiscriminatorPropertyKey?: string;\n};",
-    "length": 726,
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/setValue.ts",
-    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/setValue.ts",
-    "isExported": true,
-    "packageCategory": "actionschema",
-    "packageName": "actionschema",
-    "operationClassification": "cjs",
-    "type": {
-      "isArray": false,
-      "isEnum": false,
-      "isEnumLiteral": false,
-      "isObject": false,
-      "isPrimitive": false,
-      "rawType": "",
-      "typeCoverage": 0,
-      "typeDefinition": {
-        "type": "object",
-        "properties": {
-          "objectReplace": {
-            "type": "boolean",
-            "description": "If true, will replace the object rather than overwriting it where needed.\n\nBy default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed."
-          },
-          "arrayReplace": {
-            "type": "boolean",
-            "description": "If true, will replace items in the array fully.\n\nBy default, ActionSchema will insert into an array with an optional discriminator (see below)."
-          },
-          "arrayDiscriminatorPropertyKey": {
-            "type": "string",
-            "description": "If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is."
-          }
-        },
-        "additionalProperties": false
-      },
-      "simplifiedSchema": {
-        "properties": [
-          {
-            "name": "objectReplace",
-            "required": false,
-            "schema": {
-              "fullComment": "If true, will replace the object rather than overwriting it where needed.\n\nBy default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed.",
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "arrayReplace",
-            "required": false,
-            "schema": {
-              "fullComment": "If true, will replace items in the array fully.\n\nBy default, ActionSchema will insert into an array with an optional discriminator (see below).",
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "arrayDiscriminatorPropertyKey",
-            "required": false,
-            "schema": {
-              "fullComment": "If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is.",
-              "type": "string"
-            }
-          }
-        ],
-        "type": "object"
-      }
-    }
   },
   {
     "modelName": "SwcFunction",
@@ -9238,10 +9250,10 @@
   {
     "modelName": "SwcFunction",
     "name": "executeBrowser",
-    "start": 196,
-    "end": 1360,
-    "length": 1164,
-    "raw": "export const executeBrowser = (\n  context: ExecuteContext,\n): Promise<{\n  isSuccessful: boolean;\n  message: string;\n}> => {\n  const {\n    actionSchemaPlugins,\n    databaseId,\n    dotLocation,\n    schema,\n    returnDotLocation,\n    skipPlugin,\n    updateCallbackUrl,\n    value,\n  } = context;\n\n  return execute({\n    actionSchemaPlugins,\n    databaseId,\n    dotLocation,\n    schema,\n    returnDotLocation,\n    skipPlugin,\n    updateCallbackUrl,\n    value,\n    recurseFunction: (item) => {\n      return executeBrowser(item);\n    },\n\n    setData: async (key, value) => {\n      await putData(databaseId, key, value);\n      return;\n    },\n\n    setStatus: async (key, value) => {\n      await putData(`status-${databaseId}`, key, value);\n      return;\n    },\n\n    fetchPlugin: async (details, completeContext) => {\n      // TODO: this one fetches things via the corse-proxy\n      return undefined;\n    },\n\n    getData: async (key) => {\n      //TODO\n      const data = await getStoreData(databaseId);\n      return data;\n    },\n\n    getStatus: async (key) => {\n      //TODO\n      const data = await getStoreData(`status-${databaseId}`);\n      return \"busy\";\n    },\n  });\n};",
+    "start": 219,
+    "end": 1455,
+    "length": 1236,
+    "raw": "export const executeBrowser = (\n  context: ExecuteContext,\n): Promise<{\n  isSuccessful: boolean;\n  message: string;\n}> => {\n  const {\n    actionSchemaPlugins,\n    databaseId,\n    dotLocation,\n    schema,\n    returnDotLocation,\n    skipPlugin,\n    updateCallbackUrl,\n    value,\n  } = context;\n\n  console.log(\"EXECUTE\", context);\n\n  return execute({\n    actionSchemaPlugins,\n    databaseId,\n    dotLocation,\n    schema,\n    returnDotLocation,\n    skipPlugin,\n    updateCallbackUrl,\n    value,\n    recurseFunction: (item) => {\n      return executeBrowser(item);\n    },\n\n    setData: async (key, value) => {\n      await indexedDbPutData(databaseId, key, value);\n      return;\n    },\n\n    setStatus: async (key, value) => {\n      await indexedDbPutData(`status-${databaseId}`, key, value);\n      return;\n    },\n\n    fetchPlugin: async (details, completeContext) => {\n      // TODO: this one fetches things via the corse-proxy\n      return undefined;\n    },\n\n    getData: async (key) => {\n      //TODO\n      const data = await indexedDbGetStoreData(databaseId);\n      return data;\n    },\n\n    getStatus: async (key) => {\n      //TODO\n      const data = await indexedDbGetStoreData(`status-${databaseId}`);\n      return \"busy\";\n    },\n  });\n};",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/executeBrowser.ts",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/executeBrowser.ts",
     "isExported": true,
@@ -9263,7 +9275,9 @@
           "databaseId": {
             "type": "string"
           },
-          "value": {},
+          "value": {
+            "description": "Set a new value into the db (Optional, if given)"
+          },
           "skipPlugin": {
             "type": "boolean",
             "description": "If true, skips executing the plugin"
@@ -9752,7 +9766,9 @@
               "databaseId": {
                 "type": "string"
               },
-              "value": {},
+              "value": {
+                "description": "Set a new value into the db (Optional, if given)"
+              },
               "skipPlugin": {
                 "type": "boolean",
                 "description": "If true, skips executing the plugin"
@@ -10725,6 +10741,7 @@
               "name": "value",
               "required": false,
               "schema": {
+                "fullComment": "Set a new value into the db (Optional, if given)",
                 "properties": [],
                 "type": "object"
               }
@@ -10920,35 +10937,11 @@
   },
   {
     "modelName": "SwcFunction",
-    "name": "putData",
+    "name": "indexedDbPutData",
     "start": 921,
-    "end": 1817,
-    "length": 896,
-    "raw": "export const putData = <T>(\n  databaseId: string,\n  key: string,\n  value: T,\n): Promise<{ isSuccessful: boolean; message: string; result?: T }> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName, version);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - putData\");\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readwrite\");\n      const store = tx.objectStore(databaseId);\n      store.put(value, key);\n      resolve({ isSuccessful: true, message: `Put ${key}`, result: value });\n    };\n\n    request.onerror = () => {\n      const error = request.error?.message;\n      if (error) {\n        resolve({ isSuccessful: false, message: error, result: undefined });\n      } else {\n        resolve({\n          isSuccessful: false,\n          message: \"Unknown error\",\n          result: undefined,\n        });\n      }\n    };\n  });\n};",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "isExported": true,
-    "packageCategory": "actionschema",
-    "packageName": "actionschema",
-    "operationClassification": "cjs",
-    "returnType": {},
-    "otherDefs": {},
-    "namedParameters": {
-      "modelName": "SchemaItem",
-      "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
-      "name": "NamedParameters<typeof putData>",
-      "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
-      "operationRelativePath": "src/environments/serverless/vercelKvStore.ts",
-      "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
-    }
-  },
-  {
-    "modelName": "SwcFunction",
-    "name": "deleteData",
-    "start": 1819,
-    "end": 2393,
-    "length": 574,
-    "raw": "export const deleteData = (\n  databaseId: string,\n  key: string,\n): Promise<boolean> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName, version);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - deleteData\", key);\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readwrite\");\n      const store = tx.objectStore(databaseId);\n      const res = store.delete(key);\n\n      res.onsuccess = () => {\n        resolve(true);\n      };\n\n      res.onerror = () => {\n        resolve(false);\n      };\n    };\n  });\n};",
+    "end": 1826,
+    "length": 905,
+    "raw": "export const indexedDbPutData = <T>(\n  databaseId: string,\n  key: string,\n  value: T,\n): Promise<{ isSuccessful: boolean; message: string; result?: T }> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName, version);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - putData\");\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readwrite\");\n      const store = tx.objectStore(databaseId);\n      store.put(value, key);\n      resolve({ isSuccessful: true, message: `Put ${key}`, result: value });\n    };\n\n    request.onerror = () => {\n      const error = request.error?.message;\n      if (error) {\n        resolve({ isSuccessful: false, message: error, result: undefined });\n      } else {\n        resolve({\n          isSuccessful: false,\n          message: \"Unknown error\",\n          result: undefined,\n        });\n      }\n    };\n  });\n};",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "isExported": true,
@@ -10960,14 +10953,38 @@
     "namedParameters": {
       "modelName": "SchemaItem",
       "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-      "name": "NamedParameters<typeof deleteData>",
+      "name": "NamedParameters<typeof indexedDbPutData>",
+      "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+      "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
+      "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
+    }
+  },
+  {
+    "modelName": "SwcFunction",
+    "name": "indexedDbDeleteData",
+    "start": 1828,
+    "end": 2411,
+    "length": 583,
+    "raw": "export const indexedDbDeleteData = (\n  databaseId: string,\n  key: string,\n): Promise<boolean> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName, version);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - deleteData\", key);\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readwrite\");\n      const store = tx.objectStore(databaseId);\n      const res = store.delete(key);\n\n      res.onsuccess = () => {\n        resolve(true);\n      };\n\n      res.onerror = () => {\n        resolve(false);\n      };\n    };\n  });\n};",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+    "isExported": true,
+    "packageCategory": "actionschema",
+    "packageName": "actionschema",
+    "operationClassification": "cjs",
+    "returnType": {},
+    "otherDefs": {},
+    "namedParameters": {
+      "modelName": "SchemaItem",
+      "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+      "name": "NamedParameters<typeof indexedDbDeleteData>",
       "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
       "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "$ref": "#/definitions/NamedParameters%3Ctypeof%20deleteData%3E",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20indexedDbDeleteData%3E",
         "definitions": {
-          "NamedParameters<typeof deleteData>": {
+          "NamedParameters<typeof indexedDbDeleteData>": {
             "type": "object",
             "properties": {
               "databaseId": {
@@ -11011,11 +11028,11 @@
   },
   {
     "modelName": "SwcFunction",
-    "name": "updateData",
-    "start": 2430,
-    "end": 3105,
-    "length": 675,
-    "raw": "export const updateData = <T>(\n  databaseId: string,\n  key: string,\n  data: T,\n): Promise<T | string | null> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName, version);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - updateData\", key);\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readwrite\");\n      const store = tx.objectStore(databaseId);\n      const res = store.get(key);\n      res.onsuccess = () => {\n        const newData = { ...res.result, ...data };\n        store.put(newData);\n        resolve(newData);\n      };\n      res.onerror = () => {\n        resolve(null);\n      };\n    };\n  });\n};",
+    "name": "indexedDbUpdateData",
+    "start": 2448,
+    "end": 3132,
+    "length": 684,
+    "raw": "export const indexedDbUpdateData = <T>(\n  databaseId: string,\n  key: string,\n  data: T,\n): Promise<T | string | null> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName, version);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - updateData\", key);\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readwrite\");\n      const store = tx.objectStore(databaseId);\n      const res = store.get(key);\n      res.onsuccess = () => {\n        const newData = { ...res.result, ...data };\n        store.put(newData);\n        resolve(newData);\n      };\n      res.onerror = () => {\n        resolve(null);\n      };\n    };\n  });\n};",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "isExported": true,
@@ -11027,7 +11044,7 @@
     "namedParameters": {
       "modelName": "SchemaItem",
       "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-      "name": "NamedParameters<typeof updateData>",
+      "name": "NamedParameters<typeof indexedDbUpdateData>",
       "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
       "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
       "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
@@ -11035,11 +11052,11 @@
   },
   {
     "modelName": "SwcFunction",
-    "name": "getStoreData",
-    "start": 3134,
-    "end": 3654,
-    "length": 520,
-    "raw": "export const getStoreData = <T>(\n  /** E.g. the full JSON object */\n  databaseId: string,\n): Promise<T[]> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - getAllData\");\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readonly\");\n      const store = tx.objectStore(databaseId);\n      const res = store.getAll();\n      res.onsuccess = () => {\n        resolve(res.result);\n      };\n    };\n  });\n};",
+    "name": "indexedDbGetStoreData",
+    "start": 3161,
+    "end": 3690,
+    "length": 529,
+    "raw": "export const indexedDbGetStoreData = <T>(\n  /** E.g. the full JSON object */\n  databaseId: string,\n): Promise<T[]> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - getAllData\");\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readonly\");\n      const store = tx.objectStore(databaseId);\n      const res = store.getAll();\n      res.onsuccess = () => {\n        resolve(res.result);\n      };\n    };\n  });\n};",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "isExported": true,
@@ -11050,15 +11067,15 @@
     "otherDefs": {},
     "namedParameters": {
       "modelName": "SchemaItem",
-      "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
-      "name": "NamedParameters<typeof getStoreData>",
-      "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
-      "operationRelativePath": "src/environments/serverless/vercelKvStore.ts",
+      "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+      "name": "NamedParameters<typeof indexedDbGetStoreData>",
+      "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+      "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "$ref": "#/definitions/NamedParameters%3Ctypeof%20getStoreData%3E",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20indexedDbGetStoreData%3E",
         "definitions": {
-          "NamedParameters<typeof getStoreData>": {
+          "NamedParameters<typeof indexedDbGetStoreData>": {
             "type": "object",
             "properties": {
               "databaseId": {
@@ -11083,6 +11100,76 @@
         },
         "simplifiedSchema": {
           "fullComment": "E.g. the full JSON object",
+          "type": "string"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "modelName": "SwcFunction",
+    "name": "indexedDbGetStoreItem",
+    "start": 3723,
+    "end": 4268,
+    "length": 545,
+    "raw": "export const indexedDbGetStoreItem = <T>(\n  /** E.g. the full JSON object */\n  databaseId: string,\n  key: string,\n): Promise<T[]> => {\n  return new Promise((resolve) => {\n    request = indexedDB.open(dbName);\n\n    request.onsuccess = () => {\n      console.log(\"request.onsuccess - getAllData\");\n      db = request.result;\n      const tx = db.transaction(databaseId, \"readonly\");\n      const store = tx.objectStore(databaseId);\n\n      const res = store.get(key);\n      res.onsuccess = () => {\n        resolve(res.result);\n      };\n    };\n  });\n};",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+    "isExported": true,
+    "packageCategory": "actionschema",
+    "packageName": "actionschema",
+    "operationClassification": "cjs",
+    "returnType": {},
+    "otherDefs": {},
+    "namedParameters": {
+      "modelName": "SchemaItem",
+      "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+      "name": "NamedParameters<typeof indexedDbGetStoreItem>",
+      "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+      "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20indexedDbGetStoreItem%3E",
+        "definitions": {
+          "NamedParameters<typeof indexedDbGetStoreItem>": {
+            "type": "object",
+            "properties": {
+              "databaseId": {
+                "type": "string",
+                "description": "E.g. the full JSON object"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "databaseId",
+              "key"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "databaseId",
+        "schema": {
+          "type": "string",
+          "description": "E.g. the full JSON object"
+        },
+        "simplifiedSchema": {
+          "fullComment": "E.g. the full JSON object",
+          "type": "string"
+        },
+        "required": true
+      },
+      {
+        "name": "key",
+        "schema": {
+          "type": "string"
+        },
+        "simplifiedSchema": {
           "type": "string"
         },
         "required": true
@@ -11161,6 +11248,1615 @@
         },
         "simplifiedSchema": {
           "type": "string"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "modelName": "SwcFunction",
+    "name": "fetchExecute",
+    "start": 246,
+    "end": 607,
+    "length": 361,
+    "raw": "export const fetchExecute = async (\n  context: ExecuteContext & {\n    executeApiPath: string;\n    headers: { [key: string]: string };\n  },\n) => {\n  const { executeApiPath, headers, ...executeContext } = context;\n\n  const result = await fetch(executeApiPath, {\n    method: \"POST\",\n    body: JSON.stringify(executeContext),\n    headers,\n  });\n\n  return result;\n};",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/fetchExecute.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/fetchExecute.ts",
+    "isExported": true,
+    "packageCategory": "actionschema",
+    "packageName": "actionschema",
+    "operationClassification": "cjs",
+    "returnType": {},
+    "otherDefs": {
+      "ActionSchema": {
+        "type": "object",
+        "properties": {
+          "x-grid-items-location": {
+            "type": "string",
+            "description": "Useful at root. Dot-notation of where to find the items."
+          },
+          "x-is-public": {
+            "type": "boolean",
+            "description": "Useful at root. If this is true, its a schema that is allowed to be read by anyone regardless of the data privacy."
+          },
+          "x-plugin": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Plugin"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Plugin"
+                }
+              }
+            ]
+          },
+          "deprecated": {
+            "type": "boolean"
+          },
+          "ui:widget": {
+            "type": "string",
+            "description": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/"
+          },
+          "ui:options": {
+            "type": "object",
+            "properties": {
+              "refModelName": {
+                "type": "string",
+                "description": "If given, it is assumed the value or values of this property link to this model."
+              }
+            },
+            "description": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/"
+          },
+          "$id": {
+            "type": "string"
+          },
+          "$source": {
+            "type": "string",
+            "description": "If given, should be a url linking to the original file, the starting point, if this is not already the one. Used to determine if anything has changed."
+          },
+          "$schema": {
+            "type": "string"
+          },
+          "$ref": {
+            "type": "string"
+          },
+          "$comment": {
+            "type": "string",
+            "description": "Comment for the makers of the schema"
+          },
+          "title": {
+            "type": "string",
+            "description": "In the form this shows up as the title for the property. More readable."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description for schema at this location"
+          },
+          "default": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "readOnly": {
+            "type": "boolean"
+          },
+          "writeOnly": {
+            "type": "boolean"
+          },
+          "examples": {
+            "type": "array",
+            "items": {}
+          },
+          "multipleOf": {
+            "type": "number"
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "exclusiveMaximum": {
+            "type": "number"
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "exclusiveMinimum": {
+            "type": [
+              "number",
+              "boolean"
+            ]
+          },
+          "maxLength": {
+            "$ref": "#/definitions/NonNegativeInteger"
+          },
+          "minLength": {
+            "$ref": "#/definitions/NonNegativeIntegerDefault0"
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "additionalItems": {
+            "$ref": "#/definitions/ActionSchema"
+          },
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              {
+                "$ref": "#/definitions/SchemaArray"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "maxItems": {
+            "$ref": "#/definitions/NonNegativeInteger"
+          },
+          "minItems": {
+            "$ref": "#/definitions/NonNegativeIntegerDefault0"
+          },
+          "uniqueItems": {
+            "type": "boolean"
+          },
+          "contains": {
+            "$ref": "#/definitions/ActionSchema"
+          },
+          "maxProperties": {
+            "$ref": "#/definitions/NonNegativeInteger"
+          },
+          "minProperties": {
+            "$ref": "#/definitions/NonNegativeIntegerDefault0"
+          },
+          "required": {
+            "$ref": "#/definitions/StringArray"
+          },
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "definitions": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/ActionSchema"
+            }
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/ActionSchema"
+            }
+          },
+          "patternProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/ActionSchema"
+            }
+          },
+          "dependencies": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ActionSchema"
+                },
+                {
+                  "$ref": "#/definitions/StringArray"
+                }
+              ]
+            }
+          },
+          "propertyNames": {
+            "$ref": "#/definitions/ActionSchema"
+          },
+          "const": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "enum": {
+            "type": "array",
+            "items": {},
+            "minItems": 1
+          },
+          "type": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/SimpleTypes"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/SimpleTypes"
+                },
+                "minItems": 1
+              }
+            ]
+          },
+          "format": {
+            "type": "string"
+          },
+          "contentMediaType": {
+            "type": "string"
+          },
+          "contentEncoding": {
+            "type": "string"
+          },
+          "if": {
+            "$ref": "#/definitions/ActionSchema"
+          },
+          "then": {
+            "$ref": "#/definitions/ActionSchema"
+          },
+          "else": {
+            "$ref": "#/definitions/ActionSchema"
+          },
+          "allOf": {
+            "$ref": "#/definitions/SchemaArray"
+          },
+          "anyOf": {
+            "$ref": "#/definitions/SchemaArray"
+          },
+          "oneOf": {
+            "$ref": "#/definitions/SchemaArray"
+          },
+          "not": {
+            "$ref": "#/definitions/ActionSchema"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#"
+      },
+      "Plugin": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Could be used to auto-describe the usage of this plugin"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Could be used to auto-summarise the usage of this plugin"
+          },
+          "isGridDataProvided": {
+            "type": "boolean",
+            "description": "For grid-plugins: if true, entire grid data will be provided into the plugin"
+          },
+          "concatenateArray": {
+            "type": "boolean",
+            "description": "For plugins for an array. If true, result will be concatenated to the array, not replaced. Please beware that this makes things less deterministic."
+          },
+          "$openapi": {
+            "$ref": "#/definitions/OpenAPIDetails"
+          },
+          "condition": {
+            "type": "string",
+            "description": "If given, must resolve to true in order to run this function"
+          },
+          "outputLocation": {
+            "type": "string",
+            "description": "Simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+          },
+          "isVerticalExpandEnabled": {
+            "type": "boolean",
+            "description": "If true, this plugin should cause a vertical expansion. This means, for each row it is ran on, it will copy that row for each item in the resulting array. NB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+          },
+          "isAutoExecuteDisabled": {
+            "type": "boolean",
+            "description": "If true, will not auto-execute when dependencies are met. Useful for example for scheduled columns"
+          },
+          "context": {
+            "type": "object",
+            "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI."
+          },
+          "propertyDependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Property keys in the same object that are required as context. This is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null."
+          },
+          "priceCredit": {
+            "type": "number",
+            "description": "Cost estimation to run this plugin. This is needed to give insight in costs for generations."
+          },
+          "code": {
+            "type": "string",
+            "description": "TODO: Optionally, this could be an alternative for using '$openapi' (or a complement). This could be code that can be evaluated in javascript/typescript on an edge worker. Imagine this being code that can directly run on edge-workers, infinitely scalable? We now don't rely on creating openapis whatsoever. Instead, there is just this single openapi endpoint that is used for everything. Of course openapis can be better in many cases, since it is more standardised, but I think it could be very powerful to have this, especially for custom things that need to happen."
+          },
+          "onChangeDependantBehavior": {
+            "type": "string",
+            "enum": [
+              "ignore",
+              "stale",
+              "reset",
+              "delete"
+            ],
+            "description": "What should the dependant values do when this value changes? If 'stale', there needs to be an `isStalePropertyName` given, so we can set it to stale."
+          },
+          "stalePropertyName": {
+            "type": "string",
+            "description": "If given, this could be a reference to another property that resolves to a boolean that, if true, tells that this value is stale."
+          },
+          "validPropertyName": {
+            "type": "string",
+            "description": "If given, this could be a reference to another property that resolves to a boolean that, if false, tells that this value is invalid"
+          }
+        },
+        "description": "ActionSchema plugin"
+      },
+      "OpenAPIDetails": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "operationId": {
+            "type": "string"
+          },
+          "emoji": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url",
+          "path",
+          "method",
+          "operationId"
+        ],
+        "description": "The OpenAPI information required to execute the function."
+      },
+      "NonNegativeInteger": {
+        "type": "number",
+        "description": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file."
+      },
+      "NonNegativeIntegerDefault0": {
+        "$ref": "#/definitions/NonNegativeInteger"
+      },
+      "SchemaArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/ActionSchema"
+        },
+        "minItems": 1
+      },
+      "StringArray": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "SimpleTypes": {
+        "type": "string",
+        "enum": [
+          "array",
+          "boolean",
+          "integer",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "ActionSchemaPlugin": {
+        "type": "object",
+        "properties": {
+          "__id": {
+            "type": "string",
+            "description": "The entire URL should be here"
+          },
+          "headers": {
+            "type": "string"
+          },
+          "localhostOpenapiUrl": {
+            "type": "string",
+            "description": "In case this is given and your IS_DEV is set to \"true\", this URL will be used when executing. However, this URL will never be set into the ActionSchema as this would cause things to not work when pushing to production. This is why it's needed to have this parameter: we want a good development experience at localhost for any openapi we may make, being able to make production-schemas from localhost"
+          },
+          "isInternallyHosted": {
+            "type": "boolean",
+            "description": "If true, this indicates we should always use localhost, even in production."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "namedParameters": {
+      "modelName": "SchemaItem",
+      "projectRelativePath": "packages/actionschema/actionschema/src/plugin/fetchExecute.ts",
+      "name": "NamedParameters<typeof fetchExecute>",
+      "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/fetchExecute.ts",
+      "operationRelativePath": "src/plugin/fetchExecute.ts",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20fetchExecute%3E",
+        "definitions": {
+          "NamedParameters<typeof fetchExecute>": {
+            "type": "object",
+            "properties": {
+              "context": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "executeApiPath": {
+                    "type": "string"
+                  },
+                  "headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/definitions/ActionSchema"
+                  },
+                  "dotLocation": {
+                    "type": "string",
+                    "description": "Data dotlocation"
+                  },
+                  "databaseId": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "Set a new value into the db (Optional, if given)"
+                  },
+                  "skipPlugin": {
+                    "type": "boolean",
+                    "description": "If true, skips executing the plugin"
+                  },
+                  "returnDotLocation": {
+                    "type": "string",
+                    "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+                  },
+                  "updateCallbackUrl": {
+                    "type": "string",
+                    "description": "An url to be called back on with updates"
+                  },
+                  "actionSchemaPlugins": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ActionSchemaPlugin"
+                    }
+                  }
+                },
+                "required": [
+                  "actionSchemaPlugins",
+                  "databaseId",
+                  "dotLocation",
+                  "executeApiPath",
+                  "headers",
+                  "schema"
+                ]
+              }
+            },
+            "required": [
+              "context"
+            ],
+            "additionalProperties": false
+          },
+          "ActionSchema": {
+            "type": "object",
+            "properties": {
+              "x-grid-items-location": {
+                "type": "string",
+                "description": "Useful at root. Dot-notation of where to find the items."
+              },
+              "x-is-public": {
+                "type": "boolean",
+                "description": "Useful at root. If this is true, its a schema that is allowed to be read by anyone regardless of the data privacy."
+              },
+              "x-plugin": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/Plugin"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Plugin"
+                    }
+                  }
+                ]
+              },
+              "deprecated": {
+                "type": "boolean"
+              },
+              "ui:widget": {
+                "type": "string",
+                "description": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/"
+              },
+              "ui:options": {
+                "type": "object",
+                "properties": {
+                  "refModelName": {
+                    "type": "string",
+                    "description": "If given, it is assumed the value or values of this property link to this model."
+                  }
+                },
+                "description": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/"
+              },
+              "$id": {
+                "type": "string"
+              },
+              "$source": {
+                "type": "string",
+                "description": "If given, should be a url linking to the original file, the starting point, if this is not already the one. Used to determine if anything has changed."
+              },
+              "$schema": {
+                "type": "string"
+              },
+              "$ref": {
+                "type": "string"
+              },
+              "$comment": {
+                "type": "string",
+                "description": "Comment for the makers of the schema"
+              },
+              "title": {
+                "type": "string",
+                "description": "In the form this shows up as the title for the property. More readable."
+              },
+              "description": {
+                "type": "string",
+                "description": "Description for schema at this location"
+              },
+              "default": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/ActionSchema"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "readOnly": {
+                "type": "boolean"
+              },
+              "writeOnly": {
+                "type": "boolean"
+              },
+              "examples": {
+                "type": "array",
+                "items": {}
+              },
+              "multipleOf": {
+                "type": "number"
+              },
+              "maximum": {
+                "type": "number"
+              },
+              "exclusiveMaximum": {
+                "type": "number"
+              },
+              "minimum": {
+                "type": "number"
+              },
+              "exclusiveMinimum": {
+                "type": [
+                  "number",
+                  "boolean"
+                ]
+              },
+              "maxLength": {
+                "$ref": "#/definitions/NonNegativeInteger"
+              },
+              "minLength": {
+                "$ref": "#/definitions/NonNegativeIntegerDefault0"
+              },
+              "pattern": {
+                "type": "string"
+              },
+              "additionalItems": {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/ActionSchema"
+                  },
+                  {
+                    "$ref": "#/definitions/SchemaArray"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "maxItems": {
+                "$ref": "#/definitions/NonNegativeInteger"
+              },
+              "minItems": {
+                "$ref": "#/definitions/NonNegativeIntegerDefault0"
+              },
+              "uniqueItems": {
+                "type": "boolean"
+              },
+              "contains": {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              "maxProperties": {
+                "$ref": "#/definitions/NonNegativeInteger"
+              },
+              "minProperties": {
+                "$ref": "#/definitions/NonNegativeIntegerDefault0"
+              },
+              "required": {
+                "$ref": "#/definitions/StringArray"
+              },
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/ActionSchema"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "definitions": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ActionSchema"
+                }
+              },
+              "properties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ActionSchema"
+                }
+              },
+              "patternProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ActionSchema"
+                }
+              },
+              "dependencies": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/ActionSchema"
+                    },
+                    {
+                      "$ref": "#/definitions/StringArray"
+                    }
+                  ]
+                }
+              },
+              "propertyNames": {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              "const": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/ActionSchema"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "enum": {
+                "type": "array",
+                "items": {},
+                "minItems": 1
+              },
+              "type": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/SimpleTypes"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/SimpleTypes"
+                    },
+                    "minItems": 1
+                  }
+                ]
+              },
+              "format": {
+                "type": "string"
+              },
+              "contentMediaType": {
+                "type": "string"
+              },
+              "contentEncoding": {
+                "type": "string"
+              },
+              "if": {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              "then": {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              "else": {
+                "$ref": "#/definitions/ActionSchema"
+              },
+              "allOf": {
+                "$ref": "#/definitions/SchemaArray"
+              },
+              "anyOf": {
+                "$ref": "#/definitions/SchemaArray"
+              },
+              "oneOf": {
+                "$ref": "#/definitions/SchemaArray"
+              },
+              "not": {
+                "$ref": "#/definitions/ActionSchema"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#"
+          },
+          "Plugin": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "Could be used to auto-describe the usage of this plugin"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Could be used to auto-summarise the usage of this plugin"
+              },
+              "isGridDataProvided": {
+                "type": "boolean",
+                "description": "For grid-plugins: if true, entire grid data will be provided into the plugin"
+              },
+              "concatenateArray": {
+                "type": "boolean",
+                "description": "For plugins for an array. If true, result will be concatenated to the array, not replaced. Please beware that this makes things less deterministic."
+              },
+              "$openapi": {
+                "$ref": "#/definitions/OpenAPIDetails"
+              },
+              "condition": {
+                "type": "string",
+                "description": "If given, must resolve to true in order to run this function"
+              },
+              "outputLocation": {
+                "type": "string",
+                "description": "Simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+              },
+              "isVerticalExpandEnabled": {
+                "type": "boolean",
+                "description": "If true, this plugin should cause a vertical expansion. This means, for each row it is ran on, it will copy that row for each item in the resulting array. NB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+              },
+              "isAutoExecuteDisabled": {
+                "type": "boolean",
+                "description": "If true, will not auto-execute when dependencies are met. Useful for example for scheduled columns"
+              },
+              "context": {
+                "type": "object",
+                "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI."
+              },
+              "propertyDependencies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Property keys in the same object that are required as context. This is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null."
+              },
+              "priceCredit": {
+                "type": "number",
+                "description": "Cost estimation to run this plugin. This is needed to give insight in costs for generations."
+              },
+              "code": {
+                "type": "string",
+                "description": "TODO: Optionally, this could be an alternative for using '$openapi' (or a complement). This could be code that can be evaluated in javascript/typescript on an edge worker. Imagine this being code that can directly run on edge-workers, infinitely scalable? We now don't rely on creating openapis whatsoever. Instead, there is just this single openapi endpoint that is used for everything. Of course openapis can be better in many cases, since it is more standardised, but I think it could be very powerful to have this, especially for custom things that need to happen."
+              },
+              "onChangeDependantBehavior": {
+                "type": "string",
+                "enum": [
+                  "ignore",
+                  "stale",
+                  "reset",
+                  "delete"
+                ],
+                "description": "What should the dependant values do when this value changes? If 'stale', there needs to be an `isStalePropertyName` given, so we can set it to stale."
+              },
+              "stalePropertyName": {
+                "type": "string",
+                "description": "If given, this could be a reference to another property that resolves to a boolean that, if true, tells that this value is stale."
+              },
+              "validPropertyName": {
+                "type": "string",
+                "description": "If given, this could be a reference to another property that resolves to a boolean that, if false, tells that this value is invalid"
+              }
+            },
+            "description": "ActionSchema plugin"
+          },
+          "OpenAPIDetails": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "operationId": {
+                "type": "string"
+              },
+              "emoji": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "url",
+              "path",
+              "method",
+              "operationId"
+            ],
+            "description": "The OpenAPI information required to execute the function."
+          },
+          "NonNegativeInteger": {
+            "type": "number",
+            "description": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file."
+          },
+          "NonNegativeIntegerDefault0": {
+            "$ref": "#/definitions/NonNegativeInteger"
+          },
+          "SchemaArray": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ActionSchema"
+            },
+            "minItems": 1
+          },
+          "StringArray": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "SimpleTypes": {
+            "type": "string",
+            "enum": [
+              "array",
+              "boolean",
+              "integer",
+              "null",
+              "number",
+              "object",
+              "string"
+            ]
+          },
+          "ActionSchemaPlugin": {
+            "type": "object",
+            "properties": {
+              "__id": {
+                "type": "string",
+                "description": "The entire URL should be here"
+              },
+              "headers": {
+                "type": "string"
+              },
+              "localhostOpenapiUrl": {
+                "type": "string",
+                "description": "In case this is given and your IS_DEV is set to \"true\", this URL will be used when executing. However, this URL will never be set into the ActionSchema as this would cause things to not work when pushing to production. This is why it's needed to have this parameter: we want a good development experience at localhost for any openapi we may make, being able to make production-schemas from localhost"
+              },
+              "isInternallyHosted": {
+                "type": "boolean",
+                "description": "If true, this indicates we should always use localhost, even in production."
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "context",
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "executeApiPath": {
+              "type": "string"
+            },
+            "headers": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ActionSchema"
+            },
+            "dotLocation": {
+              "type": "string",
+              "description": "Data dotlocation"
+            },
+            "databaseId": {
+              "type": "string"
+            },
+            "value": {
+              "description": "Set a new value into the db (Optional, if given)"
+            },
+            "skipPlugin": {
+              "type": "boolean",
+              "description": "If true, skips executing the plugin"
+            },
+            "returnDotLocation": {
+              "type": "string",
+              "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+            },
+            "updateCallbackUrl": {
+              "type": "string",
+              "description": "An url to be called back on with updates"
+            },
+            "actionSchemaPlugins": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ActionSchemaPlugin"
+              }
+            }
+          },
+          "required": [
+            "actionSchemaPlugins",
+            "databaseId",
+            "dotLocation",
+            "executeApiPath",
+            "headers",
+            "schema"
+          ]
+        },
+        "simplifiedSchema": {
+          "properties": [
+            {
+              "name": "executeApiPath",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "headers",
+              "required": true,
+              "schema": {
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "schema",
+              "required": true,
+              "schema": {
+                "fullComment": "Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#",
+                "properties": [
+                  {
+                    "name": "x-grid-items-location",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "Useful at root. Dot-notation of where to find the items.",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "x-is-public",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "Useful at root. If this is true, its a schema that is allowed to be read by anyone regardless of the data privacy.",
+                      "type": "boolean"
+                    }
+                  },
+                  {
+                    "name": "x-plugin",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "deprecated",
+                    "required": false,
+                    "schema": {
+                      "type": "boolean"
+                    }
+                  },
+                  {
+                    "name": "ui:widget",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "ui:options",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/",
+                      "properties": [
+                        {
+                          "name": "refModelName",
+                          "required": false,
+                          "schema": {
+                            "fullComment": "If given, it is assumed the value or values of this property link to this model.",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "$id",
+                    "required": false,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "$source",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "If given, should be a url linking to the original file, the starting point, if this is not already the one. Used to determine if anything has changed.",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "$schema",
+                    "required": false,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "$ref",
+                    "required": false,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "$comment",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "Comment for the makers of the schema",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "title",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "In the form this shows up as the title for the property. More readable.",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "description",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "Description for schema at this location",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "default",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "readOnly",
+                    "required": false,
+                    "schema": {
+                      "type": "boolean"
+                    }
+                  },
+                  {
+                    "name": "writeOnly",
+                    "required": false,
+                    "schema": {
+                      "type": "boolean"
+                    }
+                  },
+                  {
+                    "name": "examples",
+                    "required": false,
+                    "schema": {
+                      "items": [
+                        {
+                          "schema": {
+                            "properties": [],
+                            "type": "object"
+                          },
+                          "name": null
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "name": "multipleOf",
+                    "required": false,
+                    "schema": {
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "maximum",
+                    "required": false,
+                    "schema": {
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "exclusiveMaximum",
+                    "required": false,
+                    "schema": {
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "minimum",
+                    "required": false,
+                    "schema": {
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "exclusiveMinimum",
+                    "required": false,
+                    "schema": {
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "maxLength",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file.",
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "minLength",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file.",
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "pattern",
+                    "required": false,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "additionalItems",
+                    "required": false,
+                    "schema": {
+                      "circularRefName": "ActionSchema",
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "items",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "maxItems",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file.",
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "minItems",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file.",
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "uniqueItems",
+                    "required": false,
+                    "schema": {
+                      "type": "boolean"
+                    }
+                  },
+                  {
+                    "name": "contains",
+                    "required": false,
+                    "schema": {
+                      "circularRefName": "ActionSchema",
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "maxProperties",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file.",
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "minProperties",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file.",
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "name": "required",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "",
+                      "items": [
+                        {
+                          "schema": {
+                            "type": "string"
+                          },
+                          "name": null
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "name": "additionalProperties",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "definitions",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "properties",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "patternProperties",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "dependencies",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "propertyNames",
+                    "required": false,
+                    "schema": {
+                      "circularRefName": "ActionSchema",
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "const",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "enum",
+                    "required": false,
+                    "schema": {
+                      "items": [
+                        {
+                          "schema": {
+                            "properties": [],
+                            "type": "object"
+                          },
+                          "name": null
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "name": "type",
+                    "required": false,
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "format",
+                    "required": false,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "contentMediaType",
+                    "required": false,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "contentEncoding",
+                    "required": false,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "if",
+                    "required": false,
+                    "schema": {
+                      "circularRefName": "ActionSchema",
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "then",
+                    "required": false,
+                    "schema": {
+                      "circularRefName": "ActionSchema",
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "else",
+                    "required": false,
+                    "schema": {
+                      "circularRefName": "ActionSchema",
+                      "properties": [],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "allOf",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "",
+                      "items": [
+                        {
+                          "schema": {
+                            "circularRefName": "ActionSchema",
+                            "properties": [],
+                            "type": "object"
+                          },
+                          "name": "ActionSchema"
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "name": "anyOf",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "",
+                      "items": [
+                        {
+                          "schema": {
+                            "circularRefName": "ActionSchema",
+                            "properties": [],
+                            "type": "object"
+                          },
+                          "name": "ActionSchema"
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "name": "oneOf",
+                    "required": false,
+                    "schema": {
+                      "fullComment": "",
+                      "items": [
+                        {
+                          "schema": {
+                            "circularRefName": "ActionSchema",
+                            "properties": [],
+                            "type": "object"
+                          },
+                          "name": "ActionSchema"
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "name": "not",
+                    "required": false,
+                    "schema": {
+                      "circularRefName": "ActionSchema",
+                      "properties": [],
+                      "type": "object"
+                    }
+                  }
+                ],
+                "type": "object"
+              }
+            },
+            {
+              "name": "dotLocation",
+              "required": true,
+              "schema": {
+                "fullComment": "Data dotlocation",
+                "type": "string"
+              }
+            },
+            {
+              "name": "databaseId",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "value",
+              "required": false,
+              "schema": {
+                "fullComment": "Set a new value into the db (Optional, if given)",
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "skipPlugin",
+              "required": false,
+              "schema": {
+                "fullComment": "If true, skips executing the plugin",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "returnDotLocation",
+              "required": false,
+              "schema": {
+                "fullComment": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution.",
+                "type": "string"
+              }
+            },
+            {
+              "name": "updateCallbackUrl",
+              "required": false,
+              "schema": {
+                "fullComment": "An url to be called back on with updates",
+                "type": "string"
+              }
+            },
+            {
+              "name": "actionSchemaPlugins",
+              "required": true,
+              "schema": {
+                "items": [
+                  {
+                    "schema": {
+                      "fullComment": "",
+                      "properties": [
+                        {
+                          "name": "__id",
+                          "required": false,
+                          "schema": {
+                            "fullComment": "The entire URL should be here",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "name": "headers",
+                          "required": false,
+                          "schema": {
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "name": "localhostOpenapiUrl",
+                          "required": false,
+                          "schema": {
+                            "fullComment": "In case this is given and your IS_DEV is set to \"true\", this URL will be used when executing. However, this URL will never be set into the ActionSchema as this would cause things to not work when pushing to production. This is why it's needed to have this parameter: we want a good development experience at localhost for any openapi we may make, being able to make production-schemas from localhost",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "name": "isInternallyHosted",
+                          "required": false,
+                          "schema": {
+                            "fullComment": "If true, this indicates we should always use localhost, even in production.",
+                            "type": "boolean"
+                          }
+                        }
+                      ],
+                      "type": "object"
+                    },
+                    "name": "ActionSchemaPlugin"
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "object"
         },
         "required": true
       }
@@ -11351,8 +13047,8 @@
   {
     "modelName": "SwcInterface",
     "name": "ValueOptions",
-    "start": 505,
-    "end": 1222,
+    "start": 503,
+    "end": 1220,
     "raw": "export type ValueOptions = {\n  /**\n   * If true, will replace the object rather than overwriting it where needed.\n   *\n   * By default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed.\n   */\n  objectReplace?: boolean;\n  /**\n  If true, will replace items in the array fully.\n  \n  By default, ActionSchema will insert into an array with an optional discriminator (see below).\n  */\n  arrayReplace?: boolean;\n\n  /**\n   * If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is.\n   */\n  arrayDiscriminatorPropertyKey?: string;\n};",
     "length": 717,
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/execute.ts",
@@ -11385,9 +13081,11 @@
             "description": "If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Should be inferred from x-plugin"
       },
       "simplifiedSchema": {
+        "fullComment": "Should be inferred from x-plugin",
         "properties": [
           {
             "name": "objectReplace",
@@ -11421,8 +13119,8 @@
   {
     "modelName": "SwcInterface",
     "name": "EnvironmentConfig",
-    "start": 1822,
-    "end": 2429,
+    "start": 1820,
+    "end": 2427,
     "raw": "export type EnvironmentConfig = {\n  /** Function to recurse on dependants. */\n  recurseFunction: (context: ExecuteContext) => any;\n  /** Set or remove a status.  */\n  setStatus: (key: string, value: string | null) => Promise<void>;\n  /** Get a status */\n  getStatus: (key: string, value: string) => Promise<string>;\n  setData: (key: string, value: any) => Promise<void>;\n  getData: (key: string) => Promise<any>;\n  /** Can be different in environments */\n  fetchPlugin: (\n    details: {\n      apiUrl: string;\n      method: string;\n      headers: any;\n    },\n    completeContext: any,\n  ) => Promise<any>;\n};",
     "length": 607,
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/execute.ts",
@@ -11623,10 +13321,10 @@
   {
     "modelName": "SwcInterface",
     "name": "ExecuteContext",
-    "start": 2430,
-    "end": 2918,
-    "raw": "export type ExecuteContext = {\n  schema: ActionSchema;\n  /** Data dotlocation */\n  dotLocation: string;\n  databaseId: string;\n  value?: any;\n  /** If true, skips executing the plugin */\n  skipPlugin?: boolean;\n  /** If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution. */\n  returnDotLocation?: string;\n  /** An url to be called back on with updates */\n  updateCallbackUrl?: string;\n  actionSchemaPlugins: ActionSchemaPlugin[];\n};",
-    "length": 488,
+    "start": 2428,
+    "end": 2974,
+    "raw": "export type ExecuteContext = {\n  schema: ActionSchema;\n  /** Data dotlocation */\n  dotLocation: string;\n  databaseId: string;\n  /** Set a new value into the db (Optional, if given) */\n  value?: any;\n  /** If true, skips executing the plugin */\n  skipPlugin?: boolean;\n  /** If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution. */\n  returnDotLocation?: string;\n  /** An url to be called back on with updates */\n  updateCallbackUrl?: string;\n  actionSchemaPlugins: ActionSchemaPlugin[];\n};",
+    "length": 546,
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/execute.ts",
     "projectRelativePath": "packages/actionschema/actionschema/src/plugin/execute.ts",
     "isExported": true,
@@ -11654,7 +13352,9 @@
           "databaseId": {
             "type": "string"
           },
-          "value": {},
+          "value": {
+            "description": "Set a new value into the db (Optional, if given)"
+          },
           "skipPlugin": {
             "type": "boolean",
             "description": "If true, skips executing the plugin"
@@ -12192,6 +13892,7 @@
             "name": "value",
             "required": false,
             "schema": {
+              "fullComment": "Set a new value into the db (Optional, if given)",
               "properties": [],
               "type": "object"
             }
@@ -12277,8 +13978,8 @@
   {
     "modelName": "SwcFunction",
     "name": "execute",
-    "start": 3628,
-    "end": 6849,
+    "start": 3684,
+    "end": 6905,
     "length": 3221,
     "raw": "export const execute = async (context: ExecuteContext & EnvironmentConfig) => {\n  const {\n    dotLocation,\n    schema,\n    databaseId,\n    value,\n    skipPlugin,\n    returnDotLocation,\n    recurseFunction,\n    getData,\n    getStatus,\n    setData,\n    setStatus,\n    updateCallbackUrl,\n    actionSchemaPlugins,\n  } = context;\n\n  // Set `busy` status (to not conflict with spawner)\n  await setStatus(dotLocation, \"busy\");\n  let setValueResult: undefined | { isSuccessful: boolean; message: string } =\n    undefined;\n\n  if (value !== undefined) {\n    //===== Set a new value into the db (Optional, if given)\n    await setData(dotLocation, value);\n  }\n\n  //===== Looks at the schema and relevant existing data\n  const completeContext = {};\n\n  //===== Gathers the context\n  const workerContext: WorkerContext = {\n    completeContext,\n    dotLocation,\n    schema,\n    databaseId,\n  };\n\n  //====== Executes the plugin\n  const plugins = getSchemaAtDotLocation(schema, dotLocation)[\"x-plugin\"];\n\n  // NB: for now, always the first\n  const plugin = Array.isArray(plugins) ? plugins[0] : plugins;\n\n  if (!plugin || skipPlugin) {\n    return (\n      setValueResult || {\n        isSuccessful: true,\n        message: \"Did not set any value, did not execute any plugin\",\n      }\n    );\n  }\n  //====== Gathers authorization info\n\n  const $openapi = plugin.$openapi;\n\n  const details = await getOpenapiDetails($openapi, actionSchemaPlugins);\n\n  if (!details) {\n    await setStatus(dotLocation, null);\n\n    return {\n      isSuccessful: false,\n      message: \"Could not find openapi details\",\n    };\n  }\n\n  //===== Executes the plugin\n\n  const newValue = await fetchPlugin(details, completeContext);\n\n  //===== Updates the data with the result\n  // const values = flatten(newValue);\n  await setData(dotLocation, newValue);\n  const setNewValueResult = { isSuccessful: true, message: \"Set the value\" };\n\n  //======= Remove `busy` status\n  await setStatus(dotLocation, null);\n\n  //=== Look at other columns that have this dotLocation in `propertyDependencies`, Set those status to `stale`\n\n  // This would be one level up, so the entire object\n  const baseDotLocation = getDotLocationBase(dotLocation);\n\n  // Look at other columns that have this datapoint in `propertyDependencies`\n  const properties =\n    getSchemaAtDotLocation(schema, baseDotLocation).properties || {};\n\n  const dependantKeys = Object.keys(properties).filter((key) => {\n    const schema = properties[key];\n    const plugin = Array.isArray(schema[\"x-plugin\"])\n      ? schema[\"x-plugin\"][0]\n      : schema[\"x-plugin\"];\n\n    const isDependant = plugin?.propertyDependencies?.includes(dotLocation);\n    return isDependant;\n  });\n\n  // Set those status to `stale`\n  const dependantDotLocations = dependantKeys.map((k) =>\n    getDotLocationBase(dotLocation, k),\n  );\n\n  await Promise.all(\n    dependantDotLocations.map(async (dotLocation) => {\n      await setStatus(dotLocation, \"stale\");\n    }),\n  );\n\n  //====== Try to execute `executeGridPlugin` for dependants directly incase available. (No probem if it fails)\n  dependantDotLocations.map((dotLocation) => {\n    // NB: Don't wait for this\n    recurseFunction({ ...context, dotLocation });\n  });\n\n  return setNewValueResult;\n};",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/execute.ts",
@@ -12800,7 +14501,9 @@
                   "databaseId": {
                     "type": "string"
                   },
-                  "value": {},
+                  "value": {
+                    "description": "Set a new value into the db (Optional, if given)"
+                  },
                   "skipPlugin": {
                     "type": "boolean",
                     "description": "If true, skips executing the plugin"
@@ -13342,7 +15045,9 @@
             "databaseId": {
               "type": "string"
             },
-            "value": {},
+            "value": {
+              "description": "Set a new value into the db (Optional, if given)"
+            },
             "skipPlugin": {
               "type": "boolean",
               "description": "If true, skips executing the plugin"
@@ -13985,6 +15690,7 @@
               "name": "value",
               "required": false,
               "schema": {
+                "fullComment": "Set a new value into the db (Optional, if given)",
                 "properties": [],
                 "type": "object"
               }

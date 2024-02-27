@@ -1,4 +1,3 @@
-import { fetchPlugin } from "./fetchPlugin.js";
 import { getOpenapiDetails } from "./getOpenapiDetails.js";
 import { getSchemaAtDotLocation } from "../util/getSchemaAtDotLocation.js";
 import { getDotLocationBase } from "../util/getDotlocationBase.js";
@@ -24,33 +23,31 @@ C: Concequences
 
  */
 export const execute = async (context) => {
-    const { dotLocation, schema, databaseId, value, skipPlugin, returnDotLocation, recurseFunction, getData, getStatus, setData, setStatus, updateCallbackUrl, actionSchemaPlugins, } = context;
+    const { dotLocation, schema, databaseId, value, skipPlugin, returnDotLocation, recurseFunction, getData, getStatus, setData, setStatus, updateCallbackUrl, actionSchemaPlugins, fetchPlugin, } = context;
     // Set `busy` status (to not conflict with spawner)
     await setStatus(dotLocation, "busy");
     let setValueResult = undefined;
-    if (value !== undefined) {
-        //===== Set a new value into the db (Optional, if given)
-        await setData(dotLocation, value);
-    }
     //===== Looks at the schema and relevant existing data
     const completeContext = {};
-    //===== Gathers the context
-    const workerContext = {
-        completeContext,
-        dotLocation,
-        schema,
-        databaseId,
-    };
     //====== Executes the plugin
-    const plugins = getSchemaAtDotLocation(schema, dotLocation)["x-plugin"];
-    // NB: for now, always the first
-    const plugin = Array.isArray(plugins) ? plugins[0] : plugins;
+    const schemaHere = getSchemaAtDotLocation(schema, dotLocation);
+    const plugin = schemaHere["x-plugin"];
+    console.log({ schemaHere, plugin });
+    if (value !== undefined) {
+        //===== Set a new value into the db (Optional, if given)
+        setValueResult = await setData(dotLocation, value);
+        if (!plugin || skipPlugin) {
+            return setValueResult;
+        }
+    }
     if (!plugin || skipPlugin) {
-        return (setValueResult || {
+        await setStatus(dotLocation, null);
+        return {
             isSuccessful: true,
             message: "Did not set any value, did not execute any plugin",
-        });
+        };
     }
+    //
     //====== Gathers authorization info
     const $openapi = plugin.$openapi;
     const details = await getOpenapiDetails($openapi, actionSchemaPlugins);
@@ -76,10 +73,8 @@ export const execute = async (context) => {
     const properties = getSchemaAtDotLocation(schema, baseDotLocation).properties || {};
     const dependantKeys = Object.keys(properties).filter((key) => {
         const schema = properties[key];
-        const plugin = Array.isArray(schema["x-plugin"])
-            ? schema["x-plugin"][0]
-            : schema["x-plugin"];
-        const isDependant = plugin?.propertyDependencies?.includes(dotLocation);
+        const plugin = schema["x-plugin"];
+        const isDependant = plugin?.dataDependencies?.includes(dotLocation);
         return isDependant;
     });
     // Set those status to `stale`

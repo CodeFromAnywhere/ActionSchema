@@ -1,9 +1,13 @@
-import { fetchPlugin } from "../../plugin/fetchPlugin.js";
-import { execute } from "../../plugin/execute.js";
+import { execute, } from "../../plugin/execute.js";
 import { getStoreData, putData } from "./vercelKvStore.js";
+import { fetchExecute } from "../../plugin/fetchExecute.js";
+import { cleanFetch } from "../../plugin/cleanFetch.js";
 /**
-Local offline IndexedDb store wrapper around `execute`
- */
+Serverless wrapper around `execute`
+
+- Used in the `execute` api
+
+*/
 export const executeServerless = (context) => {
     const { actionSchemaPlugins, databaseId, dotLocation, schema, returnDotLocation, skipPlugin, updateCallbackUrl, value, } = context;
     return execute({
@@ -16,17 +20,13 @@ export const executeServerless = (context) => {
         updateCallbackUrl,
         value,
         setData: async (key, value) => {
-            await putData(databaseId, key, value);
-            return;
+            return putData(databaseId, key, value);
         },
         setStatus: async (key, value) => {
             await putData(`status-${databaseId}`, key, value);
             return;
         },
-        fetchPlugin: async (details, completeContext) => {
-            //TODO: this one fetches things in the next.js edge environment
-            fetchPlugin;
-        },
+        fetchPlugin: cleanFetch,
         getData: async (key) => {
             //TODO
             const data = await getStoreData(databaseId);
@@ -37,11 +37,12 @@ export const executeServerless = (context) => {
             const data = await getStoreData(`status-${databaseId}`);
             return "busy";
         },
-        recurseFunction: async (item) => {
-            const result = await fetch("https://actionschema.com/api/execute", {
-                method: "POST",
-                body: JSON.stringify(context),
-                headers: {},
+        recurseFunction: (context) => {
+            const host = `http://localhost:3000`;
+            return fetchExecute({
+                ...context,
+                executeApiPath: `${host}/api/execute`,
+                executeApiHeaders: {},
             });
         },
     });

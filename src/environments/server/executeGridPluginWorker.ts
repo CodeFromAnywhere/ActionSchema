@@ -1,8 +1,8 @@
-import { fetchPlugin } from "../../plugin/fetchPlugin.js";
 import { getOpenapiDetails } from "../../plugin/getOpenapiDetails.js";
 import { setValue } from "./setValue.js";
 import { WorkerContext } from "../../types/worker-context.schema.js";
 import { getSchemaAtDotLocation } from "../../util/getSchemaAtDotLocation.js";
+import { cleanFetch } from "../../plugin/cleanFetch.js";
 
 /** This thing is executed in another thread everytime, which frees up the load */
 const executeGridPluginWorker = async (context: WorkerContext) => {
@@ -27,7 +27,7 @@ const executeGridPluginWorker = async (context: WorkerContext) => {
     return;
   }
 
-  const data = await fetchPlugin(details, completeContext);
+  const data = await cleanFetch(details, completeContext);
   await setValue(databaseId, dotLocation, schema, data);
 };
 

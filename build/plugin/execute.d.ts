@@ -37,7 +37,7 @@ export type EnvironmentConfig = {
     setStatus: (key: string, value: string | null) => Promise<void>;
     /** Get a status */
     getStatus: (key: string, value: string) => Promise<string>;
-    setData: (key: string, value: any) => Promise<void>;
+    setData: (key: string, value: any) => Promise<SetDataResult>;
     getData: (key: string) => Promise<any>;
     /** Can be different in environments */
     fetchPlugin: (details: {
@@ -51,6 +51,7 @@ export type ExecuteContext = {
     /** Data dotlocation */
     dotLocation: string;
     databaseId: string;
+    /** Set a new value into the db (Optional, if given) */
     value?: any;
     /** If true, skips executing the plugin */
     skipPlugin?: boolean;
@@ -59,6 +60,16 @@ export type ExecuteContext = {
     /** An url to be called back on with updates */
     updateCallbackUrl?: string;
     actionSchemaPlugins: ActionSchemaPlugin[];
+};
+export type ExecuteResult = {
+    isSuccessful: boolean;
+    message: string;
+    /** Optional result */
+    result?: any;
+};
+export type SetDataResult = {
+    isSuccessful: boolean;
+    message: string;
 };
 /**
 This is the main function to execute things. Please note that the data storage method is abstracted away from this one as every environment implements their own for that.
@@ -81,8 +92,5 @@ C: Concequences
 - Try to execute `executeGridPlugin` for dependants directly incase available. (No probem if it fails)
 
  */
-export declare const execute: (context: ExecuteContext & EnvironmentConfig) => Promise<{
-    isSuccessful: boolean;
-    message: string;
-}>;
+export declare const execute: (context: ExecuteContext & EnvironmentConfig) => Promise<ExecuteResult>;
 //# sourceMappingURL=execute.d.ts.map

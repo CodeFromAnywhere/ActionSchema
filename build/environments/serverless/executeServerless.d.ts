@@ -1,9 +1,9 @@
-import { ExecuteContext } from "../../plugin/execute.js";
+import { ExecuteContext, ExecuteResult } from "../../plugin/execute.js";
 /**
-Local offline IndexedDb store wrapper around `execute`
- */
-export declare const executeServerless: (context: ExecuteContext) => Promise<{
-    isSuccessful: boolean;
-    message: string;
-}>;
+Serverless wrapper around `execute`
+
+- Used in the `execute` api
+
+*/
+export declare const executeServerless: (context: ExecuteContext) => Promise<ExecuteResult>;
 //# sourceMappingURL=executeServerless.d.ts.map

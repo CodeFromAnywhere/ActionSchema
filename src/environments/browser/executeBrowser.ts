@@ -1,13 +1,15 @@
+import { cleanFetch } from "../../plugin/cleanFetch.js";
 import { ExecuteContext, execute } from "../../plugin/execute.js";
 import {
-  indexedDbGetStoreData,
+  indexedDbGetStoreItem,
   indexedDbPutData,
+  initDb,
 } from "./storage/indexedDb.js";
 
 /**
 Local offline IndexedDb store wrapper around `execute` 
  */
-export const executeBrowser = (
+export const executeBrowser = async (
   context: ExecuteContext,
 ): Promise<{
   isSuccessful: boolean;
@@ -24,6 +26,10 @@ export const executeBrowser = (
     value,
   } = context;
 
+  // 1) Init data and status dbs for this particular schema
+  console.log(await initDb(databaseId));
+  console.log(await initDb(`status-${databaseId}`));
+
   return execute({
     actionSchemaPlugins,
     databaseId,
@@ -38,8 +44,7 @@ export const executeBrowser = (
     },
 
     setData: async (key, value) => {
-      await indexedDbPutData(databaseId, key, value);
-      return;
+      return indexedDbPutData(databaseId, key, value);
     },
 
     setStatus: async (key, value) => {
@@ -48,20 +53,25 @@ export const executeBrowser = (
     },
 
     fetchPlugin: async (details, completeContext) => {
-      // TODO: this one fetches things via the corse-proxy
-      return undefined;
+      // localhost for now
+      const host = `http://localhost:3000`;
+      return cleanFetch(
+        {
+          ...details,
+          apiUrl: `${host}/api/cors-proxy?url=${details.apiUrl}`,
+        },
+        completeContext,
+      );
     },
 
     getData: async (key) => {
-      //TODO
-      const data = await indexedDbGetStoreData(databaseId);
+      const data = await indexedDbGetStoreItem(databaseId, key);
       return data;
     },
 
     getStatus: async (key) => {
-      //TODO
-      const data = await indexedDbGetStoreData(`status-${databaseId}`);
-      return "busy";
+      const data = await indexedDbGetStoreItem(`status-${databaseId}`, key);
+      return data as string;
     },
   });
 };

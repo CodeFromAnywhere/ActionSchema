@@ -522,7 +522,9 @@
             "databaseId": {
               "type": "string"
             },
-            "value": {},
+            "value": {
+              "description": "Set a new value into the db (Optional, if given)"
+            },
             "skipPlugin": {
               "type": "boolean",
               "description": "If true, skips executing the plugin"
@@ -984,7 +986,30 @@
     "name": "NamedParameters<typeof putData>",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/vercelKvStore.ts",
     "operationRelativePath": "src/environments/serverless/vercelKvStore.ts",
-    "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20putData%3E",
+      "definitions": {
+        "NamedParameters<typeof putData>": {
+          "type": "object",
+          "properties": {
+            "databaseId": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            },
+            "value": {}
+          },
+          "required": [
+            "databaseId",
+            "key",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
   },
   {
     "modelName": "SchemaItem",
@@ -1000,8 +1025,7 @@
           "type": "object",
           "properties": {
             "databaseId": {
-              "type": "string",
-              "description": "E.g. the full JSON object"
+              "type": "string"
             }
           },
           "required": [
@@ -1011,6 +1035,14 @@
         }
       }
     }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/api/execute.ts",
+    "name": "NamedParameters<typeof executeApi>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/api/execute.ts",
+    "operationRelativePath": "src/environments/serverless/api/execute.ts",
+    "error": "TypeError: WeakMap keys must be objects or non-registered symbols"
   },
   {
     "modelName": "SchemaItem",
@@ -1935,38 +1967,8 @@
               "description": "If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is."
             }
           },
-          "additionalProperties": false
-        }
-      }
-    }
-  },
-  {
-    "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/environments/server/setValue.ts",
-    "name": "ValueOptions",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/server/setValue.ts",
-    "operationRelativePath": "src/environments/server/setValue.ts",
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$ref": "#/definitions/ValueOptions",
-      "definitions": {
-        "ValueOptions": {
-          "type": "object",
-          "properties": {
-            "objectReplace": {
-              "type": "boolean",
-              "description": "If true, will replace the object rather than overwriting it where needed.\n\nBy default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed."
-            },
-            "arrayReplace": {
-              "type": "boolean",
-              "description": "If true, will replace items in the array fully.\n\nBy default, ActionSchema will insert into an array with an optional discriminator (see below)."
-            },
-            "arrayDiscriminatorPropertyKey": {
-              "type": "string",
-              "description": "If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is."
-            }
-          },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Should be inferred from x-plugin"
         }
       }
     }
@@ -3040,7 +3042,9 @@
             "databaseId": {
               "type": "string"
             },
-            "value": {},
+            "value": {
+              "description": "Set a new value into the db (Optional, if given)"
+            },
             "skipPlugin": {
               "type": "boolean",
               "description": "If true, skips executing the plugin"
@@ -3524,22 +3528,22 @@
   {
     "modelName": "SchemaItem",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "name": "NamedParameters<typeof putData>",
+    "name": "NamedParameters<typeof indexedDbPutData>",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
-    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/NamedParameters%3Ctypeof%20putData%3E\". This is a bug."
+    "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
   },
   {
     "modelName": "SchemaItem",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "name": "NamedParameters<typeof deleteData>",
+    "name": "NamedParameters<typeof indexedDbDeleteData>",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "$ref": "#/definitions/NamedParameters%3Ctypeof%20deleteData%3E",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20indexedDbDeleteData%3E",
       "definitions": {
-        "NamedParameters<typeof deleteData>": {
+        "NamedParameters<typeof indexedDbDeleteData>": {
           "type": "object",
           "properties": {
             "databaseId": {
@@ -3561,7 +3565,7 @@
   {
     "modelName": "SchemaItem",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "name": "NamedParameters<typeof updateData>",
+    "name": "NamedParameters<typeof indexedDbUpdateData>",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
     "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
@@ -3569,14 +3573,14 @@
   {
     "modelName": "SchemaItem",
     "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "name": "NamedParameters<typeof getStoreData>",
+    "name": "NamedParameters<typeof indexedDbGetStoreData>",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
     "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "$ref": "#/definitions/NamedParameters%3Ctypeof%20getStoreData%3E",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20indexedDbGetStoreData%3E",
       "definitions": {
-        "NamedParameters<typeof getStoreData>": {
+        "NamedParameters<typeof indexedDbGetStoreData>": {
           "type": "object",
           "properties": {
             "databaseId": {
@@ -3586,6 +3590,36 @@
           },
           "required": [
             "databaseId"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+    "name": "NamedParameters<typeof indexedDbGetStoreItem>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+    "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20indexedDbGetStoreItem%3E",
+      "definitions": {
+        "NamedParameters<typeof indexedDbGetStoreItem>": {
+          "type": "object",
+          "properties": {
+            "databaseId": {
+              "type": "string",
+              "description": "E.g. the full JSON object"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "databaseId",
+            "key"
           ],
           "additionalProperties": false
         }
@@ -3620,6 +3654,507 @@
           "required": [
             "yamlString"
           ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/plugin/fetchExecute.ts",
+    "name": "NamedParameters<typeof fetchExecute>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/plugin/fetchExecute.ts",
+    "operationRelativePath": "src/plugin/fetchExecute.ts",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$ref": "#/definitions/NamedParameters%3Ctypeof%20fetchExecute%3E",
+      "definitions": {
+        "NamedParameters<typeof fetchExecute>": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "executeApiPath": {
+                  "type": "string"
+                },
+                "headers": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/definitions/ActionSchema"
+                },
+                "dotLocation": {
+                  "type": "string",
+                  "description": "Data dotlocation"
+                },
+                "databaseId": {
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Set a new value into the db (Optional, if given)"
+                },
+                "skipPlugin": {
+                  "type": "boolean",
+                  "description": "If true, skips executing the plugin"
+                },
+                "returnDotLocation": {
+                  "type": "string",
+                  "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+                },
+                "updateCallbackUrl": {
+                  "type": "string",
+                  "description": "An url to be called back on with updates"
+                },
+                "actionSchemaPlugins": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ActionSchemaPlugin"
+                  }
+                }
+              },
+              "required": [
+                "actionSchemaPlugins",
+                "databaseId",
+                "dotLocation",
+                "executeApiPath",
+                "headers",
+                "schema"
+              ]
+            }
+          },
+          "required": [
+            "context"
+          ],
+          "additionalProperties": false
+        },
+        "ActionSchema": {
+          "type": "object",
+          "properties": {
+            "x-grid-items-location": {
+              "type": "string",
+              "description": "Useful at root. Dot-notation of where to find the items."
+            },
+            "x-is-public": {
+              "type": "boolean",
+              "description": "Useful at root. If this is true, its a schema that is allowed to be read by anyone regardless of the data privacy."
+            },
+            "x-plugin": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/Plugin"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Plugin"
+                  }
+                }
+              ]
+            },
+            "deprecated": {
+              "type": "boolean"
+            },
+            "ui:widget": {
+              "type": "string",
+              "description": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/"
+            },
+            "ui:options": {
+              "type": "object",
+              "properties": {
+                "refModelName": {
+                  "type": "string",
+                  "description": "If given, it is assumed the value or values of this property link to this model."
+                }
+              },
+              "description": "Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "$source": {
+              "type": "string",
+              "description": "If given, should be a url linking to the original file, the starting point, if this is not already the one. Used to determine if anything has changed."
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$ref": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string",
+              "description": "Comment for the makers of the schema"
+            },
+            "title": {
+              "type": "string",
+              "description": "In the form this shows up as the title for the property. More readable."
+            },
+            "description": {
+              "type": "string",
+              "description": "Description for schema at this location"
+            },
+            "default": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ActionSchema"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "array",
+                  "items": {}
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "type": "array",
+              "items": {}
+            },
+            "multipleOf": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": [
+                "number",
+                "boolean"
+              ]
+            },
+            "maxLength": {
+              "$ref": "#/definitions/NonNegativeInteger"
+            },
+            "minLength": {
+              "$ref": "#/definitions/NonNegativeIntegerDefault0"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "additionalItems": {
+              "$ref": "#/definitions/ActionSchema"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ActionSchema"
+                },
+                {
+                  "$ref": "#/definitions/SchemaArray"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "maxItems": {
+              "$ref": "#/definitions/NonNegativeInteger"
+            },
+            "minItems": {
+              "$ref": "#/definitions/NonNegativeIntegerDefault0"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "contains": {
+              "$ref": "#/definitions/ActionSchema"
+            },
+            "maxProperties": {
+              "$ref": "#/definitions/NonNegativeInteger"
+            },
+            "minProperties": {
+              "$ref": "#/definitions/NonNegativeIntegerDefault0"
+            },
+            "required": {
+              "$ref": "#/definitions/StringArray"
+            },
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ActionSchema"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ActionSchema"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ActionSchema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ActionSchema"
+              }
+            },
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/ActionSchema"
+                  },
+                  {
+                    "$ref": "#/definitions/StringArray"
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/definitions/ActionSchema"
+            },
+            "const": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ActionSchema"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "enum": {
+              "type": "array",
+              "items": {},
+              "minItems": 1
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/SimpleTypes"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/SimpleTypes"
+                  },
+                  "minItems": 1
+                }
+              ]
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "if": {
+              "$ref": "#/definitions/ActionSchema"
+            },
+            "then": {
+              "$ref": "#/definitions/ActionSchema"
+            },
+            "else": {
+              "$ref": "#/definitions/ActionSchema"
+            },
+            "allOf": {
+              "$ref": "#/definitions/SchemaArray"
+            },
+            "anyOf": {
+              "$ref": "#/definitions/SchemaArray"
+            },
+            "oneOf": {
+              "$ref": "#/definitions/SchemaArray"
+            },
+            "not": {
+              "$ref": "#/definitions/ActionSchema"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#"
+        },
+        "Plugin": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "Could be used to auto-describe the usage of this plugin"
+            },
+            "summary": {
+              "type": "string",
+              "description": "Could be used to auto-summarise the usage of this plugin"
+            },
+            "isGridDataProvided": {
+              "type": "boolean",
+              "description": "For grid-plugins: if true, entire grid data will be provided into the plugin"
+            },
+            "concatenateArray": {
+              "type": "boolean",
+              "description": "For plugins for an array. If true, result will be concatenated to the array, not replaced. Please beware that this makes things less deterministic."
+            },
+            "$openapi": {
+              "$ref": "#/definitions/OpenAPIDetails"
+            },
+            "condition": {
+              "type": "string",
+              "description": "If given, must resolve to true in order to run this function"
+            },
+            "outputLocation": {
+              "type": "string",
+              "description": "Simple localizer on the object. if defined, will use it as path in the object/array, like `a.b.c[0].d`"
+            },
+            "isVerticalExpandEnabled": {
+              "type": "boolean",
+              "description": "If true, this plugin should cause a vertical expansion. This means, for each row it is ran on, it will copy that row for each item in the resulting array. NB: If vertical expand is enabled, initial calculation will still work, including expansion, but recalculation is disabled as it would create exponential expansion."
+            },
+            "isAutoExecuteDisabled": {
+              "type": "boolean",
+              "description": "If true, will not auto-execute when dependencies are met. Useful for example for scheduled columns"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI."
+            },
+            "propertyDependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Property keys in the same object that are required as context. This is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null."
+            },
+            "priceCredit": {
+              "type": "number",
+              "description": "Cost estimation to run this plugin. This is needed to give insight in costs for generations."
+            },
+            "code": {
+              "type": "string",
+              "description": "TODO: Optionally, this could be an alternative for using '$openapi' (or a complement). This could be code that can be evaluated in javascript/typescript on an edge worker. Imagine this being code that can directly run on edge-workers, infinitely scalable? We now don't rely on creating openapis whatsoever. Instead, there is just this single openapi endpoint that is used for everything. Of course openapis can be better in many cases, since it is more standardised, but I think it could be very powerful to have this, especially for custom things that need to happen."
+            },
+            "onChangeDependantBehavior": {
+              "type": "string",
+              "enum": [
+                "ignore",
+                "stale",
+                "reset",
+                "delete"
+              ],
+              "description": "What should the dependant values do when this value changes? If 'stale', there needs to be an `isStalePropertyName` given, so we can set it to stale."
+            },
+            "stalePropertyName": {
+              "type": "string",
+              "description": "If given, this could be a reference to another property that resolves to a boolean that, if true, tells that this value is stale."
+            },
+            "validPropertyName": {
+              "type": "string",
+              "description": "If given, this could be a reference to another property that resolves to a boolean that, if false, tells that this value is invalid"
+            }
+          },
+          "description": "ActionSchema plugin"
+        },
+        "OpenAPIDetails": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "operationId": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "path",
+            "method",
+            "operationId"
+          ],
+          "description": "The OpenAPI information required to execute the function."
+        },
+        "NonNegativeInteger": {
+          "type": "number",
+          "description": "This file was automatically generated by json-schema-to-typescript. DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file, and run json-schema-to-typescript to regenerate this file."
+        },
+        "NonNegativeIntegerDefault0": {
+          "$ref": "#/definitions/NonNegativeInteger"
+        },
+        "SchemaArray": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActionSchema"
+          },
+          "minItems": 1
+        },
+        "StringArray": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SimpleTypes": {
+          "type": "string",
+          "enum": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string"
+          ]
+        },
+        "ActionSchemaPlugin": {
+          "type": "object",
+          "properties": {
+            "__id": {
+              "type": "string",
+              "description": "The entire URL should be here"
+            },
+            "headers": {
+              "type": "string"
+            },
+            "localhostOpenapiUrl": {
+              "type": "string",
+              "description": "In case this is given and your IS_DEV is set to \"true\", this URL will be used when executing. However, this URL will never be set into the ActionSchema as this would cause things to not work when pushing to production. This is why it's needed to have this parameter: we want a good development experience at localhost for any openapi we may make, being able to make production-schemas from localhost"
+            },
+            "isInternallyHosted": {
+              "type": "boolean",
+              "description": "If true, this indicates we should always use localhost, even in production."
+            }
+          },
           "additionalProperties": false
         }
       }
@@ -3715,7 +4250,8 @@
               "description": "If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is."
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Should be inferred from x-plugin"
         }
       }
     }
@@ -3829,7 +4365,9 @@
             "databaseId": {
               "type": "string"
             },
-            "value": {},
+            "value": {
+              "description": "Set a new value into the db (Optional, if given)"
+            },
             "skipPlugin": {
               "type": "boolean",
               "description": "If true, skips executing the plugin"
@@ -4370,7 +4908,9 @@
                 "databaseId": {
                   "type": "string"
                 },
-                "value": {},
+                "value": {
+                  "description": "Set a new value into the db (Optional, if given)"
+                },
                 "skipPlugin": {
                   "type": "boolean",
                   "description": "If true, skips executing the plugin"

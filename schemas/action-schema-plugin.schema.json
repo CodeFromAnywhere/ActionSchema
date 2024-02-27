@@ -1,5 +1,5 @@
 {
-  "$schema": "action-schema.schema.json",
+  "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
   "x-is-public": true,
   "type": "object",
   "title": "ActionSchemaPlugin Collection",

@@ -20,7 +20,7 @@ export interface WorkerContext {
   [k: string]: any;
 }
 /**
- * Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#
+ * Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#definitions
  */
 export interface ActionSchema {
   /**
@@ -31,7 +31,17 @@ export interface ActionSchema {
    * Useful at root. If this is true, its a schema that is allowed to be read by anyone regardless of the data privacy.
    */
   "x-is-public"?: boolean;
-  "x-plugin"?: Plugin | Plugin[];
+  "x-plugin"?: Plugin;
+  /**
+   * Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.
+   */
+  default?: ActionSchema | boolean | number | any[] | string;
+  /**
+   * Sample JSON values associated with a particular schema, for the purpose of illustrating usage.
+   *
+   * Besides serving as example values for e.g. forms and other things, with ActionSchema `examples` also serves as a fallback of `x-plugin` and `default`.
+   */
+  examples?: any[];
   deprecated?: boolean;
   /**
    * Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/
@@ -66,10 +76,8 @@ export interface ActionSchema {
    * Description for schema at this location
    */
   description?: string;
-  default?: ActionSchema | boolean | number | any[] | string;
   readOnly?: boolean;
   writeOnly?: boolean;
-  examples?: any[];
   multipleOf?: number;
   maximum?: number;
   exclusiveMaximum?: number;
@@ -107,34 +115,10 @@ export interface ActionSchema {
    */
   enum?: [any, ...any[]];
   type?:
-    | (
-        | "array"
-        | "boolean"
-        | "integer"
-        | "null"
-        | "number"
-        | "object"
-        | "string"
-      )
+    | ("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")
     | [
-        (
-          | "array"
-          | "boolean"
-          | "integer"
-          | "null"
-          | "number"
-          | "object"
-          | "string"
-        ),
-        ...(
-          | "array"
-          | "boolean"
-          | "integer"
-          | "null"
-          | "number"
-          | "object"
-          | "string"
-        )[],
+        "array" | "boolean" | "integer" | "null" | "number" | "object" | "string",
+        ...("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")[]
       ];
   format?: string;
   contentMediaType?: string;
@@ -148,25 +132,30 @@ export interface ActionSchema {
   not?: ActionSchema;
 }
 /**
- * ActionSchema plugin
+ * Plug-in an openapi here to say how  this value can be determined.
  */
 export interface Plugin {
+  summary?: string;
   /**
    * Could be used to auto-describe the usage of this plugin
    */
   description?: string;
   /**
-   * Could be used to auto-summarise the usage of this plugin
+   * For plugins for an array. If true, will replace items in the array fully.
+   *
+   * By default, ActionSchema will insert into an array with an optional discriminator (see below).
    */
-  summary?: string;
+  arrayReplace?: boolean;
   /**
-   * For grid-plugins: if true, entire grid data will be provided into the plugin
+   * For plugins for an array. If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is.
    */
-  isGridDataProvided?: boolean;
+  arrayDiscriminatorPropertyKey?: boolean & string;
   /**
-   * For plugins for an array. If true, result will be concatenated to the array, not replaced. Please beware that this makes things less deterministic.
+   * If true, will replace the object rather than overwriting it where needed.
+   *
+   * By default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed.
    */
-  concatenateArray?: boolean;
+  objectReplace?: boolean;
   $openapi?: OpenAPIDetails;
   /**
    * If given, must resolve to true in order to run this function
@@ -191,26 +180,43 @@ export interface Plugin {
     [k: string]: any;
   };
   /**
-   * Property keys in the same object that are required as context. This is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.
+   * Array of dot locations of datapoints that are required to be non-stale for this plugin to run. Should replace `propertyDependencies`. Might later calculate this in realtime using the `x-plugin.code` property
    */
-  propertyDependencies?: string[];
+  dataDependencies?: string[];
   /**
    * Cost estimation to run this plugin. This is needed to give insight in costs for generations.
    */
   priceCredit?: number;
   /**
-   * TODO: Optionally, this could be an alternative for using '$openapi' (or a complement). This could be code that can be evaluated in javascript/typescript on an edge worker. Imagine this being code that can directly run on edge-workers, infinitely scalable? We now don't rely on creating openapis whatsoever. Instead, there is just this single openapi endpoint that is used for everything. Of course openapis can be better in many cases, since it is more standardised, but I think it could be very powerful to have this, especially for custom things that need to happen.
+   * This could be the code executed upon receiving any context of the schema as context. If we can create an editor that has the proper typescript context and shows the function based on the body, we have a single source of truth for the codebase. We code inside the actionschemas or openapis! The beauty is, this is programming language agnostic and we have a much more readable way to get interfaces.
    */
-  code?: string;
+  code?: {
+    host?: "browser" | "serverless" | "server" | "gpu";
+    code?: string;
+    [k: string]: any;
+  };
   /**
+   * @deprecated
+   * For grid-plugins: if true, entire grid data will be provided into the plugin
+   */
+  isGridDataProvided?: boolean;
+  /**
+   * @deprecated
+   * Property keys in the same object that are required as context. This is needed to know what can be auto-generated. We can only generate if all used variables aren't undefined/null.
+   */
+  propertyDependencies?: string[];
+  /**
+   * @deprecated
    * What should the dependant values do when this value changes? If 'stale', there needs to be an `isStalePropertyName` given, so we can set it to stale.
    */
   onChangeDependantBehavior?: "ignore" | "stale" | "reset" | "delete";
   /**
+   * @deprecated
    * If given, this could be a reference to another property that resolves to a boolean that, if true, tells that this value is stale.
    */
   stalePropertyName?: string;
   /**
+   * @deprecated
    * If given, this could be a reference to another property that resolves to a boolean that, if false, tells that this value is invalid
    */
   validPropertyName?: string;
@@ -226,19 +232,4 @@ export interface OpenAPIDetails {
   operationId: string;
   emoji?: string;
   [k: string]: any;
-}
-export interface ActionSchemaPlugin {
-  /**
-   * The entire URL should be here
-   */
-  __id?: string;
-  headers?: string;
-  /**
-   * In case this is given and your IS_DEV is set to "true", this URL will be used when executing. However, this URL will never be set into the ActionSchema as this would cause things to not work when pushing to production. This is why it's needed to have this parameter: we want a good development experience at localhost for any openapi we may make, being able to make production-schemas from localhost
-   */
-  localhostOpenapiUrl?: string;
-  /**
-   * If true, this indicates we should always use localhost, even in production.
-   */
-  isInternallyHosted?: boolean;
 }

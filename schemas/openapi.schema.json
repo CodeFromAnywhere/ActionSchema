@@ -2,7 +2,7 @@
   "$comment": "Taken from https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json. 3.1 uses $dynamicRef which isn't supported yet by the validator. Edited to adhere to the ActionSchema standard. Among other things, I added a lot of stuff to the info object. Once I can use plugins from anywhere (possibly from vscode directly) I will be able to infer lots of things from any openapi.",
   "title": "OpenAPI Document",
   "$source": "https://spec.openapis.org/oas/3.0/schema/2021-09-28",
-  "$schema": "action-schema.schema.json",
+  "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
   "description": "The description of OpenAPI v3.0.x documents, as defined by https://spec.openapis.org/oas/v3.0.3",
   "type": "object",
   "required": ["$schema", "openapi", "actionschema", "info", "paths"],
@@ -1067,7 +1067,7 @@
           "$comment": "Added for ActionSchema. To be implemented.",
           "description": "Scraped markdown from the url",
           "x-plugin": {
-            "propertyDependencies": ["url"],
+            "dataDependencies": ["url"],
             "description": "Should use a scraper to get the readable content text in markdown format"
           }
         }

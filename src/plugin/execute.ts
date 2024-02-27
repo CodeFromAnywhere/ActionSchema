@@ -1,5 +1,4 @@
 import { ActionSchema } from "../types/action-schema.schema.js";
-import { fetchPlugin } from "./fetchPlugin.js";
 import { getOpenapiDetails } from "./getOpenapiDetails.js";
 import { WorkerContext } from "../types/worker-context.schema.js";
 import { getSchemaAtDotLocation } from "../util/getSchemaAtDotLocation.js";
@@ -45,7 +44,7 @@ export type EnvironmentConfig = {
   setStatus: (key: string, value: string | null) => Promise<void>;
   /** Get a status */
   getStatus: (key: string, value: string) => Promise<string>;
-  setData: (key: string, value: any) => Promise<void>;
+  setData: (key: string, value: any) => Promise<SetDataResult>;
   getData: (key: string) => Promise<any>;
   /** Can be different in environments */
   fetchPlugin: (
@@ -62,6 +61,7 @@ export type ExecuteContext = {
   /** Data dotlocation */
   dotLocation: string;
   databaseId: string;
+  /** Set a new value into the db (Optional, if given) */
   value?: any;
   /** If true, skips executing the plugin */
   skipPlugin?: boolean;
@@ -71,6 +71,19 @@ export type ExecuteContext = {
   updateCallbackUrl?: string;
   actionSchemaPlugins: ActionSchemaPlugin[];
 };
+
+export type ExecuteResult = {
+  isSuccessful: boolean;
+  message: string;
+  /** Optional result */
+  result?: any;
+};
+
+export type SetDataResult = {
+  isSuccessful: boolean;
+  message: string;
+};
+
 /**
 This is the main function to execute things. Please note that the data storage method is abstracted away from this one as every environment implements their own for that.
 
@@ -92,7 +105,9 @@ C: Concequences
 - Try to execute `executeGridPlugin` for dependants directly incase available. (No probem if it fails)
 
  */
-export const execute = async (context: ExecuteContext & EnvironmentConfig) => {
+export const execute = async (
+  context: ExecuteContext & EnvironmentConfig,
+): Promise<ExecuteResult> => {
   const {
     dotLocation,
     schema,
@@ -107,6 +122,7 @@ export const execute = async (context: ExecuteContext & EnvironmentConfig) => {
     setStatus,
     updateCallbackUrl,
     actionSchemaPlugins,
+    fetchPlugin,
   } = context;
 
   // Set `busy` status (to not conflict with spawner)
@@ -114,36 +130,34 @@ export const execute = async (context: ExecuteContext & EnvironmentConfig) => {
   let setValueResult: undefined | { isSuccessful: boolean; message: string } =
     undefined;
 
-  if (value !== undefined) {
-    //===== Set a new value into the db (Optional, if given)
-    await setData(dotLocation, value);
-  }
-
   //===== Looks at the schema and relevant existing data
   const completeContext = {};
 
-  //===== Gathers the context
-  const workerContext: WorkerContext = {
-    completeContext,
-    dotLocation,
-    schema,
-    databaseId,
-  };
-
   //====== Executes the plugin
-  const plugins = getSchemaAtDotLocation(schema, dotLocation)["x-plugin"];
+  const schemaHere = getSchemaAtDotLocation(schema, dotLocation);
 
-  // NB: for now, always the first
-  const plugin = Array.isArray(plugins) ? plugins[0] : plugins;
+  const plugin = schemaHere["x-plugin"];
+
+  console.log({ schemaHere, plugin });
+
+  if (value !== undefined) {
+    //===== Set a new value into the db (Optional, if given)
+    setValueResult = await setData(dotLocation, value);
+
+    if (!plugin || skipPlugin) {
+      return setValueResult;
+    }
+  }
 
   if (!plugin || skipPlugin) {
-    return (
-      setValueResult || {
-        isSuccessful: true,
-        message: "Did not set any value, did not execute any plugin",
-      }
-    );
+    await setStatus(dotLocation, null);
+
+    return {
+      isSuccessful: true,
+      message: "Did not set any value, did not execute any plugin",
+    };
   }
+  //
   //====== Gathers authorization info
 
   const $openapi = plugin.$openapi;
@@ -160,12 +174,12 @@ export const execute = async (context: ExecuteContext & EnvironmentConfig) => {
   }
 
   //===== Executes the plugin
-
   const newValue = await fetchPlugin(details, completeContext);
 
   //===== Updates the data with the result
   // const values = flatten(newValue);
   await setData(dotLocation, newValue);
+
   const setNewValueResult = { isSuccessful: true, message: "Set the value" };
 
   //======= Remove `busy` status
@@ -182,11 +196,9 @@ export const execute = async (context: ExecuteContext & EnvironmentConfig) => {
 
   const dependantKeys = Object.keys(properties).filter((key) => {
     const schema = properties[key];
-    const plugin = Array.isArray(schema["x-plugin"])
-      ? schema["x-plugin"][0]
-      : schema["x-plugin"];
+    const plugin = schema["x-plugin"];
 
-    const isDependant = plugin?.propertyDependencies?.includes(dotLocation);
+    const isDependant = plugin?.dataDependencies?.includes(dotLocation);
     return isDependant;
   });
 
