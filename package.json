@@ -2,7 +2,7 @@
   "name": "actionschema",
   "type": "module",
   "main": "build/index.js",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeFromAnywhere/ActionSchema.git"
@@ -16,8 +16,9 @@
     "pub": "npm run up && npm publish && git add . && git commit -m 'improvements' && git push"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0",
-    "piscina": "^4.3.2"
+    "piscina": "^4.3.2",
+    "idb": "^8.0.0",
+    "typescript": "^5.0.0"
   },
   "devDependencies": {
     "@types/web": "^0.0.111",
