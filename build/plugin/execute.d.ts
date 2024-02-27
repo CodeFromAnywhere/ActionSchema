@@ -1,6 +1,6 @@
 import { ActionSchema } from "../types/action-schema.schema.js";
 import { ActionSchemaPlugin } from "../types/action-schema-plugin.schema.js";
-/** Should be inferred from the schema */
+/** Should be inferred from x-plugin */
 export type ValueOptions = {
     /**
      * If true, will replace the object rather than overwriting it where needed.

@@ -1,4 +1,4 @@
-import { get } from "./dot-wild";
+import { get } from "./dot-wild.js";
 export const getDotLocation = (object, dotLocation) => {
     return get(object, dotLocation);
 };

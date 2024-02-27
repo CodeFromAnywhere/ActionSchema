@@ -1,1 +1,0 @@
-{"version":3,"file":"getStatusDb.js","sourceRoot":"","sources":["../../../../src/environments/serverless/storage/getStatusDb.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,WAAW,GAAG,CAAC,UAAkB,EAAE,EAAE;IAChD,OAAO;QACL,GAAG,EAAE,KAAK,EAAE,WAAmB,EAAE,MAAc,EAAE,EAAE,GAAE,CAAC;QACtD,MAAM,EAAE,KAAK,EAAE,WAAmB,EAAE,EAAE,GAAE,CAAC;KAC1C,CAAC;AACJ,CAAC,CAAC"}

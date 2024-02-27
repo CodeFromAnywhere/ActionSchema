@@ -141,3 +141,26 @@ export const indexedDbGetStoreData = <T>(
     };
   });
 };
+
+/** Gets one key store data */
+export const indexedDbGetStoreItem = <T>(
+  /** E.g. the full JSON object */
+  databaseId: string,
+  key: string,
+): Promise<T[]> => {
+  return new Promise((resolve) => {
+    request = indexedDB.open(dbName);
+
+    request.onsuccess = () => {
+      console.log("request.onsuccess - getAllData");
+      db = request.result;
+      const tx = db.transaction(databaseId, "readonly");
+      const store = tx.objectStore(databaseId);
+
+      const res = store.get(key);
+      res.onsuccess = () => {
+        resolve(res.result);
+      };
+    };
+  });
+};

@@ -9,4 +9,6 @@ export declare const indexedDbDeleteData: (databaseId: string, key: string) => P
 export declare const indexedDbUpdateData: <T>(databaseId: string, key: string, data: T) => Promise<string | T | null>;
 /** Gets all store data */
 export declare const indexedDbGetStoreData: <T>(databaseId: string) => Promise<T[]>;
+/** Gets one key store data */
+export declare const indexedDbGetStoreItem: <T>(databaseId: string, key: string) => Promise<T[]>;
 //# sourceMappingURL=indexedDb.d.ts.map

@@ -113,4 +113,22 @@ databaseId) => {
         };
     });
 };
+/** Gets one key store data */
+export const indexedDbGetStoreItem = (
+/** E.g. the full JSON object */
+databaseId, key) => {
+    return new Promise((resolve) => {
+        request = indexedDB.open(dbName);
+        request.onsuccess = () => {
+            console.log("request.onsuccess - getAllData");
+            db = request.result;
+            const tx = db.transaction(databaseId, "readonly");
+            const store = tx.objectStore(databaseId);
+            const res = store.get(key);
+            res.onsuccess = () => {
+                resolve(res.result);
+            };
+        };
+    });
+};
 //# sourceMappingURL=indexedDb.js.map

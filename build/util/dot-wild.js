@@ -1,8 +1,10 @@
 /**
  * Utilities
+ *
+ * NB: i replaced is-plain-object and clone-deep
  */
-const clone = require("clone-deep");
-const isObj = require("is-plain-object");
+const clone = (item) => JSON.parse(JSON.stringify(item));
+const isObj = (item) => typeof item === "object" && !Array.isArray(item);
 const isArray = (val) => Array.isArray(val);
 const isString = (val) => typeof val === "string";
 const isInteger = (val) => Number(val) == val && Number(val) % 1 === 0; // tslint:disable-line triple-equals

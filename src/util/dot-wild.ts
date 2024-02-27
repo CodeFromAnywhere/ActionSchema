@@ -6,9 +6,12 @@ type Tokens = Token[];
 
 /**
  * Utilities
+ *
+ * NB: i replaced is-plain-object and clone-deep
  */
-const clone = require("clone-deep");
-const isObj = require("is-plain-object");
+const clone = (item: any) => JSON.parse(JSON.stringify(item));
+const isObj = (item: any) => typeof item === "object" && !Array.isArray(item);
+
 const isArray = (val: any): val is any[] => Array.isArray(val);
 const isString = (val: any): val is string => typeof val === "string";
 const isInteger = (val: any): boolean =>
