@@ -1,140 +1,111 @@
+import { openDB } from "idb";
+import { flatten, set } from "../../../util/dot-wild.js";
+import { getDotLocation } from "../../../util/getDotLocation.js";
 /** DB name is always the same. 1 DB */
 let version = 1;
 let request;
 let db;
+const getDotLocationRange = (key) => !key || key === ""
+    ? undefined
+    : IDBKeyRange.bound(`${key}.`, `${key}.~~~~~~~~`);
 export const initDb = async (databaseId) => {
-    const isSuccessful = await new Promise((resolve) => {
-        // open the connection
-        request = indexedDB.open(databaseId);
-        request.onupgradeneeded = () => {
-            db = request.result;
-            // if the data object store doesn't exist, create it
-            if (!db.objectStoreNames.contains(databaseId)) {
-                console.log("Creating store", databaseId);
-                db.createObjectStore(databaseId, {
-                // keyPath: "id"
-                });
-            }
-            // no need to resolve here
-        };
-        request.onsuccess = () => {
-            db = request.result;
-            version = db.version;
-            console.log("request.onsuccess - initDB", version, request.result.objectStoreNames);
-            resolve(true);
-        };
-        request.onerror = () => {
-            resolve(false);
-        };
-    });
-    return isSuccessful;
+    const db = await openDB(databaseId, version);
+    if (!db.objectStoreNames.contains(databaseId)) {
+        console.log("Creating store", databaseId);
+        db.createObjectStore(databaseId, {
+        // keyPath: "id"
+        });
+    }
+    return true;
 };
-export const indexedDbPutData = (databaseId, key, value) => {
-    return new Promise((resolve) => {
-        request = indexedDB.open(databaseId, version);
-        request.onsuccess = () => {
-            console.log("request.onsuccess - putData", databaseId);
-            db = request.result;
-            const tx = db.transaction(databaseId, "readwrite");
-            const store = tx.objectStore(databaseId);
-            if (value === null) {
-                // NB: null means delete
-                store.delete(key);
-            }
-            else {
-                store.put(value, key);
-            }
-            resolve({ isSuccessful: true, message: `Put ${key}`, result: value });
-        };
-        request.onerror = () => {
-            const error = request.error?.message;
-            if (error) {
-                resolve({ isSuccessful: false, message: error, result: undefined });
-            }
-            else {
-                resolve({
-                    isSuccessful: false,
-                    message: "Unknown error",
-                    result: undefined,
-                });
-            }
-        };
-    });
-};
-export const indexedDbDeleteData = (databaseId, key) => {
-    return new Promise((resolve) => {
-        request = indexedDB.open(databaseId, version);
-        request.onsuccess = () => {
-            console.log("request.onsuccess - deleteData", key);
-            db = request.result;
-            const tx = db.transaction(databaseId, "readwrite");
-            const store = tx.objectStore(databaseId);
-            const res = store.delete(key);
-            res.onsuccess = () => {
-                resolve(true);
-            };
-            res.onerror = () => {
-                resolve(false);
-            };
-        };
-    });
-};
-/** Probably don't need for now */
-export const indexedDbUpdateData = (databaseId, key, data) => {
-    return new Promise((resolve) => {
-        request = indexedDB.open(databaseId, version);
-        request.onsuccess = () => {
-            console.log("request.onsuccess - updateData", key);
-            db = request.result;
-            db.createObjectStore;
-            const tx = db.transaction(databaseId, "readwrite");
-            const store = tx.objectStore(databaseId);
-            const res = store.get(key);
-            res.onsuccess = () => {
-                const newData = { ...res.result, ...data };
-                store.put(newData);
-                resolve(newData);
-            };
-            res.onerror = () => {
-                resolve(null);
-            };
-        };
-    });
+export const indexedDbPutData = async (databaseId, key, value) => {
+    const db = await openDB(databaseId, version);
+    const tx = db.transaction(databaseId, "readwrite");
+    const store = tx.objectStore(databaseId);
+    if (value === null) {
+        // Delete all keys starting with the key
+        const range = getDotLocationRange(key);
+        // console.log({ key, range });
+        // get keys first
+        const keys = (await store.getAllKeys(range));
+        await Promise.all(keys.map((k) => {
+            return store.delete(k);
+        }));
+        //exact match too
+        store.delete(key);
+    }
+    else if (typeof value === "object") {
+        // For bigger things we flatten it first!
+        const flat = flatten(value);
+        const flatKeys = Object.keys(flat);
+        const keys = flatKeys.map((k) => (key === "" ? k : `${key}.${k}`));
+        // console.log({ keys });
+        await Promise.all(flatKeys.map((k) => {
+            const v = getDotLocation(value, k);
+            const fullKey = key === "" ? k : `${key}.${k}`;
+            return store.put(v, fullKey);
+        }));
+    }
+    else {
+        await store.put(value, key);
+    }
+    await tx.done;
+    // console.log("put data done", { value });
+    return { isSuccessful: true, message: "Put data done", result: value };
 };
 /** Gets all store data */
-export const indexedDbGetStoreData = (
+export const indexedDbBuildObject = async (
+/** E.g. the full JSON object */
+databaseId, 
+/** if given, this is required prefix */
+dotLocationBase) => {
+    const db = await openDB(databaseId);
+    const tx = db.transaction(databaseId, "readonly");
+    const store = tx.objectStore(databaseId);
+    const range = getDotLocationRange(dotLocationBase);
+    // get keys first
+    const keys = (await store.getAllKeys(range));
+    const items = await Promise.all(keys.map(async (key) => {
+        return { key, value: await store.get(key) };
+    }));
+    const result = items.reduce((previous, item) => {
+        const result = set(previous, item.key, item.value);
+        return result;
+    }, {});
+    return result;
+};
+/** Gets all store data */
+export const indexedDbGetItems = async (
 /** E.g. the full JSON object */
 databaseId) => {
-    return new Promise((resolve) => {
-        request = indexedDB.open(databaseId);
-        request.onsuccess = () => {
-            console.log("request.onsuccess - getAllData");
-            db = request.result;
-            const tx = db.transaction(databaseId, "readonly");
-            const store = tx.objectStore(databaseId);
-            const res = store.getAll();
-            res.onsuccess = () => {
-                resolve(res.result);
-            };
-        };
-    });
+    const db = await openDB(databaseId);
+    const tx = db.transaction(databaseId, "readonly");
+    const store = tx.objectStore(databaseId);
+    const items = await store.getAll();
+    return items;
 };
 /** Gets one key store data */
-export const indexedDbGetStoreItem = (
+export const indexedDbGetStoreItem = async (
 /** E.g. the full JSON object */
 databaseId, key) => {
-    return new Promise((resolve) => {
-        request = indexedDB.open(databaseId);
-        request.onsuccess = () => {
-            console.log("request.onsuccess - getAllData");
-            db = request.result;
-            const tx = db.transaction(databaseId, "readonly");
-            const store = tx.objectStore(databaseId);
-            const res = store.get(key);
-            res.onsuccess = () => {
-                resolve(res.result);
-            };
-        };
-    });
+    const db = await openDB(databaseId, version);
+    const tx = db.transaction(databaseId, "readonly");
+    const store = tx.objectStore(databaseId);
+    const res = await store.get(key);
+    await tx.done;
+    return res;
+    // return new Promise((resolve) => {
+    //   request = indexedDB.open(databaseId);
+    //   request.onsuccess = () => {
+    //     console.log("request.onsuccess - getAllData");
+    //     db = request.result;
+    //     const tx = db.transaction(databaseId, "readonly");
+    //     const store = tx.objectStore(databaseId);
+    //     const res = store.get(key);
+    //     res.onsuccess = () => {
+    //       resolve(res.result);
+    //     };
+    //   };
+    // });
 };
 //# sourceMappingURL=indexedDb.js.map

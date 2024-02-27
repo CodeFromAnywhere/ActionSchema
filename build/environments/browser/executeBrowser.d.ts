@@ -1,4 +1,4 @@
-import { ExecuteContext } from "../../plugin/execute.js";
+import { ExecuteContext } from "../../plugin/types.js";
 /**
 Local offline IndexedDb store wrapper around `execute`
  */

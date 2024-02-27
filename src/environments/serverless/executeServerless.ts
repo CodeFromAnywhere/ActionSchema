@@ -1,11 +1,8 @@
-import {
-  ExecuteContext,
-  ExecuteResult,
-  execute,
-} from "../../plugin/execute.js";
+import { execute } from "../../plugin/execute.js";
 import { getStoreData, putData } from "./vercelKvStore.js";
 import { fetchExecute } from "../../plugin/fetchExecute.js";
 import { cleanFetch } from "../../plugin/cleanFetch.js";
+import { ExecuteContext, ExecuteResult } from "../../plugin/types.js";
 
 /**
 Serverless wrapper around `execute`

@@ -4,11 +4,10 @@ export declare const indexedDbPutData: <T>(databaseId: string, key: string, valu
     message: string;
     result?: T | undefined;
 }>;
-export declare const indexedDbDeleteData: (databaseId: string, key: string) => Promise<boolean>;
-/** Probably don't need for now */
-export declare const indexedDbUpdateData: <T>(databaseId: string, key: string, data: T) => Promise<string | T | null>;
 /** Gets all store data */
-export declare const indexedDbGetStoreData: <T>(databaseId: string) => Promise<T[]>;
+export declare const indexedDbBuildObject: (databaseId: string, dotLocationBase?: string) => Promise<any>;
+/** Gets all store data */
+export declare const indexedDbGetItems: (databaseId: string) => Promise<any[]>;
 /** Gets one key store data */
-export declare const indexedDbGetStoreItem: <T>(databaseId: string, key: string) => Promise<T>;
+export declare const indexedDbGetStoreItem: <T>(databaseId: string, key: string) => Promise<T | undefined>;
 //# sourceMappingURL=indexedDb.d.ts.map

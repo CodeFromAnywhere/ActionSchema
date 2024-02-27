@@ -6,6 +6,7 @@ export const cleanFetch = async (details, context) => {
     try {
         const abortController = new AbortController();
         const id = setTimeout(() => abortController.abort(), 300 * 1000);
+        console.log({ details, context });
         const result = await fetch(details.apiUrl, {
             method: details.method,
             signal: abortController.signal,

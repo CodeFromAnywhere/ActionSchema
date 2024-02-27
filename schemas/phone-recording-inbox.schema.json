@@ -1,0 +1,1595 @@
+{
+  "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
+  "x-is-public": true,
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/PhoneRecordingInbox"
+      }
+    }
+  },
+  "description": "🎙 Screenless!",
+  "definitions": {
+    "PhoneRecordingInbox": {
+      "type": "object",
+      "properties": {
+        "__id": {
+          "type": "string",
+          "description": "Id",
+          "creationPlugins": []
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "item": {
+          "type": "string"
+        },
+        "isAudio": {
+          "type": "string",
+          "description": "check if the value is of type audio",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "simpleCondition",
+                "method": "POST",
+                "path": "/function/simpleCondition",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "value": "${item}",
+                "operator": "Starts with",
+                "compare": "https://api.twilio.com"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["item"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "transcript": {
+          "type": "string",
+          "description": "transcript",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "getDeepgramTranscript",
+                "method": "POST",
+                "path": "/function/getDeepgramTranscript",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "audioUrl": "${item}",
+                "multichannel": "",
+                "model": "nova-2-general"
+              },
+              "propertyDependencies": ["item"],
+              "outputLocation": "result"
+            }
+          ],
+          "visibility": "auto",
+          "x-plugin": {
+            "$openapi": {
+              "operationId": "getDeepgramTranscript",
+              "method": "POST",
+              "path": "/function/getDeepgramTranscript",
+              "url": "https://api.codefromanywhere.com/openapi.json"
+            },
+            "condition": "",
+            "isVerticalExpandEnabled": false,
+            "type": "creation",
+            "context": {
+              "audioUrl": "${item}",
+              "multichannel": "",
+              "model": "nova-2-general"
+            },
+            "propertyDependencies": ["item"],
+            "outputLocation": "result"
+          }
+        },
+        "transcriptText": {
+          "type": "string",
+          "description": "transcriptText",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "getKeyFromObjectPlugin",
+                "method": "POST",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "objectString": "${transcript}",
+                "location": "transcript"
+              },
+              "propertyDependencies": ["transcript"],
+              "outputLocation": "result"
+            }
+          ],
+          "visibility": "auto",
+          "x-plugin": {
+            "$openapi": {
+              "operationId": "getKeyFromObjectPlugin",
+              "method": "POST",
+              "path": "/function/getKeyFromObjectPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json"
+            },
+            "condition": "",
+            "isVerticalExpandEnabled": false,
+            "type": "creation",
+            "context": {
+              "objectString": "${transcript}",
+              "location": "transcript"
+            },
+            "propertyDependencies": ["transcript"],
+            "outputLocation": "result"
+          }
+        },
+        "analysis": {
+          "type": "string",
+          "description": "analysis",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "Consider this transcript:\n------\n\n${transcriptText}\n\n-----\n\nPlease respond with a summary and a suitable title, subtitle, keywords and names of people and companies.\n\n",
+                "jsonFormat": "{ \"summary\": string, \"title\": string, \"subtitle\": string, \"keywords\": string, \"namedPeopleAndCompanies\": string[] }",
+                "model": "chatgpt-16k"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "analysisTitle": {
+          "type": "string",
+          "description": "analysisTitle",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "getKeyFromObjectPlugin",
+                "method": "POST",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "type": "creation",
+              "context": {
+                "objectString": "${analysis}",
+                "location": "title"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["analysis"]
+            }
+          ]
+        },
+        "makesSense": {
+          "type": "string",
+          "description": "makesSense",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "Consider this transcript:\n\n-----\n\n${transcriptText}\n\n----\n\n\nIn some cases the language is interpreted wrongly, resulting in a complete nonsensical transcript (e.g. it writes English if the speaker spoke Dutch) \n\nDoes this transcript make sense, as in, do the words form coherent sentences?\n\nExample of a transcript that makes sense:  \"ga nu verder met mijn verhaal wat ik natuurlijk moet verkopen wat ik natuurlijk aan de man wil brengen is niet alleen het pijn telefoonnummer het is de experience het is het gevoel gevoel van vrijheid gevoel om des nachts je bent uit te gaan en de nachtwoning maakt omdat je gewoon niet omdat je niet kan slapen\"",
+                "jsonFormat": "{ \"makesSense\": boolean }",
+                "model": "chatgpt-16k"
+              },
+              "outputLocation": "result.makesSense",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "tokenCount": {
+          "type": "string",
+          "description": "tokenCount",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "calculateTokenCountPlugin",
+                "method": "POST",
+                "path": "/function/calculateTokenCountPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "text": "${transcriptText}"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "statements": {
+          "type": "string",
+          "description": "statements",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "type": "creation",
+              "context": {
+                "description": "Consider this transcript:\n----------\n\n${transcriptText}\n\n-----------\n\nPlease summarise the transcript. Then, please extract core beliefs and opinions that were made (if any). Ensure to provide a broad context for each item in your bullet list.",
+                "jsonFormat": "{ \"shortSummary\": string, \"coreBeliefsAndOpinions\": string }",
+                "model": "chatgpt-16k"
+              },
+              "outputLocation": "result.coreBeliefsAndOpinions",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "sendWhatsapp": {
+          "type": "string",
+          "description": "",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "sendTwilioMessagePlugin",
+                "path": "/function/sendTwilioMessagePlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "✉️"
+              },
+              "context": {
+                "mediaUrls": [],
+                "textDescription": "${transcriptText}",
+                "channel": "whatsapp"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "sendTwilioMessagePlugin",
+              "path": "/function/sendTwilioMessagePlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "✉️"
+            },
+            "context": {
+              "mediaUrls": [],
+              "textDescription": "${transcriptText}",
+              "channel": "whatsapp"
+            },
+            "outputLocation": "result",
+            "propertyDependencies": [
+              "transcriptText",
+              "analysisTitle",
+              "tokenCount",
+              "callDurationMinutes",
+              "averageWordConfidence",
+              "speakerAmount",
+              "subtitle",
+              "summary",
+              "namedPeopleAndCompanies",
+              "uncertainWordPercentage",
+              "analysisKeywords"
+            ]
+          }
+        },
+        "sendEmail": {
+          "type": "string",
+          "description": "Send mail with attachment",
+          "visibility": "auto",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "sendMailPlugin",
+                "method": "POST",
+                "path": "/function/sendMailPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "type": "creation",
+              "context": {
+                "subject": "${analysisTitle}",
+                "htmlDescription": "${emailHtml}",
+                "attachmentUrl": "${item}",
+                "attachmentFilename": "${attachmentName}.wav"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": [
+                "item",
+                "analysisTitle",
+                "attachmentName",
+                "emailHtml"
+              ]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "operationId": "sendMailPlugin",
+              "method": "POST",
+              "path": "/function/sendMailPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json"
+            },
+            "type": "creation",
+            "context": {
+              "subject": "${analysisTitle}",
+              "htmlDescription": "${emailHtml}",
+              "attachmentUrl": "${item}",
+              "attachmentFilename": "${attachmentName}.wav"
+            },
+            "outputLocation": "result",
+            "propertyDependencies": [
+              "item",
+              "analysisTitle",
+              "attachmentName",
+              "emailHtml"
+            ]
+          }
+        },
+        "callDurationMinutes": {
+          "type": "string",
+          "description": "callDurationMinutes",
+          "visibility": "auto"
+        },
+        "personalMessageAnalysis": {
+          "type": "string",
+          "description": "True if this is a personal message",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "${isAudio}",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "Consider this transcript: \n----\n\n${transcriptText}\n\n----\n\nIn this transcript, does the main speaker clearly mention to send this as an email or message to another person or company? If so, which person/company needs to receive a message?",
+                "jsonFormat": "{ \"isPersonalMessage\": boolean, \"personalMessageTo\": string | null }",
+                "model": "auto"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "isPersonalMessage": {
+          "type": "string",
+          "description": "isPersonalMessage",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "getKeyFromObjectPlugin",
+                "method": "POST",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "type": "creation",
+              "context": {
+                "objectString": "${personalMessageAnalysis}",
+                "location": "isPersonalMessage"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["personalMessageAnalysis"]
+            }
+          ]
+        },
+        "personalMessageTo": {
+          "type": "string",
+          "description": "personalMessageTo",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "getKeyFromObjectPlugin",
+                "method": "POST",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "type": "creation",
+              "context": {
+                "objectString": "${personalMessageAnalysis}",
+                "location": "personalMessageTo"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["personalMessageAnalysis"]
+            }
+          ]
+        },
+        "personalMessageCleaned": {
+          "type": "string",
+          "description": "personalMessageCleaned",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "chatGptPlugin",
+                "method": "POST",
+                "path": "/function/chatGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "${isPersonalMessage}",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "Consider this transcript.\n\n----\n\n${transcriptText}\n\n----\n\nPlease write a personal authentic message to ${personalMessageTo} that can be emailed.\n\n- Do not change any wording, except if it's unusual for written text.\n- Ensure to fix spelling mistakes or word-errors (e.g. names and companies are often misheard)\n- Ensure to omit misspeaking that were self-corrected, and make them more concise\n- Ensure the email is in the same language as the transcript!",
+                "model": "auto"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcriptText", "personalMessageTo"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "personalMessageSubject": {
+          "type": "string",
+          "description": "personalMessageSubject",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "Consider this mail draft:\n\n---\n\n${personalMessageCleaned}\n\n---\n\nWhat's the subject?",
+                "jsonFormat": "{\"subject\":string}",
+                "model": "auto"
+              },
+              "outputLocation": "result.subject",
+              "propertyDependencies": ["personalMessageCleaned"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "sendPersonalMessage": {
+          "type": "string",
+          "description": "sendPersonalMessage",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "sendMailPlugin",
+                "method": "POST",
+                "path": "/function/sendMailPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "false //${isPersonalMessage}",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "subject": "Draft to ${personalMessageTo} : ${personalMessageSubject}",
+                "textDescription": "This is an auto-generated draft to email to ${personalMessageTo}. Simply forward this message (you may remove this sentence as you wish). Disclaimer: This message was recorded with https://screenless.org and may contain some transcription errors.\n\nMessage:\n\n${personalMessageCleaned}\n\n"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": [
+                "personalMessageTo",
+                "personalMessageCleaned",
+                "personalMessageSubject"
+              ]
+            }
+          ],
+          "visibility": "auto",
+          "x-plugin": {
+            "$openapi": {
+              "operationId": "sendMailPlugin",
+              "method": "POST",
+              "path": "/function/sendMailPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json"
+            },
+            "condition": "false //${isPersonalMessage}",
+            "isVerticalExpandEnabled": false,
+            "type": "creation",
+            "context": {
+              "subject": "Draft to ${personalMessageTo} : ${personalMessageSubject}",
+              "textDescription": "This is an auto-generated draft to email to ${personalMessageTo}. Simply forward this message (you may remove this sentence as you wish). Disclaimer: This message was recorded with https://screenless.org and may contain some transcription errors.\n\nMessage:\n\n${personalMessageCleaned}\n\n"
+            },
+            "outputLocation": "result",
+            "propertyDependencies": [
+              "personalMessageCleaned",
+              "personalMessageSubject"
+            ]
+          }
+        },
+        "isOperatorMentioned": {
+          "type": "string",
+          "description": "isOperatorMentioned",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "Consider this transcript:\n\n------\n\n${transcriptText}\n\n------\n\nHas the transcript mentioned the term \"Operator\" or \"Screenless\"?",
+                "jsonFormat": "{ \"isOperatorMentioned\": boolean }",
+                "model": "auto"
+              },
+              "outputLocation": "result.isOperatorMentioned",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "isVisualRequested": {
+          "type": "string",
+          "description": "isVisualRequested",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "Consider this transcript:\n\n----\n\n${transcriptText}\n\n----\n\nDid the speaker(s) request any visualisations?",
+                "jsonFormat": "{ \"isVisualRequested\": boolean }",
+                "model": "auto"
+              },
+              "outputLocation": "result.isVisualRequested",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "imagePrompts": {
+          "type": "string",
+          "description": "imagePrompts",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "${isVisualRequested}",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "${isVisualRequested}\n\nConsider this transcript:\n\n----\n\n${transcriptText}\n\n----\n\nPlease list the requested visuals requested by the user. Ensure each item in the list is self-descriptive and standalone. Ensure each item in the list clearly defines what needs to be visualised in a unambiguous detailed way.",
+                "jsonFormat": "{ \"imagePrompts\": string[] }",
+                "model": "gpt-4-1106-preview"
+              },
+              "outputLocation": "result.imagePrompts",
+              "propertyDependencies": ["transcriptText", "isVisualRequested"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "averageWordConfidence": {
+          "type": "string",
+          "description": "averageWordConfidence",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "getKeyFromObjectPlugin",
+                "method": "POST",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "objectString": "${transcript}",
+                "location": "averageWordConfidence"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcript"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "isHighQuality": {
+          "type": "string",
+          "description": "isHighQuality",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "simpleCondition",
+                "method": "POST",
+                "path": "/function/simpleCondition",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "value": "${averageWordConfidence}",
+                "operator": "More than",
+                "compare": "0.7"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["averageWordConfidence"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "tweetableStatements": {
+          "type": "string",
+          "description": "tweetableStatements",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "description": "Consider this transcript:\n-------\n${transcriptText}\n-------\n\nAre there any statements in there that are tweetable?\n\nStatements are tweetable if:\n- The statement is understandable by a broad audience independent of the rest of the transcript\n- The statement conveys something interesting like news, opinion, fact, or question\n\n",
+                "jsonFormat": "{ \"tweetableStatements\": string[] }",
+                "model": "auto"
+              },
+              "outputLocation": "result.tweetableStatements",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "speakerAmount": {
+          "type": "string",
+          "description": "speakerAmount",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "getKeyFromObjectPlugin",
+                "method": "POST",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "objectString": "${transcript}",
+                "location": "speakerAmount"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcript"]
+            }
+          ],
+          "visibility": "auto"
+        },
+        "hasOtherSpeakers": {
+          "type": "string",
+          "description": "If more than 1 speaker... This happens",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "simpleCondition",
+                "method": "POST",
+                "path": "/function/simpleCondition",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "isVerticalExpandEnabled": false,
+              "type": "creation",
+              "context": {
+                "value": "${speakerAmount}",
+                "operator": "More than",
+                "compare": "1"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["speakerAmount"]
+            }
+          ],
+          "visibility": "auto",
+          "x-plugin": {
+            "$openapi": {
+              "operationId": "simpleCondition",
+              "method": "POST",
+              "path": "/function/simpleCondition",
+              "url": "https://api.codefromanywhere.com/openapi.json"
+            },
+            "condition": "",
+            "isVerticalExpandEnabled": false,
+            "type": "creation",
+            "context": {
+              "value": "${speakerAmount}",
+              "operator": "More than",
+              "compare": "1"
+            },
+            "outputLocation": "result",
+            "propertyDependencies": ["speakerAmount"]
+          }
+        },
+        "isNote": {
+          "type": "string",
+          "description": "isNote",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "simpleCondition",
+                "method": "POST",
+                "path": "/function/simpleCondition",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "type": "creation",
+              "context": {
+                "value": "${speakerAmount}",
+                "operator": "Equal",
+                "compare": "1"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["speakerAmount"]
+            }
+          ]
+        },
+        "transcriptNote": {
+          "type": "string",
+          "description": "transcriptNote",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "chatGptPlugin",
+                "method": "POST",
+                "path": "/function/chatGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "type": "creation",
+              "context": {
+                "description": "${isNote} Please clean this transcript, removing speaker information and cleaning up speaking mistakes.\n\n-----\n\n${transcriptText}",
+                "model": "auto"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcriptText", "isNote"]
+            }
+          ]
+        },
+        "speakersAnalysis": {
+          "type": "string",
+          "description": "Analysing the different speakers",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "chatGptPlugin",
+                "method": "POST",
+                "path": "/function/chatGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "type": "creation",
+              "context": {
+                "description": "Has other speakers: ${hasOtherSpeakers}\nConsider this transcript:\n----\n${transcriptText}\n----\n\nPlease follow my instructions in the following steps:\n\nSTEP 1: summarise what every speaker has added to the conversation.\nSTEP 2: summarise the entire conversation between each speaker in no more than 100 words.",
+                "model": "auto"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcriptText", "hasOtherSpeakers"]
+            }
+          ]
+        },
+        "speakersAnalysisSummary": {
+          "type": "string",
+          "description": "speakersAnalysisSummary",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "operationId": "jsonGptPlugin",
+                "method": "POST",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json"
+              },
+              "condition": "",
+              "type": "creation",
+              "context": {
+                "description": "Consider this speakers analysis:\n\n---\n\n${speakersAnalysis}\n\n---\n\nPlease provide me the summary of the conversation.",
+                "jsonFormat": "{ \"summary\": string }",
+                "model": "auto"
+              },
+              "outputLocation": "result.summary",
+              "propertyDependencies": ["speakersAnalysis"]
+            }
+          ]
+        },
+        "relationIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "To be filled in by the user or automatically from phonecalls or meetings. Must be selected from the users user-centric relations. Should be string[]"
+        },
+        "finishedAt": {
+          "type": "string",
+          "description": "finishedAt",
+          "creationPlugins": []
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "subtitle",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "getKeyFromObjectPlugin",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "objectString": "${analysis}",
+                "location": "subtitle"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["analysis"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "getKeyFromObjectPlugin",
+              "path": "/function/getKeyFromObjectPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "objectString": "${analysis}",
+              "location": "subtitle"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "summary": {
+          "type": "string",
+          "description": "summary",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "getKeyFromObjectPlugin",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "objectString": "${analysis}",
+                "location": "summary"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["analysis"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "getKeyFromObjectPlugin",
+              "path": "/function/getKeyFromObjectPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "objectString": "${analysis}",
+              "location": "summary"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "namedPeopleAndCompanies": {
+          "type": "string",
+          "description": "",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "getKeyFromObjectPlugin",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "objectString": "${analysis}",
+                "location": "namedPeopleAndCompanies"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["analysis"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "getKeyFromObjectPlugin",
+              "path": "/function/getKeyFromObjectPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "objectString": "${analysis}",
+              "location": "namedPeopleAndCompanies"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "uncertainWordPercentage": {
+          "type": "string",
+          "description": "",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "getKeyFromObjectPlugin",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "objectString": "${transcript}",
+                "location": "uncertainWordPercentage"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcript"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "getKeyFromObjectPlugin",
+              "path": "/function/getKeyFromObjectPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "objectString": "${transcript}",
+              "location": "uncertainWordPercentage"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "analysisKeywords": {
+          "type": "string",
+          "description": "analysisKeywords",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "getKeyFromObjectPlugin",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "objectString": "${analysis}",
+                "location": "keywords"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["analysis"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "getKeyFromObjectPlugin",
+              "path": "/function/getKeyFromObjectPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "objectString": "${analysis}",
+              "location": "keywords"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "transcriptHtml": {
+          "type": "string",
+          "description": "transcriptHtml",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "getKeyFromObjectPlugin",
+                "path": "/function/getKeyFromObjectPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "objectString": "${transcript}",
+                "location": "transcriptHtml"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcript"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "getKeyFromObjectPlugin",
+              "path": "/function/getKeyFromObjectPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "objectString": "${transcript}",
+              "location": "transcriptHtml"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "deleteIfNeeded": {
+          "type": "string",
+          "description": "deleteIfNeeded",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "delete",
+                "operationId": "deletePhoneRecordingInbox",
+                "path": "/v1/phone-recording-inbox",
+                "url": "https://root.actionschema.com/openapi.json"
+              },
+              "context": {
+                "rowIds": ["${__id}"]
+              },
+              "outputLocation": "result",
+              "condition": "${variables.shouldDeleteData}",
+              "propertyDependencies": []
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "delete",
+              "operationId": "deletePhoneRecordingInbox",
+              "path": "/v1/phone-recording-inbox",
+              "url": "https://root.actionschema.com/openapi.json"
+            },
+            "context": {
+              "rowIds": ["${__id}"]
+            },
+            "outputLocation": "result",
+            "condition": "${variables.shouldDeleteData}"
+          }
+        },
+        "attachmentName": {
+          "type": "string",
+          "description": "",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "jsonGptPlugin",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "🗂"
+              },
+              "context": {
+                "description": "Consider the summary of this recording: ${summary}\n\nWhat would be a good filename for the audio recording? Use kebab-case, e.g. this-is-the-name\n\nDo not add an extension, don't include speaker info, and don't use more than 20 characters.",
+                "jsonFormat": "{ \"kebabCaseName\": string }"
+              },
+              "outputLocation": "result.kebabCaseName",
+              "propertyDependencies": ["summary"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "jsonGptPlugin",
+              "path": "/function/jsonGptPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "🗂"
+            },
+            "context": {
+              "description": "Consider the summary of this recording: ${summary}\n\nWhat would be a good filename for the audio recording? Use kebab-case, e.g. this-is-the-name\n\nDo not add an extension, don't include speaker info, and don't use more than 20 characters.",
+              "jsonFormat": "{ \"kebabCaseName\": string }"
+            },
+            "outputLocation": "result.kebabCaseName",
+            "propertyDependencies": ["summary"]
+          }
+        },
+        "transcript2": {
+          "type": "string",
+          "description": "transcript2",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "getDeepgramTranscript",
+                "path": "/function/getDeepgramTranscript",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "👂"
+              },
+              "context": {
+                "audioUrl": "${item}",
+                "model": "nova-2-general",
+                "multichannel": "true"
+              },
+              "outputLocation": "full",
+              "propertyDependencies": ["item"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "getDeepgramTranscript",
+              "path": "/function/getDeepgramTranscript",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "👂"
+            },
+            "context": {
+              "audioUrl": "${item}",
+              "model": "nova-2-general",
+              "multichannel": "true"
+            },
+            "outputLocation": "full",
+            "propertyDependencies": ["item"]
+          }
+        },
+        "cleanTranscriptText": {
+          "type": "string",
+          "description": "cleanTranscriptText",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "chatGptPlugin",
+                "path": "/function/chatGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "🤖"
+              },
+              "context": {
+                "description": "consider this transcript with all words with low confidence put in italic (*example*).\n\n----\n\n${transcriptText}\n\n----\n\n\nPlease remove mistakes if found, and replace the italic words by the more logical word in the context."
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "chatGptPlugin",
+              "path": "/function/chatGptPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "🤖"
+            },
+            "context": {
+              "model": "gpt-4-1106-preview",
+              "description": "consider this transcript with all words with low confidence put in italic (*example*).\n\n----\n\n${transcriptText}\n\n----\n\n\nPlease remove mistakes if found, and replace the italic words by the more logical word in the context."
+            },
+            "outputLocation": "result"
+          }
+        },
+        "extensiveSummary": {
+          "type": "string",
+          "description": "",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "jsonGptPlugin",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "🗂"
+              },
+              "context": {
+                "description": "Consider this transcript.\n-----\n\n${transcriptText}\n\n------\n\nCreate an extensive summary of what was discussed WITHOUT leaving out any details. \n\n❗️ Use short sentences. \n❗️Ensure each point is written within a bullet.\n❗️Use **bold** for clarity.\n",
+                "jsonFormat": "{ \"extensiveSummary\": string }",
+                "model": "chatgpt-16k"
+              },
+              "outputLocation": "result.extensiveSummary",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "jsonGptPlugin",
+              "path": "/function/jsonGptPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "🗂"
+            },
+            "context": {
+              "description": "Consider this transcript.\n-----\n\n${transcriptText}\n\n------\n\nCreate an extensive summary of what was discussed WITHOUT leaving out any details. \n\n❗️ Use short sentences. \n❗️Ensure each point is written within a bullet.\n❗️Use **bold** for clarity.\n",
+              "jsonFormat": "{ \"extensiveSummary\": string }",
+              "model": "chatgpt-16k"
+            },
+            "outputLocation": "result.extensiveSummary",
+            "propertyDependencies": ["transcriptText"]
+          }
+        },
+        "outline": {
+          "type": "string",
+          "description": "",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "jsonGptPlugin",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "🗂"
+              },
+              "context": {
+                "description": "Consider this transcript with timestamps and words with low confidence made italic.\n----\n${transcriptText}\n----\n\nPlease give me a short outline. Rules:\n- each item should end with (MM:SS)\n- describe each item in max 1 word\n- minimum 2 minutes per topic\n- respond in a bulleted list, use \\n for a newline",
+                "model": "chatgpt-16k",
+                "jsonFormat": "{ \"shortOutline\": string }"
+              },
+              "outputLocation": "result.shortOutline",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "jsonGptPlugin",
+              "path": "/function/jsonGptPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "🗂"
+            },
+            "context": {
+              "description": "Consider this transcript with timestamps and words with low confidence made italic.\n----\n${transcriptText}\n----\n\nPlease give me a short outline. Rules:\n- each item should end with (MM:SS)\n- describe each item in max 1 word\n- minimum 2 minutes per topic\n- respond in a bulleted list, use \\n for a newline",
+              "model": "chatgpt-16k",
+              "jsonFormat": "{ \"shortOutline\": string }"
+            },
+            "outputLocation": "result.shortOutline",
+            "propertyDependencies": ["transcriptText"]
+          }
+        },
+        "outlineHtml": {
+          "type": "string",
+          "description": "outlineHtml",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "markdownToHtml",
+                "path": "/function/markdownToHtml",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "markdown": "${outline}"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["outline"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "markdownToHtml",
+              "path": "/function/markdownToHtml",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "markdown": "${outline}"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "extensiveSummaryHtml": {
+          "type": "string",
+          "description": "extensiveSummaryHtml",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "markdownToHtml",
+                "path": "/function/markdownToHtml",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "markdown": "${extensiveSummary}"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["extensiveSummary"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "markdownToHtml",
+              "path": "/function/markdownToHtml",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "markdown": "${extensiveSummary}"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "emailHtml": {
+          "type": "string",
+          "description": "emailHtml",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "calculateTemplate",
+                "path": "/function/calculateTemplate",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "description": "<!DOCTYPE html>\n<html>\n\n<head>\n    <title>${analysisTitle}</title>\n    <meta charset=\"UTF-8\">\n</head>\n\n<body>\n\n<img src=\"https://www.screenless.org/domains/screenless.org/icon.png\" width=\"50\" height=\"50\" />\n\n<h2>Outline</h2>\n\n<div>${outlineHtml}</div>\n\n<ul>\n<li>Tags: ${analysisKeywords}</li>\n<li>${callDurationMinutes} minutes | ${tokenCount} tokens | ${averageWordConfidence} Confidence |\n${uncertainWordPercentage} WER | ${speakerAmount} Speakers</li>\n\n</ul>\n\n\n<h2>Suggested actions</h2>\n\n${suggestedActionsHtml}\n\n<p><i>Just copy the transcript below in these GPTs and get stuff done</i></p>\n\n<a href=\"https://chat.openai.com/g/g-axtIjoGyf-screenless-meeting-summariser\"\ntitle=\"Summarize any conversation, identify the people you need to reach out to with actionpoints, and generate drafts.\"\ntarget=\"_blank\">Summary</a>\n| <a href=\"https://chat.openai.com/g/g-P0zvutDSB-screenless-blogpost-writer\"\ntitle=\"Turns your transcript into a blog post with a given brand identity\" target=\"_blank\">Blog</a> | <a\nhref=\"https://chat.openai.com/g/g-HlIUqcRdb-transcript-social\"\ntitle=\"Turns your transcript into social media posts with a given brand identity\" target=\"_blank\">Social\nposts</a> |\n<a title=\"\" href=\"https://chat.openai.com/g/g-lO7xvZdKC-screenless-image-generator\" target=\"_blank\">Images</a> | <a\ntitle=\"Create entire documents with your voice!\"\nhref=\"https://chat.openai.com/g/g-ik3PTzJm5-screenless-document-writer\" target=\"_blank\">Document writer</a> | <a\ntitle=\"Turn your transcript into a presentation\"\nhref=\"https://chat.openai.com/g/g-SUYpCBqjL-screenless-presentation-generator\" target=\"_blank\">Presentation</a>\n| <a title=\"Regular ChatGPT\" href=\"https://chat.openai.com\" target=\"_blank\">ChatGPT</a>\n\n<h2>Summary</h2>\n\n<div>\n${extensiveSummaryHtml}\n</div>\n\n<h2>Full transcript</h2>\n\n<div>\n${transcriptHtml}\n</div>\n\n<h2>Did you know...</h2>\n\n<ul>\n<li>Screenless is fully <b>private</b> by design: transcripts aren't stored at our servers</li>\n<li>We're building an AI companion that can do much more than just listen. Get in touch to join the alpha\nprogram!</li>\n<li>You can also call Screenless instead of whatsapp! Just call +15075708474 or +3197010204278 depending on your\ncountry of residence (local rates apply)</li>\n<li>Save your recordings to your <a href=\"https://zapier.com/sign-up?template=9977\" target=\"_blank\">Google\n    Drive</a> or <a href=\"https://zapier.com/sign-up?template=1203944\" target=\"_blank\">Notion</a> using\nZapier.</li>\n<li>Like Screenless? You can buy more minutes <a href=\"https://screenless.org/creditshop\">here</a> and remove\nthe 5 minute limit</li>\n\n</ul>\n\n</body>\n\n</html>"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": [
+                "analysisTitle",
+                "tokenCount",
+                "callDurationMinutes",
+                "averageWordConfidence",
+                "speakerAmount",
+                "uncertainWordPercentage",
+                "analysisKeywords",
+                "transcriptHtml",
+                "outlineHtml",
+                "extensiveSummaryHtml",
+                "suggestedActionsHtml"
+              ]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "calculateTemplate",
+              "path": "/function/calculateTemplate",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "description": "<!DOCTYPE html>\n<html>\n\n<head>\n    <title>${analysisTitle}</title>\n    <meta charset=\"UTF-8\">\n</head>\n\n<body>\n\n<img src=\"https://www.screenless.org/domains/screenless.org/icon.png\" width=\"50\" height=\"50\" />\n\n<h2>Outline</h2>\n\n<div>${outlineHtml}</div>\n\n<ul>\n<li>Tags: ${analysisKeywords}</li>\n<li>${callDurationMinutes} minutes | ${tokenCount} tokens | ${averageWordConfidence} Confidence |\n${uncertainWordPercentage} WER | ${speakerAmount} Speakers</li>\n\n</ul>\n\n\n<h2>Suggested actions</h2>\n\n${suggestedActionsHtml}\n\n<p><i>Just copy the transcript below in these GPTs and get stuff done</i></p>\n\n<a href=\"https://chat.openai.com/g/g-axtIjoGyf-screenless-meeting-summariser\"\ntitle=\"Summarize any conversation, identify the people you need to reach out to with actionpoints, and generate drafts.\"\ntarget=\"_blank\">Summary</a>\n| <a href=\"https://chat.openai.com/g/g-P0zvutDSB-screenless-blogpost-writer\"\ntitle=\"Turns your transcript into a blog post with a given brand identity\" target=\"_blank\">Blog</a> | <a\nhref=\"https://chat.openai.com/g/g-HlIUqcRdb-transcript-social\"\ntitle=\"Turns your transcript into social media posts with a given brand identity\" target=\"_blank\">Social\nposts</a> |\n<a title=\"\" href=\"https://chat.openai.com/g/g-lO7xvZdKC-screenless-image-generator\" target=\"_blank\">Images</a> | <a\ntitle=\"Create entire documents with your voice!\"\nhref=\"https://chat.openai.com/g/g-ik3PTzJm5-screenless-document-writer\" target=\"_blank\">Document writer</a> | <a\ntitle=\"Turn your transcript into a presentation\"\nhref=\"https://chat.openai.com/g/g-SUYpCBqjL-screenless-presentation-generator\" target=\"_blank\">Presentation</a>\n| <a title=\"Regular ChatGPT\" href=\"https://chat.openai.com\" target=\"_blank\">ChatGPT</a>\n\n<h2>Summary</h2>\n\n<div>\n${extensiveSummaryHtml}\n</div>\n\n<h2>Full transcript</h2>\n\n<div>\n${transcriptHtml}\n</div>\n\n<h2>Did you know...</h2>\n\n<ul>\n<li>Screenless is fully <b>private</b> by design: transcripts aren't stored at our servers</li>\n<li>We're building an AI companion that can do much more than just listen. Get in touch to join the alpha\nprogram!</li>\n<li>You can also call Screenless instead of whatsapp! Just call +15075708474 or +3197010204278 depending on your\ncountry of residence (local rates apply)</li>\n<li>Save your recordings to your <a href=\"https://zapier.com/sign-up?template=9977\" target=\"_blank\">Google\n    Drive</a> or <a href=\"https://zapier.com/sign-up?template=1203944\" target=\"_blank\">Notion</a> using\nZapier.</li>\n<li>Like Screenless? You can buy more minutes <a href=\"https://screenless.org/creditshop\">here</a> and remove\nthe 5 minute limit</li>\n\n</ul>\n\n</body>\n\n</html>"
+            },
+            "outputLocation": "result",
+            "propertyDependencies": [
+              "analysisTitle",
+              "tokenCount",
+              "callDurationMinutes",
+              "averageWordConfidence",
+              "speakerAmount",
+              "uncertainWordPercentage",
+              "analysisKeywords",
+              "transcriptHtml",
+              "outlineHtml",
+              "extensiveSummaryHtml"
+            ]
+          }
+        },
+        "suggestedActions": {
+          "type": "string",
+          "description": "",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "jsonGptPlugin",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "🗂"
+              },
+              "context": {
+                "description": "Consider this transcript:\n-----\n${transcriptText}\n-----\n\nIf there are any, please come up with conclusions and specific action-items, and respond in a short bulleted list.",
+                "jsonFormat": "{ \"conclusionsAndActionItems\": string }",
+                "model": "gpt-4-1106-preview"
+              },
+              "outputLocation": "result.conclusionsAndActionItems",
+              "propertyDependencies": ["transcriptText"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "jsonGptPlugin",
+              "path": "/function/jsonGptPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "🗂"
+            },
+            "context": {
+              "description": "Consider this transcript:\n-----\n${transcriptText}\n-----\n\nIf there are any, please come up with conclusions and specific action-items, and respond in a short bulleted list.",
+              "jsonFormat": "{ \"conclusionsAndActionItems\": string }",
+              "model": "gpt-4-1106-preview"
+            },
+            "outputLocation": "result.conclusionsAndActionItems",
+            "propertyDependencies": ["transcriptText"]
+          }
+        },
+        "suggestedGpts": {
+          "type": "string",
+          "description": "suggestedGpts",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "jsonGptPlugin",
+                "path": "/function/jsonGptPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "🗂"
+              },
+              "context": {
+                "description": "\nConsider these GPT Assistants that can help with actions:\n\n----\n\n\n<a href=\"https://chat.openai.com/g/g-axtIjoGyf-screenless-meeting-summariser\"\ntitle=\"Summarize any conversation, identify the people you need to reach out to with actionpoints, and generate drafts.\"\ntarget=\"_blank\">Summary</a>\n| <a href=\"https://chat.openai.com/g/g-P0zvutDSB-screenless-blogpost-writer\"\ntitle=\"Turns your transcript into a blog post with a given brand identity\" target=\"_blank\">Blog</a> | <a\nhref=\"https://chat.openai.com/g/g-HlIUqcRdb-transcript-social\"\ntitle=\"Turns your transcript into social media posts with a given brand identity\" target=\"_blank\">Social\nposts</a> |\n<a title=\"\" href=\"https://chat.openai.com/g/g-lO7xvZdKC-screenless-image-generator\" target=\"_blank\">Images</a> | <a\ntitle=\"Create entire documents with your voice!\"\nhref=\"https://chat.openai.com/g/g-ik3PTzJm5-screenless-document-writer\" target=\"_blank\">Document writer</a> | <a\ntitle=\"Turn your transcript into a presentation\"\nhref=\"https://chat.openai.com/g/g-SUYpCBqjL-screenless-presentation-generator\" target=\"_blank\">Presentation</a>\n| <a title=\"Regular ChatGPT\" href=\"https://chat.openai.com\" target=\"_blank\">ChatGPT</a>\n\n----\n\nAlso, consider these actions:\n\n${suggestedActions}\n\n----\n\nPlease add a link to the best GPT after each action, if possible. Finish with listing the gpts that weren't needed in any action.\n",
+                "jsonFormat": "{ \"listActionsWithGpts\": string }",
+                "model": "gpt-4-1106-preview"
+              },
+              "outputLocation": "result.listActionsWithGpts",
+              "propertyDependencies": ["suggestedActions"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "jsonGptPlugin",
+              "path": "/function/jsonGptPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "🗂"
+            },
+            "context": {
+              "description": "\nConsider these GPT Assistants that can help with actions:\n\n----\n\n\n<a href=\"https://chat.openai.com/g/g-axtIjoGyf-screenless-meeting-summariser\"\ntitle=\"Summarize any conversation, identify the people you need to reach out to with actionpoints, and generate drafts.\"\ntarget=\"_blank\">Summary</a>\n| <a href=\"https://chat.openai.com/g/g-P0zvutDSB-screenless-blogpost-writer\"\ntitle=\"Turns your transcript into a blog post with a given brand identity\" target=\"_blank\">Blog</a> | <a\nhref=\"https://chat.openai.com/g/g-HlIUqcRdb-transcript-social\"\ntitle=\"Turns your transcript into social media posts with a given brand identity\" target=\"_blank\">Social\nposts</a> |\n<a title=\"\" href=\"https://chat.openai.com/g/g-lO7xvZdKC-screenless-image-generator\" target=\"_blank\">Images</a> | <a\ntitle=\"Create entire documents with your voice!\"\nhref=\"https://chat.openai.com/g/g-ik3PTzJm5-screenless-document-writer\" target=\"_blank\">Document writer</a> | <a\ntitle=\"Turn your transcript into a presentation\"\nhref=\"https://chat.openai.com/g/g-SUYpCBqjL-screenless-presentation-generator\" target=\"_blank\">Presentation</a>\n| <a title=\"Regular ChatGPT\" href=\"https://chat.openai.com\" target=\"_blank\">ChatGPT</a>\n\n----\n\nAlso, consider these actions:\n\n${suggestedActions}\n\n----\n\nPlease add a link to the best GPT after each action, if possible. Finish with listing the gpts that weren't needed in any action.\n",
+              "jsonFormat": "{ \"listActionsWithGpts\": string }",
+              "model": "gpt-4-1106-preview"
+            },
+            "outputLocation": "result.listActionsWithGpts",
+            "propertyDependencies": ["suggestedActions"]
+          }
+        },
+        "suggestedActionsHtml": {
+          "type": "string",
+          "description": "suggestedActionsHtml",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "markdownToHtml",
+                "path": "/function/markdownToHtml",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "📄"
+              },
+              "context": {
+                "markdown": "${suggestedActions}"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["suggestedActions"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "markdownToHtml",
+              "path": "/function/markdownToHtml",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "📄"
+            },
+            "context": {
+              "markdown": "${suggestedActions}"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Something that was said before the call"
+        },
+        "isPersonalNote": {
+          "type": "string",
+          "description": "If speaker-amount is 1, it's deemed a personal note.",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "simpleCondition",
+                "path": "/function/simpleCondition",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "☝️"
+              },
+              "context": {
+                "value": "${speakerAmount}",
+                "operator": "Equal",
+                "compare": "1"
+              },
+              "outputLocation": "result",
+              "propertyDependencies": ["speakerAmount"]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "simpleCondition",
+              "path": "/function/simpleCondition",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "☝️"
+            },
+            "context": {
+              "value": "${speakerAmount}",
+              "operator": "Equal",
+              "compare": "1"
+            },
+            "outputLocation": "result"
+          }
+        },
+        "sendWebhook": {
+          "type": "string",
+          "description": "sendWebhook",
+          "creationPlugins": [
+            {
+              "$openapi": {
+                "method": "post",
+                "operationId": "webhookPlugin",
+                "path": "/function/webhookPlugin",
+                "url": "https://api.codefromanywhere.com/openapi.json",
+                "emoji": "🪝"
+              },
+              "context": {
+                "url": "${variables.webhookUrl}",
+                "condition": "${extensiveSummary} ${analysisKeywords} ${suggestedGpts} kkk"
+              },
+              "propertyDependencies": [
+                "analysisKeywords",
+                "extensiveSummary",
+                "suggestedGpts"
+              ]
+            }
+          ],
+          "x-plugin": {
+            "$openapi": {
+              "method": "post",
+              "operationId": "webhookPlugin",
+              "path": "/function/webhookPlugin",
+              "url": "https://api.codefromanywhere.com/openapi.json",
+              "emoji": "🪝"
+            },
+            "context": {
+              "url": "${variables.webhookUrl}",
+              "condition": "${extensiveSummary} ${analysisKeywords} ${suggestedGpts} kkk"
+            },
+            "propertyDependencies": [
+              "analysisKeywords",
+              "extensiveSummary",
+              "suggestedGpts"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

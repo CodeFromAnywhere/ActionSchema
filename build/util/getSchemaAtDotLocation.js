@@ -14,12 +14,12 @@ export const getSchemaAtDotLocation = (schema, dotLocation) => {
             : undefined;
     if (!schemaAtLocation || schemaAtLocation === true) {
         //shouldn't happen right?
-        return schema;
+        return;
     }
     const finalSchema = !Array.isArray(schemaAtLocation)
         ? // Regular schemas can be returned
             schemaAtLocation
-        : // Wildcardss take the first one
+        : // Wildcards take the first one
             first === "*"
                 ? schemaAtLocation[0]
                 : // If we have multiple, take the number token or first if not possible

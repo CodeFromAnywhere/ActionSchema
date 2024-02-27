@@ -1,4 +1,4 @@
-import { ExecuteContext, ExecuteResult } from "../../plugin/execute.js";
+import { ExecuteContext, ExecuteResult } from "../../plugin/types.js";
 /**
 Serverless wrapper around `execute`
 

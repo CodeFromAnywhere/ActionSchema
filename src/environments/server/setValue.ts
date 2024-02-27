@@ -2,7 +2,7 @@ import { setPropertyStatusDone } from "./setPropertyStatusDone.js";
 import { getDb } from "./storage/getDb.js";
 import { ActionSchema } from "../../types/action-schema.schema.js";
 import { flatten } from "../../util/dot-wild.js";
-import { ValueOptions } from "../../plugin/execute.js";
+import { ValueOptions } from "../../plugin/types.js";
 /**
 Sets the value and handles status
 

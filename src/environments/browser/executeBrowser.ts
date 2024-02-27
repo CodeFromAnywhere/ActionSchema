@@ -1,6 +1,8 @@
 import { cleanFetch } from "../../plugin/cleanFetch.js";
-import { ExecuteContext, execute } from "../../plugin/execute.js";
+import { execute } from "../../plugin/execute.js";
+import { ExecuteContext } from "../../plugin/types.js";
 import {
+  indexedDbBuildObject,
   indexedDbGetStoreItem,
   indexedDbPutData,
   initDb,
@@ -27,8 +29,8 @@ export const executeBrowser = async (
   } = context;
 
   // 1) Init data and status dbs for this particular schema
-  console.log(await initDb(databaseId));
-  console.log(await initDb(`status-${databaseId}`));
+  const initDbSuccess = await initDb(databaseId);
+  const initStatusDbSuccess = await initDb(`status-${databaseId}`);
 
   return execute({
     actionSchemaPlugins,
@@ -44,7 +46,16 @@ export const executeBrowser = async (
     },
 
     setData: async (key, value) => {
-      return indexedDbPutData(databaseId, key, value);
+      const putDataResult = await indexedDbPutData(databaseId, key, value);
+
+      // Super inefficient magic! After put, also set entire JSON to the local storage
+      const json = await indexedDbBuildObject(databaseId);
+      window.localStorage.setItem(
+        databaseId,
+        JSON.stringify(json, undefined, 2),
+      );
+
+      return putDataResult;
     },
 
     setStatus: async (key, value) => {
@@ -54,11 +65,14 @@ export const executeBrowser = async (
 
     fetchPlugin: async (details, completeContext) => {
       // localhost for now
-      const host = `http://localhost:3000`;
+      const host = `http://localhost:42000`;
+
+      // const url = new URL(details.apiUrl);
+      // const domainAndPath = url.host + url.pathname + url.search + url.hash;
       return cleanFetch(
         {
           ...details,
-          apiUrl: `${host}/api/cors-proxy?url=${details.apiUrl}`,
+          //   apiUrl: `${host}/api/${domainAndPath}`,
         },
         completeContext,
       );

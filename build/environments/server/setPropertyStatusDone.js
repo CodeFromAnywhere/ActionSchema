@@ -9,7 +9,8 @@ export const setPropertyStatusDone = async (schema, dotLocation, databaseId) => 
     // This would be one level up, so the entire object
     const baseDotLocation = getDotLocationBase(dotLocation);
     // Look at other columns that have this datapoint in `propertyDependencies`
-    const properties = getSchemaAtDotLocation(schema, baseDotLocation).properties;
+    const properties = getSchemaAtDotLocation(schema, baseDotLocation)
+        ?.properties;
     if (!properties) {
         return;
     }

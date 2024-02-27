@@ -16,7 +16,7 @@ Installation differs depending on where you intend to use `actionschema`. Action
 
 **Browser**
 
-Install: `npm i actionschema`
+Install: `npm i actionschema idb`
 
 Usage:
 

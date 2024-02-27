@@ -1,5 +1,5 @@
 import { ActionSchema } from "../../types/action-schema.schema.js";
-import { ValueOptions } from "../../plugin/execute.js";
+import { ValueOptions } from "../../plugin/types.js";
 /**
 Sets the value and handles status
 

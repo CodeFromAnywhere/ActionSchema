@@ -1,9 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
   "x-is-public": true,
+  "required": ["items"],
+  "title": "CalendarEvent Collection",
+  "type": "object",
+  "description": "📆 Useful user-centric model to play around with",
+  "default": {},
   "properties": {
     "$schema": {
-      "type": "string"
+      "type": "string",
+      "default": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/calendar-event.schema.json"
     },
     "items": {
       "type": "array",
@@ -278,9 +284,5 @@
         }
       }
     }
-  },
-  "required": ["items"],
-  "title": "CalendarEvent Collection",
-  "type": "object",
-  "description": "📆 Useful user-centric model to play around with"
+  }
 }

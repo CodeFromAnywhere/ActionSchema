@@ -45,11 +45,62 @@ It'd be great to nerd out on this a little, and try making a full actionschema r
 - ✅ IndexedDb `getStoreItem(databaseId,key)` to browser implementation
 - ✅ Add `executeBrowser` init for database depending on the `databaseId`
 - ✅ Add `fetchPlugin` doing the plugin-call properly via the cors-proxy or not (depending on incoming request)
-- Ensure `executeBrowser` sets `localStorage:dataKey` every update alongside the indexedDb dotLocation...
-- `execute`: Support `JSON-Schema.default:[]` and `JSON-schema.examples:[]`
-- Create a test ActionSchema that uses some simple APIs and builds up a JSON from the start.
+- ✅ `execute`: Support `JSON-Schema.default:[]`
+- ✅ Added array object expansion
+- ✅ Added object expansion
 
-At this point, fix it so that `>` shows updates in realtime on the right
+# Process results better
+
+- ✅ Flatten result before storing (`{x: [{a:1},{b:2}] }` becomes `x[0].a = 1` and `x[1].b = 2`)
+- ✅ Create a function that gets all indexedDb values (with a certain - optional - prefix) and builds the object from it
+- ✅ Using the object-builder, set `localStorage:dataKey` every update so we see it change!
+
+🎉 Now I should see JSON change in realtime!
+
+# Fix Plugin Call
+
+- ✅ Position is also changed if i'm in the other editor. fix so position is editor-specific
+- ✅ Resetting should also reset all in the underlying store. Fix that.
+- ✅ Status should be shown in header: `x loading, y waiting`. Fetch this each time the data updates.
+- ✅ Its important that `executeBrowser` has a callback to refresh the right editor, every time an update in the data takes place.
+- ✅ Create a function that builds up the entire JSON from all indexedDb items so a full JSON can be retreived.
+- ❌ 😵‍💫 Put the right headers and context in the CFA API ❌ 😵‍💫 Struggle with the proxy... **can't get it to work yet**
+
+🎉 Now I should be able to do real API calls to all CFA Plugins
+
+# Output location
+
+- ✅ When deselecting a plugin, remove it fully.
+- ✅ Adhere to outputLocation in `execute`
+- ✅ Bug: when saving with incorrect JSON: ensure to first fix in `editor.js`, don't crash (tryParseJson)
+- ✅ Alter `jsonGptPlugin` and other plugins so all of them have the correct responseSchema in the OPENAPI
+- ✅ In `CapableJsonSchemaInput`: calculate the type based on `outputLocation`
+- ✅ Ensure outputLocation sets JSON type through PluginForm `responseSchema`
+- ❌ If no plugin is selected, it should be a JSONSchema builder so you can make a type. For now, lets only support `integer/number/string/boolean/string[]` **No need anymore. Can do in the left with this view**
+- ✅ If a plugin is selected, the type should be inferrable from the plugin itself + its outputlocation
+- ✅ Grid should have typing! Its putting strings in number places now. Credit isn't deducted. Terrible.
+
+# Variables
+
+I need to find the perfect way to do variables. Previously I supported just the row. I need to make it possible to select anything for full JSON Support. I guess either proximity based or relative is best, especially if we have to deal with arrays...
+
+Proximity based can probably be done through looking for unique names with similar stuff...
+
+- PluginForm: Remove $refs from openapi from responseSchema, if present. Otherwise we might have bad definitions
+- Variables don't work in a nested way. This should be possible: `"context": {"items": ["${meetingInfo}"],"shouldExecuteGridEntireRow": "true"}`. Also the condition needs to work.
+- Support for negation in condition: `${!virtualMeetingPin}`
+- Fix loading indicator and refresh after status update!
+- `condition` is blocking if present.
+- For contexts with variables in nested objects/arrays, `propertyDependencies` aren't added.
+- For properties that are objects or arrays, we need to be able to go in them when writing this variable.
+
+# Stress test
+
+- Create a default of 1000 rows or so
+- See if it breaks or gets slow, and if so, how can we resolve this?
+- Also openapis can break. Rate limit openapis to x rps by default, and create capability to specify in OpenAPI spec.
+
+<!-- GET HERE TODAY??? -->
 
 # Deploy this
 
@@ -58,14 +109,40 @@ At this point, fix it so that `>` shows updates in realtime on the right
   - shall I copy and duplicate?
   - shall I make structure simpler and have a single package?
 
-<!-- GET HERE TODAY??? -->
-
 # Improved plugin calling
 
-- Its important that `executeBrowser` has a callback to refresh the right editor, every time an update in the data takes place.
-- `setDatabaseValue` Implement options. This is crucial for and should be well thought-through before deciding on it.
-- Create a function that builds up the entire JSON from all indexedDb items so a full JSON can be retreived. Ensure to allow for a custom `$schema` and set that to `__editor__`
-- `editor.js`: Add schema resolver so `__editor__` resolves to `localStorage:schema.[url]`. Try to make it so it updates whenever schema updates.
+`setDatabaseValue` Implement `ValueConfig`. This is crucial for and should be well thought-through before going for this.
+
+```ts
+/** Should be inferred from x-plugin */
+export type ValueOptions = {
+  /**
+   * If true, will replace the object rather than overwriting it where needed.
+   *
+   * By default, ActionSchema will overwrite only the given individual properties of an object. In this case, the other properties will be set to stale if needed.
+   */
+  objectReplace?: boolean;
+  /**
+    If true, will replace items in the array fully.
+    
+    By default, ActionSchema will insert into an array with an optional discriminator (see below).
+    */
+  arrayReplace?: boolean;
+
+  /**
+   * If given, must be a key of the object in the array. Will now overwrite/replace object-items where a discriminator matches, while keeping the rest as-is.
+   */
+  arrayDiscriminatorPropertyKey?: string;
+};
+```
+
+# Realtime schema resolver
+
+Nice to have... Not prio now
+
+- Ensure to allow for a custom `$schema` and set that to `__editor__`
+- Add schema resolver so `__editor__` resolves to `localStorage:schema.[url]`.
+- Try to make it so it updates whenever schema updates.
 
 # OpenAPI setup
 
@@ -80,18 +157,6 @@ We can add APIs so it can also edit schemas in localhost through an `fs-api`. Id
 Root schemas can now move to `os-web/public`
 
 On the server it could be connected to `memory/persons/[__id]/files`
-
-# ActionSchema: Plugin type interfaces & variables <!-- Blocking me to do many new things-->
-
-- If no plugin is selected, it should be a JSONSchema builder so you can make a type. For now, lets only support `integer/number/string/boolean/string[]`
-- If a plugin is selected, the type should be inferrable from the plugin itself + its outputlocation (and this should be automatically set in the backend)
-- Grid should have typing! Its putting strings in number places now. Credit isn't deducted. Terrible.
-- Variables don't work in a nested way. This should be possible: `"context": {"items": ["${meetingInfo}"],"shouldExecuteGridEntireRow": "true"}`. Also the condition needs to work.
-- Support for negation in condition: `${!virtualMeetingPin}`
-- Fix loading indicator and refresh after status update!
-- `condition` is blocking if present.
-- For contexts with variables in nested objects/arrays, `propertyDependencies` aren't added.
-- For properties that are objects or arrays, we need to be able to go in them when writing this variable.
 
 # Create schedule
 

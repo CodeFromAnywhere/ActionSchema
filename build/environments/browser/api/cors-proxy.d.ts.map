@@ -1,1 +1,1 @@
-{"version":3,"file":"cors-proxy.d.ts","sourceRoot":"","sources":["../../../../src/environments/browser/api/cors-proxy.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,MAAM,CAAC;AAEtC,sFAAsF;AACtF,eAAO,MAAM,SAAS,EAAE,cAcvB,CAAC;AAEF,eAAe,SAAS,CAAC"}
+{"version":3,"file":"cors-proxy.d.ts","sourceRoot":"","sources":["../../../../src/environments/browser/api/cors-proxy.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,MAAM,CAAC;AAEtC,8GAA8G;AAC9G,eAAO,MAAM,SAAS,EAAE,cAevB,CAAC;AAEF,eAAe,SAAS,CAAC"}
