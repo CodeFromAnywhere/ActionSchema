@@ -1,14 +1,14 @@
 {
   "name": "actionschema",
   "type": "module",
-  "main": "build/util/index.js",
   "exports": {
-    ".": "./build/util",
-    "./web": "./build/browser-indexed-db",
-    "./server": "./build/server-fs-lmdb",
-    "./serverless": "./build/serverless-vercel-kv"
+    "./util": "./build/util/index.js",
+    "./browser": "./build/browser-indexed-db/index.js",
+    "./server": "./build/server-fs-lmdb/index.js",
+    "./serverless": "./build/serverless-vercel-kv/index.js",
+    "./types": "./src/types/index.ts"
   },
-  "version": "0.0.21",
+  "version": "0.0.22",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeFromAnywhere/ActionSchema.git"
@@ -37,7 +37,7 @@
     "js-yaml": "^4.1.0"
   },
   "operation": {
-    "lastRebuildAt": 1709114604203,
-    "isBuildSuccessful": true
+    "lastRebuildAt": 1709115107145,
+    "isBuildSuccessful": false
   }
 }
