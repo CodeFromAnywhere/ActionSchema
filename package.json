@@ -2,13 +2,14 @@
   "name": "actionschema",
   "type": "module",
   "exports": {
+    "./schemas/local-storage.schema.json": "./schemas/local-storage.schema.json",
     "./util": "./build/util/index.js",
     "./browser": "./build/browser-indexed-db/index.js",
     "./server": "./build/server-fs-lmdb/index.js",
     "./serverless": "./build/serverless-vercel-kv/index.js",
     "./types": "./src/types/index.ts"
   },
-  "version": "0.0.23",
+  "version": "0.0.24",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeFromAnywhere/ActionSchema.git"
