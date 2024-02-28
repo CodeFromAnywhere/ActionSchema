@@ -1,34 +1,114 @@
 [
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/environments/serverless/api/execute.ts",
-    "name": "NamedParameters<typeof executeApi>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/serverless/api/execute.ts",
-    "operationRelativePath": "src/environments/serverless/api/execute.ts",
-    "error": "TypeError: WeakMap keys must be objects or non-registered symbols"
+    "projectRelativePath": "packages/actionschema/actionschema/src/browser-indexed-db/executeBrowser.ts",
+    "name": "NamedParameters<typeof executeBrowser>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/browser-indexed-db/executeBrowser.ts",
+    "operationRelativePath": "src/browser-indexed-db/executeBrowser.ts",
+    "error": "Error: Could not translate intersection to union."
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
+    "projectRelativePath": "packages/actionschema/actionschema/src/browser-indexed-db/indexedDb.ts",
     "name": "NamedParameters<typeof indexedDbPutData>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/browser-indexed-db/indexedDb.ts",
+    "operationRelativePath": "src/browser-indexed-db/indexedDb.ts",
     "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "name": "NamedParameters<typeof indexedDbUpdateData>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/storage/indexedDb.ts",
-    "operationRelativePath": "src/environments/browser/storage/indexedDb.ts",
-    "error": "TypeError: undefined is not an object (evaluating 'type.getId')"
-  },
-  {
-    "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/environments/browser/api/cors-proxy.tsx",
-    "name": "NamedParameters<typeof CorsProxy>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/environments/browser/api/cors-proxy.tsx",
-    "operationRelativePath": "src/environments/browser/api/cors-proxy.tsx",
+    "projectRelativePath": "packages/actionschema/actionschema/src/browser-indexed-db/corsProxyApi.tsx",
+    "name": "NamedParameters<typeof corsProxyApi>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/browser-indexed-db/corsProxyApi.tsx",
+    "operationRelativePath": "src/browser-indexed-db/corsProxyApi.tsx",
     "error": "TypeError: WeakMap keys must be objects or non-registered symbols"
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/util/fetchPluginOrDefault.ts",
+    "name": "NamedParameters<typeof fetchPluginOrDefault>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/fetchPluginOrDefault.ts",
+    "operationRelativePath": "src/util/fetchPluginOrDefault.ts",
+    "error": "Error: Reference type not set yet"
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/util/types.ts",
+    "name": "ExecuteContext",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/types.ts",
+    "operationRelativePath": "src/util/types.ts",
+    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/ExecuteContext\". This is a bug."
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/util/execute.ts",
+    "name": "NamedParameters<typeof getNewObjectExposedDotLocations>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/execute.ts",
+    "operationRelativePath": "src/util/execute.ts",
+    "error": "Error: Reference type not set yet"
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/util/execute.ts",
+    "name": "NamedParameters<typeof getNewArrayExposedDotLocations>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/execute.ts",
+    "operationRelativePath": "src/util/execute.ts",
+    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/interface-1366410753-558-3934-1366410753-0-8112\". This is a bug."
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/util/getSchemaAtDotLocation.ts",
+    "name": "NamedParameters<typeof getSchemaAtDotLocation>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/getSchemaAtDotLocation.ts",
+    "operationRelativePath": "src/util/getSchemaAtDotLocation.ts",
+    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/interface-1366410753-558-3934-1366410753-0-8112\". This is a bug."
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/serverless-vercel-kv/executeServerless.ts",
+    "name": "NamedParameters<typeof executeServerless>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/serverless-vercel-kv/executeServerless.ts",
+    "operationRelativePath": "src/serverless-vercel-kv/executeServerless.ts",
+    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/ExecuteContext\". This is a bug."
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/serverless-vercel-kv/executeApi.ts",
+    "name": "NamedParameters<typeof executeApi>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/serverless-vercel-kv/executeApi.ts",
+    "operationRelativePath": "src/serverless-vercel-kv/executeApi.ts",
+    "error": "TypeError: WeakMap keys must be objects or non-registered symbols"
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/server-fs-lmdb/executeGridPluginWorker.ts",
+    "name": "NamedParameters<typeof executeGridPluginWorker>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/server-fs-lmdb/executeGridPluginWorker.ts",
+    "operationRelativePath": "src/server-fs-lmdb/executeGridPluginWorker.ts",
+    "error": "Error: Could not translate intersection to union."
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/server-fs-lmdb/setValue.ts",
+    "name": "NamedParameters<typeof setValue>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/server-fs-lmdb/setValue.ts",
+    "operationRelativePath": "src/server-fs-lmdb/setValue.ts",
+    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/interface-1366410753-558-3934-1366410753-0-8112\". This is a bug."
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/server-fs-lmdb/executeGridPlugin.ts",
+    "name": "NamedParameters<typeof executeGridPlugin>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/server-fs-lmdb/executeGridPlugin.ts",
+    "operationRelativePath": "src/server-fs-lmdb/executeGridPlugin.ts",
+    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/interface-1366410753-558-3934-1366410753-0-8112\". This is a bug."
+  },
+  {
+    "modelName": "SchemaItem",
+    "projectRelativePath": "packages/actionschema/actionschema/src/server-fs-lmdb/setPropertyStatusDone.ts",
+    "name": "NamedParameters<typeof setPropertyStatusDone>",
+    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/server-fs-lmdb/setPropertyStatusDone.ts",
+    "operationRelativePath": "src/server-fs-lmdb/setPropertyStatusDone.ts",
+    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/interface-1366410753-558-3934-1366410753-0-8112\". This is a bug."
   }
 ]
