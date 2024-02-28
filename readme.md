@@ -21,7 +21,7 @@ Install: `npm i actionschema idb`
 Usage:
 
 ```ts
-import { executeBrowser } from "actionschema/build/environments/browser/executeBrowser";
+import { executeBrowser } from "actionschema/browser";
 executeBrowser(context);
 ```
 
@@ -32,7 +32,7 @@ Install: `npm i actionschema`
 Usage:
 
 ```ts
-import { executeServerless } from "actionschema/build/environments/serverless/executeServerless";
+import { executeServerless } from "actionschema/serverless";
 executeServerless(context);
 ```
 
@@ -43,7 +43,7 @@ Install: `npm i actionschema piscina`
 Usage:
 
 ```ts
-import { executeServer } from "actionschema/build/environments/server/executeServer";
+import { executeServer } from "actionschema/server";
 executeServer(context);
 ```
 

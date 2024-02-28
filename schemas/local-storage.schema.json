@@ -1,0 +1,78 @@
+{
+  "type": "object",
+  "$comment": "This is all info that's stored in the local storage of ActionSchema-Web",
+  "$id": "Local Storage State",
+  "properties": {
+    "general": {
+      "title": "Configuration",
+      "type": "object",
+      "properties": {
+        "isUsageCollected": {
+          "type": "boolean",
+          "title": "Anonymous usage info collection",
+          "description": "To improve ActionSchema we do research based on anonymous usage data. You can opt-out of this by unchecking this box."
+        }
+      }
+    },
+
+    "openApis": {
+      "title": "Open APIs",
+      "description": "Here you can fill in the OpenAPIs you want to use. By default, OpenAPIs in your schema files will also be indexed.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/OpenAPIReference" }
+    },
+
+    "actionSchemaServer": {
+      "title": "ActionSchema Server",
+      "type": "object",
+      "properties": {
+        "useActionSchemaOpenApi": {
+          "title": "Use ActionSchema Server",
+          "description": "By default, the browser is used for storing and executing your ActionSchemas. If you use a hosted ActionSchema management solution, set the OpenAPI here.",
+          "type": "boolean"
+        },
+
+        "actionSchemaOpenApiPath": {
+          "type": "string",
+          "title": "ActionSchema Server OpenAPI Path",
+          "description": "Ensure this OpenAPI implements the ActionSchema Server specification. Of course, you can simply use our ActionSchema Server if you want to run things locally or on-premise. However, if you want even more control, you can make your own ActionSchema Server (in any language). The only thing you need to do, is expose the openapi file similar to the one found at https://actionschema.com/openapi.json (Coming soon)"
+        },
+
+        "actionSchemaOpenApiHeaders": {
+          "type": "object",
+          "title": "",
+          "description": "Headers:",
+          "default": { "Authorization": "Bearer xxx" },
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "OpenAPIReference": {
+      "type": "object",
+      "title": "OpenAPI",
+      "properties": {
+        "__id": {
+          "title": "OpenAPI URL",
+          "type": "string",
+          "description": "The entire OpenAPI URL should be here"
+        },
+
+        "headers": {
+          "type": "object",
+          "title": "",
+          "description": "Headers",
+          "default": { "Authorization": "Bearer xxx" },
+          "additionalProperties": { "type": "string" }
+        },
+
+        "localhostOpenapiUrl": {
+          "type": "string",
+          "title": "Localhost OpenAPI URL",
+          "description": "In case this is given and your IS_DEV is set to \"true\", this URL will be used when executing. However, this URL will never be set into the ActionSchema as this would cause things to not work when pushing to production. This is why it's needed to have this parameter: we want a good development experience at localhost for any openapi we may make, being able to make production-schemas from localhost"
+        }
+      }
+    }
+  }
+}

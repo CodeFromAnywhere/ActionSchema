@@ -79,6 +79,27 @@ It'd be great to nerd out on this a little, and try making a full actionschema r
 - ❌ If no plugin is selected, it should be a JSONSchema builder so you can make a type. For now, lets only support `integer/number/string/boolean/string[]` **No need anymore. Can do in the left with this view**
 - ✅ If a plugin is selected, the type should be inferrable from the plugin itself + its outputlocation
 - ✅ Grid should have typing! Its putting strings in number places now. Credit isn't deducted. Terrible.
+- ✅ Cleanup: export things better
+- ✅ Make `actionschema-web` part of the monorepo again
+- ✅ Make settings much more complete
+
+# Make this the 'editor' for development in localhost.
+
+Try to make `executeServer` work.
+
+Use the fs-api I had before `actionschema-core`
+
+We can add APIs so it can also edit schemas in localhost through an `fs-api`. Ideally, this would be an `OpenAPI`, so anyone can connect their own storage solution. This would allow creating a new software development experience, creating schemas everywhere.
+
+Root schemas can now move to `os-web/public`
+
+On the server it could be connected to `memory/persons/[__id]/files`
+
+# ffmpeg processor server, browser server
+
+https://github.com/fly-apps/fly-run-this-function-on-another-machine
+
+This is cool! Lets try to make something that can run arbitrary code from my codebase on fly! Potentially, I can create my own server park for browsers too.
 
 # Variables
 
@@ -101,13 +122,6 @@ Proximity based can probably be done through looking for unique names with simil
 - Also openapis can break. Rate limit openapis to x rps by default, and create capability to specify in OpenAPI spec.
 
 <!-- GET HERE TODAY??? -->
-
-# Deploy this
-
-- Figure out the best way to deploy all this. As I have shared code between `os-web` and `actionschema-web`...
-  - shall I make it part of the monorepo?
-  - shall I copy and duplicate?
-  - shall I make structure simpler and have a single package?
 
 # Improved plugin calling
 
@@ -149,14 +163,6 @@ Nice to have... Not prio now
 - Ensure it's possible to set up your OpenAPIs here.
 - Ensure it's possible to pass in the token according to the OpenAPI auth flows
 - Pass these things into the form
-
-# Make this the 'editor' for development in localhost.
-
-We can add APIs so it can also edit schemas in localhost through an `fs-api`. Ideally, this would be an `OpenAPI`, so anyone can connect their own storage solution. This would allow creating a new software development experience, creating schemas everywhere.
-
-Root schemas can now move to `os-web/public`
-
-On the server it could be connected to `memory/persons/[__id]/files`
 
 # Create schedule
 
