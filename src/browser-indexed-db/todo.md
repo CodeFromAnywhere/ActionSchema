@@ -83,23 +83,29 @@ It'd be great to nerd out on this a little, and try making a full actionschema r
 - ✅ Make `actionschema-web` part of the monorepo again
 - ✅ Make settings much more complete
 
-# Make this the 'editor' for development in localhost.
+# Schema Management
 
-Try to make `executeServer` work.
+- Create an upload button that allows you selecting a folder to read & write to: https://developer.mozilla.org/en-US/docs/Web/API/File_System_API#examples
+- Allow selecting one of the allowed folders to easily switch between folders
+- If no folder is selected, show examples.
+- If a folder is selected, second selectbox contains all `.schema.json` files in that folder, recursively, grouped by folder.
+- Selecting the selectbox gets the content either from the URL or via the file protocol.
+- Saving a schema either stores it in IndexedDb or via the fs protocol, depending if we have access
+- Ability to delete and copy a schema after selecting it, as I did server-side before.
 
-Use the fs-api I had before `actionschema-core`
+If this works, this is perfect. I can now offload all my schemas in `guest1` and `root` to my own system, and start finding them here.
 
-We can add APIs so it can also edit schemas in localhost through an `fs-api`. Ideally, this would be an `OpenAPI`, so anyone can connect their own storage solution. This would allow creating a new software development experience, creating schemas everywhere.
+- Root schemas can now move to `os-web/public`
+- Download all guest1 schemas to my docs too.
 
-Root schemas can now move to `os-web/public`
+# Server-side scalable storage
 
-On the server it could be connected to `memory/persons/[__id]/files`
-
-# ffmpeg processor server, browser server
-
-https://github.com/fly-apps/fly-run-this-function-on-another-machine
-
-This is cool! Lets try to make something that can run arbitrary code from my codebase on fly! Potentially, I can create my own server park for browsers too.
+- ✅ Db creation and fetching via Upstash Redis
+- ✅ Fix data storage stuff in `executeServerless`
+- ✅ Put `.env` for upstash
+- Ensure the frontend stores the `redisRestToken, redisRestUrl` into localStorage along the file, if found, and sends it with the request.
+- Ensure using `fetchExecute` if `useActionSchemaServer:true` with the proper URL path (defaulting to demo.actionschema.com)
+- Ensure that we have an efficient and smart way of talking to redis so it minimises requests and doesn't hit limits.
 
 # Variables
 

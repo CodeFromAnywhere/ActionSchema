@@ -61,8 +61,15 @@ export type ExecuteContext = {
   /** Data dotlocation */
   dotLocation: string;
   databaseId: string;
+
+  /** For server-based storage, will use this, or create a new database if not given */
+  redisRestUrl?: string;
+  /** For server-based storage, will use this, or create a new database if not given */
+  redisRestToken?: string;
+
   /** Set a new value into the db (Optional, if given) */
   value?: any;
+
   /** If true, skips executing the plugin */
   skipPlugin?: boolean;
   /** If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution. */

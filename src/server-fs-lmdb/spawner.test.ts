@@ -1,10 +1,9 @@
-import { executeGridPlugin } from "./executeGridPlugin.js";
 import { getStatusDb } from "./storage/getStatusDb.js";
-import { getActionSchema } from "./storage/getActionSchema.js";
+import { executeServer } from "./executeServer.js";
 
+/** TODO: this probably should isn't needed per se but can be added later */
 export const spawner = async (databaseId: string) => {
   let status = getStatusDb(databaseId);
-  const schema = await getActionSchema(databaseId);
   setInterval(() => {
     // get the stale ones
     const dotLocations = status
@@ -27,14 +26,13 @@ export const spawner = async (databaseId: string) => {
 
     console.log({ dotLocations });
 
-    dotLocations.map((dotLocation) =>
-      executeGridPlugin({
-        completeContext: {},
-        dotLocation,
-        schema,
-        databaseId,
-      }),
-    );
+    // dotLocations.map((dotLocation) =>
+    //   executeServer({
+    //     dotLocation,
+    //     schema,
+    //     databaseId,
+    //   }),
+    // );
   }, 50);
 };
 spawner("calendar-event");
