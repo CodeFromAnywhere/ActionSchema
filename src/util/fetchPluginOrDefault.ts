@@ -1,4 +1,4 @@
-import { EnvironmentConfig, ExecuteContext } from "./types.js";
+import { EnvironmentConfig, ExecuteContext } from "../types/types.js";
 import { getOpenapiDetails } from "./getOpenapiDetails.js";
 import { notEmpty } from "js-util";
 

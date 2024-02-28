@@ -1,4 +1,4 @@
-import { ExecuteContext, ExecuteResult } from "./types.js";
+import { ExecuteContext, ExecuteResult } from "../types/types.js";
 /**
  * Function to call the execute API. This can be both serverless and server apis, but not browser as browser doesn't require a fetch.
  *

@@ -3,7 +3,11 @@ import { getSchemaAtDotLocation } from "../util/getSchemaAtDotLocation.js";
 import { getDotLocationBase } from "../util/getDotlocationBase.js";
 import { fetchPluginOrDefault } from "./fetchPluginOrDefault.js";
 import { makeArray, onlyUnique2 } from "js-util";
-import { EnvironmentConfig, ExecuteContext, ExecuteResult } from "./types.js";
+import {
+  EnvironmentConfig,
+  ExecuteContext,
+  ExecuteResult,
+} from "../types/types.js";
 import { getDotLocation } from "../util/getDotLocation.js";
 
 /**

@@ -2,7 +2,7 @@ import { execute } from "../util/execute.js";
 import { getStoreData, putData } from "./vercelKvStore.js";
 import { fetchExecute } from "../util/fetchExecute.js";
 import { cleanFetch } from "../util/cleanFetch.js";
-import { ExecuteContext, ExecuteResult } from "../util/types.js";
+import { ExecuteContext, ExecuteResult } from "../types/types.js";
 
 /**
 Serverless wrapper around `execute`

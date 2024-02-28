@@ -3,7 +3,6 @@ export * from "./tryParseYamlToJson.js";
 export * from "./fetchPluginOrDefault.js";
 export * from "./getDotLocation.js";
 export * from "./fetchExecute.js";
-export * from "./types.js";
 export * from "./cleanFetch.js";
 export * from "./fetchOpenapi.js";
 export * from "./execute.js";

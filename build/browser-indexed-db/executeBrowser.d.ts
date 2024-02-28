@@ -1,4 +1,4 @@
-import { ExecuteContext } from "../util/types.js";
+import { ExecuteContext } from "../types/types.js";
 /**
 Local offline IndexedDb store wrapper around `execute`
  */

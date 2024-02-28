@@ -1,6 +1,6 @@
 import { cleanFetch } from "../util/cleanFetch.js";
 import { execute } from "../util/execute.js";
-import { ExecuteContext } from "../util/types.js";
+import { ExecuteContext } from "../types/types.js";
 import {
   indexedDbBuildObject,
   indexedDbGetStoreItem,
