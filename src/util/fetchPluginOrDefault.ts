@@ -1,5 +1,5 @@
-import { EnvironmentConfig, ExecuteContext } from "./types";
-import { getOpenapiDetails } from "./getOpenapiDetails";
+import { EnvironmentConfig, ExecuteContext } from "./types.js";
+import { getOpenapiDetails } from "./getOpenapiDetails.js";
 import { notEmpty } from "js-util";
 
 export const fetchPluginOrDefault = async (

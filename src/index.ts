@@ -6,4 +6,3 @@ export * from "./server-fs-lmdb/storage/getStatusDb.js";
 export * from "./server-fs-lmdb/storage/getValue.js";
 export * from "./server-fs-lmdb/executeGridPlugin.js";
 export * from "./server-fs-lmdb/setPropertyStatusDone.js";
-//# sourceMappingURL=index.js.map

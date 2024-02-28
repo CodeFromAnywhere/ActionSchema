@@ -11,17 +11,200 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
-    "otherDefs": {},
+    "otherDefs": {
+      "ExecuteContext": {
+        "type": "object",
+        "properties": {
+          "schema": {},
+          "dotLocation": {
+            "type": "string",
+            "description": "Data dotlocation"
+          },
+          "databaseId": {
+            "type": "string"
+          },
+          "value": {
+            "description": "Set a new value into the db (Optional, if given)"
+          },
+          "skipPlugin": {
+            "type": "boolean",
+            "description": "If true, skips executing the plugin"
+          },
+          "returnDotLocation": {
+            "type": "string",
+            "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+          },
+          "updateCallbackUrl": {
+            "type": "string",
+            "description": "An url to be called back on with updates"
+          },
+          "actionSchemaPlugins": {
+            "type": "array",
+            "items": {}
+          }
+        },
+        "required": [
+          "schema",
+          "dotLocation",
+          "databaseId",
+          "actionSchemaPlugins"
+        ],
+        "additionalProperties": false
+      }
+    },
     "namedParameters": {
       "modelName": "SchemaItem",
       "projectRelativePath": "packages/actionschema/actionschema/src/browser-indexed-db/executeBrowser.ts",
       "name": "NamedParameters<typeof executeBrowser>",
       "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/browser-indexed-db/executeBrowser.ts",
       "operationRelativePath": "src/browser-indexed-db/executeBrowser.ts",
-      "error": "Error: Could not translate intersection to union."
-    }
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20executeBrowser%3E",
+        "definitions": {
+          "NamedParameters<typeof executeBrowser>": {
+            "type": "object",
+            "properties": {
+              "context": {
+                "$ref": "#/definitions/ExecuteContext"
+              }
+            },
+            "required": [
+              "context"
+            ],
+            "additionalProperties": false
+          },
+          "ExecuteContext": {
+            "type": "object",
+            "properties": {
+              "schema": {},
+              "dotLocation": {
+                "type": "string",
+                "description": "Data dotlocation"
+              },
+              "databaseId": {
+                "type": "string"
+              },
+              "value": {
+                "description": "Set a new value into the db (Optional, if given)"
+              },
+              "skipPlugin": {
+                "type": "boolean",
+                "description": "If true, skips executing the plugin"
+              },
+              "returnDotLocation": {
+                "type": "string",
+                "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+              },
+              "updateCallbackUrl": {
+                "type": "string",
+                "description": "An url to be called back on with updates"
+              },
+              "actionSchemaPlugins": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "dotLocation",
+              "databaseId",
+              "actionSchemaPlugins"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "context",
+        "schema": {
+          "$ref": "#/definitions/ExecuteContext"
+        },
+        "simplifiedSchema": {
+          "fullComment": "",
+          "properties": [
+            {
+              "name": "schema",
+              "required": true,
+              "schema": {
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "dotLocation",
+              "required": true,
+              "schema": {
+                "fullComment": "Data dotlocation",
+                "type": "string"
+              }
+            },
+            {
+              "name": "databaseId",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "value",
+              "required": false,
+              "schema": {
+                "fullComment": "Set a new value into the db (Optional, if given)",
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "skipPlugin",
+              "required": false,
+              "schema": {
+                "fullComment": "If true, skips executing the plugin",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "returnDotLocation",
+              "required": false,
+              "schema": {
+                "fullComment": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution.",
+                "type": "string"
+              }
+            },
+            {
+              "name": "updateCallbackUrl",
+              "required": false,
+              "schema": {
+                "fullComment": "An url to be called back on with updates",
+                "type": "string"
+              }
+            },
+            {
+              "name": "actionSchemaPlugins",
+              "required": true,
+              "schema": {
+                "items": [
+                  {
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    },
+                    "name": null
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "object"
+        },
+        "required": true
+      }
+    ]
   },
   {
     "modelName": "SwcVariable",
@@ -35,7 +218,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcVariable",
@@ -49,7 +232,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcVariable",
@@ -63,7 +246,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcFunction",
@@ -77,7 +260,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -127,7 +310,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -180,7 +363,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -204,7 +387,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -276,7 +459,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -332,7 +515,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -402,7 +585,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -426,7 +609,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -492,7 +675,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -545,7 +728,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -554,8 +737,34 @@
       "name": "NamedParameters<typeof fetchPluginOrDefault>",
       "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/fetchPluginOrDefault.ts",
       "operationRelativePath": "src/util/fetchPluginOrDefault.ts",
-      "error": "Error: Reference type not set yet"
-    }
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20fetchPluginOrDefault%3E",
+        "definitions": {
+          "NamedParameters<typeof fetchPluginOrDefault>": {
+            "type": "object",
+            "properties": {
+              "context": {}
+            },
+            "required": [
+              "context"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "context",
+        "schema": {},
+        "simplifiedSchema": {
+          "properties": [],
+          "type": "object"
+        },
+        "required": true
+      }
+    ]
   },
   {
     "modelName": "SwcFunction",
@@ -569,7 +778,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -633,7 +842,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -651,6 +860,7 @@
             "properties": {
               "context": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "executeApiPath": {
                     "type": "string"
@@ -660,11 +870,42 @@
                     "additionalProperties": {
                       "type": "string"
                     }
+                  },
+                  "schema": {},
+                  "dotLocation": {
+                    "type": "string",
+                    "description": "Data dotlocation"
+                  },
+                  "databaseId": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "Set a new value into the db (Optional, if given)"
+                  },
+                  "skipPlugin": {
+                    "type": "boolean",
+                    "description": "If true, skips executing the plugin"
+                  },
+                  "returnDotLocation": {
+                    "type": "string",
+                    "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+                  },
+                  "updateCallbackUrl": {
+                    "type": "string",
+                    "description": "An url to be called back on with updates"
+                  },
+                  "actionSchemaPlugins": {
+                    "type": "array",
+                    "items": {}
                   }
                 },
                 "required": [
+                  "actionSchemaPlugins",
+                  "databaseId",
+                  "dotLocation",
                   "executeApiHeaders",
-                  "executeApiPath"
+                  "executeApiPath",
+                  "schema"
                 ]
               }
             },
@@ -681,6 +922,7 @@
         "name": "context",
         "schema": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "executeApiPath": {
               "type": "string"
@@ -690,11 +932,42 @@
               "additionalProperties": {
                 "type": "string"
               }
+            },
+            "schema": {},
+            "dotLocation": {
+              "type": "string",
+              "description": "Data dotlocation"
+            },
+            "databaseId": {
+              "type": "string"
+            },
+            "value": {
+              "description": "Set a new value into the db (Optional, if given)"
+            },
+            "skipPlugin": {
+              "type": "boolean",
+              "description": "If true, skips executing the plugin"
+            },
+            "returnDotLocation": {
+              "type": "string",
+              "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+            },
+            "updateCallbackUrl": {
+              "type": "string",
+              "description": "An url to be called back on with updates"
+            },
+            "actionSchemaPlugins": {
+              "type": "array",
+              "items": {}
             }
           },
           "required": [
+            "actionSchemaPlugins",
+            "databaseId",
+            "dotLocation",
             "executeApiHeaders",
-            "executeApiPath"
+            "executeApiPath",
+            "schema"
           ]
         },
         "simplifiedSchema": {
@@ -712,6 +985,78 @@
               "schema": {
                 "properties": [],
                 "type": "object"
+              }
+            },
+            {
+              "name": "schema",
+              "required": true,
+              "schema": {
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "dotLocation",
+              "required": true,
+              "schema": {
+                "fullComment": "Data dotlocation",
+                "type": "string"
+              }
+            },
+            {
+              "name": "databaseId",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "value",
+              "required": false,
+              "schema": {
+                "fullComment": "Set a new value into the db (Optional, if given)",
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "skipPlugin",
+              "required": false,
+              "schema": {
+                "fullComment": "If true, skips executing the plugin",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "returnDotLocation",
+              "required": false,
+              "schema": {
+                "fullComment": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution.",
+                "type": "string"
+              }
+            },
+            {
+              "name": "updateCallbackUrl",
+              "required": false,
+              "schema": {
+                "fullComment": "An url to be called back on with updates",
+                "type": "string"
+              }
+            },
+            {
+              "name": "actionSchemaPlugins",
+              "required": true,
+              "schema": {
+                "items": [
+                  {
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    },
+                    "name": null
+                  }
+                ],
+                "type": "array"
               }
             }
           ],
@@ -733,7 +1078,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "type": {
       "isArray": false,
       "isEnum": false,
@@ -805,7 +1150,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "type": {
       "isArray": false,
       "isEnum": false,
@@ -1007,7 +1352,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "type": {
       "isArray": false,
       "isEnum": false,
@@ -1015,7 +1360,123 @@
       "isObject": false,
       "isPrimitive": false,
       "rawType": "",
-      "typeCoverage": 0
+      "typeCoverage": 0,
+      "typeDefinition": {
+        "type": "object",
+        "properties": {
+          "schema": {},
+          "dotLocation": {
+            "type": "string",
+            "description": "Data dotlocation"
+          },
+          "databaseId": {
+            "type": "string"
+          },
+          "value": {
+            "description": "Set a new value into the db (Optional, if given)"
+          },
+          "skipPlugin": {
+            "type": "boolean",
+            "description": "If true, skips executing the plugin"
+          },
+          "returnDotLocation": {
+            "type": "string",
+            "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+          },
+          "updateCallbackUrl": {
+            "type": "string",
+            "description": "An url to be called back on with updates"
+          },
+          "actionSchemaPlugins": {
+            "type": "array",
+            "items": {}
+          }
+        },
+        "required": [
+          "schema",
+          "dotLocation",
+          "databaseId",
+          "actionSchemaPlugins"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "schema",
+            "required": true,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "dotLocation",
+            "required": true,
+            "schema": {
+              "fullComment": "Data dotlocation",
+              "type": "string"
+            }
+          },
+          {
+            "name": "databaseId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "required": false,
+            "schema": {
+              "fullComment": "Set a new value into the db (Optional, if given)",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "skipPlugin",
+            "required": false,
+            "schema": {
+              "fullComment": "If true, skips executing the plugin",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "returnDotLocation",
+            "required": false,
+            "schema": {
+              "fullComment": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution.",
+              "type": "string"
+            }
+          },
+          {
+            "name": "updateCallbackUrl",
+            "required": false,
+            "schema": {
+              "fullComment": "An url to be called back on with updates",
+              "type": "string"
+            }
+          },
+          {
+            "name": "actionSchemaPlugins",
+            "required": true,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      }
     }
   },
   {
@@ -1030,7 +1491,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "type": {
       "isArray": false,
       "isEnum": false,
@@ -1100,7 +1561,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "type": {
       "isArray": false,
       "isEnum": false,
@@ -1158,7 +1619,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -1279,7 +1740,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcFunction",
@@ -1293,7 +1754,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -1343,7 +1804,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -1361,6 +1822,7 @@
             "properties": {
               "context": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "recurseFunction": {
                     "type": "object",
@@ -1419,13 +1881,44 @@
                       }
                     },
                     "description": "Can be different in environments"
+                  },
+                  "schema": {},
+                  "dotLocation": {
+                    "type": "string",
+                    "description": "Data dotlocation"
+                  },
+                  "databaseId": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "Set a new value into the db (Optional, if given)"
+                  },
+                  "skipPlugin": {
+                    "type": "boolean",
+                    "description": "If true, skips executing the plugin"
+                  },
+                  "returnDotLocation": {
+                    "type": "string",
+                    "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+                  },
+                  "updateCallbackUrl": {
+                    "type": "string",
+                    "description": "An url to be called back on with updates"
+                  },
+                  "actionSchemaPlugins": {
+                    "type": "array",
+                    "items": {}
                   }
                 },
                 "required": [
+                  "actionSchemaPlugins",
+                  "databaseId",
+                  "dotLocation",
                   "fetchPlugin",
                   "getData",
                   "getStatus",
                   "recurseFunction",
+                  "schema",
                   "setData",
                   "setStatus"
                 ]
@@ -1444,6 +1937,7 @@
         "name": "context",
         "schema": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "recurseFunction": {
               "type": "object",
@@ -1502,13 +1996,44 @@
                 }
               },
               "description": "Can be different in environments"
+            },
+            "schema": {},
+            "dotLocation": {
+              "type": "string",
+              "description": "Data dotlocation"
+            },
+            "databaseId": {
+              "type": "string"
+            },
+            "value": {
+              "description": "Set a new value into the db (Optional, if given)"
+            },
+            "skipPlugin": {
+              "type": "boolean",
+              "description": "If true, skips executing the plugin"
+            },
+            "returnDotLocation": {
+              "type": "string",
+              "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+            },
+            "updateCallbackUrl": {
+              "type": "string",
+              "description": "An url to be called back on with updates"
+            },
+            "actionSchemaPlugins": {
+              "type": "array",
+              "items": {}
             }
           },
           "required": [
+            "actionSchemaPlugins",
+            "databaseId",
+            "dotLocation",
             "fetchPlugin",
             "getData",
             "getStatus",
             "recurseFunction",
+            "schema",
             "setData",
             "setStatus"
           ]
@@ -1614,6 +2139,78 @@
                 ],
                 "type": "object"
               }
+            },
+            {
+              "name": "schema",
+              "required": true,
+              "schema": {
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "dotLocation",
+              "required": true,
+              "schema": {
+                "fullComment": "Data dotlocation",
+                "type": "string"
+              }
+            },
+            {
+              "name": "databaseId",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "value",
+              "required": false,
+              "schema": {
+                "fullComment": "Set a new value into the db (Optional, if given)",
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "skipPlugin",
+              "required": false,
+              "schema": {
+                "fullComment": "If true, skips executing the plugin",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "returnDotLocation",
+              "required": false,
+              "schema": {
+                "fullComment": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution.",
+                "type": "string"
+              }
+            },
+            {
+              "name": "updateCallbackUrl",
+              "required": false,
+              "schema": {
+                "fullComment": "An url to be called back on with updates",
+                "type": "string"
+              }
+            },
+            {
+              "name": "actionSchemaPlugins",
+              "required": true,
+              "schema": {
+                "items": [
+                  {
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    },
+                    "name": null
+                  }
+                ],
+                "type": "array"
+              }
             }
           ],
           "type": "object"
@@ -1634,7 +2231,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -1643,7 +2240,7 @@
       "name": "NamedParameters<typeof getNewObjectExposedDotLocations>",
       "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/execute.ts",
       "operationRelativePath": "src/util/execute.ts",
-      "error": "Error: Reference type not set yet"
+      "error": "Error: Could not translate intersection to union."
     }
   },
   {
@@ -1658,7 +2255,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -1667,7 +2264,7 @@
       "name": "NamedParameters<typeof getNewArrayExposedDotLocations>",
       "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/execute.ts",
       "operationRelativePath": "src/util/execute.ts",
-      "error": "Error: Encountered a reference to a missing definition: \"#/definitions/interface-1366410753-558-3934-1366410753-0-8112\". This is a bug."
+      "error": "Error: Reference type not set yet"
     }
   },
   {
@@ -1682,7 +2279,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {
       "OpenAPIDetails": {
@@ -1928,7 +2525,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -1961,7 +2558,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcFunction",
@@ -1975,7 +2572,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -2041,7 +2638,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {
       "Request": {
@@ -3183,7 +3780,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {
       "Request": {
@@ -4312,7 +4909,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4336,17 +4933,200 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
-    "otherDefs": {},
+    "otherDefs": {
+      "ExecuteContext": {
+        "type": "object",
+        "properties": {
+          "schema": {},
+          "dotLocation": {
+            "type": "string",
+            "description": "Data dotlocation"
+          },
+          "databaseId": {
+            "type": "string"
+          },
+          "value": {
+            "description": "Set a new value into the db (Optional, if given)"
+          },
+          "skipPlugin": {
+            "type": "boolean",
+            "description": "If true, skips executing the plugin"
+          },
+          "returnDotLocation": {
+            "type": "string",
+            "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+          },
+          "updateCallbackUrl": {
+            "type": "string",
+            "description": "An url to be called back on with updates"
+          },
+          "actionSchemaPlugins": {
+            "type": "array",
+            "items": {}
+          }
+        },
+        "required": [
+          "schema",
+          "dotLocation",
+          "databaseId",
+          "actionSchemaPlugins"
+        ],
+        "additionalProperties": false
+      }
+    },
     "namedParameters": {
       "modelName": "SchemaItem",
       "projectRelativePath": "packages/actionschema/actionschema/src/serverless-vercel-kv/executeServerless.ts",
       "name": "NamedParameters<typeof executeServerless>",
       "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/serverless-vercel-kv/executeServerless.ts",
       "operationRelativePath": "src/serverless-vercel-kv/executeServerless.ts",
-      "error": "Error: Encountered a reference to a missing definition: \"#/definitions/ExecuteContext\". This is a bug."
-    }
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$ref": "#/definitions/NamedParameters%3Ctypeof%20executeServerless%3E",
+        "definitions": {
+          "NamedParameters<typeof executeServerless>": {
+            "type": "object",
+            "properties": {
+              "context": {
+                "$ref": "#/definitions/ExecuteContext"
+              }
+            },
+            "required": [
+              "context"
+            ],
+            "additionalProperties": false
+          },
+          "ExecuteContext": {
+            "type": "object",
+            "properties": {
+              "schema": {},
+              "dotLocation": {
+                "type": "string",
+                "description": "Data dotlocation"
+              },
+              "databaseId": {
+                "type": "string"
+              },
+              "value": {
+                "description": "Set a new value into the db (Optional, if given)"
+              },
+              "skipPlugin": {
+                "type": "boolean",
+                "description": "If true, skips executing the plugin"
+              },
+              "returnDotLocation": {
+                "type": "string",
+                "description": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution."
+              },
+              "updateCallbackUrl": {
+                "type": "string",
+                "description": "An url to be called back on with updates"
+              },
+              "actionSchemaPlugins": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "dotLocation",
+              "databaseId",
+              "actionSchemaPlugins"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "context",
+        "schema": {
+          "$ref": "#/definitions/ExecuteContext"
+        },
+        "simplifiedSchema": {
+          "fullComment": "",
+          "properties": [
+            {
+              "name": "schema",
+              "required": true,
+              "schema": {
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "dotLocation",
+              "required": true,
+              "schema": {
+                "fullComment": "Data dotlocation",
+                "type": "string"
+              }
+            },
+            {
+              "name": "databaseId",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "value",
+              "required": false,
+              "schema": {
+                "fullComment": "Set a new value into the db (Optional, if given)",
+                "properties": [],
+                "type": "object"
+              }
+            },
+            {
+              "name": "skipPlugin",
+              "required": false,
+              "schema": {
+                "fullComment": "If true, skips executing the plugin",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "returnDotLocation",
+              "required": false,
+              "schema": {
+                "fullComment": "If given, must be a dotlocation of the entire schema of the data you want to get back after this one execution.",
+                "type": "string"
+              }
+            },
+            {
+              "name": "updateCallbackUrl",
+              "required": false,
+              "schema": {
+                "fullComment": "An url to be called back on with updates",
+                "type": "string"
+              }
+            },
+            {
+              "name": "actionSchemaPlugins",
+              "required": true,
+              "schema": {
+                "items": [
+                  {
+                    "schema": {
+                      "properties": [],
+                      "type": "object"
+                    },
+                    "name": null
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "object"
+        },
+        "required": true
+      }
+    ]
   },
   {
     "modelName": "SwcFunction",
@@ -4360,7 +5140,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4438,7 +5218,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4491,7 +5271,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4515,7 +5295,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4539,7 +5319,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4563,7 +5343,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4616,7 +5396,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4669,7 +5449,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4722,7 +5502,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4792,7 +5572,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcVariable",
@@ -4806,7 +5586,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcVariable",
@@ -4820,7 +5600,7 @@
     "isExported": false,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcFunction",
@@ -4834,7 +5614,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4858,7 +5638,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {
@@ -4882,7 +5662,7 @@
     "isExported": true,
     "packageCategory": "actionschema",
     "packageName": "actionschema",
-    "operationClassification": "cjs",
+    "operationClassification": "esm",
     "returnType": {},
     "otherDefs": {},
     "namedParameters": {

@@ -1,4 +1,4 @@
-import { getOpenapiDetails } from "./getOpenapiDetails";
+import { getOpenapiDetails } from "./getOpenapiDetails.js";
 import { notEmpty } from "js-util";
 export const fetchPluginOrDefault = async (context) => {
     const { schema, fetchPlugin, actionSchemaPlugins, getStatus } = context;

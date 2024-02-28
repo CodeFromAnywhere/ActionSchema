@@ -1,1 +1,1 @@
-{"version":3,"file":"fetchPluginOrDefault.d.ts","sourceRoot":"","sources":["../../src/util/fetchPluginOrDefault.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,cAAc,EAAE,MAAM,SAAS,CAAC;AAI5D,eAAO,MAAM,oBAAoB,YACtB,cAAc,GAAG,iBAAiB;;;;;;;;;;EAyD5C,CAAC"}
+{"version":3,"file":"fetchPluginOrDefault.d.ts","sourceRoot":"","sources":["../../src/util/fetchPluginOrDefault.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,cAAc,EAAE,MAAM,YAAY,CAAC;AAI/D,eAAO,MAAM,oBAAoB,YACtB,cAAc,GAAG,iBAAiB;;;;;;;;;;EAyD5C,CAAC"}

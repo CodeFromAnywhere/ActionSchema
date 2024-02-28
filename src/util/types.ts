@@ -1,5 +1,5 @@
-import { ActionSchemaPlugin } from "../types/action-schema-plugin.schema";
-import { ActionSchema } from "../types/action-schema.schema";
+import { ActionSchemaPlugin } from "../types/action-schema-plugin.schema.js";
+import { ActionSchema } from "../types/action-schema.schema.js";
 
 /** Should be inferred from x-plugin */
 export type ValueOptions = {

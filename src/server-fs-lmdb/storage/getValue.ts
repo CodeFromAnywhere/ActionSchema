@@ -1,4 +1,4 @@
-import { getDb } from "./getDb";
+import { getDb } from "./getDb.js";
 
 /** Simple kv way of storing JSON efficiently */
 export const getValue = (

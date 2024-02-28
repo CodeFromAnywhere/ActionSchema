@@ -14,7 +14,7 @@
     "raw": "import { cleanFetch } from \"../util/cleanFetch.js\";",
     "name": "cleanFetch",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -31,7 +31,7 @@
     "raw": "import { execute } from \"../util/execute.js\";",
     "name": "execute",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -48,7 +48,7 @@
     "raw": "import { ExecuteContext } from \"../util/types.js\";",
     "name": "ExecuteContext",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -65,7 +65,7 @@
     "raw": "import {\n  indexedDbBuildObject,\n  indexedDbGetStoreItem,\n  indexedDbPutData,\n  initDb,\n} from \"./indexedDb.js\";",
     "name": "indexedDbBuildObject",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -82,7 +82,7 @@
     "raw": "import {\n  indexedDbBuildObject,\n  indexedDbGetStoreItem,\n  indexedDbPutData,\n  initDb,\n} from \"./indexedDb.js\";",
     "name": "indexedDbGetStoreItem",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -99,7 +99,7 @@
     "raw": "import {\n  indexedDbBuildObject,\n  indexedDbGetStoreItem,\n  indexedDbPutData,\n  initDb,\n} from \"./indexedDb.js\";",
     "name": "indexedDbPutData",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -116,7 +116,7 @@
     "raw": "import {\n  indexedDbBuildObject,\n  indexedDbGetStoreItem,\n  indexedDbPutData,\n  initDb,\n} from \"./indexedDb.js\";",
     "name": "initDb",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -133,7 +133,7 @@
     "raw": "import { openDB } from \"idb\";",
     "name": "openDB",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -150,7 +150,7 @@
     "raw": "import { flatten, set, get } from \"../util/dot-wild.js\";",
     "name": "flatten",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -167,7 +167,7 @@
     "raw": "import { flatten, set, get } from \"../util/dot-wild.js\";",
     "name": "set",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -184,7 +184,7 @@
     "raw": "import { flatten, set, get } from \"../util/dot-wild.js\";",
     "name": "get",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -201,7 +201,7 @@
     "raw": "import { O } from \"js-util\";",
     "name": "O",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -218,7 +218,7 @@
     "raw": "import { getDotLocation } from \"../util/getDotLocation.js\";",
     "name": "getDotLocation",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -235,7 +235,7 @@
     "raw": "import { NextApiHandler } from \"next\";",
     "name": "NextApiHandler",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -252,7 +252,7 @@
     "raw": "import { tokenize, buildPath } from \"./dot-wild.js\";",
     "name": "tokenize",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -269,7 +269,7 @@
     "raw": "import { tokenize, buildPath } from \"./dot-wild.js\";",
     "name": "buildPath",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -287,7 +287,7 @@
     "name": "jsYaml",
     "isOptional": false,
     "isDefaultImport": true,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -304,7 +304,7 @@
     "raw": "import { EnvironmentConfig, ExecuteContext } from \"./types\";",
     "name": "EnvironmentConfig",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -321,7 +321,7 @@
     "raw": "import { EnvironmentConfig, ExecuteContext } from \"./types\";",
     "name": "ExecuteContext",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -338,7 +338,7 @@
     "raw": "import { getOpenapiDetails } from \"./getOpenapiDetails\";",
     "name": "getOpenapiDetails",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -355,7 +355,7 @@
     "raw": "import { notEmpty } from \"js-util\";",
     "name": "notEmpty",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -372,7 +372,7 @@
     "raw": "import { get } from \"./dot-wild.js\";",
     "name": "get",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -389,7 +389,7 @@
     "raw": "import { ExecuteContext, ExecuteResult } from \"./types.js\";",
     "name": "ExecuteContext",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -406,7 +406,7 @@
     "raw": "import { ExecuteContext, ExecuteResult } from \"./types.js\";",
     "name": "ExecuteResult",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -423,7 +423,7 @@
     "raw": "import { ActionSchemaPlugin } from \"../types/action-schema-plugin.schema\";",
     "name": "ActionSchemaPlugin",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -440,7 +440,7 @@
     "raw": "import { ActionSchema } from \"../types/action-schema.schema\";",
     "name": "ActionSchema",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -457,7 +457,7 @@
     "raw": "import { mergeObjectsArray } from \"js-util\";",
     "name": "mergeObjectsArray",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -474,7 +474,7 @@
     "raw": "import { OpenAPIDocument } from \"../types/openapi.schema.js\";",
     "name": "OpenAPIDocument",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -491,7 +491,7 @@
     "raw": "import { fetchWithTimeout } from \"./fetchWithTimeout.js\";",
     "name": "fetchWithTimeout",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -508,7 +508,7 @@
     "raw": "import { ActionSchema } from \"../types/action-schema.schema.js\";",
     "name": "ActionSchema",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -525,7 +525,7 @@
     "raw": "import { getSchemaAtDotLocation } from \"../util/getSchemaAtDotLocation.js\";",
     "name": "getSchemaAtDotLocation",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -542,7 +542,7 @@
     "raw": "import { getDotLocationBase } from \"../util/getDotlocationBase.js\";",
     "name": "getDotLocationBase",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -559,7 +559,7 @@
     "raw": "import { fetchPluginOrDefault } from \"./fetchPluginOrDefault.js\";",
     "name": "fetchPluginOrDefault",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -576,7 +576,7 @@
     "raw": "import { makeArray, onlyUnique2 } from \"js-util\";",
     "name": "makeArray",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -593,7 +593,7 @@
     "raw": "import { makeArray, onlyUnique2 } from \"js-util\";",
     "name": "onlyUnique2",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -610,7 +610,7 @@
     "raw": "import { EnvironmentConfig, ExecuteContext, ExecuteResult } from \"./types.js\";",
     "name": "EnvironmentConfig",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -627,7 +627,7 @@
     "raw": "import { EnvironmentConfig, ExecuteContext, ExecuteResult } from \"./types.js\";",
     "name": "ExecuteContext",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -644,7 +644,7 @@
     "raw": "import { EnvironmentConfig, ExecuteContext, ExecuteResult } from \"./types.js\";",
     "name": "ExecuteResult",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -661,7 +661,7 @@
     "raw": "import { getDotLocation } from \"../util/getDotLocation.js\";",
     "name": "getDotLocation",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -678,7 +678,7 @@
     "raw": "import { ActionSchemaPlugin } from \"../types/action-schema-plugin.schema.js\";",
     "name": "ActionSchemaPlugin",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -695,7 +695,7 @@
     "raw": "import { OpenAPIDetails } from \"../types/action-schema.schema.js\";",
     "name": "OpenAPIDetails",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -712,7 +712,7 @@
     "raw": "import { fetchOpenapi } from \"./fetchOpenapi.js\";",
     "name": "fetchOpenapi",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -729,7 +729,7 @@
     "raw": "import { tryParseJson } from \"./tryParseJson.js\";",
     "name": "tryParseJson",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -746,7 +746,7 @@
     "raw": "import { tryParseYamlToJson } from \"./tryParseYamlToJson.js\";",
     "name": "tryParseYamlToJson",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -763,7 +763,7 @@
     "raw": "import { ActionSchema } from \"../types/action-schema.schema.js\";",
     "name": "ActionSchema",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -780,7 +780,7 @@
     "raw": "import { buildPath, tokenize } from \"./dot-wild.js\";",
     "name": "buildPath",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -797,7 +797,7 @@
     "raw": "import { buildPath, tokenize } from \"./dot-wild.js\";",
     "name": "tokenize",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -814,7 +814,7 @@
     "raw": "import { execute } from \"../util/execute.js\";",
     "name": "execute",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -831,7 +831,7 @@
     "raw": "import { getStoreData, putData } from \"./vercelKvStore.js\";",
     "name": "getStoreData",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -848,7 +848,7 @@
     "raw": "import { getStoreData, putData } from \"./vercelKvStore.js\";",
     "name": "putData",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -865,7 +865,7 @@
     "raw": "import { fetchExecute } from \"../util/fetchExecute.js\";",
     "name": "fetchExecute",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -882,7 +882,7 @@
     "raw": "import { cleanFetch } from \"../util/cleanFetch.js\";",
     "name": "cleanFetch",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -899,7 +899,7 @@
     "raw": "import { ExecuteContext, ExecuteResult } from \"../util/types.js\";",
     "name": "ExecuteContext",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -916,7 +916,7 @@
     "raw": "import { ExecuteContext, ExecuteResult } from \"../util/types.js\";",
     "name": "ExecuteResult",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -933,7 +933,7 @@
     "raw": "import { NextApiHandler } from \"next\";",
     "name": "NextApiHandler",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -950,7 +950,7 @@
     "raw": "import { executeServerless } from \"./executeServerless.js\";",
     "name": "executeServerless",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -967,7 +967,7 @@
     "raw": "import { getOpenapiDetails } from \"../util/getOpenapiDetails.js\";",
     "name": "getOpenapiDetails",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -984,7 +984,7 @@
     "raw": "import { setValue } from \"./setValue.js\";",
     "name": "setValue",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1001,7 +1001,7 @@
     "raw": "import { WorkerContext } from \"../types/worker-context.schema.js\";",
     "name": "WorkerContext",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1018,7 +1018,7 @@
     "raw": "import { getSchemaAtDotLocation } from \"../util/getSchemaAtDotLocation.js\";",
     "name": "getSchemaAtDotLocation",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1035,7 +1035,7 @@
     "raw": "import { cleanFetch } from \"../util/cleanFetch.js\";",
     "name": "cleanFetch",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1052,7 +1052,7 @@
     "raw": "import { setPropertyStatusDone } from \"./setPropertyStatusDone.js\";",
     "name": "setPropertyStatusDone",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1069,7 +1069,7 @@
     "raw": "import { getDb } from \"./storage/getDb.js\";",
     "name": "getDb",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1086,7 +1086,7 @@
     "raw": "import { ActionSchema } from \"../types/action-schema.schema.js\";",
     "name": "ActionSchema",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1103,7 +1103,7 @@
     "raw": "import { flatten } from \"../util/dot-wild.js\";",
     "name": "flatten",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1120,7 +1120,7 @@
     "raw": "import { ValueOptions } from \"../util/types.js\";",
     "name": "ValueOptions",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1137,7 +1137,7 @@
     "raw": "import { open } from \"lmdb\";",
     "name": "open",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1155,7 +1155,7 @@
     "name": "fs",
     "isOptional": false,
     "isDefaultImport": true,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1173,7 +1173,7 @@
     "name": "path",
     "isOptional": false,
     "isDefaultImport": true,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1190,7 +1190,7 @@
     "raw": "import { ActionSchema } from \"../../types/action-schema.schema.js\";",
     "name": "ActionSchema",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1207,7 +1207,7 @@
     "raw": "import { open } from \"lmdb\";",
     "name": "open",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1224,7 +1224,7 @@
     "raw": "import { getDb } from \"./getDb\";",
     "name": "getDb",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1241,7 +1241,7 @@
     "raw": "import { executeGridPlugin } from \"./executeGridPlugin.js\";",
     "name": "executeGridPlugin",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1259,7 +1259,7 @@
     "name": "Piscina",
     "isOptional": false,
     "isDefaultImport": true,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1276,7 +1276,7 @@
     "raw": "import { getStatusDb } from \"./storage/getStatusDb.js\";",
     "name": "getStatusDb",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1293,7 +1293,7 @@
     "raw": "import { ActionSchema } from \"../types/action-schema.schema.js\";",
     "name": "ActionSchema",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1310,7 +1310,7 @@
     "raw": "import { WorkerContext } from \"../types/worker-context.schema.js\";",
     "name": "WorkerContext",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1327,7 +1327,7 @@
     "raw": "import { ActionSchema } from \"../types/action-schema.schema.js\";",
     "name": "ActionSchema",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1344,7 +1344,7 @@
     "raw": "import { getDotLocationBase } from \"../util/getDotlocationBase.js\";",
     "name": "getDotLocationBase",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1361,7 +1361,7 @@
     "raw": "import { getSchemaAtDotLocation } from \"../util/getSchemaAtDotLocation.js\";",
     "name": "getSchemaAtDotLocation",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1378,7 +1378,7 @@
     "raw": "import { getStatusDb } from \"./storage/getStatusDb.js\";",
     "name": "getStatusDb",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1395,7 +1395,7 @@
     "raw": "import { executeGridPlugin } from \"./executeGridPlugin.js\";",
     "name": "executeGridPlugin",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1412,7 +1412,7 @@
     "raw": "import { getStatusDb } from \"./storage/getStatusDb.js\";",
     "name": "getStatusDb",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   },
   {
     "modelName": "SwcImport",
@@ -1429,6 +1429,6 @@
     "raw": "import { getActionSchema } from \"./storage/getActionSchema.js\";",
     "name": "getActionSchema",
     "isOptional": false,
-    "operationClassification": "cjs"
+    "operationClassification": "esm"
   }
 ]

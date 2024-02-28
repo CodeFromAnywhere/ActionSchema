@@ -1,14 +1,6 @@
 [
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/browser-indexed-db/executeBrowser.ts",
-    "name": "NamedParameters<typeof executeBrowser>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/browser-indexed-db/executeBrowser.ts",
-    "operationRelativePath": "src/browser-indexed-db/executeBrowser.ts",
-    "error": "Error: Could not translate intersection to union."
-  },
-  {
-    "modelName": "SchemaItem",
     "projectRelativePath": "packages/actionschema/actionschema/src/browser-indexed-db/indexedDb.ts",
     "name": "NamedParameters<typeof indexedDbPutData>",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/browser-indexed-db/indexedDb.ts",
@@ -25,27 +17,11 @@
   },
   {
     "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/util/fetchPluginOrDefault.ts",
-    "name": "NamedParameters<typeof fetchPluginOrDefault>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/fetchPluginOrDefault.ts",
-    "operationRelativePath": "src/util/fetchPluginOrDefault.ts",
-    "error": "Error: Reference type not set yet"
-  },
-  {
-    "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/util/types.ts",
-    "name": "ExecuteContext",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/types.ts",
-    "operationRelativePath": "src/util/types.ts",
-    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/ExecuteContext\". This is a bug."
-  },
-  {
-    "modelName": "SchemaItem",
     "projectRelativePath": "packages/actionschema/actionschema/src/util/execute.ts",
     "name": "NamedParameters<typeof getNewObjectExposedDotLocations>",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/execute.ts",
     "operationRelativePath": "src/util/execute.ts",
-    "error": "Error: Reference type not set yet"
+    "error": "Error: Could not translate intersection to union."
   },
   {
     "modelName": "SchemaItem",
@@ -53,7 +29,7 @@
     "name": "NamedParameters<typeof getNewArrayExposedDotLocations>",
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/execute.ts",
     "operationRelativePath": "src/util/execute.ts",
-    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/interface-1366410753-558-3934-1366410753-0-8112\". This is a bug."
+    "error": "Error: Reference type not set yet"
   },
   {
     "modelName": "SchemaItem",
@@ -62,14 +38,6 @@
     "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/util/getSchemaAtDotLocation.ts",
     "operationRelativePath": "src/util/getSchemaAtDotLocation.ts",
     "error": "Error: Encountered a reference to a missing definition: \"#/definitions/interface-1366410753-558-3934-1366410753-0-8112\". This is a bug."
-  },
-  {
-    "modelName": "SchemaItem",
-    "projectRelativePath": "packages/actionschema/actionschema/src/serverless-vercel-kv/executeServerless.ts",
-    "name": "NamedParameters<typeof executeServerless>",
-    "absolutePath": "/Users/king/os/packages/actionschema/actionschema/src/serverless-vercel-kv/executeServerless.ts",
-    "operationRelativePath": "src/serverless-vercel-kv/executeServerless.ts",
-    "error": "Error: Encountered a reference to a missing definition: \"#/definitions/ExecuteContext\". This is a bug."
   },
   {
     "modelName": "SchemaItem",
