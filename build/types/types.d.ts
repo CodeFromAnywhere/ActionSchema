@@ -40,7 +40,21 @@ export type EnvironmentConfig = {
     setStatus: (key: string, value: string | null) => Promise<void>;
     /** Get a status */
     getStatus: (key: string) => Promise<string | undefined>;
+    /**
+     * Sets data for a key to a value.
+     *
+     * This function is responsible for putting it into the right place of the datastore.
+     *
+     * A common strategy, for example, could be to flatten objects first to all its components, and then store all these datapoints separately.
+     *
+     * Also, if value is "null", this function is responsible for deleting that key/value item, but also all key/values that are in that range if it's not a leaf.
+     */
     setData: (key: string, value: any) => Promise<SetDataResult>;
+    /**
+     * Gets data from a key
+     *
+     * NB: this function is responsible to get all underlying keys as well and put it together.
+     */
     getData: (key: string) => Promise<any>;
     /** Can be different in environments */
     fetchPlugin: (details: {
@@ -48,6 +62,16 @@ export type EnvironmentConfig = {
         method: string;
         headers: any;
     }, completeContext: any) => Promise<any>;
+};
+export type UpstashStorageDetails = {
+    /** For server-based storage, will use this, or create a new database if not given */
+    redisRestUrl?: string;
+    /** For server-based storage, will use this, or create a new database if not given */
+    redisRestToken?: string;
+    /** Can be set up for remote storage */
+    upstashApiKey?: string;
+    /** Can be set up for remote storage */
+    upstashEmail?: string;
 };
 export type ExecuteContext = {
     schema: ActionSchema;

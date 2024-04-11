@@ -1,24 +1,24 @@
 import { execute } from "../util/execute.js";
 import { fetchExecute } from "../util/fetchExecute.js";
 import { cleanFetch } from "../util/cleanFetch.js";
-import { ExecuteContext, ExecuteResult } from "../types/types.js";
+import {
+  ExecuteContext,
+  ExecuteResult,
+  UpstashStorageDetails,
+} from "../types/types.js";
 import {
   createUpstashRedisDatabase,
+  upstashRedisGetRange,
   upstashRedisRequest,
+  upstashRedisSetRequest,
 } from "./upstashRedis.js";
 
 /**
 Serverless wrapper around `execute`
-
-
-TODO:
-
-- Add layer of authentication with the storage engine here as the sole authentication
-- Use it in the `execute` api
-
 */
 export const executeServerless = async (
-  context: ExecuteContext,
+  context: ExecuteContext & UpstashStorageDetails,
+  originUrl: string,
 ): Promise<
   ExecuteResult & {
     /** Returned if the db was just created */
@@ -35,6 +35,8 @@ export const executeServerless = async (
     skipPlugin,
     updateCallbackUrl,
     value,
+    upstashApiKey,
+    upstashEmail,
   } = context;
 
   let { redisRestToken, redisRestUrl } = context;
@@ -42,9 +44,8 @@ export const executeServerless = async (
   let isDbCreated = false;
   if (!redisRestToken || !redisRestUrl) {
     // initiate a db with upstash!
-    const upstashApiKey = process.env.UPSTASH_API_KEY;
-    const upstashEmail = process.env.UPSTASH_EMAIL;
     if (!upstashApiKey || !upstashEmail) {
+      console.log({ upstashApiKey, upstashEmail });
       return {
         isSuccessful: false,
         message: "No upstash credentials and no database given",
@@ -63,6 +64,8 @@ export const executeServerless = async (
     redisRestToken = createResult.result.rest_token;
     redisRestUrl = createResult.result.endpoint;
 
+    // console.log(createResult.result);
+
     if (!redisRestToken || !redisRestUrl) {
       return {
         isSuccessful: false,
@@ -70,12 +73,31 @@ export const executeServerless = async (
       };
     }
     isDbCreated = true;
+
+    console.log("Wait 30s so DNS can resolve");
+    await new Promise<void>((resolve) => setTimeout(() => resolve(), 30000));
   }
 
   const redisInfo = {
     redisRestToken: redisRestToken!,
     redisRestUrl: redisRestUrl!,
   };
+
+  console.log("CREATED", redisInfo);
+
+  // console.log(`Testing connection`);
+
+  // const res = await fetch(`https://${redisRestUrl}/echo/hihihi`, {
+  //   cache: "no-cache",
+  //   verbose: true,
+  //   headers: { Authorization: `Bearer ${redisRestToken}` },
+  // })
+  //   .then((res) => res.json())
+  //   .catch((e) => {
+  //     console.log("ERROR", e);
+  //   });
+
+  // console.log({ res });
 
   const executeResult = await execute({
     actionSchemaPlugins,
@@ -87,18 +109,19 @@ export const executeServerless = async (
     updateCallbackUrl,
     value,
 
-    setData: async (key, value) => {
+    setData: async (baseKey, value) => {
       if (value === null) {
+        // todo: should delete all keys in range of baseKey
         return upstashRedisRequest({
           ...redisInfo,
-          args: [key],
+          args: [baseKey],
           command: "del",
         });
       }
-      return upstashRedisRequest({
+      return upstashRedisSetRequest({
         ...redisInfo,
-        args: [key, value],
-        command: "set",
+        key: baseKey,
+        value,
       });
     },
 
@@ -110,20 +133,19 @@ export const executeServerless = async (
           command: "del",
         });
       }
-      return upstashRedisRequest({
+      return upstashRedisSetRequest({
         ...redisInfo,
-        args: [`__status__:${key}`, value],
-        command: "set",
+        key: `__status__:${key}`,
+        value,
       });
     },
 
     fetchPlugin: cleanFetch,
 
     getData: async (key) => {
-      return upstashRedisRequest({
+      return upstashRedisGetRange({
         ...redisInfo,
-        args: [key],
-        command: "get",
+        baseKey: key,
       });
     },
 
@@ -136,14 +158,24 @@ export const executeServerless = async (
     },
 
     recurseFunction: (context) => {
-      const host = `http://localhost:3000`;
-      return fetchExecute({
-        ...context,
-        executeApiPath: `${host}/api/execute`,
-        executeApiHeaders: {},
-      });
+      // NB: add the redis info for this particular recursive operation
+      const upstashStorageDetails = {
+        redisRestToken,
+        redisRestUrl,
+        upstashApiKey,
+        upstashEmail,
+      };
+      return fetchExecute(
+        { ...context, ...upstashStorageDetails },
+        originUrl,
+        // host not needed as it's the same
+        // and no headers on serverless for now
+        undefined,
+        undefined,
+      );
     },
   });
 
+  // return { isSuccessful: false, message: "Not enabled", result: redisInfo };
   return isDbCreated ? { ...executeResult, ...redisInfo } : executeResult;
 };

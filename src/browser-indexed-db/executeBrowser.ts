@@ -32,6 +32,11 @@ export const executeBrowser = async (
   const initDbSuccess = await initDb(databaseId);
   const initStatusDbSuccess = await initDb(`status-${databaseId}`);
 
+  const getData = async (key: string) => {
+    const json = await indexedDbBuildObject(databaseId, key);
+    return json;
+  };
+
   return execute({
     actionSchemaPlugins,
     databaseId,
@@ -41,6 +46,7 @@ export const executeBrowser = async (
     skipPlugin,
     updateCallbackUrl,
     value,
+
     recurseFunction: (item) => {
       return executeBrowser(item);
     },
@@ -49,11 +55,9 @@ export const executeBrowser = async (
       const putDataResult = await indexedDbPutData(databaseId, key, value);
 
       // Super inefficient magic! After put, also set entire JSON to the local storage
-      const json = await indexedDbBuildObject(databaseId);
-      window.localStorage.setItem(
-        databaseId,
-        JSON.stringify(json, undefined, 2),
-      );
+      const json = await getData(key);
+      const jsonString = JSON.stringify(json, undefined, 2);
+      window.localStorage.setItem(databaseId, jsonString);
 
       return putDataResult;
     },
@@ -63,25 +67,9 @@ export const executeBrowser = async (
       return;
     },
 
-    fetchPlugin: async (details, completeContext) => {
-      // localhost for now
-      const host = `http://localhost:42000`;
+    fetchPlugin: cleanFetch,
 
-      // const url = new URL(details.apiUrl);
-      // const domainAndPath = url.host + url.pathname + url.search + url.hash;
-      return cleanFetch(
-        {
-          ...details,
-          //   apiUrl: `${host}/api/${domainAndPath}`,
-        },
-        completeContext,
-      );
-    },
-
-    getData: async (key) => {
-      const data = await indexedDbGetStoreItem(databaseId, key);
-      return data;
-    },
+    getData,
 
     getStatus: async (key) => {
       const data = await indexedDbGetStoreItem(`status-${databaseId}`, key);

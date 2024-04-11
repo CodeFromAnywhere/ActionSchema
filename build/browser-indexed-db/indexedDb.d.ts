@@ -4,7 +4,7 @@ export declare const indexedDbPutData: <T>(databaseId: string, key: string, valu
     message: string;
     result?: T | undefined;
 }>;
-/** Gets all store data */
+/** Gets all store data and builds a JSON object from it */
 export declare const indexedDbBuildObject: (databaseId: string, dotLocationBase?: string) => Promise<any>;
 /** Gets all store data */
 export declare const indexedDbGetItems: (databaseId: string) => Promise<any[]>;

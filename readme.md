@@ -49,7 +49,7 @@ executeServer(context);
 
 # Roadmap
 
-⚠️ Rewrite in progress ⚠️
+⚠️ Rewrite in progress ⚠️. See [choices](choices.md) for more info on the choices made during this rewrite so far.
 
 **Goals of the rewrite**:
 

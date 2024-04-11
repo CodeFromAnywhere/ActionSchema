@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
   "type": "object",
   "$comment": "This is all info that's stored in the local storage of ActionSchema-Web",
   "$id": "Local Storage State",
@@ -14,36 +15,51 @@
         }
       }
     },
-
     "openApis": {
       "title": "Open APIs",
       "description": "Here you can fill in the OpenAPIs you want to use. By default, OpenAPIs in your schema files will also be indexed.",
       "type": "array",
-      "items": { "$ref": "#/definitions/OpenAPIReference" }
+      "items": {
+        "$ref": "#/definitions/OpenAPIReference"
+      }
     },
-
     "actionSchemaServer": {
       "title": "ActionSchema Server",
       "type": "object",
       "properties": {
-        "useActionSchemaOpenApi": {
-          "title": "Use ActionSchema Server",
-          "description": "By default, the browser is used for storing and executing your ActionSchemas. If you use a hosted ActionSchema management solution, set the OpenAPI here.",
-          "type": "boolean"
+        "actionSchemaServerLocation": {
+          "type": "string",
+          "enum": ["browser", "same-site", "custom"],
+          "default": "browser",
+          "description": "- 'browser' means calculations will happen locally in the browser.\n- 'same-site' means calculations will happen where ever this frontend is hosted, assuming there is an API available there.\n- 'custom' allows you to specify a custom host openapi address at which the endpoints should be defined."
+        },
+
+        "upstashApiKey": {
+          "type": "string",
+          "title": "Upstash API Key",
+          "description": "Needed for 'same-site' or 'custom' so your results can be stored."
+        },
+        "upstashEmail": {
+          "type": "string",
+          "title": "Upstash Email"
         },
 
         "actionSchemaOpenApiPath": {
           "type": "string",
           "title": "ActionSchema Server OpenAPI Path",
-          "description": "Ensure this OpenAPI implements the ActionSchema Server specification. Of course, you can simply use our ActionSchema Server if you want to run things locally or on-premise. However, if you want even more control, you can make your own ActionSchema Server (in any language). The only thing you need to do, is expose the openapi file similar to the one found at https://actionschema.com/openapi.json (Coming soon)"
+          "description": "Needed for 'custom'. Ensure this OpenAPI implements https://demo.actionschema.com/openapi.json"
         },
 
         "actionSchemaOpenApiHeaders": {
           "type": "object",
           "title": "",
           "description": "Headers:",
-          "default": { "Authorization": "Bearer xxx" },
-          "additionalProperties": { "type": "string" }
+          "default": {
+            "Authorization": "Bearer xxx"
+          },
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       }
     }
@@ -58,15 +74,17 @@
           "type": "string",
           "description": "The entire OpenAPI URL should be here"
         },
-
         "headers": {
           "type": "object",
           "title": "",
           "description": "Headers",
-          "default": { "Authorization": "Bearer xxx" },
-          "additionalProperties": { "type": "string" }
+          "default": {
+            "Authorization": "Bearer xxx"
+          },
+          "additionalProperties": {
+            "type": "string"
+          }
         },
-
         "localhostOpenapiUrl": {
           "type": "string",
           "title": "Localhost OpenAPI URL",

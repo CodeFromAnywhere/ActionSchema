@@ -1,11 +1,11 @@
-import { openDB } from "idb";
+import { openDB, deleteDB } from "idb";
 import { flatten, set, get } from "../util/dot-wild.js";
 import { O } from "js-util";
 import { getDotLocation } from "../util/getDotLocation.js";
 /** DB name is always the same. 1 DB */
 let version = 1;
 let request: IDBOpenDBRequest;
-let db: IDBDatabase;
+// let db: IDBDatabase;
 
 const getDotLocationRange = (key: string | undefined) =>
   !key || key === ""
@@ -13,13 +13,25 @@ const getDotLocationRange = (key: string | undefined) =>
     : IDBKeyRange.bound(`${key}.`, `${key}.~~~~~~~~`);
 
 export const initDb = async (databaseId: string): Promise<boolean> => {
-  const db = await openDB(databaseId, version);
-  if (!db.objectStoreNames.contains(databaseId)) {
-    console.log("Creating store", databaseId);
-    db.createObjectStore(databaseId, {
-      // keyPath: "id"
-    });
-  }
+  const db = await openDB(databaseId, version, {
+    blocked: (db) => {
+      console.log("blocked!");
+    },
+    terminated: () => {
+      console.log("TERMINEATED");
+    },
+
+    upgrade: (db) => {
+      console.log("Upgrade event", databaseId);
+      if (!db.objectStoreNames.contains(databaseId)) {
+        console.log("Creating store", databaseId);
+        const objectStore = db.createObjectStore(databaseId, {
+          // keyPath: "id"
+        });
+      }
+    },
+  });
+  console.log("DB Opened");
 
   return true;
 };
@@ -30,6 +42,15 @@ export const indexedDbPutData = async <T>(
   value: T,
 ): Promise<{ isSuccessful: boolean; message: string; result?: T }> => {
   const db = await openDB(databaseId, version);
+
+  if (!db.objectStoreNames.contains(databaseId)) {
+    // little hack
+    console.log("NO Object store. To fix this, db is now deleted", databaseId);
+
+    deleteDB(databaseId);
+    return { isSuccessful: false, message: "Db corrupt, was deleted" };
+  }
+
   const tx = db.transaction(databaseId, "readwrite");
   const store = tx.objectStore(databaseId);
 
@@ -57,7 +78,7 @@ export const indexedDbPutData = async <T>(
 
     // console.log({ keys });
     await Promise.all(
-      flatKeys.map((k) => {
+      keys.map((k) => {
         const v = getDotLocation(value, k);
         const fullKey = key === "" ? k : `${key}.${k}`;
         return store.put(v, fullKey);
@@ -73,7 +94,7 @@ export const indexedDbPutData = async <T>(
   return { isSuccessful: true, message: "Put data done", result: value };
 };
 
-/** Gets all store data */
+/** Gets all store data and builds a JSON object from it */
 export const indexedDbBuildObject = async (
   /** E.g. the full JSON object */
   databaseId: string,

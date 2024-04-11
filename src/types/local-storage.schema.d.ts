@@ -20,9 +20,14 @@ export type LocalhostOpenAPIURL = string;
 /**
  * Here you can fill in the OpenAPIs you want to use. By default, OpenAPIs in your schema files will also be indexed.
  */
-export type OpenAPIs = OpenAPIReference[];
+export type OpenAPIs = OpenAPI[];
 /**
- * Ensure this OpenAPI implements the ActionSchema Server specification. Of course, you can simply use our ActionSchema Server if you want to run things locally or on-premise. However, if you want even more control, you can make your own ActionSchema Server (in any language). The only thing you need to do, is expose the openapi file similar to the one found at https://actionschema.com/openapi.json (Coming soon)
+ * Needed for 'same-site' or 'custom' so your results can be stored.
+ */
+export type UpstashAPIKey = string;
+export type UpstashEmail = string;
+/**
+ * Needed for 'custom'. Ensure this OpenAPI implements https://demo.actionschema.com/openapi.json
  */
 export type ActionSchemaServerOpenAPIPath = string;
 
@@ -36,7 +41,7 @@ export interface Configuration {
   isUsageCollected?: AnonymousUsageInfoCollection;
   [k: string]: any;
 }
-export interface OpenAPIReference {
+export interface OpenAPI {
   __id?: OpenAPIURL;
   /**
    * Headers
@@ -47,11 +52,15 @@ export interface OpenAPIReference {
   localhostOpenapiUrl?: LocalhostOpenAPIURL;
   [k: string]: any;
 }
-/**
- * By default, the browser is used for storing and executing your ActionSchemas. If you use a hosted ActionSchema management solution, set the OpenAPI here.
- */
 export interface ActionSchemaServer {
-  useActionSchemaOpenApi?: boolean;
+  /**
+   * - 'browser' means calculations will happen locally in the browser.
+   * - 'same-site' means calculations will happen where ever this frontend is hosted, assuming there is an API available there.
+   * - 'custom' allows you to specify a custom host openapi address at which the endpoints should be defined.
+   */
+  actionSchemaServerLocation?: "browser" | "same-site" | "custom";
+  upstashApiKey?: UpstashAPIKey;
+  upstashEmail?: UpstashEmail;
   actionSchemaOpenApiPath?: ActionSchemaServerOpenAPIPath;
   /**
    * Headers:
@@ -59,5 +68,4 @@ export interface ActionSchemaServer {
   actionSchemaOpenApiHeaders?: {
     [k: string]: string;
   };
-  [k: string]: any;
 }

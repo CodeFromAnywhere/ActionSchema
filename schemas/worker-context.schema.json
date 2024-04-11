@@ -14,7 +14,7 @@
       "type": "string"
     },
     "schema": {
-      "$ref": "file:///Users/king/os/packages/actionschema/actionschema/schemas/action-schema.schema.json#"
+      "$ref": "file:///Users/king/os/packages/_actionschema/actionschema/schemas/action-schema.schema.json#"
     }
   },
   "required": [

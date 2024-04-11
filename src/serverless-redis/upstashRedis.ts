@@ -1,4 +1,8 @@
-import { generateId } from "js-util";
+import { O, generateId } from "js-util";
+import { tryParseJson } from "../util/tryParseJson.js";
+
+import { Redis } from "@upstash/redis";
+import { set } from "../util/dot-wild.js";
 
 /**
  * Represents the details of a database including its identification, configuration,
@@ -190,7 +194,7 @@ export const createUpstashRedisDatabase = async (context: {
 
   const data = {
     name: generateId(),
-    region: region || "eu-west-1",
+    region: region || "us-central1",
     tls: true,
   };
 
@@ -268,21 +272,142 @@ export const upstashRedisRequest = async (context: {
 }) => {
   const { args, command, redisRestToken, redisRestUrl } = context;
 
-  const { result } = await fetch(
-    `${redisRestUrl}/${command}/${args.join("/")}`,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${redisRestToken}`,
-        "Content-Type": "application/json",
-      },
+  const url = `https://${redisRestUrl}/${command}/${args.join("/")}`;
+
+  console.log({ url, redisRestToken });
+  const result = await fetch(url, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${redisRestToken}`,
+      "Content-Type": "application/json",
     },
-  )
-    .then((response) => response.json() as Promise<{ result: any }>)
+  })
+    .then(async (response) => {
+      console.log(" status", response.status);
+
+      if (response.ok) {
+        const text = await response.text();
+
+        const json = tryParseJson<{ result: any }>(text);
+
+        if (!json) {
+          return { result: text };
+        }
+
+        return json;
+      }
+
+      console.log("NO JSON! status", response.status);
+      return { result: response.statusText };
+    })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error("Upstash Redis Error:", error.message);
       return { result: undefined };
     });
+
+  return result.result;
+};
+
+export const upstashRedisSetRequest = async (context: {
+  redisRestUrl: string;
+  redisRestToken: string;
+  key: string;
+  value: any;
+}) => {
+  const { key, value, redisRestToken, redisRestUrl } = context;
+
+  const redis = new Redis({
+    url: `https://${redisRestUrl}`,
+    token: redisRestToken,
+  });
+
+  console.log(`Set`, { key, value });
+
+  const data = await redis.set(key, value);
+
+  console.log(`Set`, { key, value, data });
+
+  // const url = `https://${redisRestUrl}/set/${key}`;
+
+  // const result = await fetch(url, {
+  //   method: "POST",
+  //   body: JSON.stringify(value),
+  //   headers: {
+  //     Authorization: `Bearer ${redisRestToken}`,
+  //     // "Content-Type": "application/json",
+  //   },
+  // })
+  //   .then(async (response) => {
+  //     console.log(" status", response.status);
+
+  //     if (response.ok) {
+  //       const text = await response.text();
+
+  //       const json = tryParseJson<any>(text);
+
+  //       if (!json) {
+  //         return { result: text };
+  //       }
+
+  //       return json;
+  //     }
+
+  //     console.log("NO JSON! status", response.status);
+  //     return { result: response.statusText };
+  //   })
+  //   .catch((error) => {
+  //     console.error("Upstash Redis Error:", error.message);
+  //     return { error: error.message };
+  //   });
+
+  return data;
+};
+
+/** Gets a range of items from redis by first iterating over the keys (in range or all) and then efficiently getting all values */
+export const upstashRedisGetRange = async (context: {
+  redisRestUrl: string;
+  redisRestToken: string;
+  baseKey: string | undefined;
+}) => {
+  const { baseKey, redisRestToken, redisRestUrl } = context;
+
+  const redis = new Redis({
+    url: `https://${redisRestUrl}`,
+    token: redisRestToken,
+  });
+
+  let cursor = 0;
+  let allKeys: string[] = [];
+
+  while (true) {
+    const [newCursor, newKeys] = await redis.scan(cursor, {
+      match: baseKey ? `${baseKey}.*` : "*",
+    });
+    allKeys = allKeys.concat(newKeys);
+    console.log({ newCursor });
+    if (cursor === newCursor || !newCursor) {
+      break;
+    }
+    cursor = newCursor;
+  }
+
+  const baseValue = {
+    key: baseKey || "",
+    value: (await redis.get(baseKey || "")) as string,
+  };
+
+  const otherValues =
+    allKeys.length > 0
+      ? ((await redis.mget(...allKeys)) as string[]).map((value, index) => ({
+          key: allKeys[index],
+          value,
+        }))
+      : [];
+
+  const result = [baseValue].concat(otherValues).reduce((previous, item) => {
+    const result = set(previous, item.key, item.value);
+    return result;
+  }, {} as O);
 
   return result;
 };

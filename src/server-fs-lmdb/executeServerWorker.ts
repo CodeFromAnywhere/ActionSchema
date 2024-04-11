@@ -45,14 +45,8 @@ const executeServerWorker = async (executeContext: ExecuteContext) => {
     },
 
     recurseFunction: (context) => {
-      const host = `http://localhost:42000`;
-      return fetchExecute({
-        ...context,
-        executeApiPath: `${host}/function/executeServer`,
-        executeApiHeaders: {
-          // tOdo
-        },
-      });
+      //TODO:
+      return fetchExecute(context, "", undefined, undefined);
     },
   });
 };

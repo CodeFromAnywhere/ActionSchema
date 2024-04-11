@@ -1,25 +1,42 @@
-import { openDB } from "idb";
+import { openDB, deleteDB } from "idb";
 import { flatten, set } from "../util/dot-wild.js";
 import { getDotLocation } from "../util/getDotLocation.js";
 /** DB name is always the same. 1 DB */
 let version = 1;
 let request;
-let db;
+// let db: IDBDatabase;
 const getDotLocationRange = (key) => !key || key === ""
     ? undefined
     : IDBKeyRange.bound(`${key}.`, `${key}.~~~~~~~~`);
 export const initDb = async (databaseId) => {
-    const db = await openDB(databaseId, version);
-    if (!db.objectStoreNames.contains(databaseId)) {
-        console.log("Creating store", databaseId);
-        db.createObjectStore(databaseId, {
-        // keyPath: "id"
-        });
-    }
+    const db = await openDB(databaseId, version, {
+        blocked: (db) => {
+            console.log("blocked!");
+        },
+        terminated: () => {
+            console.log("TERMINEATED");
+        },
+        upgrade: (db) => {
+            console.log("Upgrade event", databaseId);
+            if (!db.objectStoreNames.contains(databaseId)) {
+                console.log("Creating store", databaseId);
+                const objectStore = db.createObjectStore(databaseId, {
+                // keyPath: "id"
+                });
+            }
+        },
+    });
+    console.log("DB Opened");
     return true;
 };
 export const indexedDbPutData = async (databaseId, key, value) => {
     const db = await openDB(databaseId, version);
+    if (!db.objectStoreNames.contains(databaseId)) {
+        // little hack
+        console.log("NO Object store. To fix this, db is now deleted", databaseId);
+        deleteDB(databaseId);
+        return { isSuccessful: false, message: "Db corrupt, was deleted" };
+    }
     const tx = db.transaction(databaseId, "readwrite");
     const store = tx.objectStore(databaseId);
     if (value === null) {
@@ -40,7 +57,7 @@ export const indexedDbPutData = async (databaseId, key, value) => {
         const flatKeys = Object.keys(flat);
         const keys = flatKeys.map((k) => (key === "" ? k : `${key}.${k}`));
         // console.log({ keys });
-        await Promise.all(flatKeys.map((k) => {
+        await Promise.all(keys.map((k) => {
             const v = getDotLocation(value, k);
             const fullKey = key === "" ? k : `${key}.${k}`;
             return store.put(v, fullKey);
@@ -53,7 +70,7 @@ export const indexedDbPutData = async (databaseId, key, value) => {
     // console.log("put data done", { value });
     return { isSuccessful: true, message: "Put data done", result: value };
 };
-/** Gets all store data */
+/** Gets all store data and builds a JSON object from it */
 export const indexedDbBuildObject = async (
 /** E.g. the full JSON object */
 databaseId, 
