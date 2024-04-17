@@ -1,7 +1,9 @@
 import { openDB, deleteDB } from "idb";
 import { flatten, set, get } from "../util/dot-wild.js";
-import { O } from "js-util";
+import { O, generateId } from "js-util";
 import { getDotLocation } from "../util/getDotLocation.js";
+import { idbKeys, localStorageKeys } from "../util/state.js";
+import { spreadValue } from "../util/spreadValue.js";
 /** DB name is always the same. 1 DB */
 let version = 1;
 let request: IDBOpenDBRequest;
@@ -69,26 +71,20 @@ export const indexedDbPutData = async <T>(
     );
     //exact match too
     store.delete(key);
-  } else if (typeof value === "object") {
-    // For bigger things we flatten it first!
-    const flat = flatten(value);
-    const flatKeys = Object.keys(flat);
+  } else {
+    const pairs = spreadValue(key, value);
 
-    const keys = flatKeys.map((k) => (key === "" ? k : `${key}.${k}`));
-
-    // console.log({ keys });
     await Promise.all(
-      keys.map((k) => {
-        const v = getDotLocation(value, k);
-        const fullKey = key === "" ? k : `${key}.${k}`;
-        return store.put(v, fullKey);
+      pairs.map((k) => {
+        return store.put(k.key, k.value);
       }),
     );
-  } else {
-    await store.put(value, key);
   }
 
   await tx.done;
+
+  // NB: also set data updated at in the same idb
+  store.put(idbKeys.dataUpdatedAt, Date.now());
 
   // console.log("put data done", { value });
   return { isSuccessful: true, message: "Put data done", result: value };
@@ -100,7 +96,7 @@ export const indexedDbBuildObject = async (
   databaseId: string,
   /** if given, this is required prefix */
   dotLocationBase?: string,
-): Promise<any> => {
+): Promise<O> => {
   const db = await openDB(databaseId);
   const tx = db.transaction(databaseId, "readonly");
   const store = tx.objectStore(databaseId);
@@ -110,18 +106,18 @@ export const indexedDbBuildObject = async (
   // get keys first
   const keys = (await store.getAllKeys(range)) as string[];
 
-  const items = await Promise.all(
+  const array = await Promise.all(
     keys.map(async (key) => {
       return { key, value: await store.get(key) };
     }),
   );
 
-  const result = items.reduce((previous, item) => {
+  const json = array.reduce((previous, item) => {
     const result = set(previous, item.key, item.value);
     return result;
   }, {} as O);
 
-  return result;
+  return { json, array };
 };
 
 /** Gets all store data */

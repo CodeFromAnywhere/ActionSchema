@@ -5,7 +5,13 @@ In this document I'm giving a summary of all choices made when implementing the 
 - In order to use serverless functions this project was made using Next.js.
 - In order to use the VSCode Monaco Editor, raw HTML + JS was used because Next.js doesn't easily support the Monaco Editor.
 
-This doesn't allow for easy code sharing. A more elegent solution would be desirable and would require some extra research. Potentially, we can use raw react (vite) and still allow for serverless apis with the api folder on vercel. Another approach could be to somehow build the HTML/JS from an environment where codesharing is allowed.
+This doesn't allow for easy code sharing. A more elegant solution would be desirable and would require some extra research. Potentially, we can use raw react (vite) and still allow for serverless apis with the api folder on vercel. Another approach could be to somehow build the HTML/JS from an environment where codesharing is allowed.
+
+# State is complex
+
+We use a weird combination of react state, `localStorage`, file system, `idb` and remote `redis` because we want to do as much as possible with the browser and we have multiple environments and configurations.
+
+The different keynames and places of storing data are documented in `state.ts`
 
 # Showing results from localStorage
 
@@ -13,7 +19,13 @@ The results are now shown by copying the result from the database onto localStor
 
 **BIG Limitation**: we're now limited to the max size of what can be stored into localStorage which is [10mb](https://www.google.com/search?q=localstorage+size+limit)
 
-An alternative could be to somehow listen to IDB or check for changes every 100ms or so.
+It would be nice if IDB had an observer to see if something changes, but unfortunately, it doesn't (see the proposal https://github.com/WICG/indexed-db-observers/issues which got stalled).
+
+Alternatives to this:
+
+- See https://github.com/localForage/localForage-observable
+- ~~whenever setting a value in the data IDB, also set a random salt in localStorage, which, in turn, can be observed.~~ This can't be done since it can't be done from the serverless or serverside, only in the browser.
+- check for changes every 100ms or so.
 
 Another alternative would be to store the final JSON in a file. There's a proposed `FileSystemObserver` that may already be available: see https://github.com/WICG/file-system-access/issues/72
 
@@ -30,12 +42,6 @@ We are also splitting a JSON object into an array of key/values before we store 
 This behavior results in very large amount of keys and a lot of processing. I expect this to be a big bottleneck in performance, and there may be other ideas possible on how to store things in a more efficient way.
 
 For example, we may want to explicitly tell the JSON-Schema when something is the root of a key rather than being part of another key. Doing it like this and optimising max-keysize to be as close to 1mb as possible, would probably make the most sense.
-
-# State is complex
-
-We use a weird combination of react state, `localStorage`, file system, `idb` and remote `redis` because we want to do as much as possible with the browser and we have multiple environments and configurations.
-
-It's not documented yet in a central place what is stored where, but this could be a starting point.
 
 # IDB Buggyness
 

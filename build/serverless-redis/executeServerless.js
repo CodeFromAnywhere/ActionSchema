@@ -1,9 +1,12 @@
 import { execute } from "../util/execute.js";
 import { fetchExecute } from "../util/fetchExecute.js";
 import { cleanFetch } from "../util/cleanFetch.js";
-import { createUpstashRedisDatabase, upstashRedisGetRange, upstashRedisRequest, upstashRedisSetRequest, } from "./upstashRedis.js";
+import { createUpstashRedisDatabase, deleteUpstashRedisRange, listUpstashRedisDatabases, upstashRedisGetRange, upstashRedisRequest, upstashRedisSetJson, } from "./upstashRedis.js";
+import { upstashKeys } from "../util/state.js";
 /**
-Serverless wrapper around `execute`
+Serverless wrapper around `execute`.
+
+NB: this is executed on a serverless environment and thus has no access to things like IDB or localStorage.
 */
 export const executeServerless = async (context, originUrl) => {
     const { actionSchemaPlugins, databaseId, dotLocation, schema, returnDotLocation, skipPlugin, updateCallbackUrl, value, upstashApiKey, upstashEmail, } = context;
@@ -18,42 +21,46 @@ export const executeServerless = async (context, originUrl) => {
                 message: "No upstash credentials and no database given",
             };
         }
-        const createResult = await createUpstashRedisDatabase({
+        const { result: dbs } = await listUpstashRedisDatabases({
             upstashApiKey,
             upstashEmail,
         });
-        if (!createResult.result || !createResult.isSuccessful) {
-            return { isSuccessful: false, message: "Could not create database" };
+        const foundDb = dbs?.find((x) => x.database_name === databaseId);
+        if (foundDb) {
+            redisRestToken = foundDb.rest_token;
+            redisRestUrl = foundDb.endpoint;
         }
-        redisRestToken = createResult.result.rest_token;
-        redisRestUrl = createResult.result.endpoint;
-        // console.log(createResult.result);
-        if (!redisRestToken || !redisRestUrl) {
-            return {
-                isSuccessful: false,
-                message: "Something went wrong creating the db",
-            };
+        else {
+            const db = await createUpstashRedisDatabase({
+                upstashApiKey,
+                upstashEmail,
+                name: databaseId,
+            });
+            if (!db.result || !db.isSuccessful) {
+                return {
+                    isSuccessful: false,
+                    message: "Could not find/create database",
+                };
+            }
+            redisRestToken = db.result.rest_token;
+            redisRestUrl = db.result.endpoint;
+            // console.log(createResult.result);
+            if (!redisRestToken || !redisRestUrl) {
+                return {
+                    isSuccessful: false,
+                    message: "Something went wrong creating the db",
+                };
+            }
+            isDbCreated = true;
+            console.log("Wait 30s so DNS can resolve");
+            await new Promise((resolve) => setTimeout(() => resolve(), 30000));
         }
-        isDbCreated = true;
-        console.log("Wait 30s so DNS can resolve");
-        await new Promise((resolve) => setTimeout(() => resolve(), 30000));
     }
     const redisInfo = {
         redisRestToken: redisRestToken,
         redisRestUrl: redisRestUrl,
     };
-    console.log("CREATED", redisInfo);
-    // console.log(`Testing connection`);
-    // const res = await fetch(`https://${redisRestUrl}/echo/hihihi`, {
-    //   cache: "no-cache",
-    //   verbose: true,
-    //   headers: { Authorization: `Bearer ${redisRestToken}` },
-    // })
-    //   .then((res) => res.json())
-    //   .catch((e) => {
-    //     console.log("ERROR", e);
-    //   });
-    // console.log({ res });
+    console.log("Have db", { isDbCreated, redisInfo });
     const executeResult = await execute({
         actionSchemaPlugins,
         databaseId,
@@ -63,32 +70,29 @@ export const executeServerless = async (context, originUrl) => {
         skipPlugin,
         updateCallbackUrl,
         value,
-        setData: async (baseKey, value) => {
+        setData: async (dotLocation, value) => {
             if (value === null) {
-                // todo: should delete all keys in range of baseKey
-                return upstashRedisRequest({
+                const amountRemoved = await deleteUpstashRedisRange({
+                    baseKey: upstashKeys.getDataKey(dotLocation),
                     ...redisInfo,
-                    args: [baseKey],
-                    command: "del",
                 });
+                return { isSuccessful: true, message: `${amountRemoved} keys removed` };
             }
-            return upstashRedisSetRequest({
-                ...redisInfo,
-                key: baseKey,
+            const OK = await upstashRedisSetJson({
+                key: upstashKeys.getDataKey(dotLocation),
                 value,
-            });
-        },
-        setStatus: async (key, value) => {
-            if (value === null) {
-                return upstashRedisRequest({
-                    ...redisInfo,
-                    args: [`__status__:${key}`],
-                    command: "del",
-                });
-            }
-            return upstashRedisSetRequest({
                 ...redisInfo,
-                key: `__status__:${key}`,
+            });
+            return { isSuccessful: true, message: OK };
+        },
+        setStatus: async (dotLocation, value) => {
+            if (value === null) {
+                const key = upstashKeys.getStatusKey(dotLocation);
+                await deleteUpstashRedisRange({ ...redisInfo, baseKey: key });
+            }
+            await upstashRedisSetJson({
+                ...redisInfo,
+                key: upstashKeys.getStatusKey(dotLocation),
                 value,
             });
         },
@@ -99,10 +103,10 @@ export const executeServerless = async (context, originUrl) => {
                 baseKey: key,
             });
         },
-        getStatus: async (key) => {
+        getStatus: async (dotLocation) => {
             return upstashRedisRequest({
                 ...redisInfo,
-                args: [`__status__:${key}`],
+                args: [upstashKeys.getStatusKey(dotLocation)],
                 command: "get",
             });
         },

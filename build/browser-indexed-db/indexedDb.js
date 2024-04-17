@@ -1,6 +1,7 @@
 import { openDB, deleteDB } from "idb";
-import { flatten, set } from "../util/dot-wild.js";
-import { getDotLocation } from "../util/getDotLocation.js";
+import { set } from "../util/dot-wild.js";
+import { idbKeys } from "../util/state.js";
+import { spreadValue } from "../util/spreadValue.js";
 /** DB name is always the same. 1 DB */
 let version = 1;
 let request;
@@ -51,22 +52,15 @@ export const indexedDbPutData = async (databaseId, key, value) => {
         //exact match too
         store.delete(key);
     }
-    else if (typeof value === "object") {
-        // For bigger things we flatten it first!
-        const flat = flatten(value);
-        const flatKeys = Object.keys(flat);
-        const keys = flatKeys.map((k) => (key === "" ? k : `${key}.${k}`));
-        // console.log({ keys });
-        await Promise.all(keys.map((k) => {
-            const v = getDotLocation(value, k);
-            const fullKey = key === "" ? k : `${key}.${k}`;
-            return store.put(v, fullKey);
+    else {
+        const pairs = spreadValue(key, value);
+        await Promise.all(pairs.map((k) => {
+            return store.put(k.key, k.value);
         }));
     }
-    else {
-        await store.put(value, key);
-    }
     await tx.done;
+    // NB: also set data updated at in the same idb
+    store.put(idbKeys.dataUpdatedAt, Date.now());
     // console.log("put data done", { value });
     return { isSuccessful: true, message: "Put data done", result: value };
 };
@@ -82,14 +76,14 @@ dotLocationBase) => {
     const range = getDotLocationRange(dotLocationBase);
     // get keys first
     const keys = (await store.getAllKeys(range));
-    const items = await Promise.all(keys.map(async (key) => {
+    const array = await Promise.all(keys.map(async (key) => {
         return { key, value: await store.get(key) };
     }));
-    const result = items.reduce((previous, item) => {
+    const json = array.reduce((previous, item) => {
         const result = set(previous, item.key, item.value);
         return result;
     }, {});
-    return result;
+    return { json, array };
 };
 /** Gets all store data */
 export const indexedDbGetItems = async (

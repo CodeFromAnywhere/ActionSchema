@@ -1,6 +1,9 @@
-import { createUpstashRedisDatabase } from "./upstashRedis.js";
+import { listUpstashRedisDatabases } from "./upstashRedis.js";
 const test = async () => {
-    createUpstashRedisDatabase({ upstashApiKey: "", upstashEmail: "" }).then(console.log);
+    listUpstashRedisDatabases({
+        upstashApiKey: "",
+        upstashEmail: "info@codefromanywhere.com",
+    }).then(console.log);
 };
 test();
 //# sourceMappingURL=upstashRedis.test.js.map

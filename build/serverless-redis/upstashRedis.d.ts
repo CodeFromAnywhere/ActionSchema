@@ -1,3 +1,4 @@
+/// <reference types="web" />
 import { O } from "js-util";
 /**
  * Response object for creating a database
@@ -88,12 +89,21 @@ interface UpstashRedisGetDatabaseResponse {
      */
     db_request_limit: number;
 }
+export declare const listUpstashRedisDatabases: (context: {
+    upstashEmail: string;
+    upstashApiKey: string;
+}) => Promise<{
+    isSuccessful: boolean;
+    message: string;
+    result: UpstashRedisGetDatabaseResponse[] | undefined;
+}>;
 /**
  */
 export declare const createUpstashRedisDatabase: (context: {
     upstashEmail: string;
     upstashApiKey: string;
     region?: "eu-west-1" | "us-east-1" | "us-west-1" | "ap-northeast-1" | "us-central1";
+    name: string;
 }) => Promise<{
     isSuccessful: boolean;
     message: string;
@@ -118,17 +128,33 @@ export declare const upstashRedisRequest: (context: {
     command: string;
     args: string[];
 }) => Promise<any>;
-export declare const upstashRedisSetRequest: (context: {
+export declare const getUpstashRedisRangeKeys: (context: {
+    redisRestUrl: string;
+    redisRestToken: string;
+    baseKey: string | undefined;
+}) => Promise<string[]>;
+export declare const deleteUpstashRedisRange: (context: {
+    redisRestUrl: string;
+    redisRestToken: string;
+    baseKey: string;
+}) => Promise<number>;
+export declare const upstashRedisSetJson: (context: {
     redisRestUrl: string;
     redisRestToken: string;
     key: string;
     value: any;
-}) => Promise<any>;
+}) => Promise<"OK">;
 /** Gets a range of items from redis by first iterating over the keys (in range or all) and then efficiently getting all values */
 export declare const upstashRedisGetRange: (context: {
     redisRestUrl: string;
     redisRestToken: string;
     baseKey: string | undefined;
-}) => Promise<O>;
+}) => Promise<{
+    json: O;
+    array: {
+        key: string;
+        value: string;
+    }[];
+}>;
 export {};
 //# sourceMappingURL=upstashRedis.d.ts.map

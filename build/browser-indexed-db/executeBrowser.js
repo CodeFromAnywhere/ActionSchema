@@ -28,9 +28,10 @@ export const executeBrowser = async (context) => {
         setData: async (key, value) => {
             const putDataResult = await indexedDbPutData(databaseId, key, value);
             // Super inefficient magic! After put, also set entire JSON to the local storage
-            const json = await getData(key);
-            const jsonString = JSON.stringify(json, undefined, 2);
-            window.localStorage.setItem(databaseId, jsonString);
+            // This causes a 10MB limit but would make it observable as idb isn't observable.
+            // const json = await getData(key);
+            // const jsonString = JSON.stringify(json, undefined, 2);
+            // window.localStorage.setItem(databaseId, jsonString);
             return putDataResult;
         },
         setStatus: async (key, value) => {

@@ -8,13 +8,18 @@ import {
 } from "../types/types.js";
 import {
   createUpstashRedisDatabase,
+  deleteUpstashRedisRange,
+  listUpstashRedisDatabases,
   upstashRedisGetRange,
   upstashRedisRequest,
-  upstashRedisSetRequest,
+  upstashRedisSetJson,
 } from "./upstashRedis.js";
+import { upstashKeys } from "../util/state.js";
 
 /**
-Serverless wrapper around `execute`
+Serverless wrapper around `execute`.
+
+NB: this is executed on a serverless environment and thus has no access to things like IDB or localStorage.
 */
 export const executeServerless = async (
   context: ExecuteContext & UpstashStorageDetails,
@@ -52,30 +57,46 @@ export const executeServerless = async (
       };
     }
 
-    const createResult = await createUpstashRedisDatabase({
+    const { result: dbs } = await listUpstashRedisDatabases({
       upstashApiKey,
       upstashEmail,
     });
 
-    if (!createResult.result || !createResult.isSuccessful) {
-      return { isSuccessful: false, message: "Could not create database" };
+    const foundDb = dbs?.find((x) => x.database_name === databaseId);
+
+    if (foundDb) {
+      redisRestToken = foundDb.rest_token;
+      redisRestUrl = foundDb.endpoint;
+    } else {
+      const db = await createUpstashRedisDatabase({
+        upstashApiKey,
+        upstashEmail,
+        name: databaseId,
+      });
+
+      if (!db.result || !db.isSuccessful) {
+        return {
+          isSuccessful: false,
+          message: "Could not find/create database",
+        };
+      }
+
+      redisRestToken = db.result.rest_token;
+      redisRestUrl = db.result.endpoint;
+
+      // console.log(createResult.result);
+
+      if (!redisRestToken || !redisRestUrl) {
+        return {
+          isSuccessful: false,
+          message: "Something went wrong creating the db",
+        };
+      }
+      isDbCreated = true;
+
+      console.log("Wait 30s so DNS can resolve");
+      await new Promise<void>((resolve) => setTimeout(() => resolve(), 30000));
     }
-
-    redisRestToken = createResult.result.rest_token;
-    redisRestUrl = createResult.result.endpoint;
-
-    // console.log(createResult.result);
-
-    if (!redisRestToken || !redisRestUrl) {
-      return {
-        isSuccessful: false,
-        message: "Something went wrong creating the db",
-      };
-    }
-    isDbCreated = true;
-
-    console.log("Wait 30s so DNS can resolve");
-    await new Promise<void>((resolve) => setTimeout(() => resolve(), 30000));
   }
 
   const redisInfo = {
@@ -83,21 +104,7 @@ export const executeServerless = async (
     redisRestUrl: redisRestUrl!,
   };
 
-  console.log("CREATED", redisInfo);
-
-  // console.log(`Testing connection`);
-
-  // const res = await fetch(`https://${redisRestUrl}/echo/hihihi`, {
-  //   cache: "no-cache",
-  //   verbose: true,
-  //   headers: { Authorization: `Bearer ${redisRestToken}` },
-  // })
-  //   .then((res) => res.json())
-  //   .catch((e) => {
-  //     console.log("ERROR", e);
-  //   });
-
-  // console.log({ res });
+  console.log("Have db", { isDbCreated, redisInfo });
 
   const executeResult = await execute({
     actionSchemaPlugins,
@@ -109,33 +116,34 @@ export const executeServerless = async (
     updateCallbackUrl,
     value,
 
-    setData: async (baseKey, value) => {
+    setData: async (dotLocation, value) => {
       if (value === null) {
-        // todo: should delete all keys in range of baseKey
-        return upstashRedisRequest({
+        const amountRemoved = await deleteUpstashRedisRange({
+          baseKey: upstashKeys.getDataKey(dotLocation),
           ...redisInfo,
-          args: [baseKey],
-          command: "del",
         });
+
+        return { isSuccessful: true, message: `${amountRemoved} keys removed` };
       }
-      return upstashRedisSetRequest({
-        ...redisInfo,
-        key: baseKey,
+
+      const OK = await upstashRedisSetJson({
+        key: upstashKeys.getDataKey(dotLocation),
         value,
+        ...redisInfo,
       });
+
+      return { isSuccessful: true, message: OK };
     },
 
-    setStatus: async (key, value) => {
+    setStatus: async (dotLocation, value) => {
       if (value === null) {
-        return upstashRedisRequest({
-          ...redisInfo,
-          args: [`__status__:${key}`],
-          command: "del",
-        });
+        const key = upstashKeys.getStatusKey(dotLocation);
+
+        await deleteUpstashRedisRange({ ...redisInfo, baseKey: key });
       }
-      return upstashRedisSetRequest({
+      await upstashRedisSetJson({
         ...redisInfo,
-        key: `__status__:${key}`,
+        key: upstashKeys.getStatusKey(dotLocation),
         value,
       });
     },
@@ -149,10 +157,10 @@ export const executeServerless = async (
       });
     },
 
-    getStatus: async (key) => {
+    getStatus: async (dotLocation) => {
       return upstashRedisRequest({
         ...redisInfo,
-        args: [`__status__:${key}`],
+        args: [upstashKeys.getStatusKey(dotLocation)],
         command: "get",
       });
     },

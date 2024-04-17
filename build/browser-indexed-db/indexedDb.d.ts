@@ -1,3 +1,4 @@
+import { O } from "js-util";
 export declare const initDb: (databaseId: string) => Promise<boolean>;
 export declare const indexedDbPutData: <T>(databaseId: string, key: string, value: T) => Promise<{
     isSuccessful: boolean;
@@ -5,7 +6,7 @@ export declare const indexedDbPutData: <T>(databaseId: string, key: string, valu
     result?: T | undefined;
 }>;
 /** Gets all store data and builds a JSON object from it */
-export declare const indexedDbBuildObject: (databaseId: string, dotLocationBase?: string) => Promise<any>;
+export declare const indexedDbBuildObject: (databaseId: string, dotLocationBase?: string) => Promise<O>;
 /** Gets all store data */
 export declare const indexedDbGetItems: (databaseId: string) => Promise<any[]>;
 /** Gets one key store data */

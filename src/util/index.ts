@@ -12,3 +12,4 @@ export * from "./executeStaleWatcher.js";
 export * from "./tryParseJson.js";
 export * from "./fetchWithTimeout.js";
 export * from "./getSchemaAtDotLocation.js";
+export * from "./state.js";
