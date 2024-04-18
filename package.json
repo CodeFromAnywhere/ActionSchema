@@ -7,9 +7,9 @@
     "./browser": "./build/browser-indexed-db/index.js",
     "./server": "./build/server-fs-lmdb/index.js",
     "./serverless": "./build/serverless-redis/index.js",
-    "./types": "./src/types/index.ts"
+    "./types": "./build/types/index.js"
   },
-  "version": "0.0.28",
+  "version": "0.0.29",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeFromAnywhere/ActionSchema.git"
