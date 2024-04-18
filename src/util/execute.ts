@@ -2,7 +2,7 @@ import { ActionSchema } from "../types/action-schema.schema.js";
 import { getSchemaAtDotLocation } from "../util/getSchemaAtDotLocation.js";
 import { getDotLocationBase } from "../util/getDotlocationBase.js";
 import { fetchPluginOrDefault } from "./fetchPluginOrDefault.js";
-import { makeArray, onlyUnique2 } from "js-util";
+import { makeArray, onlyUnique2 } from "from-anywhere";
 import {
   EnvironmentConfig,
   ExecuteContext,

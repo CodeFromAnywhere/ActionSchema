@@ -1,6 +1,6 @@
 import { openDB, deleteDB } from "idb";
 import { flatten, set, get } from "../util/dot-wild.js";
-import { O, generateId } from "js-util";
+import { O, generateId } from "from-anywhere";
 import { getDotLocation } from "../util/getDotLocation.js";
 import { idbKeys, localStorageKeys } from "../util/state.js";
 import { spreadValue } from "../util/spreadValue.js";

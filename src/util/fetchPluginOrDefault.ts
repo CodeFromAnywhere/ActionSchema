@@ -1,6 +1,6 @@
 import { EnvironmentConfig, ExecuteContext } from "../types/types.js";
 import { getOpenapiDetails } from "./getOpenapiDetails.js";
-import { notEmpty } from "js-util";
+import { notEmpty } from "from-anywhere";
 
 export const fetchPluginOrDefault = async (
   context: ExecuteContext & EnvironmentConfig,

@@ -1,4 +1,4 @@
-import { O, generateId, mergeObjectsArray, notEmpty } from "js-util";
+import { O, generateId, mergeObjectsArray, notEmpty } from "from-anywhere";
 import { tryParseJson } from "../util/tryParseJson.js";
 
 import { Redis } from "@upstash/redis";
