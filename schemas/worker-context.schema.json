@@ -14,7 +14,8 @@
       "type": "string"
     },
     "schema": {
-      "$ref": "file:///Users/king/os/packages/_actionschema/actionschema/schemas/action-schema.schema.json#"
+      "$comment": "It's taking the cwd of where the function is ran. Not sure if this is the right convention. If it is, we should somehow determine the rootpath and this should always be one level up from the schemas. We'll get to it when we need to resolve this ourselves too.",
+      "$ref": "./schemas/action-schema.schema.json#"
     }
   },
   "required": [

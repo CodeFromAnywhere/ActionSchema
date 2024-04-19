@@ -1,4 +1,4 @@
-import { mergeObjectsArray, notEmpty } from "js-util";
+import { mergeObjectsArray, notEmpty } from "from-anywhere";
 import { tryParseJson } from "../util/tryParseJson.js";
 import { Redis } from "@upstash/redis";
 import { set } from "../util/dot-wild.js";

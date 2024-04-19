@@ -1,4 +1,4 @@
-import { mergeObjectsArray } from "js-util";
+import { mergeObjectsArray } from "from-anywhere";
 /**
  * A fetch that always shows if there's something wrong with HTTP stuff etc
  */

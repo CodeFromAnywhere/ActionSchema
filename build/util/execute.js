@@ -1,7 +1,7 @@
 import { getSchemaAtDotLocation } from "../util/getSchemaAtDotLocation.js";
 import { getDotLocationBase } from "../util/getDotlocationBase.js";
 import { fetchPluginOrDefault } from "./fetchPluginOrDefault.js";
-import { makeArray, onlyUnique2 } from "js-util";
+import { makeArray, onlyUnique2 } from "from-anywhere";
 import { getDotLocation } from "../util/getDotLocation.js";
 /**
 This is the main function to execute things. Please note that the data storage method is abstracted away from this one as every environment implements their own for that.

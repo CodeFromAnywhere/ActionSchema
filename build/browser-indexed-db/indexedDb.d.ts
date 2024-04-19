@@ -1,4 +1,4 @@
-import { O } from "js-util";
+import { O } from "from-anywhere";
 export declare const initDb: (databaseId: string) => Promise<boolean>;
 export declare const indexedDbPutData: <T>(databaseId: string, key: string, value: T) => Promise<{
     isSuccessful: boolean;

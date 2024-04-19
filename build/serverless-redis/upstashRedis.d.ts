@@ -1,5 +1,4 @@
-/// <reference types="web" />
-import { O } from "js-util";
+import { O } from "from-anywhere";
 /**
  * Response object for creating a database
  */

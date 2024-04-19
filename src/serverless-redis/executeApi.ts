@@ -1,4 +1,4 @@
-import { NextApiHandler } from "next";
+import type { NextApiHandler } from "next";
 import { executeServerless } from "./executeServerless.js";
 import { tryParseJson } from "../util/tryParseJson.js";
 import { ExecuteContext, UpstashStorageDetails } from "../types/types.js";

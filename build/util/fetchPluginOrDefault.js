@@ -1,5 +1,5 @@
 import { getOpenapiDetails } from "./getOpenapiDetails.js";
-import { notEmpty } from "js-util";
+import { notEmpty } from "from-anywhere";
 export const fetchPluginOrDefault = async (context) => {
     const { schema, fetchPlugin, actionSchemaPlugins, getStatus } = context;
     const plugin = schema["x-plugin"];
