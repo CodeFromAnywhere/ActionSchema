@@ -7,9 +7,9 @@
     "./browser": "./build/browser-indexed-db/index.js",
     "./server": "./build/server-fs-lmdb/index.js",
     "./serverless": "./build/serverless-redis/index.js",
-    "./types": "./build/types/index.js"
+    "./types": "./src/types/index.ts"
   },
-  "version": "0.0.29",
+  "version": "0.0.30",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeFromAnywhere/ActionSchema.git"
@@ -17,7 +17,7 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "npx tsc-watch --noClear --onSuccess 'npm run css'",
-    "types": "json2ts -i schemas/ -o src/types/ --unknownAny=false",
+    "types": "json2ts -i ./schemas/ -o src/types --unknownAny=false",
     "css": "tailwindcss -o css.css",
     "up": "npm version patch -f",
     "pub": "npm run up && npm publish && git add . && git commit -m 'improvements' && git push"
@@ -28,16 +28,20 @@
     "typescript": "^5.0.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/next": "^9.0.0",
+    "@types/node": "^20.12.7",
     "@types/web": "^0.0.111",
-    "json-schema-to-typescript": "^13.1.2"
+    "js-yaml": "^4.1.0",
+    "json-schema-to-typescript": "^13.1.2",
+    "lmdb": "^3.0.6"
   },
   "license": "ISC",
   "description": "",
   "bin": {},
   "dependencies": {
     "@upstash/redis": "^1.29.0",
-    "ioredis": "^5.3.2",
-    "js-yaml": "^4.1.0"
+    "ioredis": "^5.3.2"
   },
   "operation": {
     "lastRebuildAt": 1709115107145,
