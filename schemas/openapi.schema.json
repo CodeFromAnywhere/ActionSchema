@@ -126,6 +126,7 @@
         "license": {
           "$ref": "#/definitions/License"
         },
+
         "version": {
           "type": "string"
         },
@@ -163,6 +164,21 @@
           "description": "Link to other openapis that could be good alternatives.",
           "type": "array",
           "items": { "$schema": "string", "format": "uri-reference" }
+        },
+
+        "branding": {
+          "$comment": "TODO",
+          "description": "Branding metadata",
+          "type": "object",
+          "properties": {
+            "logoImageUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to a logo image"
+            },
+            "primaryColorHex": { "type": "string" },
+            "secondaryColorHex": { "type": "string" }
+          }
         }
       },
       "patternProperties": {
