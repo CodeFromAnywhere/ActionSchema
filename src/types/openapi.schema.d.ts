@@ -215,6 +215,18 @@ export interface Info {
     [k: string]: any;
   }[];
   /**
+   * Branding metadata
+   */
+  branding?: {
+    /**
+     * URL to a logo image
+     */
+    logoImageUrl?: string;
+    primaryColorHex?: string;
+    secondaryColorHex?: string;
+    [k: string]: any;
+  };
+  /**
    * This interface was referenced by `Info`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */

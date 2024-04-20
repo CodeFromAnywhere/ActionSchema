@@ -8,7 +8,8 @@
 /**
  * @minItems 1
  */
-export type SchemaArray = [ActionSchema, ...ActionSchema[]];
+export type SchemaArray = [ActionSchema1, ...ActionSchema1[]];
+export type StringArray = string[];
 
 export interface WorkerContext {
   completeContext: {
@@ -35,7 +36,7 @@ export interface ActionSchema {
   /**
    * Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.
    */
-  default?: ActionSchema | boolean | number | any[] | string;
+  default?: ActionSchema1 | boolean | number | any[] | string;
   /**
    * Sample JSON values associated with a particular schema, for the purpose of illustrating usage.
    *
@@ -84,32 +85,32 @@ export interface ActionSchema {
   minimum?: number;
   exclusiveMinimum?: number | boolean;
   maxLength?: number;
-  minLength?: number & number;
+  minLength?: number;
   pattern?: string;
-  additionalItems?: ActionSchema;
-  items?: ActionSchema | SchemaArray | boolean;
+  additionalItems?: ActionSchema1;
+  items?: ActionSchema1 | SchemaArray | boolean;
   maxItems?: number;
-  minItems?: number & number;
+  minItems?: number;
   uniqueItems?: boolean;
-  contains?: ActionSchema;
+  contains?: ActionSchema1;
   maxProperties?: number;
-  minProperties?: number & number;
-  required?: string[];
-  additionalProperties?: ActionSchema | boolean;
+  minProperties?: number;
+  required?: StringArray;
+  additionalProperties?: ActionSchema1 | boolean;
   definitions?: {
-    [k: string]: ActionSchema;
+    [k: string]: ActionSchema1;
   };
   properties?: {
-    [k: string]: ActionSchema;
+    [k: string]: ActionSchema1;
   };
   patternProperties?: {
-    [k: string]: ActionSchema;
+    [k: string]: ActionSchema1;
   };
   dependencies?: {
-    [k: string]: ActionSchema | string[];
+    [k: string]: ActionSchema1 | StringArray;
   };
-  propertyNames?: ActionSchema;
-  const?: ActionSchema | boolean;
+  propertyNames?: ActionSchema1;
+  const?: ActionSchema1 | boolean;
   /**
    * @minItems 1
    */
@@ -123,13 +124,13 @@ export interface ActionSchema {
   format?: string;
   contentMediaType?: string;
   contentEncoding?: string;
-  if?: ActionSchema;
-  then?: ActionSchema;
-  else?: ActionSchema;
+  if?: ActionSchema1;
+  then?: ActionSchema1;
+  else?: ActionSchema1;
   allOf?: SchemaArray;
   anyOf?: SchemaArray;
   oneOf?: SchemaArray;
-  not?: ActionSchema;
+  not?: ActionSchema1;
 }
 /**
  * Plug-in an openapi here to say how  this value can be determined.
@@ -232,4 +233,116 @@ export interface OpenAPIDetails {
   operationId: string;
   emoji?: string;
   [k: string]: any;
+}
+/**
+ * Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#definitions
+ */
+export interface ActionSchema1 {
+  /**
+   * Useful at root. Dot-notation of where to find the items.
+   */
+  "x-grid-items-location"?: string;
+  /**
+   * Useful at root. If this is true, its a schema that is allowed to be read by anyone regardless of the data privacy.
+   */
+  "x-is-public"?: boolean;
+  "x-plugin"?: Plugin;
+  /**
+   * Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.
+   */
+  default?: ActionSchema1 | boolean | number | any[] | string;
+  /**
+   * Sample JSON values associated with a particular schema, for the purpose of illustrating usage.
+   *
+   * Besides serving as example values for e.g. forms and other things, with ActionSchema `examples` also serves as a fallback of `x-plugin` and `default`.
+   */
+  examples?: any[];
+  deprecated?: boolean;
+  /**
+   * Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/
+   */
+  "ui:widget"?: string;
+  /**
+   * Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/
+   */
+  "ui:options"?: {
+    /**
+     * If given, it is assumed the value or values of this property link to this model.
+     */
+    refModelName?: string;
+    [k: string]: any;
+  };
+  $id?: string;
+  /**
+   * If given, should be a url linking to the original file, the starting point, if this is not already the one. Used to determine if anything has changed.
+   */
+  $source?: string;
+  $schema?: string;
+  $ref?: string;
+  /**
+   * Comment for the makers of the schema
+   */
+  $comment?: string;
+  /**
+   * In the form this shows up as the title for the property. More readable.
+   */
+  title?: string;
+  /**
+   * Description for schema at this location
+   */
+  description?: string;
+  readOnly?: boolean;
+  writeOnly?: boolean;
+  multipleOf?: number;
+  maximum?: number;
+  exclusiveMaximum?: number;
+  minimum?: number;
+  exclusiveMinimum?: number | boolean;
+  maxLength?: number;
+  minLength?: number;
+  pattern?: string;
+  additionalItems?: ActionSchema1;
+  items?: ActionSchema1 | SchemaArray | boolean;
+  maxItems?: number;
+  minItems?: number;
+  uniqueItems?: boolean;
+  contains?: ActionSchema1;
+  maxProperties?: number;
+  minProperties?: number;
+  required?: StringArray;
+  additionalProperties?: ActionSchema1 | boolean;
+  definitions?: {
+    [k: string]: ActionSchema1;
+  };
+  properties?: {
+    [k: string]: ActionSchema1;
+  };
+  patternProperties?: {
+    [k: string]: ActionSchema1;
+  };
+  dependencies?: {
+    [k: string]: ActionSchema1 | StringArray;
+  };
+  propertyNames?: ActionSchema1;
+  const?: ActionSchema1 | boolean;
+  /**
+   * @minItems 1
+   */
+  enum?: [any, ...any[]];
+  type?:
+    | ("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")
+    | [
+        "array" | "boolean" | "integer" | "null" | "number" | "object" | "string",
+        ...("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")[]
+      ];
+  format?: string;
+  contentMediaType?: string;
+  contentEncoding?: string;
+  if?: ActionSchema1;
+  then?: ActionSchema1;
+  else?: ActionSchema1;
+  allOf?: SchemaArray;
+  anyOf?: SchemaArray;
+  oneOf?: SchemaArray;
+  not?: ActionSchema1;
 }

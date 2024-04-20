@@ -68,4 +68,5 @@ export interface ActionSchemaServer {
   actionSchemaOpenApiHeaders?: {
     [k: string]: string;
   };
+  [k: string]: any;
 }
