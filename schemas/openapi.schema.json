@@ -3,7 +3,7 @@
   "title": "OpenAPI Document",
   "$source": "https://spec.openapis.org/oas/3.0/schema/2021-09-28",
   "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
-  "description": "The description of OpenAPI v3.0.x documents, as defined by https://spec.openapis.org/oas/v3.0.3",
+  "description": "The description of OpenAPI v3.0.x documents, as defined by https://spec.openapis.org/oas/v3.0.3 and extended by ActionSchema.",
   "type": "object",
   "required": ["$schema", "openapi", "actionschema", "info", "paths"],
   "properties": {
@@ -54,9 +54,13 @@
     "servers": {
       "description": "An array of Server Objects, which provide connectivity information to a target server. If the servers property is not provided, or is an empty array, the default value would be a Server Object with a url value of /.",
       "type": "array",
-      "items": {
-        "$ref": "#/definitions/Server"
-      }
+      "items": { "$ref": "#/definitions/Server" }
+    },
+
+    "x-origin-servers": {
+      "description": "An array of Server Objects, indicating the original servers. Useful when defining a proxy.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/Server" }
     },
 
     "security": {
@@ -131,7 +135,7 @@
           "type": "string"
         },
 
-        "people": {
+        "x-people": {
           "description": "Different people in the company and their capabilities and communication channels",
           "type": "array",
           "items": {
@@ -139,45 +143,44 @@
           }
         },
 
-        "product": {
+        "x-product": {
           "$comment": "TODO",
           "description": "Product info."
         },
 
-        "cost": {
+        "x-pricing": {
           "$comment": "TODO",
           "description": "Pricing info including monthly fees."
         },
 
-        "reviews": {
+        "x-reviews": {
           "$comment": "TODO",
           "description": "General product reviews, collected."
         },
 
-        "latency": {
+        "x-latency": {
           "$comment": "TODO",
           "description": "General latency info."
         },
 
-        "alternatives": {
+        "x-alternatives": {
           "$comment": "TODO",
           "description": "Link to other openapis that could be good alternatives.",
           "type": "array",
           "items": { "$schema": "string", "format": "uri-reference" }
         },
 
-        "branding": {
-          "$comment": "TODO",
-          "description": "Branding metadata",
+        "x-logo": {
+          "description": "Logo metadata",
           "type": "object",
           "properties": {
-            "logoImageUrl": {
+            "url": {
               "type": "string",
               "format": "uri",
               "description": "URL to a logo image"
             },
-            "primaryColorHex": { "type": "string" },
-            "secondaryColorHex": { "type": "string" }
+            "backgroundColor": { "type": "string" },
+            "secondaryColor": { "type": "string" }
           }
         }
       },
@@ -200,10 +203,15 @@
           "type": "string",
           "format": "email"
         },
-        "phoneNumber": {
+
+        "x-phoneNumber": {
           "type": "string",
           "format": "phone",
           "$comment": "Added for ActionSchema"
+        },
+
+        "x-description": {
+          "type": "string"
         }
       },
       "patternProperties": {
