@@ -1,0 +1,76 @@
+{
+  "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
+  "type": "object",
+  "description": "☢️ Allows easy creation new OpenAPIs that have a selection of paths from multiple OpenAPIs, and proxy the incoming requests to the right path of another server with authentication.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Name of the proxy to be made accessible at '[id].[slug].opengpts.actionschema.com'"
+    },
+
+    "partialApis": {
+      "type": "array",
+      "description": "List of multiple paths from multiple openapis",
+      "items": { "$ref": "#/definitions/PartialApi" }
+    },
+
+    "info": {
+      "$ref": "./schemas/openapi.schema.json#/definitions/Info",
+      "description": "Info object of the to be served openapi"
+    },
+
+    "apiKey": {
+      "type": "string",
+      "description": "Secret API that - if given - must be met to gain access."
+    }
+  },
+  "required": ["id", "proxies", "info"],
+  "additionalProperties": false,
+  "definitions": {
+    "PartialApi": {
+      "type": "object",
+      "description": "Only openapiUrl is required. If security isn't given but needed, securitySchemes will be passed on. If operations aren't given, all operations will be included.",
+      "properties": {
+        "openapiUrl": { "type": "string" },
+        "security": {
+          "description": "Filled in security details based on the OpenAPIs securitySchemes.",
+          "$comment": "Not sure if this works for all security mechanisms",
+          "$ref": "./schemas/openapi.schema.json#/definitions/SecurityRequirement"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "method"],
+            "additionalProperties": false,
+            "properties": {
+              "path": { "type": "string" },
+              "method": { "type": "string" },
+              "modifications": {
+                "$comment": "Not sure if this complexity is worth it, but could be useful for example if you want to provide a simpler API for something.",
+                "description": "An array of modifications to the input schema",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "modification": {
+                      "type": "string",
+                      "description": "Omit will omit the property, default will set a default but keep it possible to change, fixed will set a default that can't be changed.",
+                      "enum": ["omit", "default", "fixed"]
+                    },
+                    "value": { "type": "string" }
+                  },
+                  "required": ["name", "modification"],
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": ["openapiUrl"],
+      "additionalProperties": false
+    }
+  }
+}
