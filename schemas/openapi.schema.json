@@ -124,14 +124,17 @@
         },
 
         "contact": {
+          "description": "Contact information for the exposed API.",
           "$ref": "#/definitions/Contact"
         },
 
         "license": {
+          "description": "The license information for the exposed API.",
           "$ref": "#/definitions/License"
         },
 
         "version": {
+          "description": "The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API implementation version).",
           "type": "string"
         },
 
@@ -148,9 +151,70 @@
           "description": "Product info."
         },
 
+        "x-links": {
+          "description": "Important links needed for agents to make using the API easier.",
+          "type": "object",
+          "properties": {
+            "signupUrl": { "type": "string" },
+            "loginUrl": { "type": "string" },
+            "forgotPasswordUrl": { "type": "string" },
+            "pricingUrl": { "type": "string" },
+            "changePricingPlanUrl": { "type": "string" },
+            "usageUrl": {
+              "type": "string",
+              "description": "URL of a page where the user can see their usage and its cost."
+            },
+            "docsUrl": { "type": "string" },
+            "supportUrl": { "type": "string" },
+            "apiAuthorizationSettingsUrl": {
+              "type": "string",
+              "description": "Url of the page where the user can find the required information for authorizing on the API. Usually this is a page where the user can create and see their API tokens."
+            }
+          },
+          "additionalProperties": false
+        },
+
         "x-pricing": {
-          "$comment": "TODO",
-          "description": "Pricing info including monthly fees."
+          "description": "Pricing info including monthly fees.",
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "General summary of all plans"
+            },
+            "plans": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "price": { "type": "number" },
+                  "currency": { "type": "string" },
+                  "title": { "type": "string" },
+                  "credit": {
+                    "type": "number",
+                    "description": "How much credit do you get for this. Credit matches the credit spent with 'priceCredit' extension for operations"
+                  },
+                  "interval": {
+                    "description": "If the plan is a subscription based plan, fill in the interval on which every time the price is paid, and credit is given. \n\nIf there is a pay-as-you-go price, fill in the minimum purchase size for each step. It will be assumed the price to credit ratio is linear.",
+                    "type": "string",
+                    "enum": ["week", "month", "quarter", "year"]
+                  },
+                  "rateLimit": {
+                    "description": "Plan-based RateLimit info that overwrites the general rateLimit.",
+                    "$ref": "#/definitions/RateLimit"
+                  }
+                },
+                "required": ["price", "currency", "title", "credit"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "x-rateLimit": {
+          "description": "Global ratelimit info. Can be overwritten either by plans or by operations.",
+          "$ref": "#/definitions/RateLimit"
         },
 
         "x-reviews": {
@@ -171,7 +235,7 @@
         },
 
         "x-logo": {
-          "description": "Logo metadata",
+          "description": "Logo metadata. Standard taken from https://apis.guru",
           "type": "object",
           "properties": {
             "url": {
@@ -181,13 +245,23 @@
             },
             "backgroundColor": { "type": "string" },
             "secondaryColor": { "type": "string" }
-          }
+          },
+          "additionalProperties": false
         }
       },
       "patternProperties": {
         "^x-": {}
       },
       "additionalProperties": false
+    },
+    "RateLimit": {
+      "$comment": "WIP",
+      "description": "Ratelimiting extension by ActionSchema. Can be applied globally, per plan, per tag, or per operation",
+      "type": "object",
+      "properties": {
+        "limit": { "type": "number" },
+        "interval": { "type": "string", "enum": ["second", "minute"] }
+      }
     },
     "Contact": {
       "type": "object",
@@ -937,12 +1011,24 @@
           }
         },
 
+        "x-rateLimit": {
+          "description": "Operation-based ratelimit info. This overwrites plan-based or global ratelimits.",
+          "$ref": "#/definitions/RateLimit"
+        },
+
+        "x-priceCredit": {
+          "description": "Define how much credits need to be blocked for using this endpoint, and deducted afterwards. Can be overwritten in response.",
+          "type": "number"
+        },
+
         "tags": {
+          "description": "Defining tags here will help group the endpoint for different user interfaces.",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
+
         "summary": {
           "type": "string"
         },
@@ -956,6 +1042,7 @@
         "operationId": {
           "type": "string"
         },
+
         "parameters": {
           "type": "array",
           "items": {
@@ -1069,6 +1156,10 @@
         },
         "externalDocs": {
           "$ref": "#/definitions/ExternalDocumentation"
+        },
+        "x-rateLimit": {
+          "description": "Tag-based ratelimit info.",
+          "$ref": "#/definitions/RateLimit"
         }
       },
       "patternProperties": {
