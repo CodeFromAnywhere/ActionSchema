@@ -32,7 +32,7 @@
       "pattern": "^3\\.0\\.\\d(-.+)?$"
     },
 
-    "actionschema": {
+    "x-actionschema": {
       "description": "Version of actionschema.",
       "type": "string",
       "pattern": "0.0.1",

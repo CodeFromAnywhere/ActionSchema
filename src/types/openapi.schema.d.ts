@@ -129,7 +129,7 @@ export type HTTPSecurityScheme1 =
     };
 
 /**
- * The description of OpenAPI v3.0.x documents, as defined by https://spec.openapis.org/oas/v3.0.3
+ * The description of OpenAPI v3.0.x documents, as defined by https://spec.openapis.org/oas/v3.0.3 and extended by ActionSchema.
  */
 export interface OpenAPIDocument {
   $schema: string;
@@ -145,7 +145,7 @@ export interface OpenAPIDocument {
   /**
    * Version of actionschema.
    */
-  actionschema: string;
+  "x-actionschema"?: string;
   info: Info;
   externalDocs?: ExternalDocumentation;
   /**
@@ -153,7 +153,13 @@ export interface OpenAPIDocument {
    */
   servers?: Server[];
   /**
+   * An array of Server Objects, indicating the original servers. Useful when defining a proxy.
+   */
+  "x-origin-servers"?: Server[];
+  /**
    * A declaration of which security mechanisms can be used across the API. The list of values includes alternative security requirement objects that can be used. Only one of the security requirement objects need to be satisfied to authorize a request. Individual operations can override this definition. To make security optional, an empty security requirement ({}) can be included in the array.
+   *
+   * Please note: Every item in this array is an object with keys being the scheme names (can be anything). These names should then also be defined in components.securitySchemes.
    */
   security?: SecurityRequirement[];
   /**
@@ -179,52 +185,105 @@ export interface Info {
   termsOfService?: string;
   contact?: Contact;
   license?: License;
+  /**
+   * The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API implementation version).
+   */
   version: string;
   /**
    * Different people in the company and their capabilities and communication channels
    */
-  people?: Contact[];
+  "x-people"?: Contact1[];
   /**
    * Product info.
    */
-  product?: {
+  "x-product"?: {
     [k: string]: any;
+  };
+  /**
+   * Important links needed for agents to make using the API easier.
+   */
+  "x-links"?: {
+    signupUrl?: string;
+    loginUrl?: string;
+    forgotPasswordUrl?: string;
+    pricingUrl?: string;
+    /**
+     * Page from where logged-in user can make purchases, cancel subscription, etc.
+     */
+    billingUrl?: string;
+    /**
+     * URL of a page where the user can see their usage and its cost.
+     */
+    usageUrl?: string;
+    docsUrl?: string;
+    supportUrl?: string;
+    /**
+     * Url of the page where the user can find the required information for authorizing on the API. Usually this is a page where the user can create and see their API tokens.
+     */
+    apiAuthorizationSettingsUrl?: string;
   };
   /**
    * Pricing info including monthly fees.
    */
-  cost?: {
-    [k: string]: any;
+  "x-pricing"?: {
+    /**
+     * General summary of all plans
+     */
+    description?: string;
+    plans?: {
+      price: number;
+      currency: string;
+      title: string;
+      /**
+       * How much credit do you get for this. Credit matches the credit spent with 'priceCredit' extension for operations
+       */
+      credit: number;
+      /**
+       * How long will you retain the credit you receive?
+       */
+      persistence?: "forever" | "interval" | "capped";
+      /**
+       * Required when filling in persistence 'capped'
+       */
+      persistenceCappedDays?: number;
+      /**
+       * If the plan is a subscription based plan, fill in the interval on which every time the price is paid, and credit is given.
+       *
+       * If there is a pay-as-you-go price, fill in the minimum purchase size for each step. It will be assumed the price to credit ratio is linear.
+       */
+      interval?: "week" | "month" | "quarter" | "year";
+      rateLimit?: RateLimit;
+    }[];
   };
+  "x-rateLimit"?: RateLimit1;
   /**
    * General product reviews, collected.
    */
-  reviews?: {
+  "x-reviews"?: {
     [k: string]: any;
   };
   /**
    * General latency info.
    */
-  latency?: {
+  "x-latency"?: {
     [k: string]: any;
   };
   /**
    * Link to other openapis that could be good alternatives.
    */
-  alternatives?: {
+  "x-alternatives"?: {
     [k: string]: any;
   }[];
   /**
-   * Branding metadata
+   * Logo metadata. Standard taken from https://apis.guru
    */
-  branding?: {
+  "x-logo"?: {
     /**
      * URL to a logo image
      */
-    logoImageUrl?: string;
-    primaryColorHex?: string;
-    secondaryColorHex?: string;
-    [k: string]: any;
+    url?: string;
+    backgroundColor?: string;
+    secondaryColor?: string;
   };
   /**
    * This interface was referenced by `Info`'s JSON-Schema definition
@@ -232,17 +291,27 @@ export interface Info {
    */
   [k: string]: any;
 }
+/**
+ * Contact information for the exposed API.
+ */
 export interface Contact {
   name?: string;
   url?: string;
   email?: string;
-  phoneNumber?: string;
+  "x-phoneNumber"?: string;
+  "x-description"?: string;
   /**
    * This interface was referenced by `Contact`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   *
+   * This interface was referenced by `Contact1`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
   [k: string]: any;
 }
+/**
+ * The license information for the exposed API.
+ */
 export interface License {
   name: string;
   url?: string;
@@ -250,6 +319,37 @@ export interface License {
    * This interface was referenced by `License`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
+  [k: string]: any;
+}
+export interface Contact1 {
+  name?: string;
+  url?: string;
+  email?: string;
+  "x-phoneNumber"?: string;
+  "x-description"?: string;
+  /**
+   * This interface was referenced by `Contact`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   *
+   * This interface was referenced by `Contact1`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
+}
+/**
+ * Plan-based RateLimit info that overwrites the general rateLimit.
+ */
+export interface RateLimit {
+  limit?: number;
+  interval?: "second" | "minute";
+  [k: string]: any;
+}
+/**
+ * Global ratelimit info. Can be overwritten either by plans or by operations.
+ */
+export interface RateLimit1 {
+  limit?: number;
+  interval?: "second" | "minute";
   [k: string]: any;
 }
 /**
@@ -302,6 +402,7 @@ export interface Tag {
   name: string;
   description?: string;
   externalDocs?: ExternalDocumentation1;
+  "x-rateLimit"?: RateLimit2;
   /**
    * This interface was referenced by `Tag`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
@@ -324,6 +425,14 @@ export interface ExternalDocumentation1 {
    * This interface was referenced by `ExternalDocumentation1`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
+  [k: string]: any;
+}
+/**
+ * Tag-based ratelimit info.
+ */
+export interface RateLimit2 {
+  limit?: number;
+  interval?: "second" | "minute";
   [k: string]: any;
 }
 /**
@@ -481,6 +590,14 @@ export interface Operation {
     code?: string;
     [k: string]: any;
   };
+  "x-rateLimit"?: RateLimit3;
+  /**
+   * Define how much credits need to be blocked for using this endpoint, and deducted afterwards. Can be overwritten in response.
+   */
+  "x-priceCredit"?: number;
+  /**
+   * Defining tags here will help group the endpoint for different user interfaces.
+   */
   tags?: string[];
   summary?: string;
   description?: string;
@@ -499,6 +616,14 @@ export interface Operation {
    * This interface was referenced by `Operation`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
+  [k: string]: any;
+}
+/**
+ * Operation-based ratelimit info. This overwrites plan-based or global ratelimits.
+ */
+export interface RateLimit3 {
+  limit?: number;
+  interval?: "second" | "minute";
   [k: string]: any;
 }
 export interface RequestBody {
