@@ -159,7 +159,10 @@
             "loginUrl": { "type": "string" },
             "forgotPasswordUrl": { "type": "string" },
             "pricingUrl": { "type": "string" },
-            "changePricingPlanUrl": { "type": "string" },
+            "billingUrl": {
+              "type": "string",
+              "description": "Page from where logged-in user can make purchases, cancel subscription, etc."
+            },
             "usageUrl": {
               "type": "string",
               "description": "URL of a page where the user can see their usage and its cost."
@@ -196,8 +199,12 @@
                   },
                   "persistence": {
                     "type": "string",
-                    "enum": ["forever", "interval"],
+                    "enum": ["forever", "interval", "capped"],
                     "description": "How long will you retain the credit you receive?"
+                  },
+                  "persistenceCappedDays": {
+                    "type": "number",
+                    "description": "Required when filling in persistence 'capped'"
                   },
                   "interval": {
                     "description": "If the plan is a subscription based plan, fill in the interval on which every time the price is paid, and credit is given. \n\nIf there is a pay-as-you-go price, fill in the minimum purchase size for each step. It will be assumed the price to credit ratio is linear.",
