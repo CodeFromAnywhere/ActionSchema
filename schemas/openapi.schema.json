@@ -64,8 +64,9 @@
     },
 
     "security": {
-      "description": "A declaration of which security mechanisms can be used across the API. The list of values includes alternative security requirement objects that can be used. Only one of the security requirement objects need to be satisfied to authorize a request. Individual operations can override this definition. To make security optional, an empty security requirement ({}) can be included in the array.",
+      "description": "A declaration of which security mechanisms can be used across the API. The list of values includes alternative security requirement objects that can be used. Only one of the security requirement objects need to be satisfied to authorize a request. Individual operations can override this definition. To make security optional, an empty security requirement ({}) can be included in the array.\n\nPlease note: Every item in this array is an object with keys being the scheme names (can be anything). These names should then also be defined in components.securitySchemes.",
       "type": "array",
+      "default": [{ "apiKey": [] }],
       "items": {
         "$ref": "#/definitions/SecurityRequirement"
       }
