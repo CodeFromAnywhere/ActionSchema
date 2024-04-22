@@ -194,6 +194,11 @@
                     "type": "number",
                     "description": "How much credit do you get for this. Credit matches the credit spent with 'priceCredit' extension for operations"
                   },
+                  "persistence": {
+                    "type": "string",
+                    "enum": ["forever", "interval"],
+                    "description": "How long will you retain the credit you receive?"
+                  },
                   "interval": {
                     "description": "If the plan is a subscription based plan, fill in the interval on which every time the price is paid, and credit is given. \n\nIf there is a pay-as-you-go price, fill in the minimum purchase size for each step. It will be assumed the price to credit ratio is linear.",
                     "type": "string",
