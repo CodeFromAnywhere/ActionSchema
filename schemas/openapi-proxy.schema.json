@@ -3,9 +3,9 @@
   "type": "object",
   "description": "☢️ Allows easy creation new OpenAPIs that have a selection of paths from multiple OpenAPIs, and proxy the incoming requests to the right path of another server with authentication.",
   "properties": {
-    "id": {
+    "name": {
       "type": "string",
-      "description": "Name of the proxy to be made accessible at '[id].[slug].opengpts.actionschema.com'"
+      "description": "Name of the proxy"
     },
 
     "partialApis": {
