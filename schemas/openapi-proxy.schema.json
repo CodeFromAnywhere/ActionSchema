@@ -45,6 +45,10 @@
             "additionalProperties": false,
             "properties": {
               "path": { "type": "string" },
+              "proxyPath": {
+                "type": "string",
+                "description": "Incase the path is not unique, the proxy will suffix something to the path. This is stored here."
+              },
               "method": { "type": "string" },
               "modifications": {
                 "$comment": "Not sure if this complexity is worth it, but could be useful for example if you want to provide a simpler API for something.",

@@ -10,9 +10,9 @@
  */
 export interface OpenapiProxySchema {
   /**
-   * Name of the proxy to be made accessible at '[id].[slug].opengpts.actionschema.com'
+   * Name of the proxy
    */
-  id: string;
+  name?: string;
   /**
    * List of multiple paths from multiple openapis
    */
@@ -31,6 +31,10 @@ export interface PartialApi {
   security?: SecurityRequirement;
   operations?: {
     path: string;
+    /**
+     * Incase the path is not unique, the proxy will suffix something to the path. This is stored here.
+     */
+    proxyPath?: string;
     method: string;
     /**
      * An array of modifications to the input schema
