@@ -95,10 +95,10 @@ export interface SchemaList {
    * Amount of items.
    */
   itemsAmount?: number;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface SchemaListItem {
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Key-value pairs for variables.
@@ -144,7 +144,7 @@ export interface JsonStatusDelta {
    * The new value after the update, could be of any type.
    */
   newValue?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
 }
 /**

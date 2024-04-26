@@ -11,7 +11,7 @@
 export interface PhoneRecordingInboxSchema {
   $schema?: string;
   items?: PhoneRecordingInbox[];
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface PhoneRecordingInbox {
   /**
@@ -207,5 +207,5 @@ export interface PhoneRecordingInbox {
    * sendWebhook
    */
   sendWebhook?: string;
-  [k: string]: any;
+  [k: string]: unknown;
 }

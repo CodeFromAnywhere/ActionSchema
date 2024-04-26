@@ -13,12 +13,12 @@ export type StringArray = string[];
 
 export interface WorkerContext {
   completeContext: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
   databaseId: string;
   dotLocation: string;
   schema: ActionSchema;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#definitions
@@ -36,13 +36,13 @@ export interface ActionSchema {
   /**
    * Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.
    */
-  default?: ActionSchema1 | boolean | number | any[] | string;
+  default?: ActionSchema1 | boolean | number | unknown[] | string;
   /**
    * Sample JSON values associated with a particular schema, for the purpose of illustrating usage.
    *
    * Besides serving as example values for e.g. forms and other things, with ActionSchema `examples` also serves as a fallback of `x-plugin` and `default`.
    */
-  examples?: any[];
+  examples?: unknown[];
   deprecated?: boolean;
   /**
    * Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/
@@ -56,7 +56,7 @@ export interface ActionSchema {
      * If given, it is assumed the value or values of this property link to this model.
      */
     refModelName?: string;
-    [k: string]: any;
+    [k: string]: unknown;
   };
   $id?: string;
   /**
@@ -114,7 +114,7 @@ export interface ActionSchema {
   /**
    * @minItems 1
    */
-  enum?: [any, ...any[]];
+  enum?: [unknown, ...unknown[]];
   type?:
     | ("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")
     | [
@@ -178,7 +178,7 @@ export interface Plugin {
    * Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.
    */
   context?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * Array of dot locations of datapoints that are required to be non-stale for this plugin to run. Should replace `propertyDependencies`. Might later calculate this in realtime using the `x-plugin.code` property
@@ -194,7 +194,7 @@ export interface Plugin {
   code?: {
     host?: "browser" | "serverless" | "server" | "gpu";
     code?: string;
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * @deprecated
@@ -221,7 +221,7 @@ export interface Plugin {
    * If given, this could be a reference to another property that resolves to a boolean that, if false, tells that this value is invalid
    */
   validPropertyName?: string;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * The OpenAPI information required to execute the function.
@@ -232,7 +232,7 @@ export interface OpenAPIDetails {
   method: string;
   operationId: string;
   emoji?: string;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Core json-schema meta-schema, adapted to make it an ActionSchema with plugin capabilities. Root taken from https://json-schema.org/draft-07/schema#definitions
@@ -250,13 +250,13 @@ export interface ActionSchema1 {
   /**
    * Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.
    */
-  default?: ActionSchema1 | boolean | number | any[] | string;
+  default?: ActionSchema1 | boolean | number | unknown[] | string;
   /**
    * Sample JSON values associated with a particular schema, for the purpose of illustrating usage.
    *
    * Besides serving as example values for e.g. forms and other things, with ActionSchema `examples` also serves as a fallback of `x-plugin` and `default`.
    */
-  examples?: any[];
+  examples?: unknown[];
   deprecated?: boolean;
   /**
    * Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/
@@ -270,7 +270,7 @@ export interface ActionSchema1 {
      * If given, it is assumed the value or values of this property link to this model.
      */
     refModelName?: string;
-    [k: string]: any;
+    [k: string]: unknown;
   };
   $id?: string;
   /**
@@ -328,7 +328,7 @@ export interface ActionSchema1 {
   /**
    * @minItems 1
    */
-  enum?: [any, ...any[]];
+  enum?: [unknown, ...unknown[]];
   type?:
     | ("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")
     | [

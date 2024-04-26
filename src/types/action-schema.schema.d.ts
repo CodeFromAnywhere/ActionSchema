@@ -30,13 +30,13 @@ export interface ActionSchema {
   /**
    * Besides serving as default values for e.g. forms and other things, with ActionSchema `default` also serves as a fallback of `x-plugin`. If x-plugin is empty or it fails, and `default` is available, the default will be set as the value.
    */
-  default?: ActionSchema | boolean | number | any[] | string;
+  default?: ActionSchema | boolean | number | unknown[] | string;
   /**
    * Sample JSON values associated with a particular schema, for the purpose of illustrating usage.
    *
    * Besides serving as example values for e.g. forms and other things, with ActionSchema `examples` also serves as a fallback of `x-plugin` and `default`.
    */
-  examples?: any[];
+  examples?: unknown[];
   deprecated?: boolean;
   /**
    * Determines how it's shown in forms. See: https://rjsf-team.github.io/react-jsonschema-form/docs/usage/widgets/
@@ -50,7 +50,7 @@ export interface ActionSchema {
      * If given, it is assumed the value or values of this property link to this model.
      */
     refModelName?: string;
-    [k: string]: any;
+    [k: string]: unknown;
   };
   $id?: string;
   /**
@@ -108,7 +108,7 @@ export interface ActionSchema {
   /**
    * @minItems 1
    */
-  enum?: [any, ...any[]];
+  enum?: [unknown, ...unknown[]];
   type?: SimpleTypes | [SimpleTypes, ...SimpleTypes[]];
   format?: string;
   contentMediaType?: string;
@@ -167,7 +167,7 @@ export interface Plugin {
    * Context given to the function. For strings, you'll be able to use variables here (using `${propertyName}` syntax). This needs to be known by the AI.
    */
   context?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * Array of dot locations of datapoints that are required to be non-stale for this plugin to run. Should replace `propertyDependencies`. Might later calculate this in realtime using the `x-plugin.code` property
@@ -183,7 +183,7 @@ export interface Plugin {
   code?: {
     host?: "browser" | "serverless" | "server" | "gpu";
     code?: string;
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * @deprecated
@@ -210,7 +210,7 @@ export interface Plugin {
    * If given, this could be a reference to another property that resolves to a boolean that, if false, tells that this value is invalid
    */
   validPropertyName?: string;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * The OpenAPI information required to execute the function.
@@ -221,5 +221,5 @@ export interface OpenAPIDetails {
   method: string;
   operationId: string;
   emoji?: string;
-  [k: string]: any;
+  [k: string]: unknown;
 }

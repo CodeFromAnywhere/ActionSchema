@@ -17,7 +17,8 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "npx tsc-watch --noClear --onSuccess 'npm run css'",
-    "types": "json2ts -i ./schemas/ -o src/types --unknownAny=false",
+    "$comment$types": "json2ts only works when running from the same folder as the schemas are located, due to a problem resolving relative files. Not doing it this way will break things downstream (e.g. with openapi-typescript or redoc-cli) See: https://github.com/bcherny/json-schema-to-typescript/issues/324",
+    "types": "cd schemas && json2ts -i . -o ../src/types --unknownAny=false",
     "css": "tailwindcss -o css.css",
     "up": "npm version patch -f",
     "pub": "npm run up && npm publish && git add . && git commit -m 'improvements' && git push"

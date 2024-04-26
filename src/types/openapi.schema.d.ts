@@ -19,7 +19,7 @@ export type Parameter = Parameter1 & {
   content?: {
     [k: string]: MediaType;
   };
-  example?: any;
+  example?: unknown;
   examples?: {
     [k: string]: Example | Reference;
   };
@@ -27,14 +27,14 @@ export type Parameter = Parameter1 & {
    * This interface was referenced by `undefined`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 };
 export type Parameter1 = ExampleXORExamples & SchemaXORContent & ParameterLocation;
 /**
  * Schema and content are mutually exclusive, at least one is required
  */
 export type SchemaXORContent = {
-  [k: string]: any;
+  [k: string]: unknown;
 };
 /**
  * Parameter location
@@ -44,26 +44,26 @@ export type ParameterLocation =
       in?: "path";
       style?: "matrix" | "label" | "simple";
       required: true;
-      [k: string]: any;
+      [k: string]: unknown;
     }
   | {
       in?: "query";
       style?: "form" | "spaceDelimited" | "pipeDelimited" | "deepObject";
-      [k: string]: any;
+      [k: string]: unknown;
     }
   | {
       in?: "header";
       style?: "simple";
-      [k: string]: any;
+      [k: string]: unknown;
     }
   | {
       in?: "cookie";
       style?: "form";
-      [k: string]: any;
+      [k: string]: unknown;
     };
 export type MediaType = MediaType1 & {
   schema?: Schema | Reference;
-  example?: any;
+  example?: unknown;
   examples?: {
     [k: string]: Example | Reference;
   };
@@ -74,7 +74,7 @@ export type MediaType = MediaType1 & {
    * This interface was referenced by `undefined`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 };
 export type MediaType1 = ExampleXORExamples;
 export type Header = Header1 & {
@@ -89,7 +89,7 @@ export type Header = Header1 & {
   content?: {
     [k: string]: MediaType1;
   };
-  example?: any;
+  example?: unknown;
   examples?: {
     [k: string]: Example | Reference;
   };
@@ -97,7 +97,7 @@ export type Header = Header1 & {
    * This interface was referenced by `undefined`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 };
 export type Header1 = ExampleXORExamples & SchemaXORContent;
 export type SecurityScheme =
@@ -114,18 +114,18 @@ export type HTTPSecurityScheme = {
    * This interface was referenced by `undefined`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 } & HTTPSecurityScheme1;
 export type HTTPSecurityScheme1 =
   | {
       scheme?: string;
-      [k: string]: any;
+      [k: string]: unknown;
     }
   | {
       scheme?: {
-        [k: string]: any;
+        [k: string]: unknown;
       };
-      [k: string]: any;
+      [k: string]: unknown;
     };
 
 /**
@@ -174,7 +174,7 @@ export interface OpenAPIDocument {
    * This interface was referenced by `OpenAPIDocument`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Provides metadata about the API. The metadata MAY be used by tooling as required.
@@ -197,7 +197,7 @@ export interface Info {
    * Product info.
    */
   "x-product"?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * Important links needed for agents to make using the API easier.
@@ -260,19 +260,19 @@ export interface Info {
    * General product reviews, collected.
    */
   "x-reviews"?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * General latency info.
    */
   "x-latency"?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * Link to other openapis that could be good alternatives.
    */
   "x-alternatives"?: {
-    [k: string]: any;
+    [k: string]: unknown;
   }[];
   /**
    * Logo metadata. Standard taken from https://apis.guru
@@ -289,7 +289,7 @@ export interface Info {
    * This interface was referenced by `Info`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Contact information for the exposed API.
@@ -307,7 +307,7 @@ export interface Contact {
    * This interface was referenced by `Contact1`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * The license information for the exposed API.
@@ -319,7 +319,7 @@ export interface License {
    * This interface was referenced by `License`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Contact1 {
   name?: string;
@@ -334,7 +334,7 @@ export interface Contact1 {
    * This interface was referenced by `Contact1`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Plan-based RateLimit info that overwrites the general rateLimit.
@@ -342,7 +342,7 @@ export interface Contact1 {
 export interface RateLimit {
   limit?: number;
   interval?: "second" | "minute";
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Global ratelimit info. Can be overwritten either by plans or by operations.
@@ -350,7 +350,7 @@ export interface RateLimit {
 export interface RateLimit1 {
   limit?: number;
   interval?: "second" | "minute";
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Additional external documentation.
@@ -362,7 +362,7 @@ export interface ExternalDocumentation {
    * Scraped markdown from the url
    */
   markdown?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * This interface was referenced by `ExternalDocumentation`'s JSON-Schema definition
@@ -371,7 +371,7 @@ export interface ExternalDocumentation {
    * This interface was referenced by `ExternalDocumentation1`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Server {
   url: string;
@@ -383,7 +383,7 @@ export interface Server {
    * This interface was referenced by `Server`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface ServerVariable {
   enum?: string[];
@@ -393,7 +393,7 @@ export interface ServerVariable {
    * This interface was referenced by `ServerVariable`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface SecurityRequirement {
   [k: string]: string[];
@@ -407,7 +407,7 @@ export interface Tag {
    * This interface was referenced by `Tag`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface ExternalDocumentation1 {
   description?: string;
@@ -416,7 +416,7 @@ export interface ExternalDocumentation1 {
    * Scraped markdown from the url
    */
   markdown?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * This interface was referenced by `ExternalDocumentation`'s JSON-Schema definition
@@ -425,7 +425,7 @@ export interface ExternalDocumentation1 {
    * This interface was referenced by `ExternalDocumentation1`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Tag-based ratelimit info.
@@ -433,7 +433,7 @@ export interface ExternalDocumentation1 {
 export interface RateLimit2 {
   limit?: number;
   interval?: "second" | "minute";
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * The available paths and operations for the API.
@@ -454,7 +454,7 @@ export interface PathItem {
  * Example and examples are mutually exclusive
  */
 export interface ExampleXORExamples {
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Schema {
   title?: string;
@@ -478,7 +478,7 @@ export interface Schema {
   /**
    * @minItems 1
    */
-  enum?: [any, ...any[]];
+  enum?: [unknown, ...unknown[]];
   type?: "array" | "boolean" | "integer" | "number" | "object" | "string";
   not?: Schema | Reference;
   allOf?: (Schema | Reference)[];
@@ -491,12 +491,12 @@ export interface Schema {
   additionalProperties?: Schema | Reference | boolean;
   description?: string;
   format?: string;
-  default?: any;
+  default?: unknown;
   nullable?: boolean;
   discriminator?: Discriminator;
   readOnly?: boolean;
   writeOnly?: boolean;
-  example?: any;
+  example?: unknown;
   externalDocs?: ExternalDocumentation1;
   deprecated?: boolean;
   xml?: XML;
@@ -504,7 +504,7 @@ export interface Schema {
    * This interface was referenced by `Schema`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Reference {
   /**
@@ -521,7 +521,7 @@ export interface Discriminator {
   mapping?: {
     [k: string]: string;
   };
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * A metadata object that allows for more fine-tuned XML model definitions
@@ -536,7 +536,7 @@ export interface XML {
    * This interface was referenced by `XML`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * See https://swagger.io/specification/v3/#example-object
@@ -544,13 +544,13 @@ export interface XML {
 export interface Example {
   summary?: string;
   description?: string;
-  value?: any;
+  value?: unknown;
   externalValue?: string;
   /**
    * This interface was referenced by `Example`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Encoding {
   contentType?: string;
@@ -564,7 +564,7 @@ export interface Encoding {
    * This interface was referenced by `Encoding`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `PathItem`'s JSON-Schema definition
@@ -588,7 +588,7 @@ export interface Operation {
     runtime?: "browser" | "bun" | "node" | "python3" | "rust" | "go";
     host?: "edge" | "server" | "serverless" | "gpu";
     code?: string;
-    [k: string]: any;
+    [k: string]: unknown;
   };
   "x-rateLimit"?: RateLimit3;
   /**
@@ -616,7 +616,7 @@ export interface Operation {
    * This interface was referenced by `Operation`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 /**
  * Operation-based ratelimit info. This overwrites plan-based or global ratelimits.
@@ -624,7 +624,7 @@ export interface Operation {
 export interface RateLimit3 {
   limit?: number;
   interval?: "second" | "minute";
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface RequestBody {
   description?: string;
@@ -636,7 +636,7 @@ export interface RequestBody {
    * This interface was referenced by `RequestBody`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Responses {
   default?: Response | Reference;
@@ -656,22 +656,22 @@ export interface Response {
    * This interface was referenced by `Response`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Link {
   operationId?: string;
   operationRef?: string;
   parameters?: {
-    [k: string]: any;
+    [k: string]: unknown;
   };
-  requestBody?: any;
+  requestBody?: unknown;
   description?: string;
   server?: Server;
   /**
    * This interface was referenced by `Link`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Callback {
   [k: string]: PathItem;
@@ -747,7 +747,7 @@ export interface Components {
    * This interface was referenced by `Components`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface APIKeySecurityScheme {
   type: "apiKey";
@@ -758,7 +758,7 @@ export interface APIKeySecurityScheme {
    * This interface was referenced by `APIKeySecurityScheme`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface OAuth2SecurityScheme {
   type: "oauth2";
@@ -768,7 +768,7 @@ export interface OAuth2SecurityScheme {
    * This interface was referenced by `OAuth2SecurityScheme`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface OAuthFlows {
   implicit?: ImplicitOAuthFlow;
@@ -779,7 +779,7 @@ export interface OAuthFlows {
    * This interface was referenced by `OAuthFlows`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface ImplicitOAuthFlow {
   authorizationUrl: string;
@@ -791,7 +791,7 @@ export interface ImplicitOAuthFlow {
    * This interface was referenced by `ImplicitOAuthFlow`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface PasswordOAuthFlow {
   tokenUrl: string;
@@ -803,7 +803,7 @@ export interface PasswordOAuthFlow {
    * This interface was referenced by `PasswordOAuthFlow`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface ClientCredentialsFlow {
   tokenUrl: string;
@@ -815,7 +815,7 @@ export interface ClientCredentialsFlow {
    * This interface was referenced by `ClientCredentialsFlow`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface AuthorizationCodeOAuthFlow {
   authorizationUrl: string;
@@ -828,7 +828,7 @@ export interface AuthorizationCodeOAuthFlow {
    * This interface was referenced by `AuthorizationCodeOAuthFlow`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface OpenIdConnectSecurityScheme {
   type: "openIdConnect";
@@ -838,5 +838,5 @@ export interface OpenIdConnectSecurityScheme {
    * This interface was referenced by `OpenIdConnectSecurityScheme`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: any;
+  [k: string]: unknown;
 }

@@ -35,11 +35,11 @@ export interface LocalStorageState {
   general?: Configuration;
   openApis?: OpenAPIs;
   actionSchemaServer?: ActionSchemaServer;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface Configuration {
   isUsageCollected?: AnonymousUsageInfoCollection;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface OpenAPI {
   __id?: OpenAPIURL;
@@ -50,7 +50,7 @@ export interface OpenAPI {
     [k: string]: string;
   };
   localhostOpenapiUrl?: LocalhostOpenAPIURL;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 export interface ActionSchemaServer {
   /**
@@ -68,5 +68,5 @@ export interface ActionSchemaServer {
   actionSchemaOpenApiHeaders?: {
     [k: string]: string;
   };
-  [k: string]: any;
+  [k: string]: unknown;
 }

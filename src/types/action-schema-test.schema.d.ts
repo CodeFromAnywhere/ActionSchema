@@ -14,7 +14,7 @@ export interface ActionSchemaTestSchema {
    */
   variables?: {
     getStuff?: string;
-    [k: string]: any;
+    [k: string]: unknown;
   };
   /**
    * Items in your grid.
@@ -23,9 +23,9 @@ export interface ActionSchemaTestSchema {
     __id?: string;
     name?: string;
     age?: {
-      [k: string]: any;
+      [k: string]: unknown;
     };
-    [k: string]: any;
+    [k: string]: unknown;
   }[];
-  [k: string]: any;
+  [k: string]: unknown;
 }
