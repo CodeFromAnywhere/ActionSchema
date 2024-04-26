@@ -9,7 +9,7 @@
     "./serverless": "./build/serverless-redis/index.js",
     "./types": "./src/types/index.ts"
   },
-  "version": "0.0.36",
+  "version": "0.0.37",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeFromAnywhere/ActionSchema.git"
@@ -42,6 +42,7 @@
   "bin": {},
   "dependencies": {
     "@upstash/redis": "^1.29.0",
+    "from-anywhere": "^0.0.27",
     "ioredis": "^5.3.2"
   },
   "operation": {
