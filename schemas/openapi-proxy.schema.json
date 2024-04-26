@@ -15,7 +15,7 @@
     },
 
     "info": {
-      "$ref": "./schemas/openapi.schema.json#/definitions/Info",
+      "$ref": "./openapi.schema.json#/definitions/Info",
       "description": "Info object of the to be served openapi"
     },
 
@@ -35,7 +35,7 @@
         "security": {
           "description": "Filled in security details based on the OpenAPIs securitySchemes.",
           "$comment": "Not sure if this works for all security mechanisms",
-          "$ref": "./schemas/openapi.schema.json#/definitions/SecurityRequirement"
+          "$ref": "./openapi.schema.json#/definitions/SecurityRequirement"
         },
         "operations": {
           "type": "array",
