@@ -1,4 +1,4 @@
-import { EnvironmentConfig, ExecuteContext } from "../types/types.js";
+import { EnvironmentConfig, ExecuteContext } from "../types.js";
 export declare const fetchPluginOrDefault: (context: ExecuteContext & EnvironmentConfig) => Promise<{
     value: undefined;
     hasStaleStatus: true;

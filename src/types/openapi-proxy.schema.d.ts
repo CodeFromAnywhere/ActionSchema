@@ -76,7 +76,7 @@ export interface Info {
    * Product info.
    */
   "x-product"?: {
-    [k: string]: unknown;
+    [k: string]: any;
   };
   /**
    * Important links needed for agents to make using the API easier.
@@ -139,19 +139,19 @@ export interface Info {
    * General product reviews, collected.
    */
   "x-reviews"?: {
-    [k: string]: unknown;
+    [k: string]: any;
   };
   /**
    * General latency info.
    */
   "x-latency"?: {
-    [k: string]: unknown;
+    [k: string]: any;
   };
   /**
    * Link to other openapis that could be good alternatives.
    */
   "x-alternatives"?: {
-    [k: string]: unknown;
+    [k: string]: any;
   }[];
   /**
    * Logo metadata. Standard taken from https://apis.guru
@@ -168,7 +168,7 @@ export interface Info {
    * This interface was referenced by `Info`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: unknown;
+  [k: string]: any;
 }
 /**
  * Contact information for the exposed API.
@@ -186,7 +186,7 @@ export interface Contact {
    * This interface was referenced by `Contact1`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: unknown;
+  [k: string]: any;
 }
 /**
  * The license information for the exposed API.
@@ -198,7 +198,7 @@ export interface License {
    * This interface was referenced by `License`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: unknown;
+  [k: string]: any;
 }
 export interface Contact1 {
   name?: string;
@@ -213,7 +213,7 @@ export interface Contact1 {
    * This interface was referenced by `Contact1`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: unknown;
+  [k: string]: any;
 }
 /**
  * Plan-based RateLimit info that overwrites the general rateLimit.
@@ -221,7 +221,7 @@ export interface Contact1 {
 export interface RateLimit {
   limit?: number;
   interval?: "second" | "minute";
-  [k: string]: unknown;
+  [k: string]: any;
 }
 /**
  * Global ratelimit info. Can be overwritten either by plans or by operations.
@@ -229,5 +229,5 @@ export interface RateLimit {
 export interface RateLimit1 {
   limit?: number;
   interval?: "second" | "minute";
-  [k: string]: unknown;
+  [k: string]: any;
 }

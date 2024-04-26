@@ -1,5 +1,5 @@
 import { ActionSchema } from "../types/action-schema.schema.js";
-import { EnvironmentConfig, ExecuteContext, ExecuteResult } from "../types/types.js";
+import { EnvironmentConfig, ExecuteContext, ExecuteResult } from "../types.js";
 /**
 This is the main function to execute things. Please note that the data storage method is abstracted away from this one as every environment implements their own for that.
 

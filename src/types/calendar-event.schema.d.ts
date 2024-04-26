@@ -11,7 +11,7 @@
 export interface CalendarEventCollection {
   $schema?: string;
   items: CalendarEvent[];
-  [k: string]: unknown;
+  [k: string]: any;
 }
 export interface CalendarEvent {
   /**
@@ -80,5 +80,5 @@ export interface CalendarEvent {
    * relationName
    */
   relationName?: string;
-  [k: string]: unknown;
+  [k: string]: any;
 }

@@ -5,7 +5,7 @@ import {
   ExecuteContext,
   ExecuteResult,
   UpstashStorageDetails,
-} from "../types/types.js";
+} from "../types.js";
 import {
   createUpstashRedisDatabase,
   deleteUpstashRedisRange,

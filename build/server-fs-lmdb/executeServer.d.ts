@@ -1,4 +1,4 @@
-import { ExecuteContext, ExecuteResult } from "../types/types.js";
+import { ExecuteContext, ExecuteResult } from "../types.js";
 /**
 Server wrapper around `execute` that ensures every execution request is carried out in a worker
 

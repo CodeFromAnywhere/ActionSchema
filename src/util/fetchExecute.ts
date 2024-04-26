@@ -2,7 +2,7 @@ import {
   ExecuteContext,
   ExecuteResult,
   UpstashStorageDetails,
-} from "../types/types.js";
+} from "../types.js";
 
 /**
  * Function to call the execute API. This can be both serverless and server apis, but not browser as browser doesn't require a fetch.

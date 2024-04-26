@@ -9,14 +9,14 @@ export type ActionSchemaTestData =
   | []
   | [
       {
-        [k: string]: unknown;
+        [k: string]: any;
       }
     ]
   | [
       {
-        [k: string]: unknown;
+        [k: string]: any;
       },
       {
-        [k: string]: unknown;
+        [k: string]: any;
       }
     ];

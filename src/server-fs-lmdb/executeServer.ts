@@ -1,4 +1,4 @@
-import { ExecuteContext, ExecuteResult } from "../types/types.js";
+import { ExecuteContext, ExecuteResult } from "../types.js";
 import Piscina from "piscina";
 
 const piscina = new Piscina({

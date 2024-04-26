@@ -1,4 +1,4 @@
-import { ExecuteContext, ExecuteResult, UpstashStorageDetails } from "../types/types.js";
+import { ExecuteContext, ExecuteResult, UpstashStorageDetails } from "../types.js";
 /**
 Serverless wrapper around `execute`.
 

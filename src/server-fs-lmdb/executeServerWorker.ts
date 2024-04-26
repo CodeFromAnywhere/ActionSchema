@@ -1,5 +1,5 @@
 import { cleanFetch } from "../util/cleanFetch.js";
-import { ExecuteContext } from "../types/types.js";
+import { ExecuteContext } from "../types.js";
 import { execute } from "../util/execute.js";
 import { getDb } from "./storage/getDb.js";
 import { getValue } from "./storage/getValue.js";

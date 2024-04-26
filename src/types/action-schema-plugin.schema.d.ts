@@ -11,7 +11,7 @@
 export interface ActionSchemaPluginCollection {
   $schema?: string;
   items?: ActionSchemaPlugin[];
-  [k: string]: unknown;
+  [k: string]: any;
 }
 export interface ActionSchemaPlugin {
   /**

@@ -6,5 +6,5 @@
  */
 
 export interface OpenapiTest {
-  [k: string]: unknown;
+  [k: string]: any;
 }
