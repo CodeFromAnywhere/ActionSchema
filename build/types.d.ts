@@ -1,5 +1,12 @@
 import { ActionSchemaPlugin } from "./types/action-schema-plugin.schema.js";
 import { ActionSchema } from "./types/action-schema.schema.js";
+export * from "./types/action-schema-plugin.schema.js";
+export * from "./types/action-schema.schema.js";
+export * from "./types/openapi.schema.js";
+export * from "./types/schema-list.schema.js";
+export * from "./types/local-storage.schema.js";
+import type { OpenapiProxySchema } from "./types/openapi-proxy.schema.js";
+export type { OpenapiProxySchema };
 /** Should be inferred from x-plugin */
 export type ValueOptions = {
     /**
