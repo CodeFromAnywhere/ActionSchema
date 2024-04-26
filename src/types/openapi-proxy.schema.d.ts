@@ -12,11 +12,11 @@ export interface OpenapiProxySchema {
   /**
    * Name of the proxy
    */
-  name?: string;
+  name: string;
   /**
    * List of multiple paths from multiple openapis
    */
-  partialApis?: PartialApi[];
+  partialApis: PartialApi[];
   info: Info;
   /**
    * Secret API that - if given - must be met to gain access.

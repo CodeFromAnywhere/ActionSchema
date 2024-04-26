@@ -24,7 +24,7 @@
       "description": "Secret API that - if given - must be met to gain access."
     }
   },
-  "required": ["id", "proxies", "info"],
+  "required": ["name", "partialApis", "info"],
   "additionalProperties": false,
   "definitions": {
     "PartialApi": {
