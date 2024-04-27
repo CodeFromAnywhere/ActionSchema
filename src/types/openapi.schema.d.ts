@@ -444,11 +444,34 @@ export interface Paths {}
  * via the `patternProperty` "^\/".
  */
 export interface PathItem {
+  /**
+   * It's possible to reference another path here, even from another openapi spec (remote). This creates a realtime copy of the specification.
+   */
   $ref?: string;
+  /**
+   * This could be a way to define the proxy. Advantage of this way to define it is that we can also
+   */
+  "x-proxy"?: {
+    /**
+     * If not available, will use $ref
+     */
+    pathUri?: string;
+    /**
+     * Which methods are proxied. If not given, proxies all methods.
+     */
+    methods?: ("get" | "put" | "post" | "delete" | "options" | "head" | "patch" | "trace")[];
+    "private:security"?: SecurityRequirement1;
+  };
   summary?: string;
   description?: string;
   servers?: Server[];
   parameters?: (Parameter | Reference)[];
+}
+/**
+ * ActionSchema Extension for proxy: Filled in security details based on the OpenAPIs securitySchemes. Should be omitted when showing this publicly. Instead of doing it like this, an alternative would be a private file security.json
+ */
+export interface SecurityRequirement1 {
+  [k: string]: string[];
 }
 /**
  * Example and examples are mutually exclusive

@@ -1,15 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
   "type": "object",
+  "$comment": "This is a proposal",
+  "description": "Keys should be OpenAPI Urls, values could be private proxy settings for this openapi server",
   "additionalProperties": {
-    "$ref": "./openapi.schema.json#/definitions/SecurityRequirement"
-  },
-  "properties": {},
-  "patternProperties": {
-    "^http": {
-      "type": "string",
-      "$ref": "./openapi.schema.json#/definitions/SecurityRequirement",
-      "propertyNames": { "format": "uri-reference" }
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "security": {
+        "$ref": "openapi.schema.json#/definitions/SecurityRequirement"
+      }
     }
   }
 }
