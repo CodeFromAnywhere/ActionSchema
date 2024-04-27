@@ -5,7 +5,7 @@
   "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
   "description": "The description of OpenAPI v3.0.x documents, as defined by https://spec.openapis.org/oas/v3.0.3 and extended by ActionSchema.",
   "type": "object",
-  "required": ["$schema", "openapi", "actionschema", "info", "paths"],
+  "required": ["$schema", "openapi", "x-actionschema", "info", "paths"],
   "properties": {
     "$schema": {
       "$comment": "Added for vscode consistency. Refers to the openapi schema specification (this one)",
