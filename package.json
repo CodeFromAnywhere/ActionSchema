@@ -9,7 +9,7 @@
     "./serverless": "./build/serverless-redis/index.js",
     "./types": "./src/types.ts"
   },
-  "version": "0.0.38",
+  "version": "0.0.39",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeFromAnywhere/ActionSchema.git"
