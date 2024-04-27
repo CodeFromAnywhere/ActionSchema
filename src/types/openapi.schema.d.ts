@@ -145,7 +145,7 @@ export interface OpenAPIDocument {
   /**
    * Version of actionschema.
    */
-  "x-actionschema"?: string;
+  "x-actionschema": string;
   info: Info;
   externalDocs?: ExternalDocumentation;
   /**
