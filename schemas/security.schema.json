@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "./openapi.schema.json#/definitions/SecurityRequirement"
+  },
+  "properties": {},
+  "patternProperties": {
+    "^http": {
+      "type": "string",
+      "$ref": "./openapi.schema.json#/definitions/SecurityRequirement",
+      "propertyNames": { "format": "uri-reference" }
+    }
+  }
+}

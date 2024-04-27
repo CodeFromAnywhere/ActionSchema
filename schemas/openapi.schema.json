@@ -960,8 +960,44 @@
       "type": "object",
       "properties": {
         "$ref": {
+          "description": "It's possible to reference another path here, even from another openapi spec (remote). This creates a realtime copy of the specification.",
           "type": "string"
         },
+        "x-proxy": {
+          "$comment": "Not implemented yet. Could ",
+          "type": "object",
+          "description": "This could be a way to define the proxy. Advantage of this way to define it is that we can also ",
+          "additionalProperties": false,
+          "properties": {
+            "pathUri": {
+              "type": "string",
+              "description": "If not available, will use $ref"
+            },
+            "methods": {
+              "description": "Which methods are proxied. If not given, proxies all methods.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "get",
+                  "put",
+                  "post",
+                  "delete",
+                  "options",
+                  "head",
+                  "patch",
+                  "trace"
+                ]
+              }
+            },
+            "private:security": {
+              "description": "ActionSchema Extension for proxy: Filled in security details based on the OpenAPIs securitySchemes. Should be omitted when showing this publicly. Instead of doing it like this, an alternative would be a private file security.json",
+              "$comment": "Not sure if this works for all security mechanisms",
+              "$ref": "./openapi.schema.json#/definitions/SecurityRequirement"
+            }
+          }
+        },
+
         "summary": {
           "type": "string"
         },
