@@ -1034,6 +1034,29 @@
       "type": "object",
       "required": ["responses"],
       "properties": {
+        "x-actionschema-config": {
+          "description": "ActionSchema addition: You can specify an ActionSchema here that specifies the entire lifecycle of this operation. Defining this will allow the server to infer input and output based on which parameters use plugins and which don't.",
+          "type": "object",
+          "properties": {
+            "schema": {
+              "description": "The ActionSchema that defines the steps to be taken and in what order. Can be a reference or the direct schema.",
+              "oneOf": [
+                {
+                  "$ref": "action-schema.schema.json#"
+                },
+                {
+                  "$ref": "#/definitions/Reference"
+                }
+              ]
+            },
+            "implementation": {
+              "description": "Implemenatation may differ. \n\n- 'status' will respond immediately with the initial result and status.\n - 'wait' will wait for the entire thing to complete or until it has to wait itself. It doesn't need state.\n- 'stream' will respond immediately and stream further results as they come. Also no need for state.",
+              "type": "string",
+              "enum": ["status", "wait", "stream"]
+            }
+          }
+        },
+
         "x-unmountOperationId": {
           "type": "string",
           "description": "ActionSchema addition: Should refer to an operationId in the same OpenAPI that would undo the side-effect that calling this function caused.\n\nIf this is given into a path.post object it should mean that this function has an external side-effect when executed, for example it will store some data somewhere.\n\nTo undo this side-effect when changing or removing the plugin, we can specify an unmount plugin that is also part of the same openapi.\n\nThe idea is that if specified, the side effect doesn't leavve any residu"
