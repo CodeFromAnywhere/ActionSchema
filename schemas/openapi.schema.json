@@ -1034,7 +1034,7 @@
       "type": "object",
       "required": ["responses"],
       "properties": {
-        "x-actionschema-config": {
+        "x-schema": {
           "description": "ActionSchema addition: You can specify an ActionSchema here that specifies the entire lifecycle of this operation. Defining this will allow the server to infer input and output based on which parameters use plugins and which don't.",
           "type": "object",
           "properties": {
@@ -1062,21 +1062,19 @@
           "description": "ActionSchema addition: Should refer to an operationId in the same OpenAPI that would undo the side-effect that calling this function caused.\n\nIf this is given into a path.post object it should mean that this function has an external side-effect when executed, for example it will store some data somewhere.\n\nTo undo this side-effect when changing or removing the plugin, we can specify an unmount plugin that is also part of the same openapi.\n\nThe idea is that if specified, the side effect doesn't leavve any residu"
         },
 
-        "x-rawBodyCode": {
+        "x-code": {
           "type": "object",
-          "$comment": "TODO",
-          "description": "This could be the code executed upon receiving the requestBody as context. If we can create an editor that has the proper typescript context and shows the function based on the body, we have a single source of truth for the codebase. We code inside the openapi! The beauty is, this is programming language agnostic and we have a much more readable way to get interfaces.",
+          "description": "Object to configure this endpoint to execute specified code. Beware that everything is possible (both remote and local code) but the implementation of where you host your openapi must support it.",
           "properties": {
-            "runtime": {
-              "type": "string",
-              "enum": ["browser", "bun", "node", "python3", "rust", "go"]
+            "canRunInBrowser": {
+              "$comment": "Imagine being able to load the code into the browser and execute it there. This would be how we can define that.",
+              "type": "boolean"
             },
-            "host": {
-              "$comment": "Imagine being able to choose here where you want to host this thing. Might be useful in some cases, although, I think, where I'm going, I won't need much but edge.",
+            "code-uri": {
+              "description": "Must be a uri-reference to a file where the code is found. This can be used in multiple ways. For one we can show the raw code, and secondly, the server implementation can find the file to be executed (or sent to the browser).",
               "type": "string",
-              "enum": ["edge", "server", "serverless", "gpu"]
-            },
-            "code": { "type": "string" }
+              "format": "uri-reference"
+            }
           }
         },
 
