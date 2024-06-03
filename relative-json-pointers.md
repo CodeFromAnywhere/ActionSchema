@@ -21,6 +21,12 @@ https://stackoverflow.com/questions/54467030/is-there-any-way-to-use-json-pointe
 Active work:
 https://github.com/orgs/json-schema-org/discussions/225
 
+Advanced $ref guide: https://docs.bump.sh/guides/openapi/advanced-ref-usage/
+
+Moonwalk (oas4) may move away from $ref to "moonwlak imports"
+
+Maybe use [jsonpath](https://bump.sh/blog/how-to-use-json-path)
+
 For now I'll stay with dotnotation in case I want to refer to something **in the data**
 
 In the future, it could be great to start with relative json pointers.

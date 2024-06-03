@@ -512,7 +512,7 @@
       "additionalProperties": false
     },
     "Schema": {
-      "$comment": "This schema defines its own adaptation of JSON Schema. A quick look shows me that it has properties JSONSchema doesn't have: discriminator, example, externalDocs, deprecated, xml. Good idea probably to also add discriminator and externalDocs to JSONSchema.",
+      "$comment": "This schema defines its own adaptation of JSON Schema. A quick look shows me that it has properties JSON-Schema doesn't have: discriminator, example, externalDocs, deprecated, xml. Good idea probably to also add discriminator and externalDocs to JSONSchema.",
       "type": "object",
       "properties": {
         "title": {
@@ -1034,6 +1034,12 @@
       "type": "object",
       "required": ["responses"],
       "properties": {
+        "x-capabilities": {
+          "description": "ActionSchema addition: This can be filled with an array of different things of what you can do with the endpoint with more information of what the input should be and what the output should be.",
+          "$comment": "This could be later expanded from an array of strings to a more specific array of input/output combos or coded tests, that will tell you, in a way, whether the endpoint works as expected.",
+          "type": "array",
+          "items": [{ "type": "string" }]
+        },
         "x-schema": {
           "description": "ActionSchema addition: You can specify an ActionSchema here that specifies the entire lifecycle of this operation. Defining this will allow the server to infer input and output based on which parameters use plugins and which don't.",
           "type": "object",

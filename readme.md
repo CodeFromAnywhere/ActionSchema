@@ -16,7 +16,11 @@ Installation differs depending on where you intend to use `actionschema`. Action
 
 **Browser**
 
-Install: `npm i actionschema idb`
+Install:
+
+`npm install --save-exact actionschema`
+
+`npm i idb`
 
 Usage:
 
@@ -27,7 +31,7 @@ executeBrowser(context);
 
 **Serverless**
 
-Install: `npm i actionschema`
+Install: `npm install --save-exact actionschema`
 
 Usage:
 
@@ -38,7 +42,11 @@ executeServerless(context);
 
 **Server**
 
-Install: `npm i actionschema piscina`
+Install:
+
+`npm install --save-exact actionschema`
+
+`npm i piscina`
 
 Usage:
 
@@ -49,24 +57,29 @@ executeServer(context);
 
 # Roadmap
 
-⚠️ Rewrite in progress ⚠️. See [choices](choices.md) for more info on the choices made during this rewrite so far.
+⚠️ Rewrite in progress ⚠️
+
+See [choices](choices.md) for more info on the choices made during this rewrite so far.
 
 **Goals of the rewrite**:
 
-- Storage agnostic
-- Runs in browser, serverless, and server environments
-- Plugins everywhere (compatible with openapi and jsonschema architecture)
-- Built-in load balancing
-- Built-in staleness detection
-- Improved variable evaluation
+- Ability to add plugins everywhere (compatible with openapi and jsonschema architecture)
+- Storageless in-memory serverless execution
+- Improved variable evaluation: see [relative-json-pointers](relative-json-pointers.md)
+- Introduction of actionschemas as an openapi extension (`x-schema`)
 
 Compared to ActionSchema v1, this means it...
 
-- Removes layers of complexity: grid-frontend, user-authentication.
-- Makes overview more holistic (including the OpenAPI spec, where changes are required as well)
+- Removes layers of complexity: grid-frontend, user-authentication, and storage.
+- Is more suitable to be used in a scalable way
+- Becomes much more simple
 
-**Maybe**
+**After that these are high on the list:**
 
+- Ability to run in browser, serverless, and server environments
+- Storage agnostic
+- Built-in load balancing
+- Built-in staleness detection
 - Built-in trusted code-execution
 - Built-in scheduling
 - Built-in migration support (moving data around)
@@ -76,3 +89,7 @@ Compared to ActionSchema v1, this means it...
   - in-data actions
 
 Stay tuned for updates!
+
+# Ecosystem
+
+Check [the ecosystem](ecosystem.md) for the status of other tools within the ActionSchema Toolkit.
