@@ -382,56 +382,80 @@ code {
 <td>Turn any API into an Agent</td>
 <td>🟠</td>
 <td>🟢 Simple POC<br>🔴 OpenAPI-centric Refactor<br>🔴 Streaming, threads, files</td>
-<td></td>
+<td>2530</td>
 </tr>
 <tr>
 <td><a href="https://data.actionschema.com">CRUD OpenAPI</a></td>
 <td>Turn database into agent-tools</td>
 <td>🟠</td>
-<td>🟢 CRUD Only first<br>🟠 CLI<br>🟠 Config: oAuth user separation</td>
-<td></td>
+<td>🟢 CRUD Only first<br>🟢 Semantic search<br>🔴 CLI<br>🔴 Config: oAuth user separation<br>🔴 ActionSchema integration</td>
+<td>4450</td>
 </tr>
 <tr>
 <td><a href="https://telecom.actionschema.com">Agent Relay</a></td>
 <td>Make agent available anywhere</td>
 <td>🟠</td>
-<td>🟢 Phonecall STS<br>🟠 Custom agent compatibility<br>🔴 Browser STS<br>🔴 Whatsapp<br>🔴 Email</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>OpenAPI-first development</td>
-<td>🟠</td>
-<td>🟢 make and use <code>openapi-util</code> everywhere<br>🟢 make <code>react-openapi-form</code><br>🟢 make <code>resolveOpenapiAppRequest</code><br>🔴 x-proxy<br>🔴 x-schema<br>🔴 x-code<br></td>
-<td></td>
+<td>🟢 Phonecall STS<br>🟢 Custom agent compatibility<br>🟢 Whatsapp<br>🔴 Browser STS<br>🔴 Email</td>
+<td>450</td>
 </tr>
 <tr>
 <td><a href="https://proxy.actionschema.com">Combination Proxy</a></td>
 <td>Combine multiple OpenAPIs into one</td>
 <td>🔴</td>
 <td>🟠 Serve with form to make your own easily.<br>🔴 Examples of agents.</td>
-<td></td>
+<td>1300</td>
 </tr>
 <tr>
 <td><a href="https://openapi.actionschema.com">Enhancement Proxy</a></td>
 <td>Allow agents to iteratively improve their tools</td>
 <td>🔴</td>
-<td>🟢 Serve on subdomain with frontpage<br>🔴 Create OpenAPI to self-modify</td>
-<td></td>
+<td>🟠 Serve on subdomain with frontpage<br>🔴 Create OpenAPI to self-modify</td>
+<td>±2k</td>
 </tr>
 <tr>
 <td><a href="https://explorer.actionschema.com">OpenAPI Explorer</a></td>
 <td>Explore OpenAPI Possibilities</td>
 <td>🔴</td>
-<td>🟢 Forms.<br>🔴 Page-per-tag, all forms on tagpage.<br>🔴 Expose LLM search endpoint.</td>
-<td></td>
+<td>🟠 Forms<br>🔴 Page-per-tag, all forms on tagpage.<br>🔴 Expose LLM search endpoint.</td>
+<td>664</td>
 </tr>
 <tr>
 <td><a href="https://human.actionschema.com">Human OpenAPI</a></td>
 <td>Turn people into agent-tools</td>
 <td>🔴</td>
 <td>🔴 Site where people can get an openapi for themselves or others.</td>
-<td></td>
+<td>11600</td>
+</tr>
+</tbody>
+</table>
+<p>A dependency to the above is what I call &quot;OpenAPI-first development&quot;. It is an opinionated way of <a href="https://swagger.io/blog/code-first-vs-design-first-api/">design-first</a> development where your OpenAPI serves as the SSOT for a lot of things, and you don't generate it, you rather generate pieces in your code FROM it. Here are some libraries I've made to allow for this.</p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Purpose</th>
+<th>Status</th>
+<th>LOC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/CodeFromAnywhere/openapi-util">openapi-util</a></td>
+<td>Utilities for working with OpenAPI and serving them</td>
+<td>🟢 make <code>resolveOpenapiAppRequest</code><br></td>
+<td>1517</td>
+</tr>
+<tr>
+<td><a href="https://github.com/CodeFromAnywhere/react-openapi-form">react-openapi-form</a></td>
+<td>Auto-generate forms based on an OpenAPI</td>
+<td>🟢 Works, including Type Safety and editability<br>🟠 Include component for showing all endpoints</td>
+<td>838</td>
+</tr>
+<tr>
+<td><a href="https://github.com/CodeFromAnywhere/ActionSchema">actionschema</a></td>
+<td>Extension of JSON Schema allowing data-centric development</td>
+<td>🟠 Rewrite to v2 in progress<br>🔴 x-proxy<br>🔴 x-schema<br>🔴 x-code<br></td>
+<td>2904</td>
 </tr>
 </tbody>
 </table>
@@ -513,6 +537,14 @@ code {
 <td>Agent OpenAPI</td>
 </tr>
 <tr>
+<td>User Openapi</td>
+<td></td>
+<td>user-openapi</td>
+<td>Brainstorm</td>
+<td>Wrapper that adds user-signup and monetisation to stateless openapis</td>
+<td></td>
+</tr>
+<tr>
 <td>Universal API</td>
 <td></td>
 <td>Universal-API or Open-LAM</td>
@@ -538,7 +570,6 @@ code {
 <li>Products and APIs change all the time. Instead of choosing to spend knowledgework time in specific niches, index all available capabilities.</li>
 <li>Most users care about their privacy and would want to have things ran locally. However, running locally is hard to setup and scale. Another way to have practical privacy is to keep the core local, but run smaller fleeting tasks in the cloud.</li>
 <li>How any API works exactly doesn't need to be abstracted away from. The only thing we need to do is determine API capability, quality, speed, cost, and availability.</li>
-<li>If all I do is use APIs, I don't require</li>
 </ul>
 <h1 id="key-focus-reliable-agents-by-intelligent-search">Key focus: Reliable Agents by intelligent search</h1>
 <ul>
