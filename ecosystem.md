@@ -1,14 +1,13 @@
 # Highlevel
 
-| Website                                               | Purpose                                         | Status | POC                                                                                                                   | LOC   |
-| ----------------------------------------------------- | ----------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------- | ----- |
-| [Agent OpenAPI](https://agent.actionschema.com)       | Turn any API into an Agent                      | 🟠     | 🟢 Simple POC<br>🟢 OpenAPI-centric Refactor<br>🔴 Threads<br>🔴 Files                                                | 1984  |
-| [CRUD OpenAPI](https://data.actionschema.com)         | Turn database into agent-tools                  | 🟠     | 🟢 CRUD Only first<br>🟢 Semantic search<br>🔴 CLI<br>🔴 Config: oAuth user separation<br>🔴 ActionSchema integration | 4450  |
-| [Agent Relay](https://telecom.actionschema.com)       | Make agent available anywhere                   | 🟠     | 🟢 Phonecall STS<br>🟢 Custom agent compatibility<br>🟢 Whatsapp, SMS, Messenger<br>🔴 Browser STS<br>🔴 Email        | 450   |
-| [Combination Proxy](https://proxy.actionschema.com)   | Combine multiple OpenAPIs into one              | 🔴     | 🟠 Serve with form to make your own easily.<br>🔴 Examples of agents.                                                 | 1300  |
-| [Enhancement Proxy](https://openapi.actionschema.com) | Allow agents to iteratively improve their tools | 🔴     | 🟠 Serve on subdomain with frontpage<br>🔴 Create OpenAPI to self-modify                                              | ±2k   |
-| [OpenAPI Explorer](https://explorer.actionschema.com) | Explore OpenAPI Possibilities                   | 🔴     | 🟠 Forms<br>🔴 Page-per-tag, all forms on tagpage.<br>🔴 Expose LLM search endpoint.                                  | 664   |
-| [Human OpenAPI](https://human.actionschema.com)       | Turn people into agent-tools                    | 🔴     | 🔴 Site where people can get an openapi for themselves or others.                                                     | 11600 |
+| Website                                                        | Purpose                                         | Status | POC                                                                                                                                                      | LOC  |
+| -------------------------------------------------------------- | ----------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| [Agent OpenAPI](https://agent.actionschema.com)                | Turn any API into an Agent                      | 🟠     | 🟢 Simple POC<br>🟢 OpenAPI-centric Refactor<br>🔴 Threads<br>🔴 Files<br>🔴 Agent-Agent                                                                 | 1984 |
+| [CRUD OpenAPI](https://data.actionschema.com)                  | Turn database into agent-tools                  | 🟠     | 🟢 CRUD Only first<br>🟢 Semantic search<br>🔴 CLI<br>🔴 Config: oAuth user separation<br>🔴 ActionSchema integration<br>🔴 CRUD-Agent                   | 4450 |
+| [Agent Relay](https://github.com/CodeFromAnywhere/agent-relay) | Make agent available anywhere                   | 🟠     | 🟢 Phonecall STS<br>🟢 Custom agent compatibility<br>🟢 Whatsapp, SMS, Messenger<br>🔴 Browser STS<br>🔴 Email                                           | 450  |
+| [Combination Proxy](https://proxy.actionschema.com)            | Combine multiple OpenAPIs into one              | 🔴     | 🟠 Serve with form to make your own easily.<br>🔴 Examples of agents.                                                                                    | 1300 |
+| [Enhancement Proxy](https://openapi.actionschema.com)          | Allow agents to iteratively improve their tools | 🔴     | 🟠 Serve on subdomain with frontpage<br>🔴 Create OpenAPI to self-modify                                                                                 | ±2k  |
+| [OpenAPI Explorer](https://explorer.actionschema.com)          | Explore OpenAPI Possibilities                   | 🔴     | 🟢 Forms<br>🟢 Page-per-tag, all forms on tagpage.<br>🔴 manual entry<br>🔴 Aggregate openapis from multiple endpoints<br>🔴 Expose LLM search endpoint. | 664  |
 
 A dependency to the above is what I call "OpenAPI-first development". It is an opinionated way of [design-first](https://swagger.io/blog/code-first-vs-design-first-api/) development where your OpenAPI serves as the SSOT for a lot of things, and you don't generate it, you rather generate pieces in your code FROM it. Here are some libraries I've made to allow for this.
 
@@ -20,18 +19,19 @@ A dependency to the above is what I call "OpenAPI-first development". It is an o
 
 If I feel _fancy_, work on this. More experimental:
 
-| Website           | Subdomain | Repo                      | Status     | POC or next steps                                                    | Depends on                      |
-| ----------------- | --------- | ------------------------- | ---------- | -------------------------------------------------------------------- | ------------------------------- |
-|                   | web       | serverless-scraper        |            | Serverless Playwright Scraping OpenAPI.                              |
-|                   |           |                           |            | E2E testing/validating an OpenAPI's functionality                    | ActionSchema?                   |
-|                   |           | procedures                | Brainstorm | Natural Language to Operations mapping                               | Good OpenAPI search             |
-|                   |           |                           | Brainstorm | LLM Hierarchy Creation, Maintenance, and Search                      |                                 |
-| ActionSchema Demo | demo      | actionschema-demo         | Paused     | VSCode plugin for OpenAPI selection and form-filling                 | Functional OpenAPI              |
-|                   |           |                           |            | Slow-agents that can continue very long or self-activate             |                                 |
-|                   |           |                           |            | Agents openapi unlocks hierarchical actionschema                     |                                 |
-|                   |           |                           |            | Some agentic patterns are super useful to implement                  | Agent OpenAPI                   |
-| User Openapi      |           | user-openapi              | Brainstorm | Wrapper that adds user-signup and monetisation to stateless openapis |                                 |
-| Universal API     |           | Universal-API or Open-LAM |            | Exposes all services through a single cacheable NLP endpoint         | OpenAPI Explorer, Search, Proxy |
+| Website           | Purpose                      | Repo               | Status     | POC or next steps                                                    | Depends on                      |
+| ----------------- | ---------------------------- | ------------------ | ---------- | -------------------------------------------------------------------- | ------------------------------- |
+|                   | web                          | serverless-scraper |            | Serverless Playwright Scraping OpenAPI.                              |
+|                   |                              |                    |            | E2E testing/validating an OpenAPI's functionality                    | ActionSchema?                   |
+|                   |                              | procedures         | Brainstorm | Natural Language to Operations mapping                               | Good OpenAPI search             |
+|                   |                              |                    | Brainstorm | LLM Hierarchy Creation, Maintenance, and Search                      |                                 |
+| ActionSchema Demo | Show how ActionSchema works  | actionschema-demo  | Paused     | VSCode plugin for OpenAPI selection and form-filling                 | Functional OpenAPI              |
+|                   |                              |                    |            | Slow-agents that can continue very long or self-activate             |                                 |
+|                   |                              |                    |            | Agents openapi unlocks hierarchical actionschema                     |                                 |
+|                   |                              |                    |            | Some agentic patterns are super useful to implement                  | Agent OpenAPI                   |
+| User Openapi      |                              | user-openapi       | Brainstorm | Wrapper that adds user-signup and monetisation to stateless openapis |                                 |
+| Universal API     | Universal-API or Open-LAM    |                    |            | Exposes all services through a single cacheable NLP endpoint         | OpenAPI Explorer, Search, Proxy |
+| Human OpenAPI     | Turn people into agent-tools |                    |            |                                                                      | Agent Relay                     |
 
 Strategy: **ActionSchema** for _Devs_: **OEF**
 
