@@ -89,7 +89,3 @@ Compared to ActionSchema v1, this means it...
   - in-data actions
 
 Stay tuned for updates!
-
-# Ecosystem
-
-Check [the ecosystem](ecosystem.md) for the status of other tools within the ActionSchema Toolkit.

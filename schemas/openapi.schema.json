@@ -1048,7 +1048,7 @@
               "description": "The ActionSchema that defines the steps to be taken and in what order. Can be a reference or the direct schema.",
               "oneOf": [
                 {
-                  "$ref": "action-schema.schema.json#"
+                  "$ref": "https://raw.githubusercontent.com/CodeFromAnywhere/ActionSchema/main/schemas/action-schema.schema.json#"
                 },
                 {
                   "$ref": "#/definitions/Reference"

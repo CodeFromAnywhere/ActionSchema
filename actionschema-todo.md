@@ -72,37 +72,3 @@ Loop:
 # Missing link 6: Hierarchical top-down labeling
 
 The ability to automatically label anything into a hierarchy in a multi-step gpt. Langchain has these things but probably not perfect.
-
-# GTM ideas
-
-Make a PR in APIS.guru and Let `mike.ralphson@gmail.com` know.
-
-Let Antti Sema4.ai know about this as well, once it's there. It'd be very useful to be able to make agents so quickly and can be part of their docs. Maybe I can merge it in into opengpts.
-
-- Talk with multiple SaaS providers with an API about the usefulness of multiple GTM ideas.
-- Explore LangChain, Robocorp and the tooling they made and see where it can be complemented.
-- `OpenAPIActionSchema` for OpenAPI improvement: examples, testing, docs, and much more.
-- Webapp for (open)GPTs to more easily find the right actions for agents.
-- Offer Support chat-agent for SaaS
-- Offer Execute-Agent for SaaS
-- Code recipes generation
-- Provide API playground website to SaaS
-- Provide paid search-access to Code-gen AIs
-
-https://www.youtube.com/watch?v=bXxq8RQUfXk <-- github 20k stars guy explains.
-
-# OLLAMA
-
-https://ollama.com/blog/openai-compatibility
-
-![](antti.png)
-
-# San Fransisco opportunities
-
-Antti (CEO Robocorp/Sema4.ai) says https://github.com/langchain-ai/opengpts is where they collab, and the `action_server` in robocorps repo will move to sema4.ai. It's a good idea to get familiar with this tooling and see how I can build something for them. LangChain is good anyway as everyone is using it.
-
-The ActionServer is basically my idea with ActionSchema. Allow a good way for agents to understand and use actions, anywhere, and learn from problems. The improved OpenAPI becomes your learning layer.
-
-OpenAI's status quo is now a GPT that poops out an OpenAPI string (refered to from the GPT builder). This limits us to a single server, and we're not able to even combine agents etc: https://chat.openai.com/g/g-TYEliDU6A-actionsgpt
-
-If we make a GPT that finds the best way to accomplish a goal, we're done. We'll have a much better framework.
