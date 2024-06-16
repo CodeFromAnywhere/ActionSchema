@@ -244,7 +244,7 @@
           "$comment": "TODO",
           "description": "Link to other openapis that could be good alternatives.",
           "type": "array",
-          "items": { "$schema": "string", "format": "uri-reference" }
+          "items": { "type": "string", "format": "uri-reference" }
         },
 
         "x-logo": {
@@ -960,7 +960,7 @@
       "type": "object",
       "properties": {
         "$ref": {
-          "description": "It's possible to reference another path here, even from another openapi spec (remote). This creates a realtime copy of the specification.",
+          "description": "It's possible to reference another path here, even from another openapi spec (remote). This creates a realtime copy of the specification. NB: Although this is quite cool, it will only work if everyone implements the $ref spec properly.",
           "type": "string"
         },
         "x-proxy": {
