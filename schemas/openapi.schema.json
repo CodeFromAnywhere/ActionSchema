@@ -1692,6 +1692,7 @@
     },
     "AuthorizationCodeOAuthFlow": {
       "type": "object",
+      "description": "See https://developer.okta.com/blog/2018/04/10/oauth-authorization-code-grant-type for a good understanding",
       "required": ["authorizationUrl", "tokenUrl", "scopes"],
       "properties": {
         "authorizationUrl": {
